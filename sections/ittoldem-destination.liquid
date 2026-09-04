@@ -1,5 +1,4 @@
 {{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
-
 {% liquid
   assign destination_image = 'itt-final-apparel.webp'
   case section.settings.world
@@ -15,69 +14,53 @@
       assign destination_image = 'itt-final-denim.webp'
   endcase
 %}
-
+<nav class="itt-worldnav" aria-label="House worlds">
+  <a href="{{ routes.all_products_collection_url }}">SHOP</a>
+  <a href="/search?view=gvo&type=product&q=GVO">GVO</a>
+  <a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a>
+  <a href="/search?view=custom&type=product&q=CUSTOM">CUSTOM</a>
+  <a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a>
+  <a href="/search?view=lab&type=product&q=CROCHET">THE LAB</a>
+  <a href="/search?view=about&q=ITT">ABOUT</a>
+</nav>
 <section class="itt-destination" aria-labelledby="IttDestinationTitle-{{ section.id }}">
-  <img class="itt-destination__media" src="{{ destination_image | asset_url }}" loading="eager" fetchpriority="high" alt="{{ section.settings.title | escape }}">
+  <img class="itt-destination__media" src="{{ destination_image | asset_url }}" loading="eager" fetchpriority="high" width="900" height="562" alt="{{ section.settings.title | escape }}">
   <div class="itt-destination__panel">
     <div class="itt-destination__eyebrow">{{ section.settings.eyebrow }}</div>
     <h1 id="IttDestinationTitle-{{ section.id }}" class="itt-destination__title">{{ section.settings.title }}</h1>
     <p class="itt-destination__copy">{{ section.settings.copy }}</p>
     <div class="itt-destination__meta">{{ section.settings.meta }}</div>
+    {% if section.settings.world == 'gvo' %}<a class="itt-destination__cta" href="/search?view=flagline&type=product&q=FLAGLINE">ENTER FLAGLINE →</a>{% endif %}
+    {% if section.settings.world == 'custom' %}<a class="itt-destination__cta" href="#itt-custom-request">START A CUSTOM REQUEST ↓</a>{% endif %}
     <a class="itt-destination__back" href="{{ routes.root_url }}">← BACK TO THE HOUSE</a>
   </div>
 </section>
-
+{% if section.settings.world == 'custom' %}
+<section id="itt-custom-request" class="itt-custom-request" aria-labelledby="IttCustomTitle-{{ section.id }}">
+  <div><div class="itt-destination__eyebrow">CUSTOM INTAKE</div><h2 id="IttCustomTitle-{{ section.id }}">TELL US WHAT YOU WANT TO MAKE.</h2><p>Use this for one-off apparel, team work, engraving, sublimation, crochet, fabrication or experimental pieces. Give us enough detail to understand the project; pricing and feasibility are confirmed after review.</p></div>
+  {% form 'contact', class: 'itt-custom-form' %}
+    <input type="hidden" name="contact[tags]" value="custom-request,ittoldem-house">
+    <label for="IttCustomName-{{ section.id }}">NAME</label><input id="IttCustomName-{{ section.id }}" name="contact[name]" type="text" autocomplete="name" required>
+    <label for="IttCustomEmail-{{ section.id }}">EMAIL</label><input id="IttCustomEmail-{{ section.id }}" name="contact[email]" type="email" autocomplete="email" required>
+    <label for="IttCustomType-{{ section.id }}">PROJECT TYPE</label><select id="IttCustomType-{{ section.id }}" name="contact[Project type]"><option>Custom apparel</option><option>Team / sport</option><option>Engraving</option><option>Crochet</option><option>Fabrication / prototype</option><option>Other</option></select>
+    <label for="IttCustomBody-{{ section.id }}">PROJECT DETAILS</label><textarea id="IttCustomBody-{{ section.id }}" name="contact[body]" rows="7" placeholder="What are you making? Quantity, sizes, colors, deadline, references, and anything else we should know." required></textarea>
+    <button type="submit">SEND CUSTOM REQUEST →</button>
+    {% if form.posted_successfully? %}<p class="itt-custom-status" role="status">REQUEST RECEIVED. WE’LL REVIEW THE DETAILS.</p>{% endif %}
+    {% if form.errors %}<div class="itt-custom-status" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+  {% endform %}
+</section>
+{% endif %}
 {% if search.performed %}
   {% paginate search.results by 24 %}
     {% if search.results_count > 0 %}
-      <section class="itt-destination-products" aria-label="{{ section.settings.title | escape }} products">
-        <div class="itt-destination-products__head">
-          <h2>{{ section.settings.results_heading }}</h2>
-          <div class="itt-destination-products__count">{{ search.results_count }} RESULTS</div>
-        </div>
-        <div class="itt-destination-products__grid">
-          {% for item in search.results %}
-            {% if item.object_type == 'product' %}
-              <a class="itt-destination-product" href="{{ item.url }}">
-                <div class="itt-destination-product__image">
-                  {% if item.featured_image %}
-                    {{ item.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: item.title }}
-                  {% else %}
-                    {{ 'product-apparel-1' | placeholder_svg_tag }}
-                  {% endif %}
-                </div>
-                <div class="itt-destination-product__meta">
-                  <span class="itt-destination-product__title">{{ item.title }}</span>
-                  <span class="itt-destination-product__price">{{ item.price | money }}</span>
-                </div>
-              </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-        {% if paginate.pages > 1 %}<div class="itt-destination-pagination">{{ paginate | default_pagination }}</div>{% endif %}
-      </section>
+      <section class="itt-destination-products" aria-label="{{ section.settings.title | escape }} products"><div class="itt-destination-products__head"><h2>{{ section.settings.results_heading }}</h2><div class="itt-destination-products__count">{{ search.results_count }} RESULTS</div></div><div class="itt-destination-products__grid">
+        {% for item in search.results %}{% if item.object_type == 'product' %}<a class="itt-destination-product" href="{{ item.url }}"><div class="itt-destination-product__image">{% if item.featured_image %}{{ item.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: item.title }}{% else %}{{ 'product-apparel-1' | placeholder_svg_tag }}{% endif %}</div><div class="itt-destination-product__meta"><span class="itt-destination-product__title">{{ item.title }}</span><span class="itt-destination-product__price">{{ item.price | money }}</span></div></a>{% endif %}{% endfor %}
+      </div>{% if paginate.pages > 1 %}<div class="itt-destination-pagination">{{ paginate | default_pagination }}</div>{% endif %}</section>
     {% else %}
-      <section class="itt-destination-empty">
-        <h2>THE WORLD IS BEING BUILT.</h2>
-        <p>Nothing matched this house world yet. The full store is still available while this destination fills out.</p>
-        <a href="{{ routes.all_products_collection_url }}">SHOP THE HOUSE →</a>
-      </section>
+      <section class="itt-destination-empty"><h2>THE WORLD IS BEING BUILT.</h2><p>Nothing matched this house world yet. The full store is still available while this destination fills out.</p><a href="{{ routes.all_products_collection_url }}">SHOP THE HOUSE →</a></section>
     {% endif %}
   {% endpaginate %}
 {% endif %}
-
 {% schema %}
-{
-  "name": "ITT Destination",
-  "tag": "section",
-  "settings": [
-    {"type":"select","id":"world","label":"House world","default":"gvo","options":[{"value":"gvo","label":"GVO"},{"value":"flagline","label":"FLAGLINE"},{"value":"wehair","label":"WE HAIR"},{"value":"lab","label":"THE LAB"},{"value":"custom","label":"CUSTOM"},{"value":"apparel","label":"APPAREL"}]},
-    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"ITT TOLD’EM · HOUSE WORLD"},
-    {"type":"text","id":"title","label":"Title","default":"GVO"},
-    {"type":"textarea","id":"copy","label":"Copy","default":"Sport, training and culture through the ITT TOLD’EM point of view."},
-    {"type":"text","id":"meta","label":"Meta","default":"DETROIT · SPORT · CULTURE"},
-    {"type":"text","id":"results_heading","label":"Results heading","default":"AVAILABLE NOW"}
-  ],
-  "presets": [{"name":"ITT Destination"}]
-}
+{"name":"ITT Destination","tag":"section","settings":[{"type":"select","id":"world","label":"House world","default":"gvo","options":[{"value":"gvo","label":"GVO"},{"value":"flagline","label":"FLAGLINE"},{"value":"wehair","label":"WE HAIR"},{"value":"lab","label":"THE LAB"},{"value":"custom","label":"CUSTOM"},{"value":"apparel","label":"APPAREL"}]},{"type":"text","id":"eyebrow","label":"Eyebrow","default":"ITT TOLD’EM · HOUSE WORLD"},{"type":"text","id":"title","label":"Title","default":"GVO"},{"type":"textarea","id":"copy","label":"Copy","default":"Sport, training and culture through the ITT TOLD’EM point of view."},{"type":"text","id":"meta","label":"Meta","default":"DETROIT · SPORT · CULTURE"},{"type":"text","id":"results_heading","label":"Results heading","default":"AVAILABLE NOW"}],"presets":[{"name":"ITT Destination"}]}
 {% endschema %}
