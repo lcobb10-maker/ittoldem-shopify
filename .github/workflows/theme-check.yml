@@ -14,14 +14,16 @@ jobs:
       - name: Validate theme structure and ITT homepage
         shell: python
         run: |
-          import json, pathlib, re, sys
+          import json, pathlib, re
           root = pathlib.Path('.')
           required_dirs = ['assets','blocks','config','layout','locales','sections','snippets','templates']
           missing = [d for d in required_dirs if not (root / d).is_dir()]
           if missing:
               raise SystemExit(f'Missing required theme directories: {missing}')
 
-          homepage = json.loads((root / 'templates/index.json').read_text())
+          homepage_text = (root / 'templates/index.json').read_text()
+          homepage_text = re.sub(r'^\s*/\*.*?\*/\s*', '', homepage_text, flags=re.S)
+          homepage = json.loads(homepage_text)
           section_types = [v.get('type') for v in homepage.get('sections', {}).values()]
           assert 'ittoldem-house' in section_types, 'ITT TOLD’EM homepage section is not active in templates/index.json'
 
