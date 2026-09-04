@@ -1,0 +1,48 @@
+name: ITT Storefront Validation
+
+on:
+  push:
+    branches: [ittoldem-development, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate theme structure and ITT homepage
+        shell: python
+        run: |
+          import json, pathlib, re
+          root = pathlib.Path('.')
+          required_dirs = ['assets','blocks','config','layout','locales','sections','snippets','templates']
+          missing = [d for d in required_dirs if not (root / d).is_dir()]
+          if missing:
+              raise SystemExit(f'Missing required theme directories: {missing}')
+
+          homepage_text = (root / 'templates/index.json').read_text()
+          homepage_text = re.sub(r'^\s*/\*.*?\*/\s*', '', homepage_text, flags=re.S)
+          homepage = json.loads(homepage_text)
+          section_types = [v.get('type') for v in homepage.get('sections', {}).values()]
+          assert 'ittoldem-house' in section_types, 'ITT TOLD’EM homepage section is not active in templates/index.json'
+
+          section_text = (root / 'sections/ittoldem-house.liquid').read_text()
+          match = re.search(r'{% schema %}\s*(.*?)\s*{% endschema %}', section_text, re.S)
+          assert match, 'Missing section schema'
+          schema = json.loads(match.group(1))
+          assert schema.get('name') == "ITT TOLD'EM House"
+
+          css = (root / 'assets/ittoldem-house.css').read_text()
+          assert len(css) > 1000, 'ITT design stylesheet is unexpectedly empty'
+          for image in ['itt-hero.jpg','itt-collections.jpg','itt-story.jpg','itt-editorial.jpg']:
+              assert (root / 'assets' / image).is_file(), f'Missing campaign asset: {image}'
+              assert image in css, f'Campaign asset not wired into CSS: {image}'
+
+          custom_paths = [root/'sections/ittoldem-house.liquid', root/'assets/ittoldem-house.css', root/'templates/index.json']
+          for path in custom_paths:
+              text = path.read_text()
+              for marker in ['<<<<<<<', '=======', '>>>>>>>']:
+                  assert marker not in text, f'Merge conflict marker in {path}'
+
+          print('ITT TOLD’EM storefront validation passed.')
