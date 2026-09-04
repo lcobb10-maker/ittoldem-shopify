@@ -1,37 +1,41 @@
 (() => {
-  const RAW_BASE = 'https://raw.githubusercontent.com/lcobb10-maker/ittoldem-shopify/ittoldem-commerce-pass/assets/';
+  const brokenSelector = 'img[src*="itt-final-"]';
 
-  const repair = (img) => {
+  const getShopifyFallbacks = () => {
+    const urls = [...document.querySelectorAll('.itt-product__image img, .product-card img, img[src*="cdn.shopify.com"]')]
+      .map((img) => img.currentSrc || img.src)
+      .filter((src) => src && !src.includes('itt-final-'));
+    return [...new Set(urls)];
+  };
+
+  const repair = (img, index = 0) => {
     if (!img || img.dataset.ittFallbackApplied === 'true') return;
-    const source = img.currentSrc || img.src || '';
-    const match = source.match(/(itt-final-[a-z0-9-]+\.webp)/i);
-    if (!match) return;
+    const fallbacks = getShopifyFallbacks();
+    if (!fallbacks.length) return;
     img.dataset.ittFallbackApplied = 'true';
     img.srcset = '';
-    img.src = RAW_BASE + match[1];
+    img.loading = 'eager';
+    img.src = fallbacks[index % fallbacks.length];
   };
 
-  const wire = (img) => {
-    if (!img || !(img.src || '').includes('itt-final-')) return;
-    img.addEventListener('error', () => repair(img), { once: true });
-    if (img.complete && img.naturalWidth === 0) repair(img);
+  const scan = () => {
+    const broken = [...document.querySelectorAll(brokenSelector)];
+    broken.forEach((img, index) => {
+      const apply = () => repair(img, index);
+      img.addEventListener('error', apply, { once: true });
+      if (img.complete && img.naturalWidth === 0) apply();
+    });
   };
 
-  const scan = (root = document) => root.querySelectorAll('img[src*="itt-final-"]').forEach(wire);
+  const boot = () => {
+    scan();
+    setTimeout(scan, 250);
+    setTimeout(scan, 900);
+  };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => scan(), { once: true });
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
   } else {
-    scan();
+    boot();
   }
-
-  new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-      for (const node of mutation.addedNodes) {
-        if (!(node instanceof Element)) continue;
-        if (node.matches?.('img[src*="itt-final-"]')) wire(node);
-        scan(node);
-      }
-    }
-  }).observe(document.documentElement, { childList: true, subtree: true });
 })();
