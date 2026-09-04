@@ -5,14 +5,14 @@
       "settings": {
         "hero_link": "shopify://collections/all",
         "category_link_1": "shopify://collections/all",
-        "gvo_link": "shopify://collections/all",
-        "category_link_3": "shopify://collections/all",
-        "category_link_4": "shopify://collections/all",
-        "wehair_link": "shopify://collections/all",
-        "lab_link": "shopify://collections/all",
+        "gvo_link": "/search?view=gvo&type=product&q=GVO",
+        "category_link_3": "/search?view=lab&type=product&q=CROCHET",
+        "category_link_4": "/search?view=custom&type=product&q=CUSTOM",
+        "wehair_link": "/search?view=wehair&type=product&q=WE%20HAIR",
+        "lab_link": "/search?view=lab&type=product&q=CROCHET",
         "featured_collection": "all",
         "story_link": "shopify://pages/about",
-        "editorial_link_2": "shopify://collections/all"
+        "editorial_link_2": "/search?view=custom&type=product&q=CUSTOM"
       }
     }
   },
