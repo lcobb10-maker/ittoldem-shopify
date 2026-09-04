@@ -1,0 +1,36 @@
+<footer class="itt-footer">
+  <div class="itt-footer__lead">
+    <div>
+      <div class="itt-footer__eyebrow">MAISON · DÉTROIT — EAST SIDE</div>
+      <div class="itt-footer__brand">ITT TOLD’EM</div>
+      <p>Fashion, sport, custom work, beauty tools and experimental fabrication built under one house.</p>
+    </div>
+    <div class="itt-footer__signal">
+      <div class="itt-footer__eyebrow">GET THE DROP SIGNAL</div>
+      {% form 'customer', class: 'itt-footer__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter,ittoldem-footer">
+        <label class="visually-hidden" for="FooterEmail-{{ section.id }}">Email address</label>
+        <input id="FooterEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="EMAIL ADDRESS" autocomplete="email" required>
+        <button type="submit">JOIN →</button>
+        {% if form.posted_successfully? %}<p role="status">YOU’RE IN.</p>{% endif %}
+        {% if form.errors %}<div role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="itt-footer__grid">
+    <div><span>SHOP</span><a href="{{ routes.all_products_collection_url }}">All Pieces</a><a href="/search?view=gvo&type=product&q=GVO">GVO</a><a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a></div>
+    <div><span>HOUSE</span><a href="/search?view=custom&type=product&q=CUSTOM">Custom</a><a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a><a href="/search?view=lab&type=product&q=CROCHET">The Lab</a><a href="/pages/about">About</a></div>
+    <div><span>HELP</span><a href="/pages/contact">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a></div>
+    <div><span>POLICIES</span>{% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Refund</a>{% endif %}{% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping</a>{% endif %}{% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif %}{% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Terms</a>{% endif %}</div>
+  </div>
+  <div class="itt-footer__bottom"><span>© {{ 'now' | date: '%Y' }} ITT TOLD’EM</span><span>WE BUILT THE HOUSE. NOW WE TELL ’EM.</span></div>
+</footer>
+
+{% stylesheet %}
+.itt-footer{background:#050505;color:#f4efe6}.itt-footer a{color:inherit;text-decoration:none}.itt-footer__lead{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;padding:54px max(24px,5vw);border-top:1px solid #242424}.itt-footer__eyebrow{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.62}.itt-footer__brand{font-family:var(--font-heading--family,serif);font-size:clamp(3rem,7vw,7rem);line-height:.85;letter-spacing:-.05em;margin:12px 0 18px}.itt-footer__lead p{max-width:42rem;line-height:1.55;opacity:.72}.itt-footer__form{display:grid;grid-template-columns:1fr auto;margin-top:18px}.itt-footer__form input{min-width:0;background:transparent;color:inherit;border:1px solid #555;padding:14px;min-height:50px;border-radius:0}.itt-footer__form button{background:#f4efe6;color:#111;border:1px solid #f4efe6;padding:0 20px;min-height:50px;font-weight:700;letter-spacing:.08em}.itt-footer__form p,.itt-footer__form div{grid-column:1/-1;font-size:.72rem;letter-spacing:.08em;margin-top:9px}.itt-footer__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:34px max(24px,5vw);border-top:1px solid #242424}.itt-footer__grid>div{display:flex;flex-direction:column;gap:9px}.itt-footer__grid span{font-size:.66rem;letter-spacing:.15em;font-weight:700;opacity:.58;margin-bottom:7px}.itt-footer__grid a{font-size:.88rem}.itt-footer__grid a:hover{text-decoration:underline;text-underline-offset:4px}.itt-footer__bottom{display:flex;justify-content:space-between;gap:24px;padding:18px max(24px,5vw);border-top:1px solid #242424;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;opacity:.72}@media(max-width:749px){.itt-footer__lead{grid-template-columns:1fr;padding:38px 20px}.itt-footer__grid{grid-template-columns:1fr 1fr;padding:28px 20px}.itt-footer__bottom{flex-direction:column;padding:18px 20px}.itt-footer__form{grid-template-columns:1fr}.itt-footer__form button{padding:14px}}
+{% endstylesheet %}
+
+{% schema %}
+{"name":"ITT TOLD'EM Footer","tag":"section","settings":[],"presets":[{"name":"ITT TOLD'EM Footer"}]}
+{% endschema %}
