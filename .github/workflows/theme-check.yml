@@ -1,0 +1,21 @@
+name: Shopify Theme Check
+
+on:
+  push:
+    branches: [ittoldem-development, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  theme-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: false
+      - name: Install Theme Check
+        run: gem install theme-check
+      - name: Validate Shopify theme
+        run: theme-check .
