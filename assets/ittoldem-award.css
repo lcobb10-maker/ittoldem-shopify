@@ -1,0 +1,133 @@
+/* ITT TOLD'EM — House art-direction layer
+   Non-product polish only. Product merchandising is intentionally left for the final pass. */
+
+:root{
+  --itt-award-ink:#060606;
+  --itt-award-bone:#eee6d7;
+  --itt-award-bronze:#8c6f4f;
+  --itt-award-hairline:rgba(255,255,255,.18);
+}
+
+html{scroll-behavior:smooth}
+
+/* Header: turn Horizon chrome into a compact house masthead */
+.shopify-section-group-header-group{position:relative;z-index:50}
+.shopify-section-group-header-group .header-section,
+.shopify-section-group-header-group header-component{background:rgba(248,246,241,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.shopify-section-group-header-group .header{border-bottom:1px solid rgba(12,12,12,.12)}
+.itt-header-mark{position:relative}
+.itt-header-mark:after{content:"HOUSE SEAL · 001";position:absolute;left:52px;bottom:-12px;font-size:5px;letter-spacing:.24em;white-space:nowrap;opacity:.42;pointer-events:none}
+.itt-header-mark img{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .35s ease}
+.itt-header-mark:hover img{transform:rotate(18deg) scale(1.04);filter:contrast(1.08)}
+
+/* Hero: make it feel like a cover, not a banner */
+.section-ittoldem-house .itt-hero{min-height:min(76vh,820px);isolation:isolate;border-bottom:1px solid var(--itt-award-hairline)}
+.section-ittoldem-house .itt-hero__placeholder,
+.section-ittoldem-house .itt-hero__media{transform:scale(1.018);filter:brightness(1.22) saturate(.9) contrast(1.05)}
+.section-ittoldem-house .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.44) 37%,rgba(0,0,0,.08) 66%,rgba(0,0,0,.12) 100%)}
+.section-ittoldem-house .itt-hero:before{content:"001";position:absolute;z-index:2;right:3.2vw;top:3vw;color:#fff;font-size:clamp(76px,14vw,210px);font-family:var(--font-heading--family,sans-serif);font-weight:400;line-height:.75;letter-spacing:-.08em;opacity:.075;pointer-events:none}
+.section-ittoldem-house .itt-hero__content{max-width:840px;padding-left:5.4vw}
+.section-ittoldem-house .itt-hero__title{text-wrap:balance;filter:drop-shadow(0 2px 20px rgba(0,0,0,.24))}
+.section-ittoldem-house .itt-hero__sub{border-left:1px solid rgba(255,255,255,.52);padding-left:16px;max-width:460px}
+.section-ittoldem-house .itt-hero__index{padding:8px 10px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.18);backdrop-filter:blur(8px)}
+
+/* House navigation becomes an editorial index */
+.section-ittoldem-house .itt-house-nav{position:relative;z-index:4}
+.section-ittoldem-house .itt-house-nav a{position:relative;overflow:hidden;transition:color .3s ease,background .3s ease}
+.section-ittoldem-house .itt-house-nav a:before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--itt-award-bone);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.section-ittoldem-house .itt-house-nav a:hover:before{transform:scaleX(1)}
+
+/* Collection worlds: asymmetry and depth without changing data */
+@media(min-width:991px){
+  .section-ittoldem-house .itt-categories{grid-template-columns:1.15fr .85fr .85fr 1.15fr}
+  .section-ittoldem-house .itt-card:nth-child(1),
+  .section-ittoldem-house .itt-card:nth-child(4){min-height:430px}
+  .section-ittoldem-house .itt-card:nth-child(2),
+  .section-ittoldem-house .itt-card:nth-child(3){min-height:390px;margin-top:40px}
+}
+.section-ittoldem-house .itt-card__media,
+.section-ittoldem-house .itt-card__placeholder,
+.section-ittoldem-house .itt-editorial__media,
+.section-ittoldem-house .itt-editorial__placeholder{transition:transform .9s cubic-bezier(.18,.72,.25,1),filter .5s ease}
+.section-ittoldem-house .itt-card:hover .itt-card__media,
+.section-ittoldem-house .itt-card:hover .itt-card__placeholder,
+.section-ittoldem-house .itt-editorial:hover .itt-editorial__media,
+.section-ittoldem-house .itt-editorial:hover .itt-editorial__placeholder{transform:scale(1.045);filter:contrast(1.05) saturate(.92)}
+.section-ittoldem-house .itt-card__number{border:1px solid rgba(255,255,255,.45);min-width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:rgba(0,0,0,.18);backdrop-filter:blur(8px)}
+
+/* House code: make the manifesto a graphic object */
+.section-ittoldem-house .itt-manifesto{position:relative;overflow:hidden;padding-top:58px;padding-bottom:58px}
+.section-ittoldem-house .itt-manifesto:after{content:"ITT";position:absolute;right:-1vw;bottom:-4vw;font-family:var(--font-heading--family,sans-serif);font-size:clamp(120px,25vw,390px);font-weight:700;line-height:.7;letter-spacing:-.09em;color:#fff;opacity:.025;pointer-events:none}
+.section-ittoldem-house .itt-manifesto__eyebrow{display:inline-flex;align-items:center;gap:12px}
+.section-ittoldem-house .itt-manifesto__eyebrow:before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.section-ittoldem-house .itt-manifesto em{display:inline;font-family:var(--font-heading--family,serif);font-style:italic;font-weight:400;opacity:.78}
+
+/* Story: editorial split and an oversized watermark */
+.section-ittoldem-house .itt-story{min-height:620px}
+.section-ittoldem-house .itt-story:before{content:"EAST SIDE";position:absolute;z-index:2;right:3vw;bottom:1vw;font-family:var(--font-heading--family,sans-serif);font-size:clamp(64px,10vw,155px);line-height:.75;letter-spacing:-.06em;color:#fff;opacity:.055;pointer-events:none}
+.section-ittoldem-house .itt-story__content{padding-top:96px;padding-bottom:96px}
+.section-ittoldem-house .itt-story__copy{border-top:1px solid rgba(255,255,255,.25);padding-top:18px}
+.section-ittoldem-house .itt-values{font-family:var(--font-heading--family,serif);font-style:italic;letter-spacing:-.03em;opacity:.55}
+
+/* House worlds: make the three pillars distinct */
+@media(min-width:991px){
+  .section-ittoldem-house .itt-editorials{grid-template-columns:1.18fr .82fr 1fr;align-items:stretch}
+  .section-ittoldem-house .itt-editorial:nth-child(1){min-height:560px}
+  .section-ittoldem-house .itt-editorial:nth-child(2){min-height:500px;margin-top:60px}
+  .section-ittoldem-house .itt-editorial:nth-child(3){min-height:540px;margin-top:20px}
+}
+.section-ittoldem-house .itt-editorial__content{border-left:1px solid rgba(255,255,255,.5);padding-left:18px}
+.section-ittoldem-house .itt-editorial__title{letter-spacing:-.045em}
+
+/* Drop capture as a final editorial spread */
+.section-ittoldem-house .itt-drop{position:relative;overflow:hidden;border-top:1px solid rgba(0,0,0,.18);border-bottom:1px solid rgba(0,0,0,.18)}
+.section-ittoldem-house .itt-drop:after{content:"SIGNAL";position:absolute;right:-2vw;top:-1.5vw;font-family:var(--font-heading--family,sans-serif);font-size:clamp(78px,15vw,220px);font-weight:700;line-height:.8;letter-spacing:-.08em;color:#111;opacity:.035;pointer-events:none}
+.section-ittoldem-house .itt-drop>*{position:relative;z-index:1}
+.section-ittoldem-house .itt-drop__form input,
+.section-ittoldem-house .itt-drop__form button{min-height:58px}
+
+/* Service / signature */
+.section-ittoldem-house .itt-service{position:relative}
+.section-ittoldem-house .itt-service:after{content:"";position:absolute;left:50%;bottom:9px;width:18px;height:1px;background:#fff;opacity:.18;transform:translateX(-50%)}
+.section-ittoldem-house .itt-footer-statement{min-height:150px;position:relative;overflow:hidden}
+.section-ittoldem-house .itt-footer-statement:before{content:"MAISON 001";position:absolute;right:4vw;top:18px;font-size:8px;letter-spacing:.3em;opacity:.35}
+
+/* Native footer belongs to the House too */
+.shopify-section-group-footer-group{background:#050505;color:#f2ede3}
+.shopify-section-group-footer-group a{transition:opacity .2s ease}
+.shopify-section-group-footer-group a:hover{opacity:.62}
+
+/* Entrance motion: restrained and disabled for reduced-motion users */
+@media(prefers-reduced-motion:no-preference){
+  .section-ittoldem-house .itt-hero__content{animation:ittCoverIn .8s cubic-bezier(.2,.72,.2,1) both}
+  .section-ittoldem-house .itt-hero__index{animation:ittFadeIn 1s .3s ease both}
+  .section-ittoldem-house .itt-card__content,.section-ittoldem-house .itt-editorial__content{transition:transform .45s cubic-bezier(.2,.72,.2,1)}
+  .section-ittoldem-house .itt-card:hover .itt-card__content,.section-ittoldem-house .itt-editorial:hover .itt-editorial__content{transform:translateY(-8px)}
+  @keyframes ittCoverIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  @keyframes ittFadeIn{from{opacity:0}to{opacity:.72}}
+}
+
+/* Mobile: stronger opening frame, zero clipped navigation */
+@media(max-width:749px){
+  .itt-header-mark:after{display:none}
+  .section-ittoldem-house .itt-hero{min-height:72svh}
+  .section-ittoldem-house .itt-hero__placeholder,
+  .section-ittoldem-house .itt-hero__media{object-position:62% center;background-position:62% center;filter:brightness(1.28) saturate(.9) contrast(1.04)}
+  .section-ittoldem-house .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.37) 58%,rgba(0,0,0,.13) 100%)}
+  .section-ittoldem-house .itt-hero:before{font-size:34vw;right:-3vw;top:6vw}
+  .section-ittoldem-house .itt-hero__content{min-height:72svh;padding:18vw 6vw 14vw}
+  .section-ittoldem-house .itt-hero__title{font-size:14.8vw;max-width:92vw}
+  .section-ittoldem-house .itt-hero__sub{max-width:74vw}
+  .section-ittoldem-house .itt-hero__index{right:16px;bottom:16px}
+  .section-ittoldem-house .itt-house-nav{display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .section-ittoldem-house .itt-house-nav a{flex:0 0 29vw;min-width:112px;scroll-snap-align:start}
+  .section-ittoldem-house .itt-categories{gap:1px;background:#222}
+  .section-ittoldem-house .itt-card{min-height:66vw}
+  .section-ittoldem-house .itt-manifesto{padding:40px 6vw}
+  .section-ittoldem-house .itt-manifesto p{font-size:9.2vw;line-height:.94}
+  .section-ittoldem-house .itt-story{min-height:580px}
+  .section-ittoldem-house .itt-story__content{padding:72px 7vw}
+  .section-ittoldem-house .itt-editorial{min-height:88vw}
+  .section-ittoldem-house .itt-drop{padding-top:46px;padding-bottom:46px}
+  .section-ittoldem-house .itt-footer-statement{min-height:180px}
+}
