@@ -20,11 +20,11 @@ html{scroll-behavior:smooth}
 .itt-header-mark img{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .35s ease}
 .itt-header-mark:hover img{transform:rotate(18deg) scale(1.04);filter:contrast(1.08)}
 
-/* Hero: make it feel like a cover, not a banner */
-.section-ittoldem-house .itt-hero{min-height:min(76vh,820px);isolation:isolate;border-bottom:1px solid var(--itt-award-hairline)}
+/* Hero: preserve source resolution — never upscale with CSS transforms */
+.section-ittoldem-house .itt-hero{min-height:min(72vh,780px);isolation:isolate;border-bottom:1px solid var(--itt-award-hairline)}
 .section-ittoldem-house .itt-hero__placeholder,
-.section-ittoldem-house .itt-hero__media{transform:scale(1.018);filter:brightness(1.22) saturate(.9) contrast(1.05)}
-.section-ittoldem-house .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.44) 37%,rgba(0,0,0,.08) 66%,rgba(0,0,0,.12) 100%)}
+.section-ittoldem-house .itt-hero__media{transform:none!important;filter:brightness(1.12) saturate(.94) contrast(1.03)}
+.section-ittoldem-house .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 37%,rgba(0,0,0,.10) 66%,rgba(0,0,0,.14) 100%)}
 .section-ittoldem-house .itt-hero:before{content:"001";position:absolute;z-index:2;right:3.2vw;top:3vw;color:#fff;font-size:clamp(76px,14vw,210px);font-family:var(--font-heading--family,sans-serif);font-weight:400;line-height:.75;letter-spacing:-.08em;opacity:.075;pointer-events:none}
 .section-ittoldem-house .itt-hero__content{max-width:840px;padding-left:5.4vw}
 .section-ittoldem-house .itt-hero__title{text-wrap:balance;filter:drop-shadow(0 2px 20px rgba(0,0,0,.24))}
@@ -37,6 +37,24 @@ html{scroll-behavior:smooth}
 .section-ittoldem-house .itt-house-nav a:before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--itt-award-bone);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
 .section-ittoldem-house .itt-house-nav a:hover:before{transform:scaleX(1)}
 
+/* Temporary image treatment: stop slicing tiny composites into giant blurry panels.
+   Real image-picker uploads still display normally; only fallback placeholders become crisp graphic worlds. */
+.section-ittoldem-house .itt-card__placeholder,
+.section-ittoldem-house .itt-editorial__placeholder{
+  background-image:none!important;
+  background-size:cover!important;
+  background-position:center!important;
+  filter:none!important;
+  transform:none!important;
+}
+.section-ittoldem-house .itt-card:nth-child(1) .itt-card__placeholder{background:radial-gradient(circle at 75% 18%,rgba(140,111,79,.55),transparent 26%),linear-gradient(135deg,#17130f 0%,#080808 52%,#30271f 100%)}
+.section-ittoldem-house .itt-card:nth-child(2) .itt-card__placeholder{background:linear-gradient(155deg,#111 0%,#2b251f 36%,#080808 70%),repeating-linear-gradient(90deg,transparent 0 28px,rgba(255,255,255,.08) 29px 30px)}
+.section-ittoldem-house .itt-card:nth-child(3) .itt-card__placeholder{background:radial-gradient(circle at 22% 72%,rgba(222,210,189,.22),transparent 28%),linear-gradient(120deg,#181818,#070707 62%,#3b2c20)}
+.section-ittoldem-house .itt-card:nth-child(4) .itt-card__placeholder{background:linear-gradient(145deg,#071015 0%,#182a31 35%,#080808 72%,#4a3828 100%)}
+.section-ittoldem-house .itt-editorial:nth-child(1) .itt-editorial__placeholder{background:linear-gradient(130deg,#080808 0%,#222 40%,#101516 72%,#443729 100%)}
+.section-ittoldem-house .itt-editorial:nth-child(2) .itt-editorial__placeholder{background:radial-gradient(circle at 70% 25%,rgba(140,111,79,.42),transparent 24%),linear-gradient(145deg,#090909,#25211d 48%,#050505)}
+.section-ittoldem-house .itt-editorial:nth-child(3) .itt-editorial__placeholder{background:linear-gradient(145deg,#18130f 0%,#0a0a0a 48%,#34302b 100%)}
+
 /* Collection worlds: asymmetry and depth without changing data */
 @media(min-width:991px){
   .section-ittoldem-house .itt-categories{grid-template-columns:1.15fr .85fr .85fr 1.15fr}
@@ -46,13 +64,9 @@ html{scroll-behavior:smooth}
   .section-ittoldem-house .itt-card:nth-child(3){min-height:390px;margin-top:40px}
 }
 .section-ittoldem-house .itt-card__media,
-.section-ittoldem-house .itt-card__placeholder,
-.section-ittoldem-house .itt-editorial__media,
-.section-ittoldem-house .itt-editorial__placeholder{transition:transform .9s cubic-bezier(.18,.72,.25,1),filter .5s ease}
+.section-ittoldem-house .itt-editorial__media{transition:filter .45s ease}
 .section-ittoldem-house .itt-card:hover .itt-card__media,
-.section-ittoldem-house .itt-card:hover .itt-card__placeholder,
-.section-ittoldem-house .itt-editorial:hover .itt-editorial__media,
-.section-ittoldem-house .itt-editorial:hover .itt-editorial__placeholder{transform:scale(1.045);filter:contrast(1.05) saturate(.92)}
+.section-ittoldem-house .itt-editorial:hover .itt-editorial__media{filter:contrast(1.035) saturate(.96)}
 .section-ittoldem-house .itt-card__number{border:1px solid rgba(255,255,255,.45);min-width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:rgba(0,0,0,.18);backdrop-filter:blur(8px)}
 
 /* House code: make the manifesto a graphic object */
@@ -63,18 +77,18 @@ html{scroll-behavior:smooth}
 .section-ittoldem-house .itt-manifesto em{display:inline;font-family:var(--font-heading--family,serif);font-style:italic;font-weight:400;opacity:.78}
 
 /* Story: editorial split and an oversized watermark */
-.section-ittoldem-house .itt-story{min-height:620px}
+.section-ittoldem-house .itt-story{min-height:590px}
 .section-ittoldem-house .itt-story:before{content:"EAST SIDE";position:absolute;z-index:2;right:3vw;bottom:1vw;font-family:var(--font-heading--family,sans-serif);font-size:clamp(64px,10vw,155px);line-height:.75;letter-spacing:-.06em;color:#fff;opacity:.055;pointer-events:none}
-.section-ittoldem-house .itt-story__content{padding-top:96px;padding-bottom:96px}
+.section-ittoldem-house .itt-story__content{padding-top:90px;padding-bottom:90px}
 .section-ittoldem-house .itt-story__copy{border-top:1px solid rgba(255,255,255,.25);padding-top:18px}
 .section-ittoldem-house .itt-values{font-family:var(--font-heading--family,serif);font-style:italic;letter-spacing:-.03em;opacity:.55}
 
 /* House worlds: make the three pillars distinct */
 @media(min-width:991px){
   .section-ittoldem-house .itt-editorials{grid-template-columns:1.18fr .82fr 1fr;align-items:stretch}
-  .section-ittoldem-house .itt-editorial:nth-child(1){min-height:560px}
-  .section-ittoldem-house .itt-editorial:nth-child(2){min-height:500px;margin-top:60px}
-  .section-ittoldem-house .itt-editorial:nth-child(3){min-height:540px;margin-top:20px}
+  .section-ittoldem-house .itt-editorial:nth-child(1){min-height:540px}
+  .section-ittoldem-house .itt-editorial:nth-child(2){min-height:490px;margin-top:50px}
+  .section-ittoldem-house .itt-editorial:nth-child(3){min-height:520px;margin-top:20px}
 }
 .section-ittoldem-house .itt-editorial__content{border-left:1px solid rgba(255,255,255,.5);padding-left:18px}
 .section-ittoldem-house .itt-editorial__title{letter-spacing:-.045em}
@@ -102,32 +116,32 @@ html{scroll-behavior:smooth}
   .section-ittoldem-house .itt-hero__content{animation:ittCoverIn .8s cubic-bezier(.2,.72,.2,1) both}
   .section-ittoldem-house .itt-hero__index{animation:ittFadeIn 1s .3s ease both}
   .section-ittoldem-house .itt-card__content,.section-ittoldem-house .itt-editorial__content{transition:transform .45s cubic-bezier(.2,.72,.2,1)}
-  .section-ittoldem-house .itt-card:hover .itt-card__content,.section-ittoldem-house .itt-editorial:hover .itt-editorial__content{transform:translateY(-8px)}
+  .section-ittoldem-house .itt-card:hover .itt-card__content,.section-ittoldem-house .itt-editorial:hover .itt-editorial__content{transform:translateY(-6px)}
   @keyframes ittCoverIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
   @keyframes ittFadeIn{from{opacity:0}to{opacity:.72}}
 }
 
-/* Mobile: stronger opening frame, zero clipped navigation */
+/* Mobile: preserve pixels and show complete navigation */
 @media(max-width:749px){
   .itt-header-mark:after{display:none}
-  .section-ittoldem-house .itt-hero{min-height:72svh}
+  .section-ittoldem-house .itt-hero{min-height:68svh}
   .section-ittoldem-house .itt-hero__placeholder,
-  .section-ittoldem-house .itt-hero__media{object-position:62% center;background-position:62% center;filter:brightness(1.28) saturate(.9) contrast(1.04)}
-  .section-ittoldem-house .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.37) 58%,rgba(0,0,0,.13) 100%)}
+  .section-ittoldem-house .itt-hero__media{transform:none!important;object-position:58% center;background-position:58% center;filter:brightness(1.13) saturate(.94) contrast(1.02)}
+  .section-ittoldem-house .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.38) 58%,rgba(0,0,0,.15) 100%)}
   .section-ittoldem-house .itt-hero:before{font-size:34vw;right:-3vw;top:6vw}
-  .section-ittoldem-house .itt-hero__content{min-height:72svh;padding:18vw 6vw 14vw}
+  .section-ittoldem-house .itt-hero__content{min-height:68svh;padding:16vw 6vw 13vw}
   .section-ittoldem-house .itt-hero__title{font-size:14.8vw;max-width:92vw}
   .section-ittoldem-house .itt-hero__sub{max-width:74vw}
   .section-ittoldem-house .itt-hero__index{right:16px;bottom:16px}
   .section-ittoldem-house .itt-house-nav{display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
   .section-ittoldem-house .itt-house-nav a{flex:0 0 29vw;min-width:112px;scroll-snap-align:start}
   .section-ittoldem-house .itt-categories{gap:1px;background:#222}
-  .section-ittoldem-house .itt-card{min-height:66vw}
+  .section-ittoldem-house .itt-card{min-height:62vw}
   .section-ittoldem-house .itt-manifesto{padding:40px 6vw}
   .section-ittoldem-house .itt-manifesto p{font-size:9.2vw;line-height:.94}
-  .section-ittoldem-house .itt-story{min-height:580px}
-  .section-ittoldem-house .itt-story__content{padding:72px 7vw}
-  .section-ittoldem-house .itt-editorial{min-height:88vw}
+  .section-ittoldem-house .itt-story{min-height:540px}
+  .section-ittoldem-house .itt-story__content{padding:66px 7vw}
+  .section-ittoldem-house .itt-editorial{min-height:78vw}
   .section-ittoldem-house .itt-drop{padding-top:46px;padding-bottom:46px}
   .section-ittoldem-house .itt-footer-statement{min-height:180px}
 }
