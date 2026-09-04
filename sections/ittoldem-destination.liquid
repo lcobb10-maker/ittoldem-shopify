@@ -1,0 +1,43 @@
+{{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign destination_image = 'itt-final-apparel.webp'
+  case section.settings.world
+    when 'gvo'
+      assign destination_image = 'itt-final-gvo.webp'
+    when 'flagline'
+      assign destination_image = 'itt-final-flagline.webp'
+    when 'wehair'
+      assign destination_image = 'itt-final-wehair.webp'
+    when 'lab'
+      assign destination_image = 'itt-final-lab.webp'
+    when 'custom'
+      assign destination_image = 'itt-final-denim.webp'
+  endcase
+%}
+
+<section class="itt-destination" aria-labelledby="IttDestinationTitle-{{ section.id }}">
+  <img class="itt-destination__media" src="{{ destination_image | asset_url }}" loading="eager" fetchpriority="high" alt="{{ section.settings.title | escape }}">
+  <div class="itt-destination__panel">
+    <div class="itt-destination__eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 id="IttDestinationTitle-{{ section.id }}" class="itt-destination__title">{{ section.settings.title }}</h1>
+    <p class="itt-destination__copy">{{ section.settings.copy }}</p>
+    <div class="itt-destination__meta">{{ section.settings.meta }}</div>
+    <a class="itt-destination__back" href="{{ routes.root_url }}">← BACK TO THE HOUSE</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ITT Destination",
+  "tag": "section",
+  "settings": [
+    {"type":"select","id":"world","label":"House world","default":"gvo","options":[{"value":"gvo","label":"GVO"},{"value":"flagline","label":"FLAGLINE"},{"value":"wehair","label":"WE HAIR"},{"value":"lab","label":"THE LAB"},{"value":"custom","label":"CUSTOM"},{"value":"apparel","label":"APPAREL"}]},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"ITT TOLD’EM · HOUSE WORLD"},
+    {"type":"text","id":"title","label":"Title","default":"GVO"},
+    {"type":"textarea","id":"copy","label":"Copy","default":"Sport, training and culture through the ITT TOLD’EM point of view."},
+    {"type":"text","id":"meta","label":"Meta","default":"DETROIT · SPORT · CULTURE"}
+  ],
+  "presets": [{"name":"ITT Destination"}]
+}
+{% endschema %}
