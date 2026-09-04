@@ -1,4 +1,5 @@
 (() => {
+  const RAW = 'https://raw.githubusercontent.com/lcobb10-maker/ittoldem-shopify/ittoldem-commerce-pass/assets/';
   const assetMap = {
     'itt-final-hero.webp': 'itt-new-hero.webp',
     'itt-final-apparel.webp': 'itt-new-apparel.webp',
@@ -10,33 +11,31 @@
     'itt-final-wehair.webp': 'itt-new-wehair.webp'
   };
 
-  const swapToRealCampaignAsset = (img) => {
+  const applyRealAsset = (img) => {
     if (!img || img.dataset.ittRealAssetApplied === 'true') return;
     const source = img.currentSrc || img.src || '';
     const oldName = Object.keys(assetMap).find((name) => source.includes(name));
-    if (!oldName) return;
+    const newName = Object.values(assetMap).find((name) => source.includes(name));
+    const target = oldName ? assetMap[oldName] : newName;
+    if (!target) return;
 
     img.dataset.ittRealAssetApplied = 'true';
     img.srcset = '';
-    img.src = source.replace(oldName, assetMap[oldName]);
-  };
-
-  const wire = (img) => {
-    if (!img) return;
-    const source = img.currentSrc || img.src || '';
-    if (!Object.keys(assetMap).some((name) => source.includes(name))) return;
-    img.addEventListener('error', () => swapToRealCampaignAsset(img), { once: true });
-    if (img.complete && img.naturalWidth === 0) swapToRealCampaignAsset(img);
+    img.removeAttribute('sizes');
+    img.src = RAW + target;
   };
 
   const scan = (root = document) => {
-    root.querySelectorAll?.('img[src*="itt-final-"]').forEach(wire);
+    root.querySelectorAll?.('img').forEach((img) => {
+      const source = img.currentSrc || img.src || '';
+      if (source.includes('itt-final-') || source.includes('itt-new-')) applyRealAsset(img);
+    });
   };
 
   const boot = () => {
     scan();
-    setTimeout(() => scan(), 200);
-    setTimeout(() => scan(), 700);
+    setTimeout(() => scan(), 100);
+    setTimeout(() => scan(), 500);
   };
 
   if (document.readyState === 'loading') {
