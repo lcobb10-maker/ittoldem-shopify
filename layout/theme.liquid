@@ -34,6 +34,7 @@
         (function(){const h=document.querySelector('#header-component');if(h){const touch='ontouchstart'in window&&navigator.maxTouchPoints>0;const o=h.querySelector('overflow-list');h.dataset.menuStyle=touch||(o&&o.hasAttribute('minimum-reached'))?'drawer':'menu'}})();
       </script>
       <main id="MainContent" class="content-for-layout" role="main" data-page-transition-enabled="{{ settings.page_transition_enabled }}" data-product-transition="{{ settings.transition_to_main_product }}" data-template="{{ template }}">{{ content_for_layout }}</main>
+      {% unless request.page_type == 'index' %}{% render 'itt-house-trust' %}{% endunless %}
       <footer>{% sections 'footer-group' %}</footer>
     </div>
     {% render 'cart-drawer', render_wrapper: true %}
