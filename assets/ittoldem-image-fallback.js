@@ -1,36 +1,42 @@
 (() => {
-  const brokenSelector = 'img[src*="itt-final-"]';
-
-  const getShopifyFallbacks = () => {
-    const urls = [...document.querySelectorAll('.itt-product__image img, .product-card img, img[src*="cdn.shopify.com"]')]
-      .map((img) => img.currentSrc || img.src)
-      .filter((src) => src && !src.includes('itt-final-'));
-    return [...new Set(urls)];
+  const assetMap = {
+    'itt-final-hero.webp': 'itt-new-hero.webp',
+    'itt-final-apparel.webp': 'itt-new-apparel.webp',
+    'itt-final-gvo.webp': 'itt-new-flagline.webp',
+    'itt-final-lab.webp': 'itt-new-lab.webp',
+    'itt-final-denim.webp': 'itt-new-denim.webp',
+    'itt-final-story.webp': 'itt-new-hero.webp',
+    'itt-final-flagline.webp': 'itt-new-flagline.webp',
+    'itt-final-wehair.webp': 'itt-new-wehair.webp'
   };
 
-  const repair = (img, index = 0) => {
-    if (!img || img.dataset.ittFallbackApplied === 'true') return;
-    const fallbacks = getShopifyFallbacks();
-    if (!fallbacks.length) return;
-    img.dataset.ittFallbackApplied = 'true';
+  const swapToRealCampaignAsset = (img) => {
+    if (!img || img.dataset.ittRealAssetApplied === 'true') return;
+    const source = img.currentSrc || img.src || '';
+    const oldName = Object.keys(assetMap).find((name) => source.includes(name));
+    if (!oldName) return;
+
+    img.dataset.ittRealAssetApplied = 'true';
     img.srcset = '';
-    img.loading = 'eager';
-    img.src = fallbacks[index % fallbacks.length];
+    img.src = source.replace(oldName, assetMap[oldName]);
   };
 
-  const scan = () => {
-    const broken = [...document.querySelectorAll(brokenSelector)];
-    broken.forEach((img, index) => {
-      const apply = () => repair(img, index);
-      img.addEventListener('error', apply, { once: true });
-      if (img.complete && img.naturalWidth === 0) apply();
-    });
+  const wire = (img) => {
+    if (!img) return;
+    const source = img.currentSrc || img.src || '';
+    if (!Object.keys(assetMap).some((name) => source.includes(name))) return;
+    img.addEventListener('error', () => swapToRealCampaignAsset(img), { once: true });
+    if (img.complete && img.naturalWidth === 0) swapToRealCampaignAsset(img);
+  };
+
+  const scan = (root = document) => {
+    root.querySelectorAll?.('img[src*="itt-final-"]').forEach(wire);
   };
 
   const boot = () => {
     scan();
-    setTimeout(scan, 250);
-    setTimeout(scan, 900);
+    setTimeout(() => scan(), 200);
+    setTimeout(() => scan(), 700);
   };
 
   if (document.readyState === 'loading') {
