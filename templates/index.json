@@ -5,14 +5,14 @@
       "settings": {
         "hero_link": "shopify://collections/all",
         "category_link_1": "shopify://collections/all",
-        "category_link_2": "shopify://collections/all",
+        "gvo_link": "shopify://collections/all",
         "category_link_3": "shopify://collections/all",
         "category_link_4": "shopify://collections/all",
+        "wehair_link": "shopify://collections/all",
+        "lab_link": "shopify://collections/all",
         "featured_collection": "all",
         "story_link": "shopify://pages/about",
-        "editorial_link_1": "shopify://collections/all",
-        "editorial_link_2": "shopify://collections/all",
-        "editorial_link_3": "shopify://collections/all"
+        "editorial_link_2": "shopify://collections/all"
       }
     }
   },
