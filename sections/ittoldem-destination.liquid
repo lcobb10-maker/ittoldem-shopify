@@ -27,6 +27,45 @@
   </div>
 </section>
 
+{% if search.performed %}
+  {% paginate search.results by 24 %}
+    {% if search.results_count > 0 %}
+      <section class="itt-destination-products" aria-label="{{ section.settings.title | escape }} products">
+        <div class="itt-destination-products__head">
+          <h2>{{ section.settings.results_heading }}</h2>
+          <div class="itt-destination-products__count">{{ search.results_count }} RESULTS</div>
+        </div>
+        <div class="itt-destination-products__grid">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              <a class="itt-destination-product" href="{{ item.url }}">
+                <div class="itt-destination-product__image">
+                  {% if item.featured_image %}
+                    {{ item.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: item.title }}
+                  {% else %}
+                    {{ 'product-apparel-1' | placeholder_svg_tag }}
+                  {% endif %}
+                </div>
+                <div class="itt-destination-product__meta">
+                  <span class="itt-destination-product__title">{{ item.title }}</span>
+                  <span class="itt-destination-product__price">{{ item.price | money }}</span>
+                </div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}<div class="itt-destination-pagination">{{ paginate | default_pagination }}</div>{% endif %}
+      </section>
+    {% else %}
+      <section class="itt-destination-empty">
+        <h2>THE WORLD IS BEING BUILT.</h2>
+        <p>Nothing matched this house world yet. The full store is still available while this destination fills out.</p>
+        <a href="{{ routes.all_products_collection_url }}">SHOP THE HOUSE →</a>
+      </section>
+    {% endif %}
+  {% endpaginate %}
+{% endif %}
+
 {% schema %}
 {
   "name": "ITT Destination",
@@ -36,7 +75,8 @@
     {"type":"text","id":"eyebrow","label":"Eyebrow","default":"ITT TOLD’EM · HOUSE WORLD"},
     {"type":"text","id":"title","label":"Title","default":"GVO"},
     {"type":"textarea","id":"copy","label":"Copy","default":"Sport, training and culture through the ITT TOLD’EM point of view."},
-    {"type":"text","id":"meta","label":"Meta","default":"DETROIT · SPORT · CULTURE"}
+    {"type":"text","id":"meta","label":"Meta","default":"DETROIT · SPORT · CULTURE"},
+    {"type":"text","id":"results_heading","label":"Results heading","default":"AVAILABLE NOW"}
   ],
   "presets": [{"name":"ITT Destination"}]
 }
