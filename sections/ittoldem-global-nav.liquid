@@ -1,0 +1,20 @@
+<nav class="itt-global-nav" aria-label="ITT TOLD'EM primary navigation">
+  <a href="{{ routes.all_products_collection_url }}">SHOP</a>
+  <a href="/search?view=gvo&type=product&q=GVO">GVO</a>
+  <a class="itt-global-nav__sub" href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE <span>GVO</span></a>
+  <a href="/search?view=custom&type=product&q=CUSTOM">CUSTOM</a>
+  <a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a>
+  <a href="/search?view=lab&type=product&q=CROCHET">THE LAB</a>
+  <a href="/pages/about">ABOUT</a>
+</nav>
+
+{% stylesheet %}
+.itt-global-nav{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:#050505;color:#f4efe6;border-top:1px solid rgba(244,239,230,.15);border-bottom:1px solid rgba(244,239,230,.15)}
+.itt-global-nav a{min-height:48px;padding:14px 10px;display:flex;align-items:center;justify-content:center;gap:6px;color:inherit;text-decoration:none;text-align:center;border-right:1px solid rgba(244,239,230,.15);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.itt-global-nav a:last-child{border-right:0}.itt-global-nav a:hover,.itt-global-nav a:focus-visible{background:#f4efe6;color:#111}.itt-global-nav__sub span{font-size:.52rem;opacity:.55;border:1px solid currentColor;padding:2px 4px}
+@media(max-width:990px){.itt-global-nav{display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none}.itt-global-nav::-webkit-scrollbar{display:none}.itt-global-nav a{min-width:118px;flex:0 0 auto}}
+{% endstylesheet %}
+
+{% schema %}
+{"name":"ITT House Navigation","tag":"section","settings":[],"presets":[{"name":"ITT House Navigation"}]}
+{% endschema %}
