@@ -1,3 +1,13 @@
+{%- liquid
+  assign gvo_url = routes.search_url | append: '?view=gvo&type=product&q=GVO'
+  assign flagline_url = routes.search_url | append: '?view=flagline&type=product&q=FLAGLINE'
+  assign custom_url = routes.search_url | append: '?view=custom&type=product&q=CUSTOM'
+  assign wehair_url = routes.search_url | append: '?view=wehair&type=product&q=WE%20HAIR'
+  assign lab_url = routes.search_url | append: '?view=lab&type=product&q=CROCHET'
+  assign about_url = routes.search_url | append: '?view=about&q=ITT'
+  assign contact_page = pages['contact']
+  assign contact_url = contact_page.url | default: routes.root_url
+-%}
 <footer class="itt-footer">
   <div class="itt-footer__lead">
     <div>
@@ -19,9 +29,9 @@
   </div>
 
   <div class="itt-footer__grid">
-    <div><span>SHOP</span><a href="{{ routes.all_products_collection_url }}">All Pieces</a><a href="/search?view=gvo&type=product&q=GVO">GVO</a><a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a></div>
-    <div><span>HOUSE</span><a href="/search?view=custom&type=product&q=CUSTOM">Custom</a><a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a><a href="/search?view=lab&type=product&q=CROCHET">The Lab</a><a href="/search?view=about&q=ITT">About</a></div>
-    <div><span>HELP</span><a href="/pages/contact">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a></div>
+    <div><span>SHOP</span><a href="{{ routes.all_products_collection_url }}">All Pieces</a><a href="{{ gvo_url | escape }}">GVO</a><a href="{{ flagline_url | escape }}">FLAGLINE</a></div>
+    <div><span>HOUSE</span><a href="{{ custom_url | escape }}">Custom</a><a href="{{ wehair_url | escape }}">WE HAIR</a><a href="{{ lab_url | escape }}">The Lab</a><a href="{{ about_url | escape }}">About</a></div>
+    <div><span>HELP</span><a href="{{ contact_url }}">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a></div>
     <div><span>POLICIES</span>{% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Refund</a>{% endif %}{% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping</a>{% endif %}{% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif %}{% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Terms</a>{% endif %}</div>
   </div>
   <div class="itt-footer__bottom"><span>© {{ 'now' | date: '%Y' }} ITT TOLD’EM</span><span>WE BUILT THE HOUSE. NOW WE TELL ’EM.</span></div>

@@ -1,4 +1,9 @@
 {{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign gvo_url = routes.search_url | append: '?view=gvo&type=product&q=GVO'
+  assign wehair_url = routes.search_url | append: '?view=wehair&type=product&q=WE%20HAIR'
+  assign lab_url = routes.search_url | append: '?view=lab&type=product&q=CROCHET'
+-%}
 <section class="itt-about-house">
   <div class="itt-about-house__hero">
     {% if section.settings.hero_image != blank %}
@@ -8,7 +13,12 @@
     {% endif %}
     <div class="itt-about-house__overlay"><div class="itt-destination__eyebrow">MAISON · DÉTROIT — EAST SIDE</div><h1>WE BUILT THE HOUSE.</h1><p>ITT TOLD’EM is the parent design house where fashion, sport, fabrication and culture meet.</p></div>
   </div>
-  <div class="itt-about-house__grid"><article><span>01</span><h2>ITT TOLD’EM</h2><p>The design language: apparel, custom work, limited pieces and the point of view that connects every house world.</p></article><article><span>02</span><h2>GVO</h2><p>Gym Vibes Only carries sport, training and fan culture. FLAGLINE lives here as the girls’ flag football program.</p><a href="/search?view=gvo&type=product&q=GVO">ENTER GVO →</a></article><article><span>03</span><h2>WE HAIR</h2><p>Beauty tools, hair concepts and product development built as a distinct house world.</p><a href="/search?view=wehair&type=product&q=WE%20HAIR">ENTER WE HAIR →</a></article><article><span>04</span><h2>THE LAB</h2><p>Crochet, prototypes, fabrication, 3D experimentation and limited work that does not belong in a standard category.</p><a href="/search?view=lab&type=product&q=CROCHET">ENTER THE LAB →</a></article></div>
+  <div class="itt-about-house__grid">
+    <article><span>01</span><h2>ITT TOLD’EM</h2><p>The design language: apparel, custom work, limited pieces and the point of view that connects every house world.</p></article>
+    <article><span>02</span><h2>GVO</h2><p>Gym Vibes Only carries sport, training and fan culture. FLAGLINE lives here as the girls’ flag football program.</p><a href="{{ gvo_url | escape }}">ENTER GVO →</a></article>
+    <article><span>03</span><h2>WE HAIR</h2><p>Beauty tools, hair concepts and product development built as a distinct house world.</p><a href="{{ wehair_url | escape }}">ENTER WE HAIR →</a></article>
+    <article><span>04</span><h2>THE LAB</h2><p>Crochet, prototypes, fabrication, 3D experimentation and limited work that does not belong in a standard category.</p><a href="{{ lab_url | escape }}">ENTER THE LAB →</a></article>
+  </div>
   <div class="itt-about-house__statement"><small>THE HOUSE CODE</small><strong>NO UNIFORM. NO SAFE VERSION.<br>MAKE THE THING PEOPLE REMEMBER.</strong><a href="{{ routes.all_products_collection_url }}">SHOP THE HOUSE →</a></div>
 </section>
 <style>.itt-about-house{background:#f4efe6;color:#111}.itt-about-house__hero{position:relative;min-height:68vh;overflow:hidden;background:#111}.itt-about-house__hero img,.itt-about-house__hero-empty{width:100%;height:68vh;object-fit:cover;display:block}.itt-about-house__hero img{filter:brightness(.62)}.itt-about-house__hero-empty{background:#101214}.itt-about-house__overlay{position:absolute;inset:auto 0 0;padding:clamp(28px,6vw,82px);color:#f4efe6;max-width:70rem}.itt-about-house__overlay h1{font-size:clamp(4rem,11vw,10rem);line-height:.78;letter-spacing:-.065em;margin:0 0 26px;max-width:8ch}.itt-about-house__overlay p{font-size:clamp(1.05rem,2vw,1.5rem);max-width:36rem;line-height:1.45}.itt-about-house__grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #111}.itt-about-house__grid article{padding:clamp(24px,3vw,46px);border-right:1px solid rgba(17,17,17,.22);min-height:320px}.itt-about-house__grid span{font-size:.7rem;letter-spacing:.14em}.itt-about-house__grid h2{font-size:clamp(1.8rem,3vw,3rem);margin:40px 0 14px}.itt-about-house__grid p{line-height:1.55}.itt-about-house__grid a,.itt-about-house__statement a{color:inherit;font-size:.72rem;letter-spacing:.12em;text-decoration:none;font-weight:700}.itt-about-house__statement{padding:clamp(50px,8vw,110px);background:#111;color:#f4efe6;display:flex;flex-direction:column;gap:24px}.itt-about-house__statement small{letter-spacing:.16em}.itt-about-house__statement strong{font-size:clamp(2.6rem,7vw,7rem);line-height:.9;letter-spacing:-.05em;max-width:12ch}@media(max-width:900px){.itt-about-house__grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.itt-about-house__hero,.itt-about-house__hero img,.itt-about-house__hero-empty{height:72vh}.itt-about-house__grid{grid-template-columns:1fr}.itt-about-house__grid article{min-height:auto;border-right:0;border-bottom:1px solid rgba(17,17,17,.22)}}</style>

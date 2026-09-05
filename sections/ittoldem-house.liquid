@@ -12,8 +12,6 @@
     <div class="itt-script">We built the house.<br>Now we tell ’em.<small>JE VOUS L’AVAIS DIT.</small></div><div class="itt-hero__index">MAISON 001 · DETROIT</div>
   </div>
 
-  
-
   <div class="itt-categories">
     <a class="itt-card" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% if section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM apparel" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">01</div><div class="itt-card__content"><h2 class="itt-card__title">APPAREL</h2><div class="itt-card__meta">HOODIES · TEES · JOGGERS</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
     <a class="itt-card" href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">{% if section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "Gym Vibes Only" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">02</div><div class="itt-card__content"><h2 class="itt-card__title">GVO</h2><div class="itt-card__meta">TRAINING · FAN CULTURE · FLAGLINE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>

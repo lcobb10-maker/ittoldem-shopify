@@ -30,9 +30,6 @@
   <meta property="og:image:secure_url" content="https:{{ page_image | image_url }}">
   <meta property="og:image:width" content="{{ page_image.width }}">
   <meta property="og:image:height" content="{{ page_image.height }}">
-{%- else -%}
-  <meta property="og:image" content="https:{{ 'itt-final-hero.webp' | asset_url }}">
-  <meta property="og:image:secure_url" content="https:{{ 'itt-final-hero.webp' | asset_url }}">
 {%- endif -%}
 {%- if request.page_type == 'product' -%}
   <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">

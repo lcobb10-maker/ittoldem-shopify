@@ -1,11 +1,19 @@
+{%- liquid
+  assign gvo_url = routes.search_url | append: '?view=gvo&type=product&q=GVO'
+  assign flagline_url = routes.search_url | append: '?view=flagline&type=product&q=FLAGLINE'
+  assign custom_url = routes.search_url | append: '?view=custom&type=product&q=CUSTOM'
+  assign wehair_url = routes.search_url | append: '?view=wehair&type=product&q=WE%20HAIR'
+  assign lab_url = routes.search_url | append: '?view=lab&type=product&q=CROCHET'
+  assign about_url = routes.search_url | append: '?view=about&q=ITT'
+-%}
 <nav class="itt-global-nav" aria-label="ITT TOLD'EM primary navigation">
   <a href="{{ routes.all_products_collection_url }}">SHOP</a>
-  <a href="/search?view=gvo&type=product&q=GVO">GVO</a>
-  <a class="itt-global-nav__sub" href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE <span>GVO</span></a>
-  <a href="/search?view=custom&type=product&q=CUSTOM">CUSTOM</a>
-  <a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a>
-  <a href="/search?view=lab&type=product&q=CROCHET">THE LAB</a>
-  <a href="/search?view=about&q=ITT">ABOUT</a>
+  <a href="{{ gvo_url | escape }}">GVO</a>
+  <a class="itt-global-nav__sub" href="{{ flagline_url | escape }}">FLAGLINE <span>GVO</span></a>
+  <a href="{{ custom_url | escape }}">CUSTOM</a>
+  <a href="{{ wehair_url | escape }}">WE HAIR</a>
+  <a href="{{ lab_url | escape }}">THE LAB</a>
+  <a href="{{ about_url | escape }}">ABOUT</a>
 </nav>
 
 {% stylesheet %}
