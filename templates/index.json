@@ -1,20 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "ittoldem_house": {
       "type": "ittoldem-house",
       "settings": {
+        "hero_image": "shopify://shop_images/6C0986C3-B065-45BA-9734-9A13EF7FF2D6.png",
+        "apparel_image": "shopify://shop_images/D6A42F09-F652-4643-A5E6-585A28BD13AA.png",
+        "flagline_image": "shopify://shop_images/27244570-5E91-444A-9979-01EBC03061EA.png",
+        "lab_image": "shopify://shop_images/81E74BA5-1AD9-4864-8433-EF6B3682ED02.png",
+        "denim_image": "shopify://shop_images/9FC964DA-3D91-48DE-8993-94EF9A116BD0.png",
+        "wehair_image": "shopify://shop_images/F5905BC3-F49A-44F5-B5E7-739A6C4B9553.png",
         "hero_link": "shopify://collections/all",
         "category_link_1": "shopify://collections/all",
-        "category_link_2": "shopify://collections/all",
-        "category_link_3": "shopify://collections/all",
-        "category_link_4": "shopify://collections/all",
+        "gvo_link": "/search?view=gvo&type=product&q=GVO",
+        "category_link_3": "/search?view=lab&type=product&q=CROCHET",
+        "category_link_4": "/search?view=custom&type=product&q=CUSTOM",
+        "wehair_link": "/search?view=wehair&type=product&q=WE%20HAIR",
+        "lab_link": "/search?view=lab&type=product&q=CROCHET",
         "featured_collection": "all",
-        "story_link": "shopify://pages/about",
-        "editorial_link_1": "shopify://collections/all",
-        "editorial_link_2": "shopify://collections/all",
-        "editorial_link_3": "shopify://collections/all"
+        "story_link": "/search?view=about&q=ITT",
+        "editorial_link_2": "/search?view=custom&type=product&q=CUSTOM"
       }
     }
   },
-  "order": ["ittoldem_house"]
+  "order": [
+    "ittoldem_house"
+  ]
 }

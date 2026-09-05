@@ -1,152 +1,40 @@
 {{ 'ittoldem-house.css' | asset_url | stylesheet_tag }}
+<style>.itt-media-placeholder{display:block;background:linear-gradient(180deg,#ece8df 0%,#d7d1c7 100%);width:100%;height:100%;}</style>
 
 <section class="itt-house">
-  <div class="itt-announcement">
-    <span>MAISON · DÉTROIT — EAST SIDE</span>
-    <span>WORLDWIDE SHIPPING</span>
-    <span>DESIGN TODAY. WEAR FOREVER.</span>
+  <div class="itt-announcement" aria-label="House benefits">
+    <span>MAISON · DÉTROIT — EAST SIDE</span><span>WORLDWIDE SHIPPING</span><span>DESIGNED TO BE DISCOVERED</span>
   </div>
 
   <div class="itt-hero">
-    {% if section.settings.hero_image != blank %}
-      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'itt-hero__media', loading: 'eager', fetchpriority: 'high' }}
-    {% else %}
-      <div class="itt-hero__placeholder"></div>
-    {% endif %}
-    <div class="itt-hero__content">
-      <div class="itt-kicker">A DESIGN HOUSE FROM DETROIT</div>
-      <h1 class="itt-display itt-hero__title">MORE<br>THAN<br>CLOTHING.</h1>
-      <p class="itt-hero__sub">A higher standard for what you wear. Fashion, sport, craft and culture under one house.</p>
-      <a class="itt-btn" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">SHOP THE DROP <span class="itt-arrow">→</span></a>
-    </div>
-    <div class="itt-script">We built the house.<br>Now we tell ’em.<small>JE VOUS L’AVAIS DIT.</small></div>
+    {% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2200 | image_tag: class: 'itt-hero__media', loading: 'eager', fetchpriority: 'high', alt: "ITT TOLD’EM Detroit campaign" }}{% else %}<div class="itt-hero__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}
+    <div class="itt-hero__content"><div class="itt-kicker">DETROIT · SPORT · CRAFT · EXPERIMENT</div><h1 class="itt-display itt-hero__title">THE HOUSE<br>DOESN’T<br>FOLLOW.</h1><p class="itt-hero__sub">Limited pieces, custom work and sport culture built through an East Side point of view.</p><div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">SHOP THE HOUSE <span class="itt-arrow">→</span></a><a class="itt-textlink" href="#itt-new-arrivals">SEE WHAT’S NEW <span class="itt-arrow">↓</span></a></div></div>
+    <div class="itt-script">We built the house.<br>Now we tell ’em.<small>JE VOUS L’AVAIS DIT.</small></div><div class="itt-hero__index">MAISON 001 · DETROIT</div>
   </div>
 
   <div class="itt-categories">
-    {% assign category_titles = 'APPAREL|FLAGLINE|CROCHET|DENIM' | split: '|' %}
-    {% assign category_meta = 'HOODIES · TEES · JOGGERS|FOR HER. BY US.|HANDMADE EXPRESSION|CUSTOM · ENGRAVED · ONE OF ONE' | split: '|' %}
-    {% for i in (1..4) %}
-      {% assign image_key = 'category_image_' | append: i %}
-      {% assign link_key = 'category_link_' | append: i %}
-      <a class="itt-card" href="{{ section.settings[link_key] | default: routes.all_products_collection_url }}">
-        {% if section.settings[image_key] != blank %}
-          {{ section.settings[image_key] | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy' }}
-        {% else %}
-          <div class="itt-card__placeholder"></div>
-        {% endif %}
-        <div class="itt-card__content">
-          <h2 class="itt-card__title">{{ category_titles[forloop.index0] }}</h2>
-          <div class="itt-card__meta">{{ category_meta[forloop.index0] }}</div>
-          <div class="itt-card__link">SHOP <span class="itt-arrow">→</span></div>
-        </div>
-      </a>
-    {% endfor %}
+    <a class="itt-card" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% if section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM apparel" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">01</div><div class="itt-card__content"><h2 class="itt-card__title">APPAREL</h2><div class="itt-card__meta">HOODIES · TEES · JOGGERS</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-card" href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">{% if section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "Gym Vibes Only" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">02</div><div class="itt-card__content"><h2 class="itt-card__title">GVO</h2><div class="itt-card__meta">TRAINING · FAN CULTURE · FLAGLINE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-card" href="{{ section.settings.lab_link | default: section.settings.category_link_3 | default: routes.all_products_collection_url }}">{% if section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM The Lab" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">03</div><div class="itt-card__content"><h2 class="itt-card__title">THE LAB</h2><div class="itt-card__meta">CROCHET · EXPERIMENT · LIMITED</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-card" href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">{% if section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM custom denim" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">04</div><div class="itt-card__content"><h2 class="itt-card__title">CUSTOM DENIM</h2><div class="itt-card__meta">ENGRAVED · ONE OF ONE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
   </div>
 
-  <div class="itt-products">
-    <div class="itt-products__head">
-      <h2 class="itt-display itt-products__title">NEW ARRIVALS</h2>
-      <a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW ALL <span class="itt-arrow">→</span></a>
-    </div>
-    <div class="itt-products__grid">
-      {% assign featured = section.settings.featured_collection %}
-      {% if featured != blank and featured.products_count > 0 %}
-        {% for product in featured.products limit: 8 %}
-          <a class="itt-product" href="{{ product.url }}">
-            <div class="itt-product__image">
-              {% if product.featured_image != blank %}
-                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
-              {% else %}
-                {{ 'product-apparel-1' | placeholder_svg_tag }}
-              {% endif %}
-            </div>
-            <div class="itt-product__name">{{ product.title }}</div>
-            <div class="itt-product__price">{{ product.price | money }}</div>
-          </a>
-        {% endfor %}
-      {% else %}
-        {% for i in (1..8) %}
-          <div class="itt-product">
-            <div class="itt-product__image">{{ 'product-apparel-' | append: i | modulo: 3 | plus: 1 | placeholder_svg_tag }}</div>
-            <div class="itt-product__name">ITT TOLD’EM PIECE {{ i }}</div>
-            <div class="itt-product__price">COMING SOON</div>
-          </div>
-        {% endfor %}
-      {% endif %}
-    </div>
-  </div>
+  <div class="itt-products" id="itt-new-arrivals"><div class="itt-products__head"><div><div class="itt-kicker itt-kicker--dark">CURRENT RELEASE</div><h2 class="itt-display itt-products__title">NEW ARRIVALS</h2></div><a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">SHOP ALL <span class="itt-arrow">→</span></a></div><div class="itt-products__grid">{% assign featured = section.settings.featured_collection %}{% if featured != blank and featured.products_count > 0 %}{% for product in featured.products limit: 8 %}<article class="itt-product"><a class="itt-product__link" href="{{ product.url }}"><div class="itt-product__image">{% if product.featured_image != blank %}{{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: product.title }}{% if product.images.size > 1 %}{{ product.images[1] | image_url: width: 900 | image_tag: class: 'itt-product__secondary', loading: 'lazy', alt: product.title }}{% endif %}{% else %}{{ 'product-apparel-1' | placeholder_svg_tag }}{% endif %}<div class="itt-product__badges">{% unless product.available %}<span>SOLD OUT</span>{% endunless %}{% if product.compare_at_price > product.price %}<span>MARKDOWN</span>{% endif %}{% if forloop.index <= 2 and product.available %}<span>HOUSE PICK</span>{% endif %}</div><div class="itt-product__shop">VIEW PIECE <span>→</span></div></div><div class="itt-product__meta"><div class="itt-product__name">{{ product.title }}</div><div class="itt-product__price">{% if product.price_varies %}<span class="itt-product__from">FROM</span> {% endif %}{{ product.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div></div></a></article>{% endfor %}{% else %}{% for i in (1..8) %}<div class="itt-product"><div class="itt-product__image">{{ 'product-apparel-1' | placeholder_svg_tag }}</div><div class="itt-product__name">ITT TOLD’EM PIECE {{ i }}</div><div class="itt-product__price">COMING SOON</div></div>{% endfor %}{% endif %}</div></div>
 
-  <div class="itt-story">
-    {% if section.settings.story_image != blank %}
-      {{ section.settings.story_image | image_url: width: 2200 | image_tag: class: 'itt-story__media', loading: 'lazy' }}
-    {% else %}
-      <div class="itt-story__placeholder"></div>
-    {% endif %}
-    <div class="itt-story__content">
-      <div class="itt-kicker">A DESIGN HOUSE FROM DETROIT</div>
-      <h2 class="itt-display itt-story__title">ITT TOLD’EM</h2>
-      <p class="itt-story__copy">We design for the real. Where fashion, sports, and culture meet. Built on creativity, craftsmanship, and the belief that anything is possible when you tell ’em first.</p>
-      <a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">OUR STORY <span class="itt-arrow">→</span></a>
-    </div>
-    <div class="itt-values">Culture<br>Craft<br>Community<br>Commerce</div>
-  </div>
+  <div class="itt-manifesto"><div class="itt-manifesto__eyebrow">THE HOUSE CODE</div><p>NO UNIFORM. NO SAFE VERSION. <em>MAKE THE THING PEOPLE REMEMBER.</em></p></div>
+
+  <div class="itt-story">{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 1800 | image_tag: class: 'itt-story__media', loading: 'lazy', alt: "ITT TOLD’EM Detroit story" }}{% endif %}<div class="itt-story__content"><div class="itt-kicker">MAISON · DÉTROIT — EAST SIDE</div><h2 class="itt-display itt-story__title">ITT TOLD’EM</h2><p class="itt-story__copy">The house where fashion, sport, fabrication and culture meet. ITT TOLD’EM leads the design language; GVO carries sport and FLAGLINE; WE HAIR develops beauty tools; The Lab holds crochet, prototypes and experimental work.</p><a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">ENTER THE STORY <span class="itt-arrow">→</span></a></div><div class="itt-values">Culture<br>Craft<br>Sport<br>Experiment</div></div>
 
   <div class="itt-editorials">
-    {% assign editorial_titles = 'FLAGLINE|MEN’S|KIDS' | split: '|' %}
-    {% assign editorial_meta = 'POWER IN EVERY PIECE|ELEVATED ESSENTIALS|BIG ENERGY. EARLY.' | split: '|' %}
-    {% for i in (1..3) %}
-      {% assign image_key = 'editorial_image_' | append: i %}
-      {% assign link_key = 'editorial_link_' | append: i %}
-      <a class="itt-editorial" href="{{ section.settings[link_key] | default: routes.all_products_collection_url }}">
-        {% if section.settings[image_key] != blank %}
-          {{ section.settings[image_key] | image_url: width: 1400 | image_tag: class: 'itt-editorial__media', loading: 'lazy' }}
-        {% else %}
-          <div class="itt-editorial__placeholder"></div>
-        {% endif %}
-        <div class="itt-editorial__content">
-          <h2 class="itt-editorial__title">{{ editorial_titles[forloop.index0] }}</h2>
-          <div class="itt-editorial__meta">{{ editorial_meta[forloop.index0] }}</div>
-          <div class="itt-card__link">SHOP <span class="itt-arrow">→</span></div>
-        </div>
-      </a>
-    {% endfor %}
+    <a class="itt-editorial" href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">{% if section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1600 | image_tag: class: 'itt-editorial__media', loading: 'lazy', alt: "GVO FLAGLINE girls flag football" }}{% endif %}<div class="itt-editorial__content"><div class="itt-kicker">GVO PROGRAM 01</div><h2 class="itt-editorial__title">FLAGLINE</h2><div class="itt-editorial__meta">GIRLS’ FLAG FOOTBALL · TRAINING · TEAM CULTURE</div><div class="itt-card__link">EXPLORE <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-editorial" href="{{ section.settings.editorial_link_2 | default: section.settings.category_link_4 | default: routes.all_products_collection_url }}">{% if section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1600 | image_tag: class: 'itt-editorial__media', loading: 'lazy', alt: "ITT TOLD’EM custom work and engraved denim" }}{% endif %}<div class="itt-editorial__content"><div class="itt-kicker">HOUSE WORLD 02</div><h2 class="itt-editorial__title">CUSTOM WORK</h2><div class="itt-editorial__meta">ONE-OFFS · ENGRAVING · MADE TO ORDER</div><div class="itt-card__link">EXPLORE <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-editorial" href="{{ section.settings.wehair_link | default: routes.all_products_collection_url }}">{% if section.settings.wehair_image != blank %}{{ section.settings.wehair_image | image_url: width: 1600 | image_tag: class: 'itt-editorial__media', loading: 'lazy', alt: "WE HAIR tools and beauty development" }}{% endif %}<div class="itt-editorial__content"><div class="itt-kicker">HOUSE WORLD 03</div><h2 class="itt-editorial__title">WE HAIR</h2><div class="itt-editorial__meta">TOOLS · BEAUTY · DEVELOPMENT</div><div class="itt-card__link">EXPLORE <span class="itt-arrow">→</span></div></div></a>
   </div>
 
-  <div class="itt-servicebar">
-    <div class="itt-service">✈ &nbsp; WORLDWIDE SHIPPING</div>
-    <div class="itt-service">◇ &nbsp; PREMIUM QUALITY</div>
-    <div class="itt-service">▢ &nbsp; SECURE CHECKOUT</div>
-    <div class="itt-service">▣ &nbsp; FAST FULFILLMENT</div>
-  </div>
-  <div class="itt-footer-statement"><strong>ITT TOLD’EM <span class="itt-kicker">MAISON · DÉTROIT</span></strong><em>More Than Clothing.</em></div>
+  <div class="itt-drop"><div><div class="itt-kicker">DON’T WAIT FOR THE ALGORITHM</div><h2 class="itt-display">GET THE DROP SIGNAL.</h2></div>{% form 'customer', class: 'itt-drop__form' %}<input type="hidden" name="contact[tags]" value="newsletter,ittoldem-house"><label class="visually-hidden" for="IttDropEmail-{{ section.id }}">Email address</label><input id="IttDropEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="EMAIL ADDRESS" required autocomplete="email"><button type="submit">JOIN THE HOUSE <span>→</span></button>{% if form.posted_successfully? %}<p class="itt-drop__status" role="status">YOU’RE IN.</p>{% endif %}{% if form.errors %}<div class="itt-drop__status" role="alert">{{ form.errors | default_errors }}</div>{% endif %}{% endform %}</div>
+  <div class="itt-servicebar"><div class="itt-service">✈ &nbsp; WORLDWIDE SHIPPING</div><div class="itt-service">◇ &nbsp; CUSTOM WORK AVAILABLE</div><div class="itt-service">▢ &nbsp; SECURE CHECKOUT</div><div class="itt-service">⌁ &nbsp; DETROIT DESIGN HOUSE</div></div><div class="itt-footer-statement"><strong>ITT TOLD’EM <span class="itt-kicker">MAISON · DÉTROIT</span></strong><em>We built the house. Now we tell ’em.</em></div>
 </section>
 
 {% schema %}
-{
-  "name": "ITT TOLD'EM House",
-  "tag": "section",
-  "class": "section-ittoldem-house",
-  "settings": [
-    {"type":"image_picker","id":"hero_image","label":"Hero image"},
-    {"type":"url","id":"hero_link","label":"Hero link"},
-    {"type":"image_picker","id":"category_image_1","label":"Apparel image"},
-    {"type":"url","id":"category_link_1","label":"Apparel link"},
-    {"type":"image_picker","id":"category_image_2","label":"FLAGLINE image"},
-    {"type":"url","id":"category_link_2","label":"FLAGLINE link"},
-    {"type":"image_picker","id":"category_image_3","label":"Crochet image"},
-    {"type":"url","id":"category_link_3","label":"Crochet link"},
-    {"type":"image_picker","id":"category_image_4","label":"Denim image"},
-    {"type":"url","id":"category_link_4","label":"Denim link"},
-    {"type":"collection","id":"featured_collection","label":"New arrivals collection"},
-    {"type":"image_picker","id":"story_image","label":"Story image"},
-    {"type":"url","id":"story_link","label":"Story link"},
-    {"type":"image_picker","id":"editorial_image_1","label":"FLAGLINE editorial image"},
-    {"type":"url","id":"editorial_link_1","label":"FLAGLINE editorial link"},
-    {"type":"image_picker","id":"editorial_image_2","label":"Men editorial image"},
-    {"type":"url","id":"editorial_link_2","label":"Men editorial link"},
-    {"type":"image_picker","id":"editorial_image_3","label":"Kids editorial image"},
-    {"type":"url","id":"editorial_link_3","label":"Kids editorial link"}
-  ],
-  "presets": [{"name":"ITT TOLD'EM House"}]
-}
+{"name":"ITT TOLD'EM House","tag":"section","class":"section-ittoldem-house","settings":[{"type":"header","content":"Campaign images"},{"type":"image_picker","id":"hero_image","label":"Hero image"},{"type":"image_picker","id":"apparel_image","label":"Apparel image"},{"type":"image_picker","id":"flagline_image","label":"GVO / FLAGLINE image"},{"type":"image_picker","id":"lab_image","label":"The Lab image"},{"type":"image_picker","id":"denim_image","label":"Custom Denim image"},{"type":"image_picker","id":"wehair_image","label":"WE HAIR image"},{"type":"url","id":"hero_link","label":"Hero link"},{"type":"url","id":"category_link_1","label":"Apparel link"},{"type":"url","id":"gvo_link","label":"GVO link (includes FLAGLINE)"},{"type":"url","id":"category_link_3","label":"The Lab link"},{"type":"url","id":"category_link_4","label":"Custom denim link"},{"type":"url","id":"wehair_link","label":"WE HAIR link"},{"type":"url","id":"lab_link","label":"The Lab nav link"},{"type":"collection","id":"featured_collection","label":"Current release collection"},{"type":"url","id":"story_link","label":"About / story link"},{"type":"url","id":"editorial_link_2","label":"Custom work editorial link"}],"presets":[{"name":"ITT TOLD'EM House"}]}
 {% endschema %}

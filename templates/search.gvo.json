@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "destination": {
+      "type": "ittoldem-destination",
+      "settings": {
+        "campaign_image": "shopify://shop_images/F3ACBA21-3BA2-43BA-83BF-26A672FCBF90.png",
+        "world": "gvo",
+        "eyebrow": "ITT TOLD’EM · SPORT WORLD",
+        "title": "GVO",
+        "copy": "Gym Vibes Only carries training, fan culture and performance through the ITT TOLD’EM design language.",
+        "meta": "TRAINING · FAN CULTURE · FLAGLINE",
+        "results_heading": "GVO AVAILABLE NOW"
+      }
+    }
+  },
+  "order": [
+    "destination"
+  ]
+}

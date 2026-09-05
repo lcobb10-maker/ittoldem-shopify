@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "destination": {
+      "type": "ittoldem-destination",
+      "settings": {
+        "campaign_image": "shopify://shop_images/8CE36A98-6034-4343-8762-161095B47A7F.png",
+        "world": "custom",
+        "eyebrow": "ITT TOLD’EM · MADE TO ORDER",
+        "title": "CUSTOM",
+        "copy": "One-off garments, engraving and made-to-order work built through the ITT TOLD’EM house system.",
+        "meta": "ONE-OFFS · ENGRAVING · MADE TO ORDER",
+        "results_heading": "CUSTOM WORK AVAILABLE NOW"
+      }
+    }
+  },
+  "order": [
+    "destination"
+  ]
+}

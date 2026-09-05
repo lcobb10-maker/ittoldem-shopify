@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "destination": {
+      "type": "ittoldem-destination",
+      "settings": {
+        "campaign_image": "shopify://shop_images/F5905BC3-F49A-44F5-B5E7-739A6C4B9553.png",
+        "world": "wehair",
+        "eyebrow": "ITT TOLD’EM · BEAUTY WORLD",
+        "title": "WE HAIR",
+        "copy": "Beauty tools, hair concepts and product development built as a distinct house world.",
+        "meta": "TOOLS · BEAUTY · DEVELOPMENT",
+        "results_heading": "WE HAIR AVAILABLE NOW"
+      }
+    }
+  },
+  "order": [
+    "destination"
+  ]
+}

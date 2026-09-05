@@ -8,13 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "footer",
-  "name": "t:names.footer",
   "sections": {
-    "ittoldem_footer": {
-      "type": "ittoldem-footer",
-      "settings": {}
+    "about": {
+      "type": "ittoldem-about",
+      "settings": {
+        "hero_image": "shopify://shop_images/551A8E97-F222-4472-9D59-4D9E03A0C355.png"
+      }
     }
   },
-  "order": ["ittoldem_footer"]
+  "order": [
+    "about"
+  ]
 }
