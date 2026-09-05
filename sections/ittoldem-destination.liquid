@@ -1,17 +1,17 @@
 {{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
 {% liquid
-  assign destination_image = 'itt-campaign-apparel.svg'
+  assign destination_image = 'apparel'
   case section.settings.world
     when 'gvo'
-      assign destination_image = 'itt-campaign-flagline.svg'
+      assign destination_image = 'flagline'
     when 'flagline'
-      assign destination_image = 'itt-campaign-flagline.svg'
+      assign destination_image = 'flagline'
     when 'wehair'
-      assign destination_image = 'itt-campaign-wehair.svg'
+      assign destination_image = 'wehair'
     when 'lab'
-      assign destination_image = 'itt-campaign-lab.svg'
+      assign destination_image = 'lab'
     when 'custom'
-      assign destination_image = 'itt-campaign-denim.svg'
+      assign destination_image = 'denim'
   endcase
 %}
 <nav class="itt-worldnav" aria-label="House worlds">
@@ -24,7 +24,7 @@
   <a href="/search?view=about&q=ITT">ABOUT</a>
 </nav>
 <section class="itt-destination" aria-labelledby="IttDestinationTitle-{{ section.id }}">
-  <img class="itt-destination__media" src="{{ destination_image | asset_url }}" loading="eager" fetchpriority="high" width="900" height="562" alt="{{ section.settings.title | escape }}">
+  <img class="itt-destination__media" src="{% case destination_image %}{% when 'apparel' %}{% render 'itt-campaign-apparel' %}{% when 'flagline' %}{% render 'itt-campaign-flagline' %}{% when 'wehair' %}{% render 'itt-campaign-wehair' %}{% when 'lab' %}{% render 'itt-campaign-lab' %}{% when 'denim' %}{% render 'itt-campaign-denim' %}{% endcase %}" loading="eager" fetchpriority="high" width="900" height="562" alt="{{ section.settings.title | escape }}">
   <div class="itt-destination__panel">
     <div class="itt-destination__eyebrow">{{ section.settings.eyebrow }}</div>
     <h1 id="IttDestinationTitle-{{ section.id }}" class="itt-destination__title">{{ section.settings.title }}</h1>
