@@ -1,1 +1,22 @@
-{"sections":{"about":{"type":"ittoldem-about","settings":{}}},"order":["about"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about": {
+      "type": "ittoldem-about",
+      "settings": {
+        "hero_image": "shopify://shop_images/551A8E97-F222-4472-9D59-4D9E03A0C355.png"
+      }
+    }
+  },
+  "order": [
+    "about"
+  ]
+}
