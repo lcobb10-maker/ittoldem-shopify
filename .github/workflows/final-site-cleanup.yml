@@ -1,0 +1,79 @@
+name: Final ITT storefront cleanup
+
+on:
+  push:
+    branches:
+      - ittoldem-commerce-pass
+    paths:
+      - .github/workflows/final-site-cleanup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ittoldem-commerce-pass
+
+      - name: Clean navigation, About routing, and mobile chrome
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+
+          # Remove duplicate destination nav; the global House nav already exists in the header.
+          p = Path('sections/ittoldem-destination.liquid')
+          s = p.read_text(encoding='utf-8')
+          start = s.find('<nav class="itt-worldnav"')
+          if start != -1:
+              end = s.find('</nav>', start)
+              if end != -1:
+                  s = s[:start] + s[end + len('</nav>'):]
+          p.write_text(s, encoding='utf-8')
+
+          # Remove duplicate homepage nav beneath the hero.
+          p = Path('sections/ittoldem-house.liquid')
+          s = p.read_text(encoding='utf-8')
+          start = s.find('<nav class="itt-house-nav"')
+          if start != -1:
+              end = s.find('</nav>', start)
+              if end != -1:
+                  s = s[:start] + s[end + len('</nav>'):]
+          p.write_text(s, encoding='utf-8')
+
+          # Unify About route in the footer.
+          p = Path('sections/ittoldem-footer.liquid')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('href="/pages/about"', 'href="/search?view=about&q=ITT"')
+          p.write_text(s, encoding='utf-8')
+
+          # Preserve every image-picker assignment while changing only homepage About/story routing.
+          p = Path('templates/index.json')
+          raw = p.read_text(encoding='utf-8')
+          json_start = raw.find('{')
+          data = json.loads(raw[json_start:])
+          settings = data.get('sections', {}).get('ittoldem_house', {}).get('settings', {})
+          settings['story_link'] = '/search?view=about&q=ITT'
+          banner = '''/*\n * ------------------------------------------------------------\n * IMPORTANT: The contents of this file are auto-generated.\n *\n * This file may be updated by the Shopify admin theme editor\n * or related systems. Please exercise caution as any changes\n * made to this file may be overwritten.\n * ------------------------------------------------------------\n */\n'''
+          p.write_text(banner + json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          # Mobile chrome: smaller header footprint and cleaner global navigation.
+          p = Path('assets/ittoldem-commerce.css')
+          s = p.read_text(encoding='utf-8')
+          marker = '/* ITT FINAL MOBILE CHROME */'
+          if marker not in s:
+              s += '''\n\n/* ITT FINAL MOBILE CHROME */\n@media(max-width:749px){\n  .shopify-section-group-header-group .announcement-bar,\n  .shopify-section-group-header-group [class*=announcement]{min-height:28px!important;padding-block:4px!important;font-size:.65rem!important;line-height:1.15!important}\n  .shopify-section-group-header-group .header,\n  .shopify-section-group-header-group header-component{min-height:62px!important}\n  .shopify-section-group-header-group .header__row,\n  .shopify-section-group-header-group .header__row--top{min-height:62px!important;padding-block:6px!important}\n  .itt-global-nav a{min-width:96px!important;min-height:42px!important;padding:10px 12px!important;font-size:.64rem!important;letter-spacing:.11em!important}\n  .itt-global-nav__sub span{font-size:.48rem!important;padding:1px 3px!important}\n  body.template-index .section-ittoldem-house .itt-hero{min-height:60svh!important}\n  body.template-index .section-ittoldem-house .itt-hero__content{min-height:60svh!important;padding:12vw 6vw 10vw!important}\n}\n'''
+          p.write_text(s, encoding='utf-8')
+
+      - name: Commit storefront cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sections/ittoldem-destination.liquid sections/ittoldem-house.liquid sections/ittoldem-footer.liquid templates/index.json assets/ittoldem-commerce.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Finalize navigation, About routing, and mobile storefront chrome"
+          git push origin HEAD:ittoldem-commerce-pass
