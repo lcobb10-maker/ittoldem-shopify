@@ -43,6 +43,7 @@ jobs:
 
           home = Path('sections/ittoldem-house.liquid')
           text = home.read_text(encoding='utf-8')
+          raw = 'https://raw.githubusercontent.com/lcobb10-maker/ittoldem-shopify/ittoldem-commerce-pass/assets/'
           replacements = {
               "{{ 'itt-new-hero.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'hero' %}",
               "{{ 'itt-new-apparel.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'apparel' %}",
@@ -50,6 +51,12 @@ jobs:
               "{{ 'itt-new-lab.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'lab' %}",
               "{{ 'itt-new-denim.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'denim' %}",
               "{{ 'itt-new-wehair.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'wehair' %}",
+              raw + 'itt-new-hero.webp': "{% render 'itt-campaign-image', key: 'hero' %}",
+              raw + 'itt-new-apparel.webp': "{% render 'itt-campaign-image', key: 'apparel' %}",
+              raw + 'itt-new-flagline.webp': "{% render 'itt-campaign-image', key: 'flagline' %}",
+              raw + 'itt-new-lab.webp': "{% render 'itt-campaign-image', key: 'lab' %}",
+              raw + 'itt-new-denim.webp': "{% render 'itt-campaign-image', key: 'denim' %}",
+              raw + 'itt-new-wehair.webp': "{% render 'itt-campaign-image', key: 'wehair' %}",
           }
           for old, new in replacements.items():
               text = text.replace(old, new)
@@ -59,6 +66,7 @@ jobs:
           if about.exists():
               text = about.read_text(encoding='utf-8')
               text = text.replace("{{ 'itt-new-hero.webp' | asset_url }}", "{% render 'itt-campaign-image', key: 'hero' %}")
+              text = text.replace(raw + 'itt-new-hero.webp', "{% render 'itt-campaign-image', key: 'hero' %}")
               about.write_text(text, encoding='utf-8')
 
           dest = Path('sections/ittoldem-destination.liquid')
@@ -78,5 +86,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add snippets/itt-campaign-image.liquid sections/ittoldem-house.liquid sections/ittoldem-about.liquid sections/ittoldem-destination.liquid
           git diff --cached --quiet && exit 0
-          git commit -m "Embed campaign images directly in Liquid"
+          git commit -m "Render campaign images from embedded Liquid data"
           git push origin HEAD:ittoldem-commerce-pass
