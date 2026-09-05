@@ -1,0 +1,82 @@
+name: Embed ITT campaign images
+
+on:
+  push:
+    branches:
+      - ittoldem-commerce-pass
+    paths:
+      - .github/workflows/embed-itt-campaign-images.yml
+
+permissions:
+  contents: write
+
+jobs:
+  embed:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ittoldem-commerce-pass
+
+      - name: Build embedded Liquid image snippet and wire templates
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64
+
+          mapping = {
+              'hero': 'assets/itt-new-hero.webp',
+              'apparel': 'assets/itt-new-apparel.webp',
+              'flagline': 'assets/itt-new-flagline.webp',
+              'lab': 'assets/itt-new-lab.webp',
+              'denim': 'assets/itt-new-denim.webp',
+              'wehair': 'assets/itt-new-wehair.webp',
+          }
+
+          parts = ['{%- case key -%}']
+          for key, filename in mapping.items():
+              data = base64.b64encode(Path(filename).read_bytes()).decode('ascii')
+              parts.append(f"{{%- when '{key}' -%}}data:image/webp;base64,{data}")
+          parts.append('{%- endcase -%}')
+          Path('snippets/itt-campaign-image.liquid').write_text('\n'.join(parts), encoding='utf-8')
+
+          home = Path('sections/ittoldem-house.liquid')
+          text = home.read_text(encoding='utf-8')
+          replacements = {
+              "{{ 'itt-new-hero.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'hero' %}",
+              "{{ 'itt-new-apparel.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'apparel' %}",
+              "{{ 'itt-new-flagline.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'flagline' %}",
+              "{{ 'itt-new-lab.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'lab' %}",
+              "{{ 'itt-new-denim.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'denim' %}",
+              "{{ 'itt-new-wehair.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'wehair' %}",
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          home.write_text(text, encoding='utf-8')
+
+          about = Path('sections/ittoldem-about.liquid')
+          if about.exists():
+              text = about.read_text(encoding='utf-8')
+              text = text.replace("{{ 'itt-new-hero.webp' | asset_url }}", "{% render 'itt-campaign-image', key: 'hero' %}")
+              about.write_text(text, encoding='utf-8')
+
+          dest = Path('sections/ittoldem-destination.liquid')
+          if dest.exists():
+              text = dest.read_text(encoding='utf-8')
+              text = text.replace("assign destination_image = 'itt-new-apparel.webp'", "assign destination_image = 'apparel'")
+              text = text.replace("assign destination_image = 'itt-new-flagline.webp'", "assign destination_image = 'flagline'")
+              text = text.replace("assign destination_image = 'itt-new-wehair.webp'", "assign destination_image = 'wehair'")
+              text = text.replace("assign destination_image = 'itt-new-lab.webp'", "assign destination_image = 'lab'")
+              text = text.replace("assign destination_image = 'itt-new-denim.webp'", "assign destination_image = 'denim'")
+              text = text.replace("src=\"{{ destination_image | asset_url }}\"", "src=\"{% render 'itt-campaign-image', key: destination_image %}\"")
+              dest.write_text(text, encoding='utf-8')
+
+      - name: Commit embedded images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add snippets/itt-campaign-image.liquid sections/ittoldem-house.liquid sections/ittoldem-about.liquid sections/ittoldem-destination.liquid
+          git diff --cached --quiet && exit 0
+          git commit -m "Embed campaign images directly in Liquid"
+          git push origin HEAD:ittoldem-commerce-pass
