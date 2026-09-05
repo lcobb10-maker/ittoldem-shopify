@@ -18,7 +18,6 @@
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'ittoldem-image-fallback.js' | asset_url }}" defer></script>
     {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}
     {{ content_for_header }}
   </head>
