@@ -1,4 +1,4 @@
-name: Embed ITT campaign images
+name: Build ITT campaign SVG assets
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  embed:
+  build:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
@@ -19,44 +19,40 @@ jobs:
         with:
           ref: ittoldem-commerce-pass
 
-      - name: Build embedded Liquid image snippet and wire templates
+      - name: Convert binary campaign images into text SVG assets
         shell: python
         run: |
           from pathlib import Path
           import base64
 
           mapping = {
-              'hero': 'assets/itt-new-hero.webp',
-              'apparel': 'assets/itt-new-apparel.webp',
-              'flagline': 'assets/itt-new-flagline.webp',
-              'lab': 'assets/itt-new-lab.webp',
-              'denim': 'assets/itt-new-denim.webp',
-              'wehair': 'assets/itt-new-wehair.webp',
+              'hero': ('assets/itt-new-hero.webp', 900, 620),
+              'apparel': ('assets/itt-new-apparel.webp', 600, 800),
+              'flagline': ('assets/itt-new-flagline.webp', 600, 800),
+              'lab': ('assets/itt-new-lab.webp', 600, 800),
+              'denim': ('assets/itt-new-denim.webp', 600, 800),
+              'wehair': ('assets/itt-new-wehair.webp', 600, 800),
           }
 
-          parts = ['{%- case key -%}']
-          for key, filename in mapping.items():
+          for key, (filename, width, height) in mapping.items():
               data = base64.b64encode(Path(filename).read_bytes()).decode('ascii')
-              parts.append(f"{{%- when '{key}' -%}}data:image/webp;base64,{data}")
-          parts.append('{%- endcase -%}')
-          Path('snippets/itt-campaign-image.liquid').write_text('\n'.join(parts), encoding='utf-8')
+              svg = (
+                  f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" '
+                  f'preserveAspectRatio="xMidYMid slice">'
+                  f'<image href="data:image/webp;base64,{data}" width="{width}" height="{height}" '
+                  f'preserveAspectRatio="xMidYMid slice"/></svg>'
+              )
+              Path(f'assets/itt-campaign-{key}.svg').write_text(svg, encoding='utf-8')
 
           home = Path('sections/ittoldem-house.liquid')
           text = home.read_text(encoding='utf-8')
-          raw = 'https://raw.githubusercontent.com/lcobb10-maker/ittoldem-shopify/ittoldem-commerce-pass/assets/'
           replacements = {
-              "{{ 'itt-new-hero.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'hero' %}",
-              "{{ 'itt-new-apparel.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'apparel' %}",
-              "{{ 'itt-new-flagline.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'flagline' %}",
-              "{{ 'itt-new-lab.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'lab' %}",
-              "{{ 'itt-new-denim.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'denim' %}",
-              "{{ 'itt-new-wehair.webp' | asset_url }}": "{% render 'itt-campaign-image', key: 'wehair' %}",
-              raw + 'itt-new-hero.webp': "{% render 'itt-campaign-image', key: 'hero' %}",
-              raw + 'itt-new-apparel.webp': "{% render 'itt-campaign-image', key: 'apparel' %}",
-              raw + 'itt-new-flagline.webp': "{% render 'itt-campaign-image', key: 'flagline' %}",
-              raw + 'itt-new-lab.webp': "{% render 'itt-campaign-image', key: 'lab' %}",
-              raw + 'itt-new-denim.webp': "{% render 'itt-campaign-image', key: 'denim' %}",
-              raw + 'itt-new-wehair.webp': "{% render 'itt-campaign-image', key: 'wehair' %}",
+              "{% render 'itt-campaign-image', key: 'hero' %}": "{{ 'itt-campaign-hero.svg' | asset_url }}",
+              "{% render 'itt-campaign-image', key: 'apparel' %}": "{{ 'itt-campaign-apparel.svg' | asset_url }}",
+              "{% render 'itt-campaign-image', key: 'flagline' %}": "{{ 'itt-campaign-flagline.svg' | asset_url }}",
+              "{% render 'itt-campaign-image', key: 'lab' %}": "{{ 'itt-campaign-lab.svg' | asset_url }}",
+              "{% render 'itt-campaign-image', key: 'denim' %}": "{{ 'itt-campaign-denim.svg' | asset_url }}",
+              "{% render 'itt-campaign-image', key: 'wehair' %}": "{{ 'itt-campaign-wehair.svg' | asset_url }}",
           }
           for old, new in replacements.items():
               text = text.replace(old, new)
@@ -65,26 +61,25 @@ jobs:
           about = Path('sections/ittoldem-about.liquid')
           if about.exists():
               text = about.read_text(encoding='utf-8')
-              text = text.replace("{{ 'itt-new-hero.webp' | asset_url }}", "{% render 'itt-campaign-image', key: 'hero' %}")
-              text = text.replace(raw + 'itt-new-hero.webp', "{% render 'itt-campaign-image', key: 'hero' %}")
+              text = text.replace("{% render 'itt-campaign-image', key: 'hero' %}", "{{ 'itt-campaign-hero.svg' | asset_url }}")
               about.write_text(text, encoding='utf-8')
 
           dest = Path('sections/ittoldem-destination.liquid')
           if dest.exists():
               text = dest.read_text(encoding='utf-8')
-              text = text.replace("assign destination_image = 'itt-new-apparel.webp'", "assign destination_image = 'apparel'")
-              text = text.replace("assign destination_image = 'itt-new-flagline.webp'", "assign destination_image = 'flagline'")
-              text = text.replace("assign destination_image = 'itt-new-wehair.webp'", "assign destination_image = 'wehair'")
-              text = text.replace("assign destination_image = 'itt-new-lab.webp'", "assign destination_image = 'lab'")
-              text = text.replace("assign destination_image = 'itt-new-denim.webp'", "assign destination_image = 'denim'")
-              text = text.replace("src=\"{{ destination_image | asset_url }}\"", "src=\"{% render 'itt-campaign-image', key: destination_image %}\"")
+              text = text.replace("assign destination_image = 'apparel'", "assign destination_image = 'itt-campaign-apparel.svg'")
+              text = text.replace("assign destination_image = 'flagline'", "assign destination_image = 'itt-campaign-flagline.svg'")
+              text = text.replace("assign destination_image = 'wehair'", "assign destination_image = 'itt-campaign-wehair.svg'")
+              text = text.replace("assign destination_image = 'lab'", "assign destination_image = 'itt-campaign-lab.svg'")
+              text = text.replace("assign destination_image = 'denim'", "assign destination_image = 'itt-campaign-denim.svg'")
+              text = text.replace("src=\"{% render 'itt-campaign-image', key: destination_image %}\"", "src=\"{{ destination_image | asset_url }}\"")
               dest.write_text(text, encoding='utf-8')
 
-      - name: Commit embedded images
+      - name: Commit SVG campaign assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add snippets/itt-campaign-image.liquid sections/ittoldem-house.liquid sections/ittoldem-about.liquid sections/ittoldem-destination.liquid
+          git add assets/itt-campaign-*.svg sections/ittoldem-house.liquid sections/ittoldem-about.liquid sections/ittoldem-destination.liquid
           git diff --cached --quiet && exit 0
-          git commit -m "Render campaign images from embedded Liquid data"
+          git commit -m "Use text SVG campaign assets for Shopify sync"
           git push origin HEAD:ittoldem-commerce-pass
