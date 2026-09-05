@@ -20,7 +20,7 @@
 
   <div class="itt-footer__grid">
     <div><span>SHOP</span><a href="{{ routes.all_products_collection_url }}">All Pieces</a><a href="/search?view=gvo&type=product&q=GVO">GVO</a><a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a></div>
-    <div><span>HOUSE</span><a href="/search?view=custom&type=product&q=CUSTOM">Custom</a><a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a><a href="/search?view=lab&type=product&q=CROCHET">The Lab</a><a href="/pages/about">About</a></div>
+    <div><span>HOUSE</span><a href="/search?view=custom&type=product&q=CUSTOM">Custom</a><a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a><a href="/search?view=lab&type=product&q=CROCHET">The Lab</a><a href="/search?view=about&q=ITT">About</a></div>
     <div><span>HELP</span><a href="/pages/contact">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a></div>
     <div><span>POLICIES</span>{% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Refund</a>{% endif %}{% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping</a>{% endif %}{% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif %}{% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Terms</a>{% endif %}</div>
   </div>

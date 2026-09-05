@@ -26,7 +26,7 @@
         "wehair_link": "/search?view=wehair&type=product&q=WE%20HAIR",
         "lab_link": "/search?view=lab&type=product&q=CROCHET",
         "featured_collection": "all",
-        "story_link": "shopify://pages/about",
+        "story_link": "/search?view=about&q=ITT",
         "editorial_link_2": "/search?view=custom&type=product&q=CUSTOM"
       }
     }

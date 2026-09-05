@@ -12,9 +12,7 @@
     <div class="itt-script">We built the house.<br>Now we tell ’em.<small>JE VOUS L’AVAIS DIT.</small></div><div class="itt-hero__index">MAISON 001 · DETROIT</div>
   </div>
 
-  <nav class="itt-house-nav" aria-label="ITT TOLD'EM house worlds">
-    <a href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">SHOP</a><a href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">GVO</a><a href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">CUSTOM</a><a href="{{ section.settings.wehair_link | default: routes.all_products_collection_url }}">WE HAIR</a><a href="{{ section.settings.lab_link | default: routes.all_products_collection_url }}">THE LAB</a><a href="{{ section.settings.story_link | default: routes.root_url }}">ABOUT</a>
-  </nav>
+  
 
   <div class="itt-categories">
     <a class="itt-card" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% if section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM apparel" }}{% else %}<div class="itt-card__media itt-media-placeholder" aria-hidden="true"></div>{% endif %}<div class="itt-card__number">01</div><div class="itt-card__content"><h2 class="itt-card__title">APPAREL</h2><div class="itt-card__meta">HOODIES · TEES · JOGGERS</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>

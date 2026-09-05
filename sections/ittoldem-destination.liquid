@@ -1,7 +1,5 @@
 {{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
-<nav class="itt-worldnav" aria-label="House worlds">
-  <a href="{{ routes.all_products_collection_url }}">SHOP</a><a href="/search?view=gvo&type=product&q=GVO">GVO</a><a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a><a href="/search?view=custom&type=product&q=CUSTOM">CUSTOM</a><a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a><a href="/search?view=lab&type=product&q=CROCHET">THE LAB</a><a href="/search?view=about&q=ITT">ABOUT</a>
-</nav>
+
 <section class="itt-destination" aria-labelledby="IttDestinationTitle-{{ section.id }}">
   {% if section.settings.campaign_image != blank %}
     {{ section.settings.campaign_image | image_url: width: 1800 | image_tag: class: 'itt-destination__media', loading: 'eager', fetchpriority: 'high', widths: '750, 1100, 1500, 1800', sizes: '100vw', alt: section.settings.title }}

@@ -19,3 +19,18 @@ body:not(.template-index){background:#f7f4ee;color:var(--itt-ink)}body:not(.temp
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 @media(max-width:749px){.itt-global-trust{grid-template-columns:1fr}.itt-global-trust span{border-right:0;border-bottom:1px solid rgba(244,239,230,.2);padding:12px 14px}.itt-global-trust span:last-child{border-bottom:0}.template-product [data-product-information],.template-product .product-information{padding-top:0}.template-product h1{font-size:2.35rem!important}.template-product product-form .button,.template-product .buy-buttons .button{min-height:58px}.template-cart .cart__summary{border-left:0;border-top:1px solid var(--itt-line);padding-left:0;padding-top:22px}.template-collection #MainContent>.shopify-section:first-child,.template-search #MainContent>.shopify-section:first-child{padding-inline:4px}.template-search input[type=search]{min-height:58px}}
 @media(prefers-reduced-motion:reduce){.template-collection .product-card,.template-search .product-card{transition:none!important}}
+
+
+/* ITT FINAL MOBILE CHROME */
+@media(max-width:749px){
+  .shopify-section-group-header-group .announcement-bar,
+  .shopify-section-group-header-group [class*=announcement]{min-height:28px!important;padding-block:4px!important;font-size:.65rem!important;line-height:1.15!important}
+  .shopify-section-group-header-group .header,
+  .shopify-section-group-header-group header-component{min-height:62px!important}
+  .shopify-section-group-header-group .header__row,
+  .shopify-section-group-header-group .header__row--top{min-height:62px!important;padding-block:6px!important}
+  .itt-global-nav a{min-width:96px!important;min-height:42px!important;padding:10px 12px!important;font-size:.64rem!important;letter-spacing:.11em!important}
+  .itt-global-nav__sub span{font-size:.48rem!important;padding:1px 3px!important}
+  body.template-index .section-ittoldem-house .itt-hero{min-height:60svh!important}
+  body.template-index .section-ittoldem-house .itt-hero__content{min-height:60svh!important;padding:12vw 6vw 10vw!important}
+}
