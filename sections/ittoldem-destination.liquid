@@ -1,17 +1,17 @@
 {{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
 {% liquid
-  assign destination_image = 'apparel'
+  assign destination_image = 'itt-campaign-apparel.svg'
   case section.settings.world
     when 'gvo'
-      assign destination_image = 'flagline'
+      assign destination_image = 'itt-campaign-flagline.svg'
     when 'flagline'
-      assign destination_image = 'flagline'
+      assign destination_image = 'itt-campaign-flagline.svg'
     when 'wehair'
-      assign destination_image = 'wehair'
+      assign destination_image = 'itt-campaign-wehair.svg'
     when 'lab'
-      assign destination_image = 'lab'
+      assign destination_image = 'itt-campaign-lab.svg'
     when 'custom'
-      assign destination_image = 'denim'
+      assign destination_image = 'itt-campaign-denim.svg'
   endcase
 %}
 <nav class="itt-worldnav" aria-label="House worlds">
@@ -24,7 +24,7 @@
   <a href="/search?view=about&q=ITT">ABOUT</a>
 </nav>
 <section class="itt-destination" aria-labelledby="IttDestinationTitle-{{ section.id }}">
-  <img class="itt-destination__media" src="{% render 'itt-campaign-image', key: destination_image %}" loading="eager" fetchpriority="high" width="900" height="562" alt="{{ section.settings.title | escape }}">
+  <img class="itt-destination__media" src="{{ destination_image | asset_url }}" loading="eager" fetchpriority="high" width="900" height="562" alt="{{ section.settings.title | escape }}">
   <div class="itt-destination__panel">
     <div class="itt-destination__eyebrow">{{ section.settings.eyebrow }}</div>
     <h1 id="IttDestinationTitle-{{ section.id }}" class="itt-destination__title">{{ section.settings.title }}</h1>
