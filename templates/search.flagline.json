@@ -1,1 +1,28 @@
-{"sections":{"destination":{"type":"ittoldem-destination","settings":{"world":"flagline","eyebrow":"GVO · PROGRAM 01","title":"FLAGLINE","copy":"Girls’ flag football, team culture and performance gear built under Gym Vibes Only.","meta":"GIRLS’ FLAG FOOTBALL · TRAINING · TEAM CULTURE","results_heading":"FLAGLINE AVAILABLE NOW"}}},"order":["destination"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "destination": {
+      "type": "ittoldem-destination",
+      "settings": {
+        "campaign_image": "shopify://shop_images/3B05FD7F-3A06-4EE6-80EA-7BBF77D6E273.png",
+        "world": "flagline",
+        "eyebrow": "GVO · PROGRAM 01",
+        "title": "FLAGLINE",
+        "copy": "Girls’ flag football, team culture and performance gear built under Gym Vibes Only.",
+        "meta": "GIRLS’ FLAG FOOTBALL · TRAINING · TEAM CULTURE",
+        "results_heading": "FLAGLINE AVAILABLE NOW"
+      }
+    }
+  },
+  "order": [
+    "destination"
+  ]
+}
