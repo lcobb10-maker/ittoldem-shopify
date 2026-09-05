@@ -1,17 +1,17 @@
 {{ 'ittoldem-destination.css' | asset_url | stylesheet_tag }}
 {% liquid
-  assign destination_image = 'itt-final-apparel.webp'
+  assign destination_image = 'itt-new-apparel.webp'
   case section.settings.world
     when 'gvo'
-      assign destination_image = 'itt-final-gvo.webp'
+      assign destination_image = 'itt-new-flagline.webp'
     when 'flagline'
-      assign destination_image = 'itt-final-flagline.webp'
+      assign destination_image = 'itt-new-flagline.webp'
     when 'wehair'
-      assign destination_image = 'itt-final-wehair.webp'
+      assign destination_image = 'itt-new-wehair.webp'
     when 'lab'
-      assign destination_image = 'itt-final-lab.webp'
+      assign destination_image = 'itt-new-lab.webp'
     when 'custom'
-      assign destination_image = 'itt-final-denim.webp'
+      assign destination_image = 'itt-new-denim.webp'
   endcase
 %}
 <nav class="itt-worldnav" aria-label="House worlds">
