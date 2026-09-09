@@ -28,7 +28,7 @@
       {% if featured != blank and featured.products_count > 0 %}
         {% for product in featured.products %}
           {% if product.featured_image != blank %}
-            <article class="itt-product"><a class="itt-product__link" href="{{ product.url }}"><div class="itt-product__image">{{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: product.title }}{% if product.images.size > 1 %}{{ product.images[1] | image_url: width: 900 | image_tag: class: 'itt-product__secondary', loading: 'lazy', alt: product.title }}{% endif %}<div class="itt-product__badges">{% unless product.available %}<span>ÉPUISÉ</span>{% endunless %}{% if visible_products < 2 and product.available %}<span>MAISON SELECT</span>{% endif %}</div><div class="itt-product__shop">VIEW PIECE <span>→</span></div></div><div class="itt-product__meta"><div class="itt-product__name">{{ product.title }}</div><div class="itt-product__price">{% if product.price_varies %}<span class="itt-product__from">FROM</span> {% endif %}{{ product.price | money }}</div></div></a></article>
+            {% render 'itt-product-card', product: product %}
             {% assign visible_products = visible_products | plus: 1 %}
             {% if visible_products >= 4 %}{% break %}{% endif %}
           {% endif %}
@@ -89,6 +89,7 @@
     </div>
     <button class="itt-joystick__step itt-joystick__step--down" type="button" data-itt-step="1" aria-label="Next house scene">↓</button>
   </div>
+  <button class="itt-motion-toggle" type="button" data-itt-motion-toggle aria-pressed="false">PAUSE MOTION</button>
 </section>
 
 <script>
@@ -97,7 +98,15 @@
     if (!root) return;
     const videos = root.querySelectorAll('video[data-itt-motion]');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) {
+    const saveData = navigator.connection?.saveData === true;
+    const motionToggle = root.querySelector('[data-itt-motion-toggle]');
+    let motionPaused = reduceMotion || saveData;
+    const syncMotionButton = () => {
+      if (!motionToggle) return;
+      motionToggle.setAttribute('aria-pressed', String(motionPaused));
+      motionToggle.textContent = motionPaused ? 'PLAY MOTION' : 'PAUSE MOTION';
+    };
+    if (motionPaused) {
       videos.forEach((video) => video.pause());
     } else {
       const observer = new IntersectionObserver((entries) => {
@@ -108,6 +117,15 @@
       }, { rootMargin: '180px 0px', threshold: 0.05 });
       videos.forEach((video) => observer.observe(video));
     }
+    syncMotionButton();
+    motionToggle?.addEventListener('click', () => {
+      motionPaused = !motionPaused;
+      videos.forEach((video) => {
+        if (motionPaused) video.pause();
+        else video.play().catch(() => {});
+      });
+      syncMotionButton();
+    });
 
     const controller = root.querySelector('[data-itt-joystick]');
     const stick = root.querySelector('[data-itt-stick]');
