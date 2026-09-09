@@ -9,8 +9,13 @@
  */
 {
   "sections": {
+    "itt_collection_hero": {
+      "type": "ittoldem-collection-hero",
+      "settings": {}
+    },
     "section": {
       "type": "section",
+      "disabled": true,
       "blocks": {
         "text_tqQTNE": {
           "type": "text",
@@ -230,6 +235,7 @@
     }
   },
   "order": [
+    "itt_collection_hero",
     "section",
     "main"
   ]
