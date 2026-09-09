@@ -40,3 +40,18 @@
   .itt-servicebar{grid-template-columns:1fr 1fr}.itt-service{padding:14px 7px;font-size:7.5px;line-height:1.35}.itt-footer-statement{flex-direction:column;align-items:flex-start;padding:28px 7vw 32px;gap:16px}
 }
 @media(prefers-reduced-motion:reduce){.itt-arrow,.itt-product__image img,.itt-product__shop{transition:none!important}.itt-house a:hover .itt-arrow{transform:none}.itt-product:hover .itt-product__image img{transform:none}}
+
+/* Real fabrication proof: copy beside a compact, vertical process film. */
+.itt-story--real-process{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,38vw);min-height:590px;background:#090909;border-top:1px solid var(--itt-line);border-bottom:1px solid var(--itt-line)}
+.itt-story--real-process:after{display:none}
+.itt-story--real-process .itt-story__content{align-self:center;max-width:720px;padding:88px 6vw;z-index:3}
+.itt-story--real-process .itt-story__title{font-size:clamp(52px,6.6vw,104px);line-height:.86}
+.itt-story--real-process .itt-story__copy{max-width:520px;background:none;padding:0}
+.itt-story--real-process .itt-values{left:4.5vw;top:auto;bottom:3vw;opacity:.14}
+.itt-process__visual{position:relative;min-height:590px;overflow:hidden;border-left:1px solid var(--itt-line);background:#b7ad9d}
+.itt-process__poster,.itt-process__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.itt-process__media{z-index:1;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.itt-process__media.itt-motion-playing{opacity:1}
+.itt-process__visual:after{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,0) 55%,rgba(0,0,0,.72));pointer-events:none}
+.itt-process__caption{position:absolute;z-index:3;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;gap:18px;font-size:8px;letter-spacing:.24em;text-transform:uppercase}
+@media(max-width:749px){.itt-story--real-process{grid-template-columns:1fr}.itt-story--real-process .itt-story__content{padding:54px 7vw 46px;max-width:100%}.itt-story--real-process .itt-story__title{font-size:12vw}.itt-story--real-process .itt-story__copy{max-width:340px}.itt-story--real-process .itt-values{display:none}.itt-process__visual{min-height:108vw;border-left:0;border-top:1px solid var(--itt-line)}.itt-process__caption{left:16px;right:16px;bottom:16px;flex-direction:column;gap:6px}}
