@@ -34,7 +34,7 @@
   </div>
 
   <div class="itt-footer__grid">
-    <div><span>COLLECTIONS</span><a href="{{ routes.all_products_collection_url }}">The House Edit</a><a href="{{ gvo_url | escape }}">GVO</a><a href="{{ flagline_url | escape }}">FLAGLINE</a></div>
+    <div><span>COLLECTIONS</span><a href="{{ routes.all_products_collection_url }}">The Archive</a>{% if collections['house-edit'] != blank %}<a href="{{ collections['house-edit'].url }}">The House Edit</a>{% endif %}{% if collections['hoodie-season'] != blank %}<a href="{{ collections['hoodie-season'].url }}">Hoodie Season</a>{% endif %}{% if collections['fan-gear'] != blank %}<a href="{{ collections['fan-gear'].url }}">Fan Gear</a>{% endif %}{% if collections['after-dark'] != blank %}<a href="{{ collections['after-dark'].url }}">Après Minuit</a>{% endif %}</div>
     <div><span>LA MAISON</span><a href="{{ custom_url | escape }}">L’Atelier</a><a href="{{ wehair_url | escape }}">We Hair</a><a href="{{ lab_url | escape }}">Le Laboratoire</a><a href="{{ about_url | escape }}">Our Story</a></div>
     <div><span>CLIENT SERVICES</span><a href="{{ contact_url }}">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a></div>
     <div><span>LEGAL</span>{% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Returns</a>{% endif %}{% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping</a>{% endif %}{% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif %}{% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Terms</a>{% endif %}</div>
