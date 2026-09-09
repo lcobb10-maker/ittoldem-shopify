@@ -168,7 +168,7 @@
     const activateHeroCue = () => {
       root.classList.add('itt-hero-cue-active');
       root.classList.remove('itt-hero-cue-ready');
-      if (targetCard && categoryRail && window.matchMedia('(max-width: 749px)').matches) {
+      if (targetCard && categoryRail && window.matchMedia('(max-width: 1100px)').matches) {
         categoryRail.scrollTo({ left: targetCard.offsetLeft - 14, behavior: reduceMotion ? 'auto' : 'smooth' });
       }
     };
