@@ -121,3 +121,23 @@
   .itt-category-carousel__controls button:focus-visible{outline:2px solid #f2d5a7;outline-offset:2px}
 }
 @media(max-width:749px){.itt-card{flex-basis:82vw;min-height:92vw}}
+
+/* Join the film and menu into one continuous composition. */
+.itt-hero--denim:after{background:linear-gradient(180deg,rgba(7,7,7,0) 56%,rgba(7,7,7,.62) 88%,#070707 100%),linear-gradient(90deg,rgba(13,12,11,.76) 0%,rgba(13,12,11,.54) 32%,rgba(13,12,11,.06) 62%,rgba(13,12,11,.08) 100%)}
+.itt-categories-wrap{z-index:5;margin-top:clamp(-78px,-7vh,-52px);background:transparent;box-shadow:0 -24px 52px rgba(0,0,0,.18)}
+.itt-categories-wrap:before{content:"";position:absolute;z-index:-1;left:0;right:0;top:-52px;height:54px;background:linear-gradient(180deg,rgba(7,7,7,0),rgba(7,7,7,.86));pointer-events:none}
+.itt-hero__motion-toggle{bottom:96px}
+.itt-hero--denim .itt-hero__index{bottom:102px}
+@media(max-width:1100px){
+  .itt-categories-wrap{margin-top:-54px;padding-top:0;background:transparent}
+  .itt-categories-wrap:before{top:-42px;height:44px}
+  .itt-hero__motion-toggle{bottom:70px}
+  .itt-hero--denim .itt-hero__index{bottom:76px}
+}
+@media(max-width:749px){
+  .itt-hero--denim:after{background:linear-gradient(180deg,rgba(7,7,7,0) 48%,rgba(7,7,7,.64) 86%,#070707 100%),linear-gradient(90deg,rgba(12,11,10,.7) 0%,rgba(12,11,10,.34) 52%,rgba(12,11,10,.05) 100%)}
+  .itt-categories-wrap{margin-top:-40px}
+  .itt-categories-wrap:before{top:-34px;height:36px}
+  .itt-hero__motion-toggle{bottom:54px}
+  .itt-hero--denim .itt-hero__index{display:none}
+}
