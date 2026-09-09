@@ -20,6 +20,8 @@
         "hero_copy": "Laser-engraved one-of-one pieces designed in Detroit.",
         "hero_primary_label": "SHOP CUSTOM DENIM",
         "hero_secondary_label": "SHOP NEW ARRIVALS",
+        "enable_hero_motion": true,
+        "hero_cue_seconds": 4,
         "enable_category_motion": false,
         "enable_world_motion": true,
         "enable_process_motion": true,
