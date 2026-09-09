@@ -1,8 +1,18 @@
 {% liquid
   assign product_title_key = closest.product.title | downcase | strip
   assign is_burn_routes = false
+  assign is_flagline_short = false
+  assign is_off_shoulder_top = false
   if product_title_key == 'burn routes not bridges — v-neck tee'
     assign is_burn_routes = true
+  endif
+  if product_title_key contains 'flagline' and product_title_key contains 'short'
+    assign is_flagline_short = true
+    assign curated_media = 'itt-flagline-short-front-a.webp,itt-flagline-short-model.webp,itt-flagline-short-back-a.webp,itt-flagline-short-angle.webp,itt-flagline-short-detail.webp,itt-flagline-short-front-b.webp,itt-flagline-short-back-b.webp' | split: ','
+  endif
+  if product_title_key contains 'off-shoulder' or product_title_key contains 'off‑shoulder' or product_title_key contains 'off shoulder'
+    assign is_off_shoulder_top = true
+    assign curated_media = 'itt-flagline-top-angle.webp,itt-flagline-top-model.webp,itt-flagline-top-detail.webp' | split: ','
   endif
 %}
 
@@ -38,6 +48,64 @@
     @media screen and (max-width: 749px) {
       .itt-burn-routes-media {
         min-height: auto;
+      }
+    }
+  {% endstylesheet %}
+{% elsif is_flagline_short or is_off_shoulder_top %}
+  <div class="itt-curated-product-media" {{ block.shopify_attributes }}>
+    {% for image_name in curated_media %}
+      <figure class="itt-curated-product-media__item">
+        <img
+          src="{{ image_name | asset_url }}"
+          alt="{{ closest.product.title | escape }} — product view {{ forloop.index }}"
+          width="1254"
+          height="1254"
+          sizes="(min-width: 990px) 25vw, 88vw"
+          {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+        >
+      </figure>
+    {% endfor %}
+  </div>
+
+  {% stylesheet %}
+    .itt-curated-product-media {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      background: #f3f0e9;
+    }
+
+    .itt-curated-product-media__item {
+      aspect-ratio: 1;
+      margin: 0;
+      overflow: hidden;
+      background: #f7f5f0;
+    }
+
+    .itt-curated-product-media__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media screen and (max-width: 749px) {
+      .itt-curated-product-media {
+        display: flex;
+        gap: 3px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .itt-curated-product-media::-webkit-scrollbar {
+        display: none;
+      }
+
+      .itt-curated-product-media__item {
+        flex: 0 0 88%;
+        scroll-snap-align: start;
       }
     }
   {% endstylesheet %}

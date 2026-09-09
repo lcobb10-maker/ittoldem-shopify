@@ -6,9 +6,17 @@
   assign product_tags = product.tags | join: ',' | downcase
   assign primary_alt = product.featured_image.alt | default: product.title
   assign secondary_alt = product.images[1].alt | default: product.title
+  assign product_title_key = product.title | downcase | strip
   assign use_burn_routes_photo = false
+  assign curated_card_asset = blank
   if product.title == 'Burn Routes Not Bridges — V-Neck Tee'
     assign use_burn_routes_photo = true
+  endif
+  if product_title_key contains 'flagline' and product_title_key contains 'short'
+    assign curated_card_asset = 'itt-flagline-short-front-a.webp'
+  endif
+  if product_title_key contains 'off-shoulder' or product_title_key contains 'off‑shoulder' or product_title_key contains 'off shoulder'
+    assign curated_card_asset = 'itt-flagline-top-angle.webp'
   endif
 %}
 <article class="itt-product">
@@ -16,6 +24,8 @@
     <div class="itt-product__image">
       {% if use_burn_routes_photo %}
         <img class="itt-product__primary" src="{{ 'itt-burn-routes-front.webp' | asset_url }}" width="900" height="1125" loading="lazy" alt="Burn Routes Not Bridges V-neck tee, front view">
+      {% elsif curated_card_asset != blank %}
+        <img class="itt-product__primary" src="{{ curated_card_asset | asset_url }}" width="1254" height="1254" loading="lazy" alt="{{ product.title | escape }}">
       {% elsif product.featured_image != blank %}
         {{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: primary_alt }}
         {% if product.images.size > 1 %}
