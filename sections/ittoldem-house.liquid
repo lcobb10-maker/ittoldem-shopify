@@ -16,7 +16,7 @@
 
   <div
     class="itt-hero itt-hero--denim"
-    {% if section.settings.enable_hero_motion and section.settings.hero_video != blank or section.settings.enable_hero_motion and section.settings.hero_video_mobile != blank %}
+    {% if section.settings.enable_hero_motion %}
       data-itt-hero-motion
       data-itt-hero-cue="{{ section.settings.hero_cue_seconds }}"
     {% endif %}
@@ -39,10 +39,13 @@
         {% if section.settings.hero_video == blank %}{% assign hero_mobile_class = 'itt-hero__media itt-hero__video itt-hero__video--universal' %}{% else %}{% assign hero_mobile_class = 'itt-hero__media itt-hero__video itt-hero__video--mobile' %}{% endif %}
         {{ section.settings.hero_video_mobile | video_tag: class: hero_mobile_class, autoplay: true, muted: true, loop: false, controls: false, playsinline: true, preload: 'metadata' }}
       {% endif %}
-      {% if section.settings.hero_video != blank or section.settings.hero_video_mobile != blank %}
-        <button class="itt-motion-toggle itt-hero__motion-toggle" type="button" data-itt-hero-toggle>PAUSE MOTION</button>
-        <span class="itt-hero__cue-line" aria-hidden="true"></span>
+      {% if section.settings.hero_video == blank and section.settings.hero_video_mobile == blank %}
+        <video class="itt-hero__media itt-hero__video itt-hero__video--universal" autoplay muted playsinline preload="metadata" poster="{{ 'itt-hero-denim-desktop.webp' | asset_url }}">
+          <source src="{{ 'itt-hero-denim-motion.mp4' | asset_url }}" type="video/mp4">
+        </video>
       {% endif %}
+      <button class="itt-motion-toggle itt-hero__motion-toggle" type="button" data-itt-hero-toggle>PAUSE MOTION</button>
+      <span class="itt-hero__cue-line" aria-hidden="true"></span>
     {% endif %}
     <div class="itt-hero__content"><div class="itt-kicker">{{ section.settings.hero_kicker }}</div><h1 class="itt-display itt-hero__title">{{ section.settings.hero_heading | escape | newline_to_br }}</h1><p class="itt-hero__sub">{{ section.settings.hero_copy }}</p><div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="{{ hero_primary_url }}">{{ section.settings.hero_primary_label }} <span class="itt-arrow">→</span></a><a class="itt-textlink" href="#itt-new-arrivals">{{ section.settings.hero_secondary_label }} <span class="itt-arrow">↓</span></a></div></div>
     <div class="itt-hero__index">DENIM STUDY 001 · DETROIT</div>
@@ -56,6 +59,12 @@
     <a class="itt-card" href="{{ gvo_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-gvo.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-gvo.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "Gym Vibes Only" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-gvo.webp' | asset_url }}" loading="lazy" alt="Gym Vibes Only">{% endif %}<div class="itt-card__number">02</div><div class="itt-card__content"><h2 class="itt-card__title">GVO SPORT</h2><div class="itt-card__meta">TRAINING · FAN CULTURE · FLAGLINE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
     <a class="itt-card" href="{{ lab_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-lab.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-lab.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM The Lab" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-lab.webp' | asset_url }}" loading="lazy" alt="ITT TOLD’EM The Lab">{% endif %}<div class="itt-card__number">03</div><div class="itt-card__content"><h2 class="itt-card__title">THE LAB</h2><div class="itt-card__meta">CROCHET · EXPERIMENT · LIMITED</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
     <a class="itt-card itt-card--hero-target" href="{{ denim_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-custom-denim.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-custom-denim.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM custom denim" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-custom-denim.webp' | asset_url }}" loading="lazy" alt="ITT TOLD’EM custom denim">{% endif %}<div class="itt-card__number">04</div><div class="itt-card__content"><h2 class="itt-card__title">CUSTOM DENIM</h2><div class="itt-card__meta">ENGRAVED · ONE OF ONE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
+  </div>
+  <div class="itt-category-carousel__controls" aria-label="Browse house categories">
+    <span class="itt-category-carousel__label">SWIPE THE HOUSE</span>
+    <span class="itt-category-carousel__status" data-itt-category-status aria-live="polite">01 / 04</span>
+    <button type="button" data-itt-category-prev aria-label="Previous category">←</button>
+    <button type="button" data-itt-category-next aria-label="Next category">→</button>
   </div>
   {% if section.settings.enable_category_motion %}<button class="itt-motion-toggle" type="button" data-itt-motion-toggle>PAUSE MOTION</button>{% endif %}
   </div>
@@ -135,14 +144,38 @@
     const saveData = Boolean(navigator.connection && navigator.connection.saveData);
     const hero = root.querySelector('[data-itt-hero-motion]');
     const heroToggle = root.querySelector('[data-itt-hero-toggle]');
+    const categoryRail = root.querySelector('.itt-categories');
+    const categoryCards = Array.from(root.querySelectorAll('.itt-card'));
+    const categoryStatus = root.querySelector('[data-itt-category-status]');
+    const targetCard = root.querySelector('.itt-card--hero-target');
+    const updateCategoryStatus = () => {
+      if (!categoryRail || !categoryStatus || !categoryCards.length) return;
+      const railLeft = categoryRail.getBoundingClientRect().left;
+      const activeIndex = categoryCards.reduce((closest, card, index) => {
+        const distance = Math.abs(card.getBoundingClientRect().left - railLeft);
+        return distance < closest.distance ? { index, distance } : closest;
+      }, { index: 0, distance: Infinity }).index;
+      categoryStatus.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(categoryCards.length).padStart(2, '0')}`;
+    };
+    const moveCategoryRail = (direction) => {
+      if (!categoryRail || !categoryCards.length) return;
+      const gap = Number.parseFloat(window.getComputedStyle(categoryRail).columnGap || '0');
+      categoryRail.scrollBy({ left: direction * (categoryCards[0].getBoundingClientRect().width + gap), behavior: 'smooth' });
+    };
+    root.querySelector('[data-itt-category-prev]')?.addEventListener('click', () => moveCategoryRail(-1));
+    root.querySelector('[data-itt-category-next]')?.addEventListener('click', () => moveCategoryRail(1));
+    categoryRail?.addEventListener('scroll', () => window.requestAnimationFrame(updateCategoryStatus), { passive: true });
     const activateHeroCue = () => {
       root.classList.add('itt-hero-cue-active');
       root.classList.remove('itt-hero-cue-ready');
+      if (targetCard && categoryRail && window.matchMedia('(max-width: 749px)').matches) {
+        categoryRail.scrollTo({ left: targetCard.offsetLeft - 14, behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
     };
     if (hero) {
       const heroVideos = Array.from(hero.querySelectorAll('.itt-hero__video'));
       const activeHeroVideo = heroVideos.find((video) => window.getComputedStyle(video).display !== 'none') || heroVideos[0];
-      const cueSeconds = Number.parseFloat(hero.dataset.ittHeroCue || '4.5');
+      const cueSeconds = Number.parseFloat(hero.dataset.ittHeroCue || '4');
       if (reduceMotion || saveData || !activeHeroVideo) {
         heroVideos.forEach((video) => video.pause());
         activateHeroCue();
@@ -240,10 +273,10 @@
     {"type":"url","id":"hero_link","label":"Primary button link"},
 
     {"type":"header","content":"Hero motion and menu cue"},
-    {"type":"checkbox","id":"enable_hero_motion","label":"Play hero video once","default":false},
+    {"type":"checkbox","id":"enable_hero_motion","label":"Play hero video once","default":true},
     {"type":"video","id":"hero_video","label":"Desktop hero video"},
     {"type":"video","id":"hero_video_mobile","label":"Mobile hero video"},
-    {"type":"range","id":"hero_cue_seconds","label":"Reveal menu at","min":1,"max":10,"step":0.5,"unit":"s","default":4.5},
+    {"type":"range","id":"hero_cue_seconds","label":"Reveal menu at","min":1,"max":10,"step":0.5,"unit":"s","default":4},
 
     {"type":"header","content":"Motion"},
     {"type":"checkbox","id":"enable_category_motion","label":"Animate category cards","default":false},
