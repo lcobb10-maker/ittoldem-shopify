@@ -2,47 +2,88 @@ name: ITT Storefront Validation
 
 on:
   push:
-    branches: [ittoldem-development, main]
+    branches: [ittoldem-commerce-pass, ittoldem-development, main]
   pull_request:
-    branches: [main]
+    branches: [ittoldem-commerce-pass, main]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate theme structure and ITT homepage
-        shell: python
+      - name: Validate theme structure, schemas, assets, and commerce rules
+        shell: bash
         run: |
-          import json, pathlib, re
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+
           root = pathlib.Path('.')
-          required_dirs = ['assets','blocks','config','layout','locales','sections','snippets','templates']
-          missing = [d for d in required_dirs if not (root / d).is_dir()]
+          required_dirs = ['assets', 'blocks', 'config', 'layout', 'locales', 'sections', 'snippets', 'templates']
+          missing = [name for name in required_dirs if not (root / name).is_dir()]
           if missing:
               raise SystemExit(f'Missing required theme directories: {missing}')
 
-          homepage_text = (root / 'templates/index.json').read_text()
-          homepage_text = re.sub(r'^\s*/\*.*?\*/\s*', '', homepage_text, flags=re.S)
-          homepage = json.loads(homepage_text)
-          section_types = [v.get('type') for v in homepage.get('sections', {}).values()]
-          assert 'ittoldem-house' in section_types, 'ITT TOLD’EM homepage section is not active in templates/index.json'
+          def strip_json_banner(text):
+              return re.sub(r'^\s*/\*.*?\*/\s*', '', text, flags=re.S)
 
-          section_text = (root / 'sections/ittoldem-house.liquid').read_text()
-          match = re.search(r'{% schema %}\s*(.*?)\s*{% endschema %}', section_text, re.S)
-          assert match, 'Missing section schema'
-          schema = json.loads(match.group(1))
-          assert schema.get('name') == "ITT TOLD'EM House"
+          for path in sorted([*root.glob('templates/*.json'), *root.glob('config/*.json'), *root.glob('sections/*.json')]):
+              json.loads(strip_json_banner(path.read_text(encoding='utf-8')))
 
-          css = (root / 'assets/ittoldem-house.css').read_text()
-          assert len(css) > 1000, 'ITT design stylesheet is unexpectedly empty'
-          for image in ['itt-hero.jpg','itt-collections.jpg','itt-story.jpg','itt-editorial.jpg']:
-              assert (root / 'assets' / image).is_file(), f'Missing campaign asset: {image}'
-              assert image in css, f'Campaign asset not wired into CSS: {image}'
+          homepage = json.loads(strip_json_banner((root / 'templates/index.json').read_text(encoding='utf-8')))
+          house_sections = [value for value in homepage.get('sections', {}).values() if value.get('type') == 'ittoldem-house']
+          assert len(house_sections) == 1, 'Homepage must contain exactly one ITT TOLD’EM House section'
+          home_settings = house_sections[0].get('settings', {})
+          assert home_settings.get('enable_category_motion') is False, 'Category motion must default off on the live homepage'
 
-          custom_paths = [root/'sections/ittoldem-house.liquid', root/'assets/ittoldem-house.css', root/'templates/index.json']
+          for folder in ('sections', 'blocks'):
+              for path in sorted((root / folder).glob('*.liquid')):
+                  text = path.read_text(encoding='utf-8')
+                  for match in re.finditer(r'{% schema %}\s*(.*?)\s*{% endschema %}', text, re.S):
+                      json.loads(match.group(1))
+
+          required_assets = [
+              'itt-hero-denim-desktop.webp',
+              'itt-hero-denim-mobile.webp',
+              'itt-menu-apparel.webp',
+              'itt-menu-gvo.webp',
+              'itt-menu-lab.webp',
+              'itt-menu-custom-denim.webp',
+              'itt-enter-house.webp',
+              'itt-enter-house.mp4',
+              'itt-real-process.webp',
+              'itt-real-process.mp4',
+          ]
+          for name in required_assets:
+              assert (root / 'assets' / name).is_file(), f'Missing storefront asset: {name}'
+
+          for name in ['itt-enter-house.mp4', 'itt-real-process.mp4']:
+              data = (root / 'assets' / name).read_bytes()
+              assert b'ftyp' in data[:64] and b'moov' in data, f'Invalid or truncated MP4: {name}'
+
+          asset_pattern = re.compile(r"'([^']+)'\s*\|\s*asset_url")
+          for path in root.rglob('*.liquid'):
+              for name in asset_pattern.findall(path.read_text(encoding='utf-8')):
+                  assert (root / 'assets' / name).is_file(), f'{path} references missing asset {name}'
+
+          section_text = (root / 'sections/ittoldem-house.liquid').read_text(encoding='utf-8')
+          assert "render 'itt-product-card'" in section_text, 'Homepage must use the truthful product-card renderer'
+          assert 'forloop.index <= 2' not in section_text, 'HOUSE PICK cannot be assigned by grid position'
+          assert 'data-itt-motion-toggle' in section_text, 'Autoplay media must have a motion control'
+          assert 'navigator.connection' in section_text, 'Motion must honor data-saving mode when available'
+
+          custom_paths = [
+              root / 'sections/ittoldem-house.liquid',
+              root / 'assets/ittoldem-house.css',
+              root / 'templates/index.json',
+              root / 'snippets/itt-product-card.liquid',
+              root / 'snippets/itt-product-facts.liquid',
+          ]
           for path in custom_paths:
-              text = path.read_text()
+              text = path.read_text(encoding='utf-8')
               for marker in ['<<<<<<<', '=======', '>>>>>>>']:
                   assert marker not in text, f'Merge conflict marker in {path}'
 
           print('ITT TOLD’EM storefront validation passed.')
+          PY

@@ -1,3 +1,11 @@
+{% liquid
+  assign gvo_url = section.settings.gvo_collection.url | default: '/search?view=gvo&type=product&q=GVO'
+  assign flagline_url = section.settings.flagline_collection.url | default: '/search?view=flagline&type=product&q=FLAGLINE'
+  assign custom_url = section.settings.custom_collection.url | default: '/search?view=custom&type=product&q=CUSTOM'
+  assign wehair_url = section.settings.wehair_collection.url | default: '/search?view=wehair&type=product&q=WE%20HAIR'
+  assign lab_url = section.settings.lab_collection.url | default: '/search?view=lab&type=product&q=CROCHET'
+  assign about_url = section.settings.about_page.url | default: '/search?view=about&q=ITT'
+%}
 <footer class="itt-footer">
   <div class="itt-footer__lead">
     <div>
@@ -19,8 +27,8 @@
   </div>
 
   <div class="itt-footer__grid">
-    <div><span>SHOP</span><a href="{{ routes.all_products_collection_url }}">All Pieces</a><a href="/search?view=gvo&type=product&q=GVO">GVO</a><a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a></div>
-    <div><span>HOUSE</span><a href="/search?view=custom&type=product&q=CUSTOM">Custom</a><a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a><a href="/search?view=lab&type=product&q=CROCHET">The Lab</a><a href="/search?view=about&q=ITT">About</a></div>
+    <div><span>SHOP</span><a href="{{ routes.all_products_collection_url }}">All Pieces</a><a href="{{ gvo_url }}">GVO Sport</a><a href="{{ flagline_url }}">FLAGLINE</a></div>
+    <div><span>HOUSE</span><a href="{{ custom_url }}">Custom Denim</a><a href="{{ wehair_url }}">WE HAIR</a><a href="{{ lab_url }}">The Lab</a><a href="{{ about_url }}">About</a></div>
     <div><span>HELP</span><a href="/pages/contact">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a></div>
     <div><span>POLICIES</span>{% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Refund</a>{% endif %}{% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping</a>{% endif %}{% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif %}{% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Terms</a>{% endif %}</div>
   </div>
@@ -32,5 +40,5 @@
 {% endstylesheet %}
 
 {% schema %}
-{"name":"ITT TOLD'EM Footer","tag":"section","settings":[],"presets":[{"name":"ITT TOLD'EM Footer"}]}
+{"name":"ITT TOLD'EM Footer","tag":"section","settings":[{"type":"collection","id":"gvo_collection","label":"GVO collection"},{"type":"collection","id":"flagline_collection","label":"FLAGLINE collection"},{"type":"collection","id":"custom_collection","label":"Custom Denim collection"},{"type":"collection","id":"wehair_collection","label":"WE HAIR collection"},{"type":"collection","id":"lab_collection","label":"The Lab collection"},{"type":"page","id":"about_page","label":"About page"}],"presets":[{"name":"ITT TOLD'EM Footer"}]}
 {% endschema %}

@@ -1,11 +1,20 @@
+{% liquid
+  assign apparel_url = section.settings.apparel_collection.url | default: routes.all_products_collection_url
+  assign gvo_url = section.settings.gvo_collection.url | default: '/search?view=gvo&type=product&q=GVO'
+  assign flagline_url = section.settings.flagline_collection.url | default: '/search?view=flagline&type=product&q=FLAGLINE'
+  assign custom_url = section.settings.custom_collection.url | default: '/search?view=custom&type=product&q=CUSTOM'
+  assign wehair_url = section.settings.wehair_collection.url | default: '/search?view=wehair&type=product&q=WE%20HAIR'
+  assign lab_url = section.settings.lab_collection.url | default: '/search?view=lab&type=product&q=CROCHET'
+  assign about_url = section.settings.about_page.url | default: '/search?view=about&q=ITT'
+%}
 <nav class="itt-global-nav" aria-label="ITT TOLD'EM primary navigation">
-  <a href="{{ routes.all_products_collection_url }}">SHOP</a>
-  <a href="/search?view=gvo&type=product&q=GVO">GVO</a>
-  <a href="/search?view=flagline&type=product&q=FLAGLINE">FLAGLINE</a>
-  <a href="/search?view=custom&type=product&q=CUSTOM">CUSTOM</a>
-  <a href="/search?view=wehair&type=product&q=WE%20HAIR">WE HAIR</a>
-  <a href="/search?view=lab&type=product&q=CROCHET">THE LAB</a>
-  <a href="/search?view=about&q=ITT">ABOUT</a>
+  <a href="{{ apparel_url }}">SHOP</a>
+  <a href="{{ gvo_url }}">GVO SPORT</a>
+  <a href="{{ flagline_url }}">FLAGLINE</a>
+  <a href="{{ custom_url }}">CUSTOM DENIM</a>
+  <a href="{{ wehair_url }}">WE HAIR</a>
+  <a href="{{ lab_url }}">THE LAB</a>
+  <a href="{{ about_url }}">ABOUT</a>
 </nav>
 
 {% stylesheet %}
@@ -17,5 +26,5 @@
 {% endstylesheet %}
 
 {% schema %}
-{"name":"ITT House Navigation","tag":"section","settings":[],"presets":[{"name":"ITT House Navigation"}]}
+{"name":"ITT House Navigation","tag":"section","settings":[{"type":"collection","id":"apparel_collection","label":"Shop / Apparel collection"},{"type":"collection","id":"gvo_collection","label":"GVO collection"},{"type":"collection","id":"flagline_collection","label":"FLAGLINE collection"},{"type":"collection","id":"custom_collection","label":"Custom Denim collection"},{"type":"collection","id":"wehair_collection","label":"WE HAIR collection"},{"type":"collection","id":"lab_collection","label":"The Lab collection"},{"type":"page","id":"about_page","label":"About page"}],"presets":[{"name":"ITT House Navigation"}]}
 {% endschema %}

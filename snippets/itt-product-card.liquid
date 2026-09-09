@@ -1,0 +1,37 @@
+{% comment %}
+  ITT TOLD'EM homepage product card.
+  "HOUSE PICK" is controlled by an explicit product tag, never by grid position.
+{% endcomment %}
+{% liquid
+  assign product_tags = product.tags | join: ',' | downcase
+  assign primary_alt = product.featured_image.alt | default: product.title
+  assign secondary_alt = product.images[1].alt | default: product.title
+%}
+<article class="itt-product">
+  <a class="itt-product__link" href="{{ product.url }}">
+    <div class="itt-product__image">
+      {% if product.featured_image != blank %}
+        {{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: primary_alt }}
+        {% if product.images.size > 1 %}
+          {{ product.images[1] | image_url: width: 900 | image_tag: class: 'itt-product__secondary', loading: 'lazy', alt: secondary_alt }}
+        {% endif %}
+      {% else %}
+        {{ 'product-apparel-1' | placeholder_svg_tag }}
+      {% endif %}
+      <div class="itt-product__badges">
+        {% unless product.available %}<span>SOLD OUT</span>{% endunless %}
+        {% if product.compare_at_price > product.price %}<span>MARKDOWN</span>{% endif %}
+        {% if product_tags contains 'house-pick' or product_tags contains 'house pick' %}<span>HOUSE PICK</span>{% endif %}
+      </div>
+      <div class="itt-product__shop">VIEW PIECE <span>→</span></div>
+    </div>
+    <div class="itt-product__meta">
+      <div class="itt-product__name">{{ product.title }}</div>
+      <div class="itt-product__price">
+        {% if product.price_varies %}<span class="itt-product__from">FROM</span> {% endif %}
+        {{ product.price | money }}
+        {% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}
+      </div>
+    </div>
+  </a>
+</article>
