@@ -34,6 +34,20 @@
 
   <div class="itt-products" id="itt-new-arrivals"><div class="itt-products__head"><div><div class="itt-kicker itt-kicker--dark">CURRENT RELEASE</div><h2 class="itt-display itt-products__title">NEW ARRIVALS</h2></div><a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">SHOP ALL <span class="itt-arrow">→</span></a></div><div class="itt-products__grid">{% assign featured = section.settings.featured_collection %}{% if featured != blank and featured.products_count > 0 %}{% for product in featured.products limit: 8 %}<article class="itt-product"><a class="itt-product__link" href="{{ product.url }}"><div class="itt-product__image">{% if product.featured_image != blank %}{{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: product.title }}{% if product.images.size > 1 %}{{ product.images[1] | image_url: width: 900 | image_tag: class: 'itt-product__secondary', loading: 'lazy', alt: product.title }}{% endif %}{% else %}{{ 'product-apparel-1' | placeholder_svg_tag }}{% endif %}<div class="itt-product__badges">{% unless product.available %}<span>SOLD OUT</span>{% endunless %}{% if product.compare_at_price > product.price %}<span>MARKDOWN</span>{% endif %}{% if forloop.index <= 2 and product.available %}<span>HOUSE PICK</span>{% endif %}</div><div class="itt-product__shop">VIEW PIECE <span>→</span></div></div><div class="itt-product__meta"><div class="itt-product__name">{{ product.title }}</div><div class="itt-product__price">{% if product.price_varies %}<span class="itt-product__from">FROM</span> {% endif %}{{ product.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div></div></a></article>{% endfor %}{% else %}{% for i in (1..8) %}<div class="itt-product"><div class="itt-product__image">{{ 'product-apparel-1' | placeholder_svg_tag }}</div><div class="itt-product__name">ITT TOLD’EM PIECE {{ i }}</div><div class="itt-product__price">COMING SOON</div></div>{% endfor %}{% endif %}</div></div>
 
+  <section class="itt-world" aria-labelledby="IttWorldTitle-{{ section.id }}">
+    <div class="itt-world__copy">
+      <div class="itt-kicker">GVO · FLAGLINE · THE LAB · CUSTOM WORK</div>
+      <h2 class="itt-display itt-world__title" id="IttWorldTitle-{{ section.id }}">THE HOUSE<br>IS A WORLD.</h2>
+      <p>Run from the field into the place where sport, design and fabrication meet.</p>
+      <a class="itt-btn" href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">ENTER THE EXPERIENCE <span class="itt-arrow">→</span></a>
+    </div>
+    <div class="itt-world__visual">
+      {{ 'itt-enter-house.webp' | asset_url | image_tag: class: 'itt-world__poster', loading: 'lazy', alt: "Runner entering the ITT TOLD’EM world" }}
+      {% unless motion_disabled %}<video class="itt-world__media" data-itt-motion autoplay muted playsinline preload="metadata" poster="{{ 'itt-enter-house.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-enter-house.mp4' | asset_url }}" type="video/mp4"></video>{% endunless %}
+      <div class="itt-world__index">WORLD 001 · ENTER THE HOUSE</div>
+    </div>
+  </section>
+
   <div class="itt-manifesto"><div class="itt-manifesto__eyebrow">THE HOUSE CODE</div><p>NO UNIFORM. NO SAFE VERSION. <em>MAKE THE THING PEOPLE REMEMBER.</em></p></div>
 
   <div class="itt-story itt-story--real-process">
