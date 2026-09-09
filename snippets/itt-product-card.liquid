@@ -6,11 +6,17 @@
   assign product_tags = product.tags | join: ',' | downcase
   assign primary_alt = product.featured_image.alt | default: product.title
   assign secondary_alt = product.images[1].alt | default: product.title
+  assign use_burn_routes_photo = false
+  if product.title == 'Burn Routes Not Bridges — V-Neck Tee'
+    assign use_burn_routes_photo = true
+  endif
 %}
 <article class="itt-product">
   <a class="itt-product__link" href="{{ product.url }}">
     <div class="itt-product__image">
-      {% if product.featured_image != blank %}
+      {% if use_burn_routes_photo %}
+        <img class="itt-product__primary" src="{{ 'itt-burn-routes-front.webp' | asset_url }}" width="900" height="1125" loading="lazy" alt="Burn Routes Not Bridges V-neck tee, front view">
+      {% elsif product.featured_image != blank %}
         {{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: primary_alt }}
         {% if product.images.size > 1 %}
           {{ product.images[1] | image_url: width: 900 | image_tag: class: 'itt-product__secondary', loading: 'lazy', alt: secondary_alt }}
