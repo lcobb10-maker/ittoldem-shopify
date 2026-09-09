@@ -1,0 +1,13 @@
+<a class="itt-edit" href="{{ featured_collection.url }}">
+  <div class="itt-edit__media">
+    {% if featured_collection.image != blank %}
+      {{ featured_collection.image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900, 1100', sizes: '(max-width: 749px) 76vw, 33vw', alt: featured_collection.title }}
+    {% elsif featured_collection.products.first.featured_image != blank %}
+      {{ featured_collection.products.first.featured_image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900, 1100', sizes: '(max-width: 749px) 76vw, 33vw', alt: featured_collection.title }}
+    {% else %}
+      <div class="itt-edit__study" aria-hidden="true"><span>ITT</span></div>
+    {% endif %}
+  </div>
+  <div class="itt-edit__number">{{ tile_number }}</div>
+  <div class="itt-edit__content"><h3>{{ featured_collection.title }}</h3><p>{{ tile_label }}</p><span>ENTER THE EDIT →</span></div>
+</a>
