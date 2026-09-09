@@ -1,338 +1,182 @@
 {{ 'ittoldem-house.css' | asset_url | stylesheet_tag }}
 <style>.itt-media-placeholder{display:block;background:linear-gradient(180deg,#ece8df 0%,#d7d1c7 100%);width:100%;height:100%;}</style>
 
-{% liquid
-  assign hero_primary_url = section.settings.hero_link | default: section.settings.custom_collection.url | default: section.settings.category_link_4 | default: routes.all_products_collection_url
-  assign apparel_url = section.settings.apparel_collection.url | default: section.settings.category_link_1 | default: routes.all_products_collection_url
-  assign gvo_url = section.settings.gvo_collection.url | default: section.settings.gvo_link | default: routes.all_products_collection_url
-  assign lab_url = section.settings.lab_collection.url | default: section.settings.lab_link | default: section.settings.category_link_3 | default: routes.all_products_collection_url
-  assign denim_url = section.settings.custom_collection.url | default: section.settings.category_link_4 | default: routes.all_products_collection_url
-%}
+{% assign motion_disabled = section.settings.disable_motion_media %}
 
-<section class="itt-house">
-  <div class="itt-announcement" aria-label="House benefits">
-    <span>MAISON · DÉTROIT — EAST SIDE</span><span>WORLDWIDE SHIPPING</span><span>DESIGNED TO BE DISCOVERED</span>
+<section class="itt-house" data-itt-house>
+  <div class="itt-hero" data-itt-stop="ÉDITION 001">
+    {% unless motion_disabled %}
+      <video class="itt-hero__media" data-itt-motion autoplay muted loop playsinline preload="metadata" poster="{{ 'itt-house-hero-desktop.webp' | asset_url }}" aria-hidden="true">
+        <source src="{{ 'itt-house-hero-mobile.mp4' | asset_url }}" media="(max-width: 749px)" type="video/mp4">
+        <source src="{{ 'itt-house-hero-desktop.mp4' | asset_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 2200 | image_tag: class: 'itt-hero__media', loading: 'eager', fetchpriority: 'high', alt: "ITT TOLD’EM Detroit campaign" }}
+    {% else %}
+      {{ 'itt-house-hero-desktop.webp' | asset_url | image_tag: class: 'itt-hero__media', loading: 'eager', fetchpriority: 'high', alt: "ITT TOLD’EM Detroit campaign" }}
+    {% endunless %}
+    <div class="itt-hero__content"><div class="itt-kicker">DENIM STUDY 001 · MAISON DÉTROIT</div><h1 class="itt-display itt-hero__title">ONE OF ONE.<br>ENGRAVED<br>IN DETROIT.</h1><p class="itt-hero__sub">Individually marked, reconstructed and numbered by the house. One of one, or one of few.</p><div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">VIEW THE STUDY <span class="itt-arrow">→</span></a><a class="itt-textlink" href="#itt-house-edit">DISCOVER THE RELEASE <span class="itt-arrow">↓</span></a></div></div>
+    <div class="itt-script">I told ’em.<small>JE VOUS L’AVAIS DIT.</small></div><div class="itt-hero__index">ÉDITION 001 · DETROIT</div>
+    <div class="itt-orbit" aria-hidden="true"><span>ITT</span><span>001</span><span>DÉTROIT</span></div>
   </div>
 
-  <div
-    class="itt-hero itt-hero--denim"
-    {% if section.settings.enable_hero_motion %}
-      data-itt-hero-motion
-      data-itt-hero-cue="{{ section.settings.hero_cue_seconds }}"
-    {% endif %}
-  >
-    <picture class="itt-hero__picture">
-      {% if section.settings.use_selected_hero and section.settings.hero_image != blank %}
-        {% if section.settings.hero_image_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1120 }}">{% endif %}
-        {{ section.settings.hero_image | image_url: width: 2000 | image_tag: class: 'itt-hero__media', width: section.settings.hero_image.width, height: section.settings.hero_image.height, loading: 'eager', fetchpriority: 'high', widths: '750, 1120, 1600, 2000', sizes: '100vw', alt: section.settings.hero_alt }}
-      {% else %}
-        <source media="(max-width: 749px)" srcset="{{ 'itt-hero-denim-mobile.webp' | asset_url }}">
-        <img class="itt-hero__media" src="{{ 'itt-hero-denim-desktop.webp' | asset_url }}" width="1600" height="900" loading="eager" fetchpriority="high" alt="{{ section.settings.hero_alt | escape }}">
-      {% endif %}
-    </picture>
-    {% if section.settings.enable_hero_motion %}
-      {% if section.settings.hero_video != blank %}
-        {% if section.settings.hero_video_mobile == blank %}{% assign hero_desktop_class = 'itt-hero__media itt-hero__video itt-hero__video--universal' %}{% else %}{% assign hero_desktop_class = 'itt-hero__media itt-hero__video itt-hero__video--desktop' %}{% endif %}
-        {{ section.settings.hero_video | video_tag: class: hero_desktop_class, autoplay: true, muted: true, loop: false, controls: false, playsinline: true, preload: 'metadata' }}
-      {% endif %}
-      {% if section.settings.hero_video_mobile != blank %}
-        {% if section.settings.hero_video == blank %}{% assign hero_mobile_class = 'itt-hero__media itt-hero__video itt-hero__video--universal' %}{% else %}{% assign hero_mobile_class = 'itt-hero__media itt-hero__video itt-hero__video--mobile' %}{% endif %}
-        {{ section.settings.hero_video_mobile | video_tag: class: hero_mobile_class, autoplay: true, muted: true, loop: false, controls: false, playsinline: true, preload: 'metadata' }}
-      {% endif %}
-      {% if section.settings.hero_video == blank and section.settings.hero_video_mobile == blank %}
-        <video class="itt-hero__media itt-hero__video itt-hero__video--universal" autoplay muted playsinline preload="metadata" poster="{{ 'itt-hero-denim-desktop.webp' | asset_url }}">
-          <source src="{{ 'itt-hero-denim-motion.mp4' | asset_url }}" type="video/mp4">
-        </video>
-      {% endif %}
-      <button class="itt-motion-toggle itt-hero__motion-toggle" type="button" data-itt-hero-toggle aria-label="Pause hero film">PAUSE</button>
-      <span class="itt-hero__cue-line" aria-hidden="true"></span>
-    {% endif %}
-    <div class="itt-hero__content"><div class="itt-kicker">{{ section.settings.hero_kicker }}</div><h1 class="itt-display itt-hero__title">{{ section.settings.hero_heading | escape | newline_to_br }}</h1><p class="itt-hero__sub">{{ section.settings.hero_copy }}</p><div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="{{ hero_primary_url }}">{{ section.settings.hero_primary_label }} <span class="itt-arrow">→</span></a><a class="itt-textlink" href="#itt-new-arrivals">{{ section.settings.hero_secondary_label }} <span class="itt-arrow">↓</span></a></div></div>
-    <div class="itt-hero__index">DENIM STUDY 001 · DETROIT</div>
-  </div>
-
-  
-
-  <div class="itt-categories-wrap" data-itt-motion-group="categories">
-  <div class="itt-categories">
-    <a class="itt-card" href="{{ apparel_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-apparel.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-apparel.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM apparel" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-apparel.webp' | asset_url }}" width="900" height="1200" loading="lazy" alt="ITT TOLD’EM apparel">{% endif %}<div class="itt-card__number">01</div><div class="itt-card__content"><h2 class="itt-card__title">APPAREL</h2><div class="itt-card__meta">HOODIES · TEES · JOGGERS</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
-    <a class="itt-card" href="{{ gvo_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-gvo.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-gvo.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "Gym Vibes Only" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-gvo.webp' | asset_url }}" width="900" height="1200" loading="lazy" alt="Gym Vibes Only">{% endif %}<div class="itt-card__number">02</div><div class="itt-card__content"><h2 class="itt-card__title">GVO SPORT</h2><div class="itt-card__meta">TRAINING · FAN CULTURE · FLAGLINE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
-    <a class="itt-card" href="{{ lab_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-lab.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-lab.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM The Lab" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-lab.webp' | asset_url }}" width="900" height="1200" loading="lazy" alt="ITT TOLD’EM The Lab">{% endif %}<div class="itt-card__number">03</div><div class="itt-card__content"><h2 class="itt-card__title">THE LAB</h2><div class="itt-card__meta">CROCHET · EXPERIMENT · LIMITED</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
-    <a class="itt-card itt-card--hero-target" href="{{ denim_url }}">{% if section.settings.enable_category_motion %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-custom-denim.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-custom-denim.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM custom denim" }}{% else %}<img class="itt-card__media" src="{{ 'itt-menu-custom-denim.webp' | asset_url }}" width="900" height="1200" loading="lazy" alt="ITT TOLD’EM custom denim">{% endif %}<div class="itt-card__number">04</div><div class="itt-card__content"><h2 class="itt-card__title">CUSTOM DENIM</h2><div class="itt-card__meta">ENGRAVED · ONE OF ONE</div><div class="itt-card__link">ENTER <span class="itt-arrow">→</span></div></div></a>
-  </div>
-  <div class="itt-category-carousel__controls" aria-label="Browse house categories">
-    <span class="itt-category-carousel__label">SWIPE THE HOUSE</span>
-    <div class="itt-category-carousel__dots" role="group" aria-label="Category slides">
-      <button type="button" data-itt-category-dot data-index="0" aria-label="Show Apparel" aria-current="true"></button>
-      <button type="button" data-itt-category-dot data-index="1" aria-label="Show GVO Sport"></button>
-      <button type="button" data-itt-category-dot data-index="2" aria-label="Show The Lab"></button>
-      <button type="button" data-itt-category-dot data-index="3" aria-label="Show Custom Denim"></button>
-    </div>
-    <span class="itt-category-carousel__status" data-itt-category-status aria-live="polite">01 / 04</span>
-    <button type="button" data-itt-category-prev aria-label="Previous category">←</button>
-    <button type="button" data-itt-category-next aria-label="Next category">→</button>
-  </div>
-  {% if section.settings.enable_category_motion %}<button class="itt-motion-toggle" type="button" data-itt-motion-toggle>PAUSE MOTION</button>{% endif %}
-  </div>
-
-  <div class="itt-products" id="itt-new-arrivals">
-    <div class="itt-products__head">
-      <div><div class="itt-kicker itt-kicker--dark">CURATED RELEASE</div><h2 class="itt-display itt-products__title">THE HOUSE EDIT</h2></div>
-      <a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">SHOP ALL <span class="itt-arrow">→</span></a>
-    </div>
+  <div class="itt-products" id="itt-house-edit" data-itt-stop="THE HOUSE EDIT">
+    <div class="itt-products__head"><div><div class="itt-kicker itt-kicker--dark">ÉDITION EN COURS · CURRENT RELEASE</div><h2 class="itt-display itt-products__title">THE HOUSE EDIT</h2></div><a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW THE COLLECTION <span class="itt-arrow">→</span></a></div>
+    {% assign featured = section.settings.featured_collection %}
+    {% assign visible_products = 0 %}
     <div class="itt-products__grid">
-      {% if section.settings.featured_products != blank %}
-        {% for product in section.settings.featured_products limit: 8 %}{% render 'itt-product-card', product: product %}{% endfor %}
-      {% elsif section.settings.featured_collection != blank and section.settings.featured_collection.products_count > 0 %}
-        {% assign verified_product_count = 0 %}
-        {% for product in section.settings.featured_collection.products limit: 50 %}
-          {% case product.title %}
-            {% when 'Custom engraved pants', 'Ghost Bloom Polo', 'ITT TOLD’EM Engraved Denim — third Edition', 'Burn Routes Not Bridges — V-Neck Tee', 'ITT FLAGLINE Short', 'Reconstructed Off-Shoulder Fan Jersey', 'Reconstructed Off‑Shoulder Fan Jersey' %}
-              {% render 'itt-product-card', product: product %}
-              {% assign verified_product_count = verified_product_count | plus: 1 %}
-          {% endcase %}
+      {% if featured != blank and featured.products_count > 0 %}
+        {% for product in featured.products %}
+          {% if product.featured_image != blank %}
+            <article class="itt-product"><a class="itt-product__link" href="{{ product.url }}"><div class="itt-product__image">{{ product.featured_image | image_url: width: 900 | image_tag: class: 'itt-product__primary', loading: 'lazy', alt: product.title }}{% if product.images.size > 1 %}{{ product.images[1] | image_url: width: 900 | image_tag: class: 'itt-product__secondary', loading: 'lazy', alt: product.title }}{% endif %}<div class="itt-product__badges">{% unless product.available %}<span>ÉPUISÉ</span>{% endunless %}{% if visible_products < 2 and product.available %}<span>MAISON SELECT</span>{% endif %}</div><div class="itt-product__shop">VIEW PIECE <span>→</span></div></div><div class="itt-product__meta"><div class="itt-product__name">{{ product.title }}</div><div class="itt-product__price">{% if product.price_varies %}<span class="itt-product__from">FROM</span> {% endif %}{{ product.price | money }}</div></div></a></article>
+            {% assign visible_products = visible_products | plus: 1 %}
+            {% if visible_products >= 4 %}{% break %}{% endif %}
+          {% endif %}
         {% endfor %}
-        {% if verified_product_count == 0 %}<div class="itt-products__empty"><strong>THE NEXT RELEASE IS BEING PREPARED.</strong><span>Only products with verified photography appear here.</span></div>{% endif %}
-      {% else %}
-        <div class="itt-products__empty"><strong>THE NEXT RELEASE IS BEING PREPARED.</strong><span>Choose verified products in the theme editor before publishing them here.</span></div>
       {% endif %}
     </div>
+    {% if visible_products == 0 %}<div class="itt-products__empty"><span>LA PROCHAINE ÉDITION</span><p>The next house edit is being prepared. Join the private list for first access.</p></div>{% endif %}
   </div>
 
-  <section class="itt-world" aria-labelledby="IttWorldTitle-{{ section.id }}">
-    <div class="itt-world__copy">
-      <div class="itt-kicker">GVO · FLAGLINE · THE LAB · CUSTOM WORK</div>
-      <h2 class="itt-display itt-world__title" id="IttWorldTitle-{{ section.id }}">THE HOUSE<br>IS A WORLD.</h2>
-      <p>Run from the field into the place where sport, design and fabrication meet.</p>
-      <a class="itt-btn" href="{{ gvo_url }}">ENTER THE EXPERIENCE <span class="itt-arrow">→</span></a>
-    </div>
-    <div class="itt-world__visual" data-itt-motion-group="world">
-      <img class="itt-world__poster" src="{{ 'itt-enter-house.webp' | asset_url }}" width="360" height="640" loading="lazy" alt="Runner entering the ITT TOLD’EM world">
-      {% if section.settings.enable_world_motion %}
-        {% if section.settings.world_video != blank %}
-          {{ section.settings.world_video | video_tag: class: 'itt-world__media', autoplay: true, muted: true, controls: false, playsinline: true, preload: 'metadata' }}
-        {% else %}
-          <video class="itt-world__media" autoplay muted playsinline preload="metadata" poster="{{ 'itt-enter-house.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-enter-house.mp4' | asset_url }}" type="video/mp4"></video>
-        {% endif %}
-        <button class="itt-motion-toggle" type="button" data-itt-motion-toggle>PAUSE MOTION</button>
-      {% endif %}
-      <div class="itt-world__index">WORLD 001 · ENTER THE HOUSE</div>
-    </div>
-  </section>
+  {%- liquid
+    assign hoodie_collection = collections['hoodie-season']
+    assign fan_collection = collections['fan-gear']
+    assign class_collection = collections['la-classe']
+    assign night_collection = collections['after-dark']
+    assign romantic_collection = collections['les-romantiques']
+    assign family_collection = collections['la-famille']
+  -%}
+  {% if hoodie_collection != blank or fan_collection != blank or class_collection != blank or night_collection != blank or romantic_collection != blank or family_collection != blank %}
+    <section class="itt-edits" data-itt-stop="SHOP THE EDITS" aria-labelledby="IttEditsTitle-{{ section.id }}">
+      <div class="itt-edits__head"><div class="itt-kicker">LES ÉDITIONS · SHOP BY MOOD</div><h2 id="IttEditsTitle-{{ section.id }}" class="itt-display">CHOOSE YOUR WORLD.</h2></div>
+      <div class="itt-edits__grid">
+        {% if hoodie_collection != blank %}{% render 'itt-collection-tile', featured_collection: hoodie_collection, tile_number: '01', tile_label: 'LAYERS · SETS · COLD WEATHER' %}{% endif %}
+        {% if fan_collection != blank %}{% render 'itt-collection-tile', featured_collection: fan_collection, tile_number: '02', tile_label: 'GAME DAY · FAMILY · TEAM' %}{% endif %}
+        {% if class_collection != blank %}{% render 'itt-collection-tile', featured_collection: class_collection, tile_number: '03', tile_label: 'POLISHED · STRUCTURED · QUIET' %}{% endif %}
+        {% if night_collection != blank %}{% render 'itt-collection-tile', featured_collection: night_collection, tile_number: '04', tile_label: 'NIGHT OUT · FITTED · STATEMENT' %}{% endif %}
+        {% if romantic_collection != blank %}{% render 'itt-collection-tile', featured_collection: romantic_collection, tile_number: '05', tile_label: 'COUPLES · GIFTS · CONNECTION' %}{% endif %}
+        {% if family_collection != blank %}{% render 'itt-collection-tile', featured_collection: family_collection, tile_number: '06', tile_label: 'PARENTS · BABY · YOUTH' %}{% endif %}
+      </div>
+    </section>
+  {% endif %}
 
-  <div class="itt-manifesto"><div class="itt-manifesto__eyebrow">THE HOUSE CODE</div><p>NO UNIFORM. NO SAFE VERSION. <em>MAKE THE THING PEOPLE REMEMBER.</em></p></div>
-
-  <div class="itt-story itt-story--real-process">
-    <div class="itt-story__content">
-      <div class="itt-kicker">MADE IN THE LAB · REAL PROCESS 001</div>
-      <h2 class="itt-display itt-story__title">FROM DRAWING<br>TO FABRIC.</h2>
-      <p class="itt-story__copy">Laser engraving, custom construction and one-of-one experimentation. The work begins with material, hand and machine.</p>
-      <a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">ENTER THE LAB <span class="itt-arrow">→</span></a>
-    </div>
-    <div class="itt-process__visual" data-itt-motion-group="process">
-      <img class="itt-process__poster" src="{{ 'itt-real-process-v2.webp' | asset_url }}" width="448" height="796" loading="lazy" alt="Laser engraving a custom ITT TOLD’EM denim design">
-      {% if section.settings.enable_process_motion %}
-        {% if section.settings.process_video != blank %}
-          {{ section.settings.process_video | video_tag: class: 'itt-process__media', autoplay: true, muted: true, loop: true, controls: false, playsinline: true, preload: 'metadata' }}
-        {% else %}
-          <video class="itt-process__media" autoplay muted loop playsinline preload="metadata" poster="{{ 'itt-real-process-v2.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-real-process-v2.mp4' | asset_url }}" type="video/mp4"></video>
-        {% endif %}
-        <button class="itt-motion-toggle" type="button" data-itt-motion-toggle>PAUSE MOTION</button>
-      {% endif %}
-      <div class="itt-process__caption"><span>LASER ENGRAVING</span><span>ONE OF ONE · IN PROGRESS</span></div>
-    </div>
-    <div class="itt-values">Material<br>Craft<br>Process<br>Experiment</div>
+  <div class="itt-atelier-proof" data-itt-stop="L’ATELIER">
+    <div><div class="itt-kicker">L’ATELIER · DETROIT</div><h2 class="itt-display">MARKED BY HAND.<br>KEPT FOR YEARS.</h2></div>
+    <div class="itt-atelier-proof__copy"><p>Laser engraving, reconstruction and small-run fabrication. Each commission begins with the material, the placement and the person who will wear it.</p><a class="itt-btn" href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">REQUEST A COMMISSION <span class="itt-arrow">→</span></a></div>
+    <div class="itt-atelier-proof__facts"><span>ONE OF ONE</span><span>HAND-FINISHED</span><span>MADE TO ORDER</span><span>DETROIT DESIGN HOUSE</span></div>
   </div>
 
-  <div class="itt-drop"><div><div class="itt-kicker">DON’T WAIT FOR THE ALGORITHM</div><h2 class="itt-display">GET THE DROP SIGNAL.</h2></div>{% form 'customer', class: 'itt-drop__form' %}<input type="hidden" name="contact[tags]" value="newsletter,ittoldem-house"><label class="visually-hidden" for="IttDropEmail-{{ section.id }}">Email address</label><input id="IttDropEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="EMAIL ADDRESS" required autocomplete="email"><button type="submit">JOIN THE HOUSE <span>→</span></button>{% if form.posted_successfully? %}<p class="itt-drop__status" role="status">YOU’RE IN.</p>{% endif %}{% if form.errors %}<div class="itt-drop__status" role="alert">{{ form.errors | default_errors }}</div>{% endif %}{% endform %}</div>
-  <div class="itt-servicebar"><div class="itt-service">✈ &nbsp; WORLDWIDE SHIPPING</div><div class="itt-service">◇ &nbsp; CUSTOM WORK AVAILABLE</div><div class="itt-service">▢ &nbsp; SECURE CHECKOUT</div><div class="itt-service">⌁ &nbsp; DETROIT DESIGN HOUSE</div></div><div class="itt-footer-statement"><strong>ITT TOLD’EM <span class="itt-kicker">MAISON · DÉTROIT</span></strong><em>We built the house. Now we tell ’em.</em></div>
+  <div class="itt-house-worlds" data-itt-stop="HOUSE WORLDS"><div class="itt-kicker">LES MONDES DE LA MAISON · HOUSE WORLDS</div><h2 class="itt-display">ENTER THE HOUSE.</h2></div>
+  <div class="itt-categories">
+    <a class="itt-card" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-apparel.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-apparel.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Maison collection" }}{% else %}{{ 'itt-menu-apparel.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Maison collection" }}{% endunless %}<div class="itt-card__number">01</div><div class="itt-card__content"><h2 class="itt-card__title">LA MAISON</h2><div class="itt-card__meta">LIMITED EDITIONS · HOUSE SIGNATURES</div><div class="itt-card__link">DISCOVER <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-card" href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-custom-denim.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-custom-denim.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM atelier custom denim" }}{% else %}{{ 'itt-menu-custom-denim.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM atelier custom denim" }}{% endunless %}<div class="itt-card__number">02</div><div class="itt-card__content"><h2 class="itt-card__title">L’ATELIER</h2><div class="itt-card__meta">ENGRAVED · RECONSTRUCTED · ONE OF ONE</div><div class="itt-card__link">COMMISSION <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-card" href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-gvo.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-gvo.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM FLAGLINE" }}{% else %}{{ 'itt-menu-gvo.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM FLAGLINE" }}{% endunless %}<div class="itt-card__number">03</div><div class="itt-card__content"><h2 class="itt-card__title">FLAGLINE</h2><div class="itt-card__meta">SPORT · TEAM CULTURE · GVO</div><div class="itt-card__link">DISCOVER <span class="itt-arrow">→</span></div></div></a>
+    <a class="itt-card" href="{{ section.settings.lab_link | default: section.settings.category_link_3 | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-lab.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-lab.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Le Laboratoire" }}{% else %}{{ 'itt-menu-lab.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Le Laboratoire" }}{% endunless %}<div class="itt-card__number">04</div><div class="itt-card__content"><h2 class="itt-card__title">LE LABORATOIRE</h2><div class="itt-card__meta">CROCHET · PROTOTYPES · LIMITED</div><div class="itt-card__link">EXPLORE <span class="itt-arrow">→</span></div></div></a>
+  </div>
+
+  <div class="itt-manifesto" data-itt-stop="HOUSE CODE"><div class="itt-manifesto__eyebrow">LE CODE DE LA MAISON</div><p>ONE OF ONE, OR ONE OF FEW. NOT MERCH. <em>WEARABLE ART.</em></p></div>
+
+  <div class="itt-story" data-itt-stop="SAVOIR-FAIRE">{% unless motion_disabled %}<video class="itt-story__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-story-process.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-story-process.mp4' | asset_url }}" type="video/mp4"></video>{% else %}{{ 'itt-story-process.webp' | asset_url | image_tag: class: 'itt-story__media', loading: 'lazy', alt: "ITT TOLD’EM materials and process" }}{% endunless %}<div class="itt-story__content"><div class="itt-kicker">SAVOIR-FAIRE · DÉTROIT</div><h2 class="itt-display itt-story__title">FROM MATERIAL<br>TO MEMORY.</h2><p class="itt-story__copy">The work begins with material, hand and machine. It leaves the house as a limited piece made to be worn, remembered and kept.</p><a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">DISCOVER THE PROCESS <span class="itt-arrow">→</span></a></div><div class="itt-values">Matière<br>Main<br>Machine<br>Mémoire</div></div>
+
+  <div class="itt-drop"><div><div class="itt-kicker">INVITATION PRIVÉE</div><h2 class="itt-display">RECEIVE THE HOUSE LETTER.</h2></div>{% form 'customer', class: 'itt-drop__form' %}<input type="hidden" name="contact[tags]" value="newsletter,ittoldem-house"><label class="visually-hidden" for="IttDropEmail-{{ section.id }}">Email address</label><input id="IttDropEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="EMAIL ADDRESS" required autocomplete="email"><button type="submit">ENTER LA MAISON <span>→</span></button>{% if form.posted_successfully? %}<p class="itt-drop__status" role="status">BIENVENUE. YOU’RE IN.</p>{% endif %}{% if form.errors %}<div class="itt-drop__status" role="alert">{{ form.errors | default_errors }}</div>{% endif %}{% endform %}</div>
+  <div class="itt-servicebar"><div class="itt-service">◇ &nbsp; LIMITED PRODUCTION</div><div class="itt-service">✦ &nbsp; COMMISSIONS AVAILABLE</div><div class="itt-service">▢ &nbsp; SECURE CHECKOUT</div><div class="itt-service">⌁ &nbsp; DETROIT DESIGN HOUSE</div></div>
+
+  <div class="itt-joystick" data-itt-joystick aria-label="House navigation controller">
+    <div class="itt-joystick__readout" aria-live="polite">ÉDITION 001</div>
+    <button class="itt-joystick__step itt-joystick__step--up" type="button" data-itt-step="-1" aria-label="Previous house scene">↑</button>
+    <div class="itt-joystick__base" data-itt-stick role="slider" tabindex="0" aria-label="Drag vertically to move through the house" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" aria-orientation="vertical">
+      <span class="itt-joystick__knob"></span>
+    </div>
+    <button class="itt-joystick__step itt-joystick__step--down" type="button" data-itt-step="1" aria-label="Next house scene">↓</button>
+  </div>
 </section>
 
 <script>
   (() => {
     const root = document.querySelector('#shopify-section-{{ section.id }} .itt-house');
     if (!root) return;
-    const videos = root.querySelectorAll('video.itt-card__media, video.itt-world__media, video.itt-process__media');
-    const toggles = root.querySelectorAll('[data-itt-motion-toggle]');
+    const videos = root.querySelectorAll('video[data-itt-motion]');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const saveData = Boolean(navigator.connection && navigator.connection.saveData);
-    const hero = root.querySelector('[data-itt-hero-motion]');
-    const heroToggle = root.querySelector('[data-itt-hero-toggle]');
-    const categoryRail = root.querySelector('.itt-categories');
-    const categoryCards = Array.from(root.querySelectorAll('.itt-card'));
-    const categoryDots = Array.from(root.querySelectorAll('[data-itt-category-dot]'));
-    const categoryStatus = root.querySelector('[data-itt-category-status]');
-    const updateCategoryStatus = () => {
-      if (!categoryRail || !categoryStatus || !categoryCards.length) return;
-      const railLeft = categoryRail.getBoundingClientRect().left;
-      const activeIndex = categoryCards.reduce((closest, card, index) => {
-        const distance = Math.abs(card.getBoundingClientRect().left - railLeft);
-        return distance < closest.distance ? { index, distance } : closest;
-      }, { index: 0, distance: Infinity }).index;
-      categoryStatus.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(categoryCards.length).padStart(2, '0')}`;
-      categoryDots.forEach((dot, index) => {
-        if (index === activeIndex) dot.setAttribute('aria-current', 'true');
-        else dot.removeAttribute('aria-current');
-      });
-    };
-    const moveCategoryRail = (direction) => {
-      if (!categoryRail || !categoryCards.length) return;
-      const gap = Number.parseFloat(window.getComputedStyle(categoryRail).columnGap || '0');
-      categoryRail.scrollBy({ left: direction * (categoryCards[0].getBoundingClientRect().width + gap), behavior: 'smooth' });
-    };
-    root.querySelector('[data-itt-category-prev]')?.addEventListener('click', () => moveCategoryRail(-1));
-    root.querySelector('[data-itt-category-next]')?.addEventListener('click', () => moveCategoryRail(1));
-    categoryDots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const card = categoryCards[Number.parseInt(dot.dataset.index || '0', 10)];
-        if (!card || !categoryRail) return;
-        categoryRail.scrollTo({ left: card.offsetLeft - 14, behavior: reduceMotion ? 'auto' : 'smooth' });
-      });
-    });
-    categoryRail?.addEventListener('scroll', () => window.requestAnimationFrame(updateCategoryStatus), { passive: true });
-    const activateHeroCue = () => {
-      root.classList.add('itt-hero-cue-active');
-      root.classList.remove('itt-hero-cue-ready');
-    };
-    if (hero) {
-      const heroVideos = Array.from(hero.querySelectorAll('.itt-hero__video'));
-      const activeHeroVideo = heroVideos.find((video) => window.getComputedStyle(video).display !== 'none') || heroVideos[0];
-      const cueSeconds = Number.parseFloat(hero.dataset.ittHeroCue || '4');
-      if (reduceMotion || saveData || !activeHeroVideo) {
-        heroVideos.forEach((video) => video.pause());
-        activateHeroCue();
-        if (heroToggle) heroToggle.hidden = true;
-      } else {
-        root.classList.add('itt-hero-cue-ready');
-        heroVideos.filter((video) => video !== activeHeroVideo).forEach((video) => video.pause());
-        const checkCue = () => {
-          if (activeHeroVideo.currentTime >= cueSeconds) activateHeroCue();
-        };
-        activeHeroVideo.addEventListener('timeupdate', checkCue);
-        activeHeroVideo.addEventListener('ended', activateHeroCue, { once: true });
-        const playback = activeHeroVideo.play();
-        if (playback) playback.catch(activateHeroCue);
-        window.setTimeout(() => {
-          if (activeHeroVideo.paused && activeHeroVideo.currentTime === 0) activateHeroCue();
-        }, 1600);
-        if (heroToggle) {
-          heroToggle.addEventListener('click', () => {
-            if (activeHeroVideo.paused || activeHeroVideo.ended) {
-              if (activeHeroVideo.ended) activeHeroVideo.currentTime = 0;
-              root.classList.add('itt-hero-cue-ready');
-              root.classList.remove('itt-hero-cue-active');
-              activeHeroVideo.play().then(() => { heroToggle.textContent = 'PAUSE'; heroToggle.setAttribute('aria-label', 'Pause hero film'); }).catch(activateHeroCue);
-            } else {
-              activeHeroVideo.pause();
-              heroToggle.textContent = 'PLAY';
-              heroToggle.setAttribute('aria-label', 'Play hero film');
-              activateHeroCue();
-            }
-          });
-          activeHeroVideo.addEventListener('ended', () => { heroToggle.textContent = '↻ REPLAY'; heroToggle.setAttribute('aria-label', 'Replay hero film'); });
-        }
-      }
-    }
-    const updateToggle = (group, playing) => {
-      const toggle = group && group.querySelector('[data-itt-motion-toggle]');
-      if (!toggle) return;
-      toggle.textContent = playing ? 'PAUSE MOTION' : 'PLAY MOTION';
-      toggle.setAttribute('aria-label', playing ? 'Pause motion in this section' : 'Play motion in this section');
-    };
-    const autoPlayAllowed = !reduceMotion && !saveData;
-    if (!autoPlayAllowed) {
-      videos.forEach((video) => { video.pause(); video.classList.add('itt-motion-fallback'); });
-      toggles.forEach((toggle) => { toggle.textContent = 'PLAY MOTION'; toggle.setAttribute('aria-label', 'Play motion in this section'); });
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const playback = entry.target.play();
-          if (playback) playback.then(() => {
-            entry.target.classList.add('itt-motion-playing');
-            updateToggle(entry.target.closest('[data-itt-motion-group]'), true);
-          }).catch(() => entry.target.classList.add('itt-motion-fallback'));
-        }
-        else {
-          entry.target.pause();
-          updateToggle(entry.target.closest('[data-itt-motion-group]'), false);
-        }
-      });
-    }, { rootMargin: '180px 0px', threshold: 0.05 });
-    if (autoPlayAllowed) videos.forEach((video) => observer.observe(video));
-    toggles.forEach((toggle) => {
-      toggle.setAttribute('aria-label', 'Pause motion in this section');
-      toggle.addEventListener('click', () => {
-        const group = toggle.closest('[data-itt-motion-group]');
-        const groupVideos = group ? group.querySelectorAll('video') : [];
-        const shouldPlay = Array.from(groupVideos).some((video) => video.paused);
-        groupVideos.forEach((video) => {
-          if (shouldPlay) video.play().then(() => video.classList.add('itt-motion-playing')).catch(() => video.classList.add('itt-motion-fallback'));
-          else video.pause();
+    if (reduceMotion) {
+      videos.forEach((video) => video.pause());
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.play().catch(() => {});
+          else entry.target.pause();
         });
-        updateToggle(group, shouldPlay);
+      }, { rootMargin: '180px 0px', threshold: 0.05 });
+      videos.forEach((video) => observer.observe(video));
+    }
+
+    const controller = root.querySelector('[data-itt-joystick]');
+    const stick = root.querySelector('[data-itt-stick]');
+    const knob = stick?.querySelector('.itt-joystick__knob');
+    const readout = controller?.querySelector('.itt-joystick__readout');
+    const stops = [...root.querySelectorAll('[data-itt-stop]')];
+    if (!controller || !stick || !knob || !readout || !stops.length) return;
+
+    let force = 0;
+    let frame = 0;
+    let dragging = false;
+    const setForce = (value) => {
+      force = Math.max(-1, Math.min(1, value));
+      knob.style.transform = `translateY(${force * 27}px) rotate(${force * 12}deg)`;
+      stick.setAttribute('aria-valuenow', String(Math.round(force * 100)));
+      if (force && !frame) frame = requestAnimationFrame(drive);
+    };
+    const drive = () => {
+      if (!force) { frame = 0; return; }
+      window.scrollBy({ top: force * 22, behavior: 'auto' });
+      frame = requestAnimationFrame(drive);
+    };
+    const release = () => { dragging = false; setForce(0); };
+    const moveStick = (clientY) => {
+      const box = stick.getBoundingClientRect();
+      setForce((clientY - (box.top + box.height / 2)) / (box.height / 2));
+    };
+    stick.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      stick.setPointerCapture(event.pointerId);
+      moveStick(event.clientY);
+    });
+    stick.addEventListener('pointermove', (event) => { if (dragging) moveStick(event.clientY); });
+    stick.addEventListener('pointerup', release);
+    stick.addEventListener('pointercancel', release);
+    stick.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+      event.preventDefault();
+      controller.querySelector(`[data-itt-step="${event.key === 'ArrowUp' ? '-1' : '1'}"]`)?.click();
+    });
+
+    const activeIndex = () => {
+      const marker = window.scrollY + window.innerHeight * .38;
+      let current = 0;
+      stops.forEach((stop, index) => {
+        const stopTop = stop.getBoundingClientRect().top + window.scrollY;
+        if (stopTop <= marker) current = index;
+      });
+      return current;
+    };
+    controller.querySelectorAll('[data-itt-step]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = Math.max(0, Math.min(stops.length - 1, activeIndex() + Number(button.dataset.ittStep)));
+        stops[next].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
       });
     });
-    videos.forEach((video) => video.addEventListener('ended', () => updateToggle(video.closest('[data-itt-motion-group]'), false)));
+    const updateReadout = () => { readout.textContent = stops[activeIndex()].dataset.ittStop; };
+    updateReadout();
+    window.addEventListener('scroll', updateReadout, { passive: true });
+
+    if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+      root.addEventListener('pointermove', (event) => {
+        root.style.setProperty('--itt-pointer-x', `${(event.clientX / window.innerWidth - .5) * 18}px`);
+        root.style.setProperty('--itt-pointer-y', `${(event.clientY / window.innerHeight - .5) * 18}px`);
+      }, { passive: true });
+    }
   })();
 </script>
 
 {% schema %}
-{
-  "name": "ITT TOLD'EM House",
-  "tag": "section",
-  "class": "section-ittoldem-house",
-  "settings": [
-    {"type":"header","content":"Hero"},
-    {"type":"checkbox","id":"use_selected_hero","label":"Use selected Shopify hero images","default":false},
-    {"type":"image_picker","id":"hero_image","label":"Desktop hero image"},
-    {"type":"image_picker","id":"hero_image_mobile","label":"Mobile hero image"},
-    {"type":"text","id":"hero_alt","label":"Hero image description","default":"ITT TOLD’EM custom denim campaign"},
-    {"type":"text","id":"hero_kicker","label":"Hero eyebrow","default":"THE CUSTOM DENIM STUDY"},
-    {"type":"textarea","id":"hero_heading","label":"Hero heading","default":"CUSTOM DENIM.\nBUILT DIFFERENT."},
-    {"type":"textarea","id":"hero_copy","label":"Hero copy","default":"Laser-engraved one-of-one pieces designed in Detroit."},
-    {"type":"text","id":"hero_primary_label","label":"Primary button label","default":"SHOP CUSTOM DENIM"},
-    {"type":"text","id":"hero_secondary_label","label":"Secondary button label","default":"VIEW THE HOUSE EDIT"},
-    {"type":"url","id":"hero_link","label":"Primary button link"},
-
-    {"type":"header","content":"Hero motion and menu cue"},
-    {"type":"checkbox","id":"enable_hero_motion","label":"Play hero video once","default":true},
-    {"type":"video","id":"hero_video","label":"Desktop hero video"},
-    {"type":"video","id":"hero_video_mobile","label":"Mobile hero video"},
-    {"type":"range","id":"hero_cue_seconds","label":"Reveal menu at","min":1,"max":10,"step":0.5,"unit":"s","default":4},
-
-    {"type":"header","content":"Motion"},
-    {"type":"checkbox","id":"enable_category_motion","label":"Animate category cards","default":false},
-    {"type":"checkbox","id":"enable_world_motion","label":"Play Enter the House film","default":true},
-    {"type":"video","id":"world_video","label":"Enter the House video override"},
-    {"type":"checkbox","id":"enable_process_motion","label":"Play real process film","default":true},
-    {"type":"video","id":"process_video","label":"Real process video override"},
-
-    {"type":"header","content":"Category photography"},
-    {"type":"image_picker","id":"apparel_image","label":"Apparel image"},
-    {"type":"image_picker","id":"flagline_image","label":"GVO image"},
-    {"type":"image_picker","id":"lab_image","label":"The Lab image"},
-    {"type":"image_picker","id":"denim_image","label":"Custom Denim image"},
-    {"type":"image_picker","id":"wehair_image","label":"WE HAIR image"},
-
-    {"type":"header","content":"Shopify collections"},
-    {"type":"collection","id":"apparel_collection","label":"Apparel collection"},
-    {"type":"collection","id":"gvo_collection","label":"GVO collection"},
-    {"type":"collection","id":"lab_collection","label":"The Lab collection"},
-    {"type":"collection","id":"custom_collection","label":"Custom Denim collection"},
-    {"type":"product_list","id":"featured_products","label":"Verified homepage products","limit":8},
-    {"type":"collection","id":"featured_collection","label":"Fallback current release collection"},
-
-    {"type":"header","content":"Legacy link fallbacks"},
-    {"type":"url","id":"category_link_1","label":"Apparel fallback link"},
-    {"type":"url","id":"gvo_link","label":"GVO fallback link"},
-    {"type":"url","id":"category_link_3","label":"The Lab fallback link"},
-    {"type":"url","id":"category_link_4","label":"Custom Denim fallback link"},
-    {"type":"url","id":"wehair_link","label":"WE HAIR fallback link"},
-    {"type":"url","id":"lab_link","label":"The Lab navigation fallback"},
-    {"type":"url","id":"story_link","label":"About / story link"},
-    {"type":"url","id":"editorial_link_2","label":"Custom work editorial link"}
-  ],
-  "presets": [{"name":"ITT TOLD'EM House"}]
-}
+{"name":"ITT TOLD'EM House","tag":"section","class":"section-ittoldem-house","settings":[{"type":"header","content":"Campaign media"},{"type":"checkbox","id":"disable_motion_media","label":"Disable bundled motion media","default":false},{"type":"image_picker","id":"hero_image","label":"Static hero override"},{"type":"image_picker","id":"apparel_image","label":"Static Apparel override"},{"type":"image_picker","id":"flagline_image","label":"Static GVO override"},{"type":"image_picker","id":"lab_image","label":"Static The Lab override"},{"type":"image_picker","id":"denim_image","label":"Static Custom Denim override"},{"type":"url","id":"hero_link","label":"Hero link"},{"type":"url","id":"category_link_1","label":"Apparel link"},{"type":"url","id":"gvo_link","label":"GVO link (includes FLAGLINE)"},{"type":"url","id":"category_link_3","label":"The Lab link"},{"type":"url","id":"category_link_4","label":"Custom denim link"},{"type":"url","id":"lab_link","label":"The Lab nav link"},{"type":"collection","id":"featured_collection","label":"Current release collection"},{"type":"url","id":"story_link","label":"About / story link"}],"presets":[{"name":"ITT TOLD'EM House"}]}
 {% endschema %}
