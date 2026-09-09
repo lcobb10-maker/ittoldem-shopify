@@ -68,3 +68,13 @@
 .itt-world__visual:after{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,0) 62%,rgba(0,0,0,.58));pointer-events:none}
 .itt-world__index{position:absolute;z-index:3;left:18px;right:18px;bottom:18px;font-size:8px;letter-spacing:.24em;text-transform:uppercase}
 @media(max-width:749px){.itt-world{grid-template-columns:1fr;min-height:0}.itt-world__copy{padding:54px 7vw 44px}.itt-world__title{font-size:13vw}.itt-world__copy p{max-width:330px;font-size:12px}.itt-world__visual{min-height:132vw;border-left:0;border-top:1px solid var(--itt-line)}}
+
+/* Commerce-led denim hero: responsive stills, readable product, restrained copy. */
+.itt-hero--denim{min-height:min(70vh,760px);background:#211e1a}
+.itt-hero--denim .itt-hero__picture{position:absolute;inset:0;display:block}
+.itt-hero--denim .itt-hero__media{object-position:center center}
+.itt-hero--denim:after{background:linear-gradient(90deg,rgba(13,12,11,.76) 0%,rgba(13,12,11,.54) 32%,rgba(13,12,11,.06) 62%,rgba(13,12,11,.08) 100%)}
+.itt-hero--denim .itt-hero__content{min-height:min(70vh,760px);max-width:760px;padding:6vw 5vw}
+.itt-hero--denim .itt-hero__title{font-size:clamp(54px,6.4vw,102px);line-height:.88;max-width:8.8ch;margin:14px 0 22px}
+.itt-hero--denim .itt-hero__sub{max-width:390px;margin-bottom:24px}
+@media(max-width:749px){.itt-hero--denim{min-height:66svh}.itt-hero--denim .itt-hero__media{object-position:58% center}.itt-hero--denim:after{background:linear-gradient(90deg,rgba(12,11,10,.7) 0%,rgba(12,11,10,.34) 52%,rgba(12,11,10,.05) 100%)}.itt-hero--denim .itt-hero__content{min-height:66svh;padding:12vw 6vw 9vw;max-width:92vw}.itt-hero--denim .itt-hero__title{font-size:11.5vw;max-width:7.8ch;line-height:.9}.itt-hero--denim .itt-hero__sub{max-width:260px;font-size:8.5px}.itt-hero--denim .itt-hero__actions{max-width:280px}.itt-hero--denim .itt-btn--solid{padding-inline:12px}}
