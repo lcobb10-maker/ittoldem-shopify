@@ -62,6 +62,12 @@
   </div>
   <div class="itt-category-carousel__controls" aria-label="Browse house categories">
     <span class="itt-category-carousel__label">SWIPE THE HOUSE</span>
+    <div class="itt-category-carousel__dots" role="group" aria-label="Category slides">
+      <button type="button" data-itt-category-dot data-index="0" aria-label="Show Apparel" aria-current="true"></button>
+      <button type="button" data-itt-category-dot data-index="1" aria-label="Show GVO Sport"></button>
+      <button type="button" data-itt-category-dot data-index="2" aria-label="Show The Lab"></button>
+      <button type="button" data-itt-category-dot data-index="3" aria-label="Show Custom Denim"></button>
+    </div>
     <span class="itt-category-carousel__status" data-itt-category-status aria-live="polite">01 / 04</span>
     <button type="button" data-itt-category-prev aria-label="Previous category">←</button>
     <button type="button" data-itt-category-next aria-label="Next category">→</button>
@@ -154,8 +160,8 @@
     const heroToggle = root.querySelector('[data-itt-hero-toggle]');
     const categoryRail = root.querySelector('.itt-categories');
     const categoryCards = Array.from(root.querySelectorAll('.itt-card'));
+    const categoryDots = Array.from(root.querySelectorAll('[data-itt-category-dot]'));
     const categoryStatus = root.querySelector('[data-itt-category-status]');
-    const targetCard = root.querySelector('.itt-card--hero-target');
     const updateCategoryStatus = () => {
       if (!categoryRail || !categoryStatus || !categoryCards.length) return;
       const railLeft = categoryRail.getBoundingClientRect().left;
@@ -164,6 +170,10 @@
         return distance < closest.distance ? { index, distance } : closest;
       }, { index: 0, distance: Infinity }).index;
       categoryStatus.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(categoryCards.length).padStart(2, '0')}`;
+      categoryDots.forEach((dot, index) => {
+        if (index === activeIndex) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
     };
     const moveCategoryRail = (direction) => {
       if (!categoryRail || !categoryCards.length) return;
@@ -172,13 +182,17 @@
     };
     root.querySelector('[data-itt-category-prev]')?.addEventListener('click', () => moveCategoryRail(-1));
     root.querySelector('[data-itt-category-next]')?.addEventListener('click', () => moveCategoryRail(1));
+    categoryDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const card = categoryCards[Number.parseInt(dot.dataset.index || '0', 10)];
+        if (!card || !categoryRail) return;
+        categoryRail.scrollTo({ left: card.offsetLeft - 14, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
     categoryRail?.addEventListener('scroll', () => window.requestAnimationFrame(updateCategoryStatus), { passive: true });
     const activateHeroCue = () => {
       root.classList.add('itt-hero-cue-active');
       root.classList.remove('itt-hero-cue-ready');
-      if (targetCard && categoryRail && window.matchMedia('(max-width: 1100px)').matches) {
-        categoryRail.scrollTo({ left: targetCard.offsetLeft - 14, behavior: reduceMotion ? 'auto' : 'smooth' });
-      }
     };
     if (hero) {
       const heroVideos = Array.from(hero.querySelectorAll('.itt-hero__video'));
