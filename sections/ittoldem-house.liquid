@@ -44,7 +44,7 @@
           <source src="{{ 'itt-hero-denim-motion.mp4' | asset_url }}" type="video/mp4">
         </video>
       {% endif %}
-      <button class="itt-motion-toggle itt-hero__motion-toggle" type="button" data-itt-hero-toggle>PAUSE MOTION</button>
+      <button class="itt-motion-toggle itt-hero__motion-toggle" type="button" data-itt-hero-toggle aria-label="Pause hero film">PAUSE</button>
       <span class="itt-hero__cue-line" aria-hidden="true"></span>
     {% endif %}
     <div class="itt-hero__content"><div class="itt-kicker">{{ section.settings.hero_kicker }}</div><h1 class="itt-display itt-hero__title">{{ section.settings.hero_heading | escape | newline_to_br }}</h1><p class="itt-hero__sub">{{ section.settings.hero_copy }}</p><div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="{{ hero_primary_url }}">{{ section.settings.hero_primary_label }} <span class="itt-arrow">→</span></a><a class="itt-textlink" href="#itt-new-arrivals">{{ section.settings.hero_secondary_label }} <span class="itt-arrow">↓</span></a></div></div>
@@ -71,14 +71,22 @@
 
   <div class="itt-products" id="itt-new-arrivals">
     <div class="itt-products__head">
-      <div><div class="itt-kicker itt-kicker--dark">CURRENT RELEASE</div><h2 class="itt-display itt-products__title">NEW ARRIVALS</h2></div>
+      <div><div class="itt-kicker itt-kicker--dark">CURATED RELEASE</div><h2 class="itt-display itt-products__title">THE HOUSE EDIT</h2></div>
       <a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">SHOP ALL <span class="itt-arrow">→</span></a>
     </div>
     <div class="itt-products__grid">
       {% if section.settings.featured_products != blank %}
         {% for product in section.settings.featured_products limit: 8 %}{% render 'itt-product-card', product: product %}{% endfor %}
       {% elsif section.settings.featured_collection != blank and section.settings.featured_collection.products_count > 0 %}
-        {% for product in section.settings.featured_collection.products limit: 8 %}{% render 'itt-product-card', product: product %}{% endfor %}
+        {% assign verified_product_count = 0 %}
+        {% for product in section.settings.featured_collection.products limit: 50 %}
+          {% case product.title %}
+            {% when 'Custom engraved pants', 'Ghost Bloom Polo', 'ITT TOLD’EM Engraved Denim — third Edition', 'ITTOLDEM 313 — Detroit Art Tee' %}
+              {% render 'itt-product-card', product: product %}
+              {% assign verified_product_count = verified_product_count | plus: 1 %}
+          {% endcase %}
+        {% endfor %}
+        {% if verified_product_count == 0 %}<div class="itt-products__empty"><strong>THE NEXT RELEASE IS BEING PREPARED.</strong><span>Only products with verified photography appear here.</span></div>{% endif %}
       {% else %}
         <div class="itt-products__empty"><strong>THE NEXT RELEASE IS BEING PREPARED.</strong><span>Choose verified products in the theme editor before publishing them here.</span></div>
       {% endif %}
@@ -199,14 +207,15 @@
               if (activeHeroVideo.ended) activeHeroVideo.currentTime = 0;
               root.classList.add('itt-hero-cue-ready');
               root.classList.remove('itt-hero-cue-active');
-              activeHeroVideo.play().then(() => { heroToggle.textContent = 'PAUSE MOTION'; }).catch(activateHeroCue);
+              activeHeroVideo.play().then(() => { heroToggle.textContent = 'PAUSE'; heroToggle.setAttribute('aria-label', 'Pause hero film'); }).catch(activateHeroCue);
             } else {
               activeHeroVideo.pause();
-              heroToggle.textContent = 'PLAY MOTION';
+              heroToggle.textContent = 'PLAY';
+              heroToggle.setAttribute('aria-label', 'Play hero film');
               activateHeroCue();
             }
           });
-          activeHeroVideo.addEventListener('ended', () => { heroToggle.textContent = 'REPLAY MOTION'; });
+          activeHeroVideo.addEventListener('ended', () => { heroToggle.textContent = '↻ REPLAY'; heroToggle.setAttribute('aria-label', 'Replay hero film'); });
         }
       }
     }
@@ -269,7 +278,7 @@
     {"type":"textarea","id":"hero_heading","label":"Hero heading","default":"CUSTOM DENIM.\nBUILT DIFFERENT."},
     {"type":"textarea","id":"hero_copy","label":"Hero copy","default":"Laser-engraved one-of-one pieces designed in Detroit."},
     {"type":"text","id":"hero_primary_label","label":"Primary button label","default":"SHOP CUSTOM DENIM"},
-    {"type":"text","id":"hero_secondary_label","label":"Secondary button label","default":"SHOP NEW ARRIVALS"},
+    {"type":"text","id":"hero_secondary_label","label":"Secondary button label","default":"VIEW THE HOUSE EDIT"},
     {"type":"url","id":"hero_link","label":"Primary button link"},
 
     {"type":"header","content":"Hero motion and menu cue"},
