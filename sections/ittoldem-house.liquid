@@ -4,10 +4,6 @@
 {% assign motion_disabled = section.settings.disable_motion_media %}
 
 <section class="itt-house" data-itt-house>
-  <div class="itt-announcement" aria-label="House benefits">
-    <span>MAISON · DÉTROIT — EAST SIDE</span><span>ONE OF ONE · ONE OF FEW</span><span>COMMISSIONS AVAILABLE</span>
-  </div>
-
   <div class="itt-hero" data-itt-stop="ÉDITION 001">
     {% unless motion_disabled %}
       <video class="itt-hero__media" data-itt-motion autoplay muted loop playsinline preload="metadata" poster="{{ 'itt-house-hero-desktop.webp' | asset_url }}" aria-hidden="true">
@@ -41,6 +37,28 @@
     </div>
     {% if visible_products == 0 %}<div class="itt-products__empty"><span>LA PROCHAINE ÉDITION</span><p>The next house edit is being prepared. Join the private list for first access.</p></div>{% endif %}
   </div>
+
+  {%- liquid
+    assign hoodie_collection = collections['hoodie-season']
+    assign fan_collection = collections['fan-gear']
+    assign class_collection = collections['la-classe']
+    assign night_collection = collections['after-dark']
+    assign romantic_collection = collections['les-romantiques']
+    assign family_collection = collections['la-famille']
+  -%}
+  {% if hoodie_collection != blank or fan_collection != blank or class_collection != blank or night_collection != blank or romantic_collection != blank or family_collection != blank %}
+    <section class="itt-edits" data-itt-stop="SHOP THE EDITS" aria-labelledby="IttEditsTitle-{{ section.id }}">
+      <div class="itt-edits__head"><div class="itt-kicker">LES ÉDITIONS · SHOP BY MOOD</div><h2 id="IttEditsTitle-{{ section.id }}" class="itt-display">CHOOSE YOUR WORLD.</h2></div>
+      <div class="itt-edits__grid">
+        {% if hoodie_collection != blank %}{% render 'itt-collection-tile', featured_collection: hoodie_collection, tile_number: '01', tile_label: 'LAYERS · SETS · COLD WEATHER' %}{% endif %}
+        {% if fan_collection != blank %}{% render 'itt-collection-tile', featured_collection: fan_collection, tile_number: '02', tile_label: 'GAME DAY · FAMILY · TEAM' %}{% endif %}
+        {% if class_collection != blank %}{% render 'itt-collection-tile', featured_collection: class_collection, tile_number: '03', tile_label: 'POLISHED · STRUCTURED · QUIET' %}{% endif %}
+        {% if night_collection != blank %}{% render 'itt-collection-tile', featured_collection: night_collection, tile_number: '04', tile_label: 'NIGHT OUT · FITTED · STATEMENT' %}{% endif %}
+        {% if romantic_collection != blank %}{% render 'itt-collection-tile', featured_collection: romantic_collection, tile_number: '05', tile_label: 'COUPLES · GIFTS · CONNECTION' %}{% endif %}
+        {% if family_collection != blank %}{% render 'itt-collection-tile', featured_collection: family_collection, tile_number: '06', tile_label: 'PARENTS · BABY · YOUTH' %}{% endif %}
+      </div>
+    </section>
+  {% endif %}
 
   <div class="itt-atelier-proof" data-itt-stop="L’ATELIER">
     <div><div class="itt-kicker">L’ATELIER · DETROIT</div><h2 class="itt-display">MARKED BY HAND.<br>KEPT FOR YEARS.</h2></div>
@@ -105,10 +123,10 @@
       force = Math.max(-1, Math.min(1, value));
       knob.style.transform = `translateY(${force * 27}px) rotate(${force * 12}deg)`;
       stick.setAttribute('aria-valuenow', String(Math.round(force * 100)));
-      if (force && !frame && !reduceMotion) frame = requestAnimationFrame(drive);
+      if (force && !frame) frame = requestAnimationFrame(drive);
     };
     const drive = () => {
-      if (!force || reduceMotion) { frame = 0; return; }
+      if (!force) { frame = 0; return; }
       window.scrollBy({ top: force * 22, behavior: 'auto' });
       frame = requestAnimationFrame(drive);
     };
