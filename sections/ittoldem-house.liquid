@@ -3,12 +3,12 @@
 
 {% assign motion_disabled = section.settings.disable_motion_media %}
 
-<section class="itt-house">
+<section class="itt-house" data-itt-house>
   <div class="itt-announcement" aria-label="House benefits">
     <span>MAISON · DÉTROIT — EAST SIDE</span><span>ONE OF ONE · ONE OF FEW</span><span>COMMISSIONS AVAILABLE</span>
   </div>
 
-  <div class="itt-hero">
+  <div class="itt-hero" data-itt-stop="ÉDITION 001">
     {% unless motion_disabled %}
       <video class="itt-hero__media" data-itt-motion autoplay muted loop playsinline preload="metadata" poster="{{ 'itt-house-hero-desktop.webp' | asset_url }}" aria-hidden="true">
         <source src="{{ 'itt-house-hero-mobile.mp4' | asset_url }}" media="(max-width: 749px)" type="video/mp4">
@@ -21,9 +21,10 @@
     {% endunless %}
     <div class="itt-hero__content"><div class="itt-kicker">DENIM STUDY 001 · MAISON DÉTROIT</div><h1 class="itt-display itt-hero__title">ONE OF ONE.<br>ENGRAVED<br>IN DETROIT.</h1><p class="itt-hero__sub">Individually marked, reconstructed and numbered by the house. One of one, or one of few.</p><div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">VIEW THE STUDY <span class="itt-arrow">→</span></a><a class="itt-textlink" href="#itt-house-edit">DISCOVER THE RELEASE <span class="itt-arrow">↓</span></a></div></div>
     <div class="itt-script">I told ’em.<small>JE VOUS L’AVAIS DIT.</small></div><div class="itt-hero__index">ÉDITION 001 · DETROIT</div>
+    <div class="itt-orbit" aria-hidden="true"><span>ITT</span><span>001</span><span>DÉTROIT</span></div>
   </div>
 
-  <div class="itt-products" id="itt-house-edit">
+  <div class="itt-products" id="itt-house-edit" data-itt-stop="THE HOUSE EDIT">
     <div class="itt-products__head"><div><div class="itt-kicker itt-kicker--dark">ÉDITION EN COURS · CURRENT RELEASE</div><h2 class="itt-display itt-products__title">THE HOUSE EDIT</h2></div><a class="itt-products__all" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW THE COLLECTION <span class="itt-arrow">→</span></a></div>
     {% assign featured = section.settings.featured_collection %}
     {% assign visible_products = 0 %}
@@ -41,13 +42,13 @@
     {% if visible_products == 0 %}<div class="itt-products__empty"><span>LA PROCHAINE ÉDITION</span><p>The next house edit is being prepared. Join the private list for first access.</p></div>{% endif %}
   </div>
 
-  <div class="itt-atelier-proof">
+  <div class="itt-atelier-proof" data-itt-stop="L’ATELIER">
     <div><div class="itt-kicker">L’ATELIER · DETROIT</div><h2 class="itt-display">MARKED BY HAND.<br>KEPT FOR YEARS.</h2></div>
     <div class="itt-atelier-proof__copy"><p>Laser engraving, reconstruction and small-run fabrication. Each commission begins with the material, the placement and the person who will wear it.</p><a class="itt-btn" href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">REQUEST A COMMISSION <span class="itt-arrow">→</span></a></div>
     <div class="itt-atelier-proof__facts"><span>ONE OF ONE</span><span>HAND-FINISHED</span><span>MADE TO ORDER</span><span>DETROIT DESIGN HOUSE</span></div>
   </div>
 
-  <div class="itt-house-worlds"><div class="itt-kicker">LES MONDES DE LA MAISON · HOUSE WORLDS</div><h2 class="itt-display">ENTER THE HOUSE.</h2></div>
+  <div class="itt-house-worlds" data-itt-stop="HOUSE WORLDS"><div class="itt-kicker">LES MONDES DE LA MAISON · HOUSE WORLDS</div><h2 class="itt-display">ENTER THE HOUSE.</h2></div>
   <div class="itt-categories">
     <a class="itt-card" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-apparel.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-apparel.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Maison collection" }}{% else %}{{ 'itt-menu-apparel.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Maison collection" }}{% endunless %}<div class="itt-card__number">01</div><div class="itt-card__content"><h2 class="itt-card__title">LA MAISON</h2><div class="itt-card__meta">LIMITED EDITIONS · HOUSE SIGNATURES</div><div class="itt-card__link">DISCOVER <span class="itt-arrow">→</span></div></div></a>
     <a class="itt-card" href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-custom-denim.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-custom-denim.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM atelier custom denim" }}{% else %}{{ 'itt-menu-custom-denim.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM atelier custom denim" }}{% endunless %}<div class="itt-card__number">02</div><div class="itt-card__content"><h2 class="itt-card__title">L’ATELIER</h2><div class="itt-card__meta">ENGRAVED · RECONSTRUCTED · ONE OF ONE</div><div class="itt-card__link">COMMISSION <span class="itt-arrow">→</span></div></div></a>
@@ -55,12 +56,21 @@
     <a class="itt-card" href="{{ section.settings.lab_link | default: section.settings.category_link_3 | default: routes.all_products_collection_url }}">{% unless motion_disabled %}<video class="itt-card__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-menu-lab.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-menu-lab.mp4' | asset_url }}" type="video/mp4"></video>{% elsif section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 1200 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Le Laboratoire" }}{% else %}{{ 'itt-menu-lab.webp' | asset_url | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM Le Laboratoire" }}{% endunless %}<div class="itt-card__number">04</div><div class="itt-card__content"><h2 class="itt-card__title">LE LABORATOIRE</h2><div class="itt-card__meta">CROCHET · PROTOTYPES · LIMITED</div><div class="itt-card__link">EXPLORE <span class="itt-arrow">→</span></div></div></a>
   </div>
 
-  <div class="itt-manifesto"><div class="itt-manifesto__eyebrow">LE CODE DE LA MAISON</div><p>ONE OF ONE, OR ONE OF FEW. NOT MERCH. <em>WEARABLE ART.</em></p></div>
+  <div class="itt-manifesto" data-itt-stop="HOUSE CODE"><div class="itt-manifesto__eyebrow">LE CODE DE LA MAISON</div><p>ONE OF ONE, OR ONE OF FEW. NOT MERCH. <em>WEARABLE ART.</em></p></div>
 
-  <div class="itt-story">{% unless motion_disabled %}<video class="itt-story__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-story-process.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-story-process.mp4' | asset_url }}" type="video/mp4"></video>{% else %}{{ 'itt-story-process.webp' | asset_url | image_tag: class: 'itt-story__media', loading: 'lazy', alt: "ITT TOLD’EM materials and process" }}{% endunless %}<div class="itt-story__content"><div class="itt-kicker">SAVOIR-FAIRE · DÉTROIT</div><h2 class="itt-display itt-story__title">FROM MATERIAL<br>TO MEMORY.</h2><p class="itt-story__copy">The work begins with material, hand and machine. It leaves the house as a limited piece made to be worn, remembered and kept.</p><a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">DISCOVER THE PROCESS <span class="itt-arrow">→</span></a></div><div class="itt-values">Matière<br>Main<br>Machine<br>Mémoire</div></div>
+  <div class="itt-story" data-itt-stop="SAVOIR-FAIRE">{% unless motion_disabled %}<video class="itt-story__media" data-itt-motion autoplay muted loop playsinline preload="none" poster="{{ 'itt-story-process.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-story-process.mp4' | asset_url }}" type="video/mp4"></video>{% else %}{{ 'itt-story-process.webp' | asset_url | image_tag: class: 'itt-story__media', loading: 'lazy', alt: "ITT TOLD’EM materials and process" }}{% endunless %}<div class="itt-story__content"><div class="itt-kicker">SAVOIR-FAIRE · DÉTROIT</div><h2 class="itt-display itt-story__title">FROM MATERIAL<br>TO MEMORY.</h2><p class="itt-story__copy">The work begins with material, hand and machine. It leaves the house as a limited piece made to be worn, remembered and kept.</p><a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">DISCOVER THE PROCESS <span class="itt-arrow">→</span></a></div><div class="itt-values">Matière<br>Main<br>Machine<br>Mémoire</div></div>
 
   <div class="itt-drop"><div><div class="itt-kicker">INVITATION PRIVÉE</div><h2 class="itt-display">RECEIVE THE HOUSE LETTER.</h2></div>{% form 'customer', class: 'itt-drop__form' %}<input type="hidden" name="contact[tags]" value="newsletter,ittoldem-house"><label class="visually-hidden" for="IttDropEmail-{{ section.id }}">Email address</label><input id="IttDropEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="EMAIL ADDRESS" required autocomplete="email"><button type="submit">ENTER LA MAISON <span>→</span></button>{% if form.posted_successfully? %}<p class="itt-drop__status" role="status">BIENVENUE. YOU’RE IN.</p>{% endif %}{% if form.errors %}<div class="itt-drop__status" role="alert">{{ form.errors | default_errors }}</div>{% endif %}{% endform %}</div>
   <div class="itt-servicebar"><div class="itt-service">◇ &nbsp; LIMITED PRODUCTION</div><div class="itt-service">✦ &nbsp; COMMISSIONS AVAILABLE</div><div class="itt-service">▢ &nbsp; SECURE CHECKOUT</div><div class="itt-service">⌁ &nbsp; DETROIT DESIGN HOUSE</div></div>
+
+  <div class="itt-joystick" data-itt-joystick aria-label="House navigation controller">
+    <div class="itt-joystick__readout" aria-live="polite">ÉDITION 001</div>
+    <button class="itt-joystick__step itt-joystick__step--up" type="button" data-itt-step="-1" aria-label="Previous house scene">↑</button>
+    <div class="itt-joystick__base" data-itt-stick role="slider" tabindex="0" aria-label="Drag vertically to move through the house" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" aria-orientation="vertical">
+      <span class="itt-joystick__knob"></span>
+    </div>
+    <button class="itt-joystick__step itt-joystick__step--down" type="button" data-itt-step="1" aria-label="Next house scene">↓</button>
+  </div>
 </section>
 
 <script>
@@ -71,15 +81,81 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) {
       videos.forEach((video) => video.pause());
-      return;
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.play().catch(() => {});
+          else entry.target.pause();
+        });
+      }, { rootMargin: '180px 0px', threshold: 0.05 });
+      videos.forEach((video) => observer.observe(video));
     }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.play().catch(() => {});
-        else entry.target.pause();
+
+    const controller = root.querySelector('[data-itt-joystick]');
+    const stick = root.querySelector('[data-itt-stick]');
+    const knob = stick?.querySelector('.itt-joystick__knob');
+    const readout = controller?.querySelector('.itt-joystick__readout');
+    const stops = [...root.querySelectorAll('[data-itt-stop]')];
+    if (!controller || !stick || !knob || !readout || !stops.length) return;
+
+    let force = 0;
+    let frame = 0;
+    let dragging = false;
+    const setForce = (value) => {
+      force = Math.max(-1, Math.min(1, value));
+      knob.style.transform = `translateY(${force * 27}px) rotate(${force * 12}deg)`;
+      stick.setAttribute('aria-valuenow', String(Math.round(force * 100)));
+      if (force && !frame && !reduceMotion) frame = requestAnimationFrame(drive);
+    };
+    const drive = () => {
+      if (!force || reduceMotion) { frame = 0; return; }
+      window.scrollBy({ top: force * 22, behavior: 'auto' });
+      frame = requestAnimationFrame(drive);
+    };
+    const release = () => { dragging = false; setForce(0); };
+    const moveStick = (clientY) => {
+      const box = stick.getBoundingClientRect();
+      setForce((clientY - (box.top + box.height / 2)) / (box.height / 2));
+    };
+    stick.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      stick.setPointerCapture(event.pointerId);
+      moveStick(event.clientY);
+    });
+    stick.addEventListener('pointermove', (event) => { if (dragging) moveStick(event.clientY); });
+    stick.addEventListener('pointerup', release);
+    stick.addEventListener('pointercancel', release);
+    stick.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+      event.preventDefault();
+      controller.querySelector(`[data-itt-step="${event.key === 'ArrowUp' ? '-1' : '1'}"]`)?.click();
+    });
+
+    const activeIndex = () => {
+      const marker = window.scrollY + window.innerHeight * .38;
+      let current = 0;
+      stops.forEach((stop, index) => {
+        const stopTop = stop.getBoundingClientRect().top + window.scrollY;
+        if (stopTop <= marker) current = index;
       });
-    }, { rootMargin: '180px 0px', threshold: 0.05 });
-    videos.forEach((video) => observer.observe(video));
+      return current;
+    };
+    controller.querySelectorAll('[data-itt-step]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = Math.max(0, Math.min(stops.length - 1, activeIndex() + Number(button.dataset.ittStep)));
+        stops[next].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+    const updateReadout = () => { readout.textContent = stops[activeIndex()].dataset.ittStop; };
+    updateReadout();
+    window.addEventListener('scroll', updateReadout, { passive: true });
+
+    if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+      root.addEventListener('pointermove', (event) => {
+        root.style.setProperty('--itt-pointer-x', `${(event.clientX / window.innerWidth - .5) * 18}px`);
+        root.style.setProperty('--itt-pointer-y', `${(event.clientY / window.innerHeight - .5) * 18}px`);
+      }, { passive: true });
+    }
   })();
 </script>
 
