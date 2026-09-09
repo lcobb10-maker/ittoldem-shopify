@@ -120,4 +120,4 @@
   .itt-category-carousel__controls button{width:42px;height:42px;border:1px solid rgba(255,255,255,.34);background:transparent;color:#fff;font:inherit;font-size:17px;cursor:pointer}
   .itt-category-carousel__controls button:focus-visible{outline:2px solid #f2d5a7;outline-offset:2px}
 }
-@media(max-width:749px){.itt-card{flex-basis:82vw;min-height:108vw}}
+@media(max-width:749px){.itt-card{flex-basis:82vw;min-height:92vw}}
