@@ -1,11 +1,56 @@
-{% render 'product-media-gallery-content',
-  media_presentation: block.settings.media_presentation,
-  block_settings: block.settings,
-  block_id: block.id,
-  block_shopify_attributes: block.shopify_attributes,
-  block: block,
-  section: section
+{% liquid
+  assign product_title_key = closest.product.title | downcase | strip
+  assign is_burn_routes = false
+  if product_title_key == 'burn routes not bridges — v-neck tee'
+    assign is_burn_routes = true
+  endif
 %}
+
+{% if is_burn_routes %}
+  <div class="itt-burn-routes-media" {{ block.shopify_attributes }}>
+    <img
+      src="{{ 'itt-burn-routes-front.webp' | asset_url }}"
+      alt="Burn Routes Not Bridges V-neck tee, front view"
+      width="900"
+      height="1125"
+      sizes="(min-width: 990px) 50vw, 100vw"
+      fetchpriority="high"
+    >
+  </div>
+
+  {% stylesheet %}
+    .itt-burn-routes-media {
+      display: grid;
+      min-height: min(76svh, 900px);
+      overflow: hidden;
+      place-items: center;
+      background: #e9e5dc;
+    }
+
+    .itt-burn-routes-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 900px;
+      object-fit: contain;
+    }
+
+    @media screen and (max-width: 749px) {
+      .itt-burn-routes-media {
+        min-height: auto;
+      }
+    }
+  {% endstylesheet %}
+{% else %}
+  {% render 'product-media-gallery-content',
+    media_presentation: block.settings.media_presentation,
+    block_settings: block.settings,
+    block_id: block.id,
+    block_shopify_attributes: block.shopify_attributes,
+    block: block,
+    section: section
+  %}
+{% endif %}
 
 {% schema %}
 {
