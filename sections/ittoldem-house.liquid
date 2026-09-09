@@ -81,7 +81,7 @@
         {% assign verified_product_count = 0 %}
         {% for product in section.settings.featured_collection.products limit: 50 %}
           {% case product.title %}
-            {% when 'Custom engraved pants', 'Ghost Bloom Polo', 'ITT TOLD’EM Engraved Denim — third Edition', 'ITTOLDEM 313 — Detroit Art Tee' %}
+            {% when 'Custom engraved pants', 'Ghost Bloom Polo', 'ITT TOLD’EM Engraved Denim — third Edition', 'Burn Routes Not Bridges — V-Neck Tee' %}
               {% render 'itt-product-card', product: product %}
               {% assign verified_product_count = verified_product_count | plus: 1 %}
           {% endcase %}
@@ -124,12 +124,12 @@
       <a class="itt-btn" href="{{ section.settings.story_link | default: routes.root_url }}">ENTER THE LAB <span class="itt-arrow">→</span></a>
     </div>
     <div class="itt-process__visual" data-itt-motion-group="process">
-      <img class="itt-process__poster" src="{{ 'itt-real-process.webp' | asset_url }}" loading="lazy" alt="Laser engraving a custom ITT TOLD’EM textile design">
+      <img class="itt-process__poster" src="{{ 'itt-real-process-v2.webp' | asset_url }}" loading="lazy" alt="Laser engraving a custom ITT TOLD’EM denim design">
       {% if section.settings.enable_process_motion %}
         {% if section.settings.process_video != blank %}
           {{ section.settings.process_video | video_tag: class: 'itt-process__media', autoplay: true, muted: true, loop: true, controls: false, playsinline: true, preload: 'metadata' }}
         {% else %}
-          <video class="itt-process__media" autoplay muted loop playsinline preload="metadata" poster="{{ 'itt-real-process.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-real-process.mp4' | asset_url }}" type="video/mp4"></video>
+          <video class="itt-process__media" autoplay muted loop playsinline preload="metadata" poster="{{ 'itt-real-process-v2.webp' | asset_url }}" aria-hidden="true"><source src="{{ 'itt-real-process-v2.mp4' | asset_url }}" type="video/mp4"></video>
         {% endif %}
         <button class="itt-motion-toggle" type="button" data-itt-motion-toggle>PAUSE MOTION</button>
       {% endif %}
