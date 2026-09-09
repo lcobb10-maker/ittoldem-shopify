@@ -105,12 +105,12 @@
 @media(min-width:750px){.itt-hero__video--desktop,.itt-hero__video--universal{display:block}}
 @media(prefers-reduced-motion:reduce){.itt-categories-wrap{transition:none!important}.itt-hero__cue-line{display:none}.itt-card--hero-target{animation:none!important}}
 
-/* Mobile category rail: large editorial cards, a visible next-card peek and real controls. */
-@media(max-width:749px){
+/* Touch-size category rail: editorial cards, a visible next-card peek and real controls. */
+@media(max-width:1100px){
   .itt-categories-wrap{padding:14px 0 0;background:#080808}
   .itt-categories{display:flex;grid-template-columns:none;gap:10px;overflow-x:auto;padding:0 14px 4px;scroll-snap-type:x mandatory;scroll-padding-left:14px;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .itt-categories::-webkit-scrollbar{display:none}
-  .itt-card{flex:0 0 82vw;min-height:108vw;border:1px solid rgba(255,255,255,.16);scroll-snap-align:start;scroll-snap-stop:always}
+  .itt-card{flex:0 0 46vw;min-height:60vw;border:1px solid rgba(255,255,255,.16);scroll-snap-align:start;scroll-snap-stop:always}
   .itt-card__content{left:20px;right:20px;bottom:20px}
   .itt-card__title{font-size:clamp(30px,9vw,44px)}
   .itt-card__meta{display:block;font-size:8px;line-height:1.5}
@@ -120,3 +120,4 @@
   .itt-category-carousel__controls button{width:42px;height:42px;border:1px solid rgba(255,255,255,.34);background:transparent;color:#fff;font:inherit;font-size:17px;cursor:pointer}
   .itt-category-carousel__controls button:focus-visible{outline:2px solid #f2d5a7;outline-offset:2px}
 }
+@media(max-width:749px){.itt-card{flex-basis:82vw;min-height:108vw}}
