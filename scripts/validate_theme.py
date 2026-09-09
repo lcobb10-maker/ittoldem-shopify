@@ -77,7 +77,6 @@ def validate_homepage() -> None:
         "flagline_image",
         "lab_image",
         "denim_image",
-        "wehair_image",
     )
     for setting in image_settings:
         image = settings.get(setting, "")
@@ -92,10 +91,8 @@ def validate_homepage() -> None:
         "gvo_link",
         "category_link_3",
         "category_link_4",
-        "wehair_link",
         "lab_link",
         "story_link",
-        "editorial_link_2",
     )
     for setting in required_destinations:
         require(bool(settings.get(setting)), f"Homepage destination {setting} is blank")
@@ -113,6 +110,23 @@ def validate_homepage() -> None:
 
     css = (ROOT / "assets/ittoldem-house.css").read_text(encoding="utf-8")
     require(len(css) > 1000, "ITT design stylesheet is unexpectedly empty")
+
+    motion_assets = {
+        "itt-house-hero-desktop.mp4": 1_500_000,
+        "itt-house-hero-mobile.mp4": 1_500_000,
+        "itt-menu-apparel.mp4": 1_000_000,
+        "itt-menu-gvo.mp4": 1_000_000,
+        "itt-menu-lab.mp4": 1_000_000,
+        "itt-menu-custom-denim.mp4": 1_000_000,
+        "itt-story-process.mp4": 1_500_000,
+    }
+    for filename, size_limit in motion_assets.items():
+        path = ROOT / "assets" / filename
+        require(path.is_file(), f"Missing motion asset: assets/{filename}")
+        if path.is_file():
+            require(path.stat().st_size <= size_limit, f"Motion asset is too large: assets/{filename}")
+        poster = path.with_suffix(".webp")
+        require(poster.is_file(), f"Missing motion poster: assets/{poster.name}")
 
 
 def validate_destinations() -> None:
