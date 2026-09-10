@@ -45,9 +45,8 @@ jobs:
           assert 'stop(v)' in media or 'videos.forEach' in media, 'Media field must prevent simultaneous playback'
           assert 'VIEW MOTION' in media, 'Media field requires deliberate playback control'
           assert 'prefers-reduced-motion' in media, 'Media field must respect reduced motion'
-
-          house = (root / 'sections/ittoldem-house-v2.liquid').read_text(encoding='utf-8')
-          assert '82svh' not in house, 'Oversized 82svh hero returned'
+          assert '.itt-v3__hero,.itt-v3__hero-copy' in media and '52svh' in media, 'Compact hero override missing'
+          assert '.itt-v3__cinema' in media and '.itt-v3__archive' in media and 'display:none!important' in media, 'Legacy motion walls must remain hidden'
 
           for folder in ('sections','blocks'):
               for path in sorted((root / folder).glob('*.liquid')):
