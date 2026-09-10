@@ -24,6 +24,10 @@
         "laser_video_url": "https://cdn.shopify.com/videos/c/o/v/cbb48a13846a47ed964d127d0d92947c.mov"
       }
     },
+    "itt_watch_four": {
+      "type": "ittoldem-watch-four",
+      "settings": {}
+    },
     "itt_custom_studio": {
       "type": "ittoldem-custom-studio",
       "settings": {}
@@ -31,6 +35,7 @@
   },
   "order": [
     "ittoldem_house",
+    "itt_watch_four",
     "itt_custom_studio"
   ]
 }
