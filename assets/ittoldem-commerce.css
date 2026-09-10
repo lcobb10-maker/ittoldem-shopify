@@ -20,7 +20,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:749px){.itt-global-trust{grid-template-columns:1fr}.itt-global-trust span{border-right:0;border-bottom:1px solid rgba(244,239,230,.2);padding:12px 14px}.itt-global-trust span:last-child{border-bottom:0}.template-product [data-product-information],.template-product .product-information{padding-top:0}.template-product h1{font-size:2.35rem!important}.template-product product-form .button,.template-product .buy-buttons .button{min-height:58px}.template-cart .cart__summary{border-left:0;border-top:1px solid var(--itt-line);padding-left:0;padding-top:22px}.template-collection #MainContent>.shopify-section:first-child,.template-search #MainContent>.shopify-section:first-child{padding-inline:4px}.template-search input[type=search]{min-height:58px}}
 @media(prefers-reduced-motion:reduce){.template-collection .product-card,.template-search .product-card{transition:none!important}}
 
-
 /* ITT FINAL MOBILE CHROME */
 @media(max-width:749px){
   .shopify-section-group-header-group .announcement-bar,
@@ -34,3 +33,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   body.template-index .section-ittoldem-house .itt-hero{min-height:60svh!important}
   body.template-index .section-ittoldem-house .itt-hero__content{min-height:60svh!important;padding:12vw 6vw 10vw!important}
 }
+
+/* Hidden pull-down easter egg: turns Safari's blank overscroll into a house reveal. */
+html{background:#090807!important}
+body.template-index{background:#090807!important;isolation:isolate}
+body.template-index::before{
+  content:"";
+  position:fixed;
+  z-index:-1;
+  top:10px;
+  left:50%;
+  width:min(64vw,420px);
+  aspect-ratio:458/473;
+  transform:translateX(-50%) scale(.94);
+  opacity:.58;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 34% 32%,rgba(230,196,132,.72),transparent 17%),
+    linear-gradient(128deg,#15100d 8%,#765837 49%,#0a0908 90%);
+  background-size:140% 140%;
+  -webkit-mask-image:url("./ittoldem-pull-mask.svg");
+  mask-image:url("./ittoldem-pull-mask.svg");
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  animation:ittHiddenMaskDrift 9s ease-in-out infinite alternate;
+  filter:sepia(.45) contrast(1.12) brightness(.78) drop-shadow(0 16px 40px rgba(0,0,0,.5));
+}
+@keyframes ittHiddenMaskDrift{
+  0%{background-position:20% 30%;transform:translateX(-50%) scale(.92) rotate(-.35deg)}
+  100%{background-position:80% 70%;transform:translateX(-50%) scale(1.02) rotate(.35deg)}
+}
+@media(prefers-reduced-motion:reduce){body.template-index::before{animation:none}}
