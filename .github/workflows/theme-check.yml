@@ -48,13 +48,13 @@ jobs:
           assert '.itt-v3__hero,.itt-v3__hero-copy' in media and '52svh' in media, 'Compact hero override missing'
           assert '.itt-v3__cinema' in media and '.itt-v3__archive' in media and 'display:none!important' in media, 'Legacy motion walls must remain hidden'
 
+          conflict_re = re.compile(r'^(?:<<<<<<<|=======|>>>>>>>)', re.M)
           for folder in ('sections','blocks'):
               for path in sorted((root / folder).glob('*.liquid')):
                   text = path.read_text(encoding='utf-8')
                   for match in re.finditer(r'{% schema %}\s*(.*?)\s*{% endschema %}', text, re.S):
                       json.loads(match.group(1))
-                  for marker in ['<<<<<<<','=======','>>>>>>>']:
-                      assert marker not in text, f'Merge conflict marker in {path}'
+                  assert not conflict_re.search(text), f'Merge conflict marker in {path}'
 
           print('ITT TOLD’EM commerce-pass storefront validation passed.')
           PY
