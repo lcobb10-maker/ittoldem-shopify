@@ -1,0 +1,55 @@
+/* ITT TOLD’EM cinematic restraint pass — 2026-09-10 */
+
+/* Keep the chrome quiet. The navigation is a frame, not the feature. */
+#header-group .itt-global-nav a{min-height:34px;padding:8px 10px;font-size:.61rem;letter-spacing:.13em}
+#header-group .itt-global-nav__sub span{font-size:.44rem}
+
+/* Above-the-fold hero: reduce takeover height and let the image disappear into the house black. */
+.template-index .itt-hero{min-height:min(48vh,560px);background:#050505;isolation:isolate}
+.template-index .itt-hero__content{min-height:min(48vh,560px);padding:4vw 5vw}
+.template-index .itt-hero__title{font-size:clamp(46px,6.2vw,92px);margin-bottom:16px}
+.template-index .itt-hero__sub{margin-bottom:18px}
+.template-index .itt-hero__media{filter:saturate(.88) contrast(1.06) brightness(.83);transform:scale(1.015)}
+.template-index .itt-hero:after{background:
+  radial-gradient(ellipse at 58% 48%,transparent 15%,rgba(0,0,0,.12) 48%,rgba(0,0,0,.72) 100%),
+  linear-gradient(90deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.44) 34%,rgba(0,0,0,.08) 64%,rgba(0,0,0,.64) 100%)}
+.template-index .itt-hero:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.22;background-image:radial-gradient(circle,rgba(244,239,230,.42) .65px,transparent .8px);background-size:5px 5px;mix-blend-mode:soft-light;-webkit-mask-image:linear-gradient(90deg,#000 0 18%,transparent 44% 70%,#000 100%);mask-image:linear-gradient(90deg,#000 0 18%,transparent 44% 70%,#000 100%)}
+
+/* Motion should arrive from shadow instead of presenting as a bright rectangular player. */
+.template-index .itt-card,
+.template-index .itt-story,
+.template-index .itt-editorial{background:#050505}
+.template-index .itt-card__media,
+.template-index .itt-story__media,
+.template-index .itt-editorial__media{
+  filter:saturate(.86) contrast(1.07) brightness(.82);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 46%,rgba(0,0,0,.82) 62%,transparent 96%);
+  mask-image:radial-gradient(ellipse at center,#000 46%,rgba(0,0,0,.82) 62%,transparent 96%);
+}
+
+/* Halftone lives at edges only; never wallpaper the whole image. */
+.template-index .itt-card:before,
+.template-index .itt-story:before,
+.template-index .itt-editorial:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.20;background-image:radial-gradient(circle,rgba(255,255,255,.55) .55px,transparent .8px);background-size:4px 4px;-webkit-mask-image:linear-gradient(115deg,#000 0 12%,transparent 30% 72%,#000 93%);mask-image:linear-gradient(115deg,#000 0 12%,transparent 30% 72%,#000 93%);mix-blend-mode:soft-light}
+
+/* Gentle reveal — no carnival motion. */
+@media (prefers-reduced-motion:no-preference){
+  .template-index .itt-card__media,
+  .template-index .itt-story__media,
+  .template-index .itt-editorial__media{transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .7s ease}
+  .template-index .itt-card:hover .itt-card__media,
+  .template-index .itt-editorial:hover .itt-editorial__media{transform:scale(1.025);filter:saturate(.96) contrast(1.08) brightness(.92)}
+}
+
+/* Mobile: the hero must not eat the screen. */
+@media(max-width:1100px){
+  .template-index .itt-hero,.template-index .itt-hero__content{min-height:44svh}
+  #header-group .itt-global-nav a{min-height:36px;padding:8px 12px}
+}
+@media(max-width:640px){
+  .template-index .itt-hero,.template-index .itt-hero__content{min-height:40svh}
+  .template-index .itt-hero__content{padding:8vw 6vw 7vw}
+  .template-index .itt-hero__title{font-size:clamp(40px,11vw,54px);line-height:.88}
+  .template-index .itt-hero__sub{font-size:8px;max-width:260px}
+  #header-group .itt-global-nav a{min-width:84px;min-height:34px;padding:7px 10px;font-size:.56rem}
+}
