@@ -1,0 +1,23 @@
+{{ 'ittoldem-pull-reveal.css' | asset_url | stylesheet_tag }}
+
+<div class="itt-pull-reveal" data-itt-pull-reveal aria-hidden="true">
+  <div
+    class="itt-pull-reveal__mask"
+    style="--itt-mask: url('{{ 'ittoldem-pull-mask.svg' | asset_url }}');"
+  >
+    <div class="itt-pull-reveal__fallback"></div>
+    <video
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster=""
+      onerror="this.style.display='none'"
+    >
+      <source src="{{ 'ittoldem-pull-loop.mp4' | asset_url }}" type="video/mp4">
+    </video>
+  </div>
+  <p class="itt-pull-reveal__wordmark">ittoldem · maison · détroit — east side</p>
+</div>
+
+<script src="{{ 'ittoldem-pull-reveal.js' | asset_url }}" defer></script>
