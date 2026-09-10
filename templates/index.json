@@ -10,10 +10,8 @@
 {
   "sections": {
     "ittoldem_house": {
-      "type": "ittoldem-house",
+      "type": "ittoldem-house-v2",
       "settings": {
-        "disable_motion_media": true,
-        "use_selected_hero": true,
         "hero_image": "shopify://shop_images/A655D595-0296-4886-AF4A-B88FB6B16313.png",
         "hero_alt": "ITT TOLD’EM Detroit atelier campaign",
         "hero_kicker": "MAISON · DÉTROIT — EAST SIDE",
@@ -21,65 +19,12 @@
         "hero_copy": "Limited apparel, custom work and material experiments from the house.",
         "hero_primary_label": "ENTER THE HOUSE",
         "hero_secondary_label": "VIEW THE HOUSE EDIT",
-        "enable_hero_motion": false,
-        "hero_cue_seconds": 4,
-        "enable_category_motion": false,
-        "enable_world_motion": false,
-        "enable_process_motion": false,
-        "wehair_image": "shopify://shop_images/F5905BC3-F49A-44F5-B5E7-739A6C4B9553.png",
         "hero_link": "shopify://collections/all",
-        "category_link_1": "shopify://collections/all",
-        "gvo_link": "/search?view=gvo&type=product&q=GVO",
-        "category_link_3": "/search?view=lab&type=product&q=CROCHET",
-        "category_link_4": "/search?view=custom&type=product&q=CUSTOM",
-        "wehair_link": "/search?view=wehair&type=product&q=WE%20HAIR",
-        "lab_link": "/search?view=lab&type=product&q=CROCHET",
-        "featured_collection": "all",
-        "story_link": "/search?view=about&q=ITT",
-        "editorial_link_2": "/search?view=custom&type=product&q=CUSTOM"
-      }
-    },
-    "itt_makers_floor": {
-      "type": "itt-makers-floor",
-      "blocks": {
-        "fit_study": {
-          "type": "proof",
-          "settings": {
-            "eyebrow": "FIT STUDY",
-            "title": "ON BODY. IN MOTION.",
-            "caption": "A real fit check showing the pants from every angle.",
-            "link_label": "DISCOVER"
-          }
-        },
-        "print_study": {
-          "type": "proof",
-          "settings": {
-            "eyebrow": "PRINT STUDY",
-            "title": "TOUCH THE SURFACE.",
-            "caption": "Raised puff print and texture shown close-up by hand.",
-            "link_label": "DISCOVER"
-          }
-        },
-        "handwork": {
-          "type": "proof",
-          "settings": {
-            "eyebrow": "HANDWORK",
-            "title": "CROCHET, HELD UP CLOSE.",
-            "caption": "The material and construction shown without campaign styling.",
-            "link_label": "DISCOVER"
-          }
-        }
-      },
-      "block_order": ["fit_study", "print_study", "handwork"],
-      "settings": {
-        "kicker": "THE MAKERS FLOOR · DETROIT",
-        "heading": "WATCH IT\nBECOME REAL.",
-        "copy": "Campaign imagery sets the world. This is the proof: real garments, real texture, real hands, real movement."
+        "featured_collection": "all"
       }
     }
   },
   "order": [
-    "ittoldem_house",
-    "itt_makers_floor"
+    "ittoldem_house"
   ]
 }
