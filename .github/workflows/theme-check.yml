@@ -35,18 +35,22 @@ jobs:
           sections = homepage.get('sections', {})
           order = homepage.get('order', [])
 
-          assert sections.get('ittoldem_house', {}).get('type') == 'ittoldem-house-v2', 'Homepage must use ittoldem-house-v2'
+          assert sections.get('ittoldem_house', {}).get('type') == 'ittoldem-house-clean', 'Homepage must use the clean ITT house shell'
           assert sections.get('itt_media_field', {}).get('type') == 'ittoldem-media-field', 'Homepage must include the asymmetric ITT media field'
-          assert 'itt_media_field' in order, 'ITT media field must be in homepage order'
-          assert 'itt_watch_four' not in order, 'Legacy four-video wall must not be in homepage order'
           assert sections.get('itt_custom_studio', {}).get('type') == 'ittoldem-custom-studio', 'Custom studio section missing'
+          assert order == ['ittoldem_house', 'itt_media_field', 'itt_custom_studio'], 'Homepage order must contain only the clean ITT sections'
+          assert 'itt_watch_four' not in sections and 'itt_watch_four' not in order, 'Legacy four-video wall must be removed from homepage'
+
+          house = (root / 'sections/ittoldem-house-clean.liquid').read_text(encoding='utf-8')
+          assert '52svh' in house and '41svh' in house, 'Clean house shell must keep compact desktop/mobile hero sizing'
+          assert 'THE HOUSE EDIT' in house, 'Clean house shell must keep the shoppable House Edit'
+          for legacy in ('itt-v3__cinema', 'itt-v3__archive', 'THE PROOF', 'HOUSE WORLDS', 'WATCH IT'):
+              assert legacy not in house, f'Legacy homepage content leaked into clean house shell: {legacy}'
 
           media = (root / 'sections/ittoldem-media-field.liquid').read_text(encoding='utf-8')
           assert 'stop(v)' in media or 'videos.forEach' in media, 'Media field must prevent simultaneous playback'
           assert 'VIEW MOTION' in media, 'Media field requires deliberate playback control'
           assert 'prefers-reduced-motion' in media, 'Media field must respect reduced motion'
-          assert '.itt-v3__hero,.itt-v3__hero-copy' in media and '52svh' in media, 'Compact hero override missing'
-          assert '.itt-v3__cinema' in media and '.itt-v3__archive' in media and 'display:none!important' in media, 'Legacy motion walls must remain hidden'
 
           conflict_re = re.compile(r'^(?:<<<<<<<|=======|>>>>>>>)', re.M)
           for folder in ('sections','blocks'):
@@ -56,5 +60,5 @@ jobs:
                       json.loads(match.group(1))
                   assert not conflict_re.search(text), f'Merge conflict marker in {path}'
 
-          print('ITT TOLD’EM commerce-pass storefront validation passed.')
+          print('ITT TOLD’EM clean commerce-pass storefront validation passed.')
           PY
