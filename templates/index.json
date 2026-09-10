@@ -20,7 +20,8 @@
         "hero_primary_label": "ENTER THE HOUSE",
         "hero_secondary_label": "VIEW THE HOUSE EDIT",
         "hero_link": "shopify://collections/all",
-        "featured_collection": "all"
+        "featured_collection": "all",
+        "laser_video_url": "https://cdn.shopify.com/videos/c/o/v/cbb48a13846a47ed964d127d0d92947c.mov"
       }
     }
   },
