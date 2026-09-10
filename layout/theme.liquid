@@ -18,6 +18,7 @@
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
+    {{ 'ittoldem-game-hud.css' | asset_url | stylesheet_tag }}
     {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}
     {{ content_for_header }}
   </head>
