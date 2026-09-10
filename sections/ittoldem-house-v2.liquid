@@ -1,0 +1,79 @@
+<section class="itt-v2" id="IttV2-{{ section.id }}">
+  <style>
+    #IttV2-{{ section.id }}{background:#090909;color:#f3eee4;overflow:hidden}.itt-v2 *{box-sizing:border-box}.itt-v2 a{color:inherit;text-decoration:none}.itt-v2__hero{position:relative;min-height:78svh;background:#111;overflow:hidden}.itt-v2__hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.itt-v2__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.28) 52%,rgba(0,0,0,.08) 100%)}.itt-v2__hero-copy{position:relative;z-index:2;min-height:78svh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(2rem,5vw,5rem);max-width:920px}.itt-v2__kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;opacity:.72;margin-bottom:1rem}.itt-v2__hero h1,.itt-v2__section-title{margin:0;font-weight:500;letter-spacing:-.055em;line-height:.86;text-transform:uppercase}.itt-v2__hero h1{font-size:clamp(4rem,10vw,9.5rem)}.itt-v2__hero p{max-width:640px;font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.5;color:rgba(243,238,228,.8)}.itt-v2__cta{display:inline-flex;align-items:center;gap:.65rem;border:1px solid rgba(243,238,228,.62);padding:.85rem 1rem;margin-right:.6rem;margin-top:.8rem;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.26);backdrop-filter:blur(8px)}
+    .itt-v2__edit{background:#efe7d7;color:#111;padding:clamp(2.5rem,5vw,5rem)}.itt-v2__edit-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.5rem}.itt-v2__section-title{font-size:clamp(3rem,6vw,6.6rem)}.itt-v2__products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.itt-v2__product img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ddd}.itt-v2__product-meta{display:flex;justify-content:space-between;gap:1rem;padding-top:.7rem;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase}.itt-v2__product-title{max-width:75%}
+    .itt-v2__process{padding:clamp(3rem,6vw,6rem) clamp(1rem,4vw,4rem)}.itt-v2__process-head{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:end;margin-bottom:2rem}.itt-v2__process-head p{max-width:34rem;margin-left:auto;color:rgba(243,238,228,.72);line-height:1.55}.itt-v2__process-track{display:grid;grid-template-columns:1.25fr .85fr .85fr;gap:1rem}.itt-v2__media-card{position:relative;min-height:clamp(480px,58vw,780px);overflow:hidden;background:#141414;border:1px solid rgba(243,238,228,.12)}.itt-v2__media-card video,.itt-v2__media-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.itt-v2__media-card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03) 35%,rgba(0,0,0,.82) 100%)}.itt-v2__media-ui{position:absolute;z-index:2;left:1rem;right:1rem;bottom:1rem}.itt-v2__badge{display:inline-block;border:1px solid rgba(243,238,228,.55);padding:.45rem .6rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.8rem;background:rgba(0,0,0,.34)}.itt-v2__media-ui h3{margin:0 0 .45rem;font-size:clamp(1.6rem,2.4vw,3rem);line-height:.92;text-transform:uppercase}.itt-v2__media-ui p{margin:0;color:rgba(243,238,228,.74);font-size:.82rem;line-height:1.45}.itt-v2__sound{margin-top:.8rem;border:1px solid rgba(243,238,228,.5);background:rgba(0,0,0,.3);color:#f3eee4;padding:.55rem .7rem;font:inherit;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase}
+    .itt-v2__worlds{padding:clamp(3rem,6vw,6rem) clamp(1rem,4vw,4rem);border-top:1px solid rgba(243,238,228,.12)}.itt-v2__world-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:1.5rem}.itt-v2__world{min-height:430px;border:1px solid rgba(243,238,228,.14);position:relative;overflow:hidden;background:linear-gradient(180deg,#292929,#111)}.itt-v2__world img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}.itt-v2__world:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.78))}.itt-v2__world-copy{position:absolute;z-index:2;left:1rem;right:1rem;bottom:1rem}.itt-v2__world-copy h3{margin:0;font-size:clamp(1.5rem,2.3vw,2.6rem);text-transform:uppercase}.itt-v2__world-copy span{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;opacity:.68}
+    .itt-v2__manifesto{padding:clamp(3rem,7vw,7rem) clamp(1rem,4vw,4rem);font-size:clamp(3rem,7vw,8rem);line-height:.88;letter-spacing:-.05em;text-transform:uppercase;border-top:1px solid rgba(243,238,228,.12)}.itt-v2__manifesto em{font-family:serif;font-weight:400}.itt-v2__letter{background:#e9dfcc;color:#111;padding:clamp(2.5rem,5vw,5rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:end}.itt-v2__letter h2{margin:0;font-size:clamp(3rem,6vw,6rem);line-height:.9;letter-spacing:-.05em;text-transform:uppercase}.itt-v2__form{display:flex}.itt-v2__form input{flex:1;background:transparent;border:1px solid #111;padding:1rem}.itt-v2__form button{background:#111;color:#fff;border:0;padding:0 1.2rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase}
+    @media(max-width:900px){.itt-v2__products{grid-template-columns:repeat(2,1fr)}.itt-v2__process-head,.itt-v2__letter{grid-template-columns:1fr}.itt-v2__process-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.itt-v2__media-card{flex:0 0 84vw;scroll-snap-align:center;min-height:68svh}.itt-v2__world-grid{grid-template-columns:repeat(2,1fr)}.itt-v2__hero{min-height:72svh}.itt-v2__hero-copy{min-height:72svh}}
+    @media(max-width:560px){.itt-v2__products{grid-template-columns:1fr 1fr;gap:.65rem}.itt-v2__world-grid{grid-template-columns:1fr}.itt-v2__edit-head{align-items:start;flex-direction:column}.itt-v2__form{flex-direction:column}.itt-v2__form button{padding:1rem}}
+  </style>
+
+  <div class="itt-v2__hero">
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_alt }}
+    {% endif %}
+    <div class="itt-v2__shade"></div>
+    <div class="itt-v2__hero-copy">
+      <div class="itt-v2__kicker">{{ section.settings.hero_kicker | escape }}</div>
+      <h1>{{ section.settings.hero_heading | escape | newline_to_br }}</h1>
+      <p>{{ section.settings.hero_copy | escape }}</p>
+      <div><a class="itt-v2__cta" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">{{ section.settings.hero_primary_label | escape }} →</a><a class="itt-v2__cta" href="#IttV2Edit-{{ section.id }}">{{ section.settings.hero_secondary_label | escape }} ↓</a></div>
+    </div>
+  </div>
+
+  <section class="itt-v2__edit" id="IttV2Edit-{{ section.id }}">
+    <div class="itt-v2__edit-head"><div><div class="itt-v2__kicker">CURRENT RELEASE</div><h2 class="itt-v2__section-title">THE HOUSE EDIT</h2></div><a href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW THE COLLECTION →</a></div>
+    <div class="itt-v2__products">
+      {% assign featured = section.settings.featured_collection %}
+      {% if featured != blank %}{% for product in featured.products limit: 4 %}{% if product.featured_image != blank %}<a class="itt-v2__product" href="{{ product.url }}">{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}<div class="itt-v2__product-meta"><span class="itt-v2__product-title">{{ product.title }}</span><span>{{ product.price | money }}</span></div></a>{% endif %}{% endfor %}{% endif %}
+    </div>
+  </section>
+
+  <section class="itt-v2__process">
+    <div class="itt-v2__process-head"><div><div class="itt-v2__kicker">THE MAKERS FLOOR · DETROIT</div><h2 class="itt-v2__section-title">WATCH IT<br>BECOME REAL.</h2></div><p>Campaign imagery sets the world. This is the proof: garments on body, raised print under the hand, crochet held up close, and the process visible instead of hidden.</p></div>
+    <div class="itt-v2__process-track">
+      <article class="itt-v2__media-card"><video autoplay muted loop playsinline preload="metadata"><source src="https://cdn.shopify.com/videos/c/o/v/87040c4ea6db4c80927dc1f729b4444f.mov" type="video/quicktime"></video><div class="itt-v2__media-ui"><span class="itt-v2__badge">REAL FIT</span><h3>ON BODY. IN MOTION.</h3><p>Real pants, shown from every angle.</p><button class="itt-v2__sound" type="button">SOUND ON</button></div></article>
+      <article class="itt-v2__media-card"><video autoplay muted loop playsinline preload="metadata"><source src="https://cdn.shopify.com/videos/c/o/v/829da22df9ae4c89ad7479a2440de5fe.mov" type="video/quicktime"></video><div class="itt-v2__media-ui"><span class="itt-v2__badge">REAL PROCESS</span><h3>TOUCH THE SURFACE.</h3><p>Raised puff print shown close-up by hand.</p><button class="itt-v2__sound" type="button">SOUND ON</button></div></article>
+      <article class="itt-v2__media-card"><img src="https://cdn.shopify.com/s/files/1/0735/1320/5802/files/IMG_3515.jpg?v=1789008514" loading="lazy" alt="Crochet work held up in hand"><div class="itt-v2__media-ui"><span class="itt-v2__badge">HANDWORK</span><h3>CROCHET, HELD UP CLOSE.</h3><p>Material and construction without campaign styling.</p></div></article>
+    </div>
+  </section>
+
+  <section class="itt-v2__worlds"><div class="itt-v2__kicker">HOUSE WORLDS</div><h2 class="itt-v2__section-title">ENTER THE HOUSE.</h2><div class="itt-v2__world-grid">
+    {% assign labels = 'LA MAISON|L’ATELIER|FLAGLINE|LE LABORATOIRE' | split: '|' %}
+    {% assign subs = 'LIMITED EDITIONS · HOUSE SIGNATURES|ENGRAVED · RECONSTRUCTED · ONE OF ONE|SPORT · TEAM CULTURE · GVO|CROCHET · PROTOTYPES · LIMITED' | split: '|' %}
+    {% for i in (0..3) %}<a class="itt-v2__world" href="{{ routes.all_products_collection_url }}">{% case i %}{% when 0 %}{% if section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: labels[i] }}{% endif %}{% when 1 %}{% if section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: labels[i] }}{% endif %}{% when 2 %}{% if section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: labels[i] }}{% endif %}{% when 3 %}{% if section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: labels[i] }}{% endif %}{% endcase %}<div class="itt-v2__world-copy"><h3>{{ labels[i] }}</h3><span>{{ subs[i] }}</span></div></a>{% endfor %}
+  </div></section>
+
+  <div class="itt-v2__manifesto"><span>ONE OF ONE, OR ONE OF FEW. NOT MERCH. </span><em>WEARABLE ART.</em></div>
+
+  <section class="itt-v2__letter"><div><div class="itt-v2__kicker">INVITATION PRIVÉE</div><h2>RECEIVE THE<br>HOUSE LETTER.</h2></div>{% form 'customer', class: 'itt-v2__form' %}<input type="hidden" name="contact[tags]" value="newsletter,ittoldem-house"><input type="email" name="contact[email]" placeholder="EMAIL ADDRESS" required autocomplete="email"><button type="submit">ENTER LA MAISON →</button>{% endform %}</section>
+
+  <script>
+    (()=>{const root=document.getElementById('IttV2-{{ section.id }}');if(!root)return;root.querySelectorAll('.itt-v2__media-card').forEach(card=>{const v=card.querySelector('video'),b=card.querySelector('.itt-v2__sound');if(v&&b)b.addEventListener('click',()=>{v.muted=!v.muted;b.textContent=v.muted?'SOUND ON':'SOUND OFF';if(v.paused)v.play().catch(()=>{})})});const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target.querySelector('video');if(!v)return;e.isIntersecting?v.play().catch(()=>{}):v.pause()}),{threshold:.3});root.querySelectorAll('.itt-v2__media-card').forEach(c=>io.observe(c))})();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name":"ITT House V2",
+  "tag":"section",
+  "class":"section-itt-house-v2",
+  "settings":[
+    {"type":"image_picker","id":"hero_image","label":"Hero image"},
+    {"type":"text","id":"hero_alt","label":"Hero alt text","default":"ITT TOLD’EM Detroit atelier campaign"},
+    {"type":"text","id":"hero_kicker","label":"Hero kicker","default":"MAISON · DÉTROIT — EAST SIDE"},
+    {"type":"textarea","id":"hero_heading","label":"Hero heading","default":"THE HOUSE.\nBUILT DIFFERENT."},
+    {"type":"textarea","id":"hero_copy","label":"Hero copy","default":"Limited apparel, custom work and material experiments from the house."},
+    {"type":"text","id":"hero_primary_label","label":"Primary button","default":"ENTER THE HOUSE"},
+    {"type":"text","id":"hero_secondary_label","label":"Secondary button","default":"VIEW THE HOUSE EDIT"},
+    {"type":"url","id":"hero_link","label":"Hero link"},
+    {"type":"collection","id":"featured_collection","label":"Featured collection"},
+    {"type":"image_picker","id":"apparel_image","label":"La Maison image"},
+    {"type":"image_picker","id":"denim_image","label":"L’Atelier image"},
+    {"type":"image_picker","id":"flagline_image","label":"Flagline image"},
+    {"type":"image_picker","id":"lab_image","label":"Le Laboratoire image"}
+  ],
+  "presets":[{"name":"ITT House V2"}]
+}
+{% endschema %}
