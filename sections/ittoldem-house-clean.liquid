@@ -1,0 +1,83 @@
+<section class="itt-clean" id="IttClean-{{ section.id }}">
+  <style>
+    #IttClean-{{ section.id }}{--ink:#080808;--paper:#eee5d5;--white:#f7f2e8;background:var(--ink);color:var(--white);overflow:hidden}
+    #IttClean-{{ section.id }} *{box-sizing:border-box}
+    #IttClean-{{ section.id }} a{color:inherit;text-decoration:none}
+    .itt-clean__hero{position:relative;min-height:min(52svh,620px);overflow:hidden;background:#090909;isolation:isolate}
+    .itt-clean__hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.66) saturate(.88) contrast(1.04)}
+    .itt-clean__hero:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.52) 42%,rgba(0,0,0,.16) 68%,rgba(0,0,0,.82) 100%)}
+    .itt-clean__hero:after{content:'';position:absolute;inset:0;z-index:1;box-shadow:inset 0 -120px 110px -75px #080808;pointer-events:none}
+    .itt-clean__copy{position:relative;z-index:2;min-height:min(52svh,620px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,4.5vw,4.6rem);max-width:940px}
+    .itt-clean__kicker{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+    .itt-clean__copy h1{margin:.8rem 0 1rem;font-size:clamp(3.2rem,7.2vw,7.6rem);font-weight:500;letter-spacing:-.06em;line-height:.84;text-transform:uppercase}
+    .itt-clean__copy p{max-width:560px;margin:0;color:rgba(247,242,232,.78);font-size:clamp(.9rem,1.2vw,1.08rem);line-height:1.5}
+    .itt-clean__actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .itt-clean__cta{display:inline-flex;align-items:center;border:1px solid rgba(247,242,232,.5);padding:.78rem 1rem;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;background:rgba(0,0,0,.3);backdrop-filter:blur(10px)}
+    .itt-clean__edit{background:var(--paper);color:#111;padding:clamp(2.4rem,5vw,5rem)}
+    .itt-clean__edit-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.5rem}
+    .itt-clean__edit h2{margin:.35rem 0 0;font-size:clamp(2.7rem,6vw,6.6rem);font-weight:500;letter-spacing:-.06em;line-height:.86;text-transform:uppercase}
+    .itt-clean__view{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+    .itt-clean__products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    .itt-clean__product{display:block;min-width:0}
+    .itt-clean__media{overflow:hidden;background:#d7cfc1;aspect-ratio:4/5}
+    .itt-clean__media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}
+    .itt-clean__product:hover .itt-clean__media img{transform:scale(1.025)}
+    .itt-clean__meta{display:flex;justify-content:space-between;gap:.8rem;padding-top:.72rem;font-size:.64rem;line-height:1.25;letter-spacing:.035em;text-transform:uppercase}
+    .itt-clean__meta span:first-child{max-width:74%}
+    @media(max-width:900px){.itt-clean__products{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.itt-clean__hero,.itt-clean__copy{min-height:41svh}.itt-clean__copy{padding:1.25rem}.itt-clean__copy h1{font-size:clamp(3rem,16vw,5.4rem)}.itt-clean__edit{padding:2rem 1rem}.itt-clean__edit-head{align-items:start;flex-direction:column;gap:.8rem}.itt-clean__products{gap:.65rem}.itt-clean__meta{font-size:.57rem}}
+  </style>
+
+  <div class="itt-clean__hero">
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_alt }}
+    {% endif %}
+    <div class="itt-clean__copy">
+      <div class="itt-clean__kicker">{{ section.settings.hero_kicker | escape }}</div>
+      <h1>{{ section.settings.hero_heading | escape | newline_to_br }}</h1>
+      <p>{{ section.settings.hero_copy | escape }}</p>
+      <div class="itt-clean__actions">
+        <a class="itt-clean__cta" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">{{ section.settings.hero_primary_label | escape }} →</a>
+        <a class="itt-clean__cta" href="#HouseEdit-{{ section.id }}">{{ section.settings.hero_secondary_label | escape }} ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="itt-clean__edit" id="HouseEdit-{{ section.id }}">
+    <div class="itt-clean__edit-head">
+      <div><div class="itt-clean__kicker">CURRENT RELEASE</div><h2>THE HOUSE EDIT</h2></div>
+      <a class="itt-clean__view" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW THE COLLECTION →</a>
+    </div>
+    <div class="itt-clean__products">
+      {% assign featured = section.settings.featured_collection %}
+      {% if featured != blank %}
+        {% for product in featured.products limit: 4 %}
+          {% if product.featured_image != blank %}
+            <a class="itt-clean__product" href="{{ product.url }}">
+              <div class="itt-clean__media">{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}</div>
+              <div class="itt-clean__meta"><span>{{ product.title }}</span><span>{{ product.price | money }}</span></div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+</section>
+
+{% schema %}
+{
+  "name": "ITT House Clean",
+  "settings": [
+    {"type":"image_picker","id":"hero_image","label":"Hero image"},
+    {"type":"text","id":"hero_alt","label":"Hero image alt text","default":"ITT TOLD’EM Detroit atelier campaign"},
+    {"type":"text","id":"hero_kicker","label":"Hero kicker","default":"MAISON · DÉTROIT — EAST SIDE"},
+    {"type":"textarea","id":"hero_heading","label":"Hero heading","default":"THE HOUSE.\nBUILT DIFFERENT."},
+    {"type":"textarea","id":"hero_copy","label":"Hero copy","default":"Limited apparel, custom work and material experiments from the house."},
+    {"type":"text","id":"hero_primary_label","label":"Primary button","default":"ENTER THE HOUSE"},
+    {"type":"text","id":"hero_secondary_label","label":"Secondary button","default":"VIEW THE HOUSE EDIT"},
+    {"type":"url","id":"hero_link","label":"Hero link"},
+    {"type":"collection","id":"featured_collection","label":"Featured collection"}
+  ],
+  "presets": [{"name":"ITT House Clean"}]
+}
+{% endschema %}
