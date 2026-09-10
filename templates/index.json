@@ -12,7 +12,7 @@
     "ittoldem_house": {
       "type": "ittoldem-house",
       "settings": {
-        "use_selected_hero": false,
+        "use_selected_hero": true,
         "hero_image": "shopify://shop_images/6C0986C3-B065-45BA-9734-9A13EF7FF2D6.png",
         "hero_alt": "ITT TOLD’EM custom denim campaign concept",
         "hero_kicker": "THE CUSTOM DENIM STUDY",
@@ -20,7 +20,7 @@
         "hero_copy": "Laser-engraved one-of-one pieces designed in Detroit.",
         "hero_primary_label": "SHOP CUSTOM DENIM",
         "hero_secondary_label": "VIEW THE HOUSE EDIT",
-        "enable_hero_motion": true,
+        "enable_hero_motion": false,
         "hero_cue_seconds": 4,
         "enable_category_motion": false,
         "enable_world_motion": true,
