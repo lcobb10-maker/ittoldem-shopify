@@ -41,6 +41,13 @@ jobs:
           assert order == ['ittoldem_house', 'itt_media_field', 'itt_custom_studio'], 'Homepage order must contain only the clean ITT sections'
           assert 'itt_watch_four' not in sections and 'itt_watch_four' not in order, 'Legacy four-video wall must be removed from homepage'
 
+          header = json.loads(strip_banner((root / 'sections/header-group.json').read_text(encoding='utf-8')))
+          header_sections = header.get('sections', {})
+          header_order = header.get('order', [])
+          assert 'header_section' not in header_sections and 'header_section' not in header_order, 'Default Shopify header must not duplicate ITT navigation'
+          assert header_sections.get('itt_house_navigation', {}).get('type') == 'ittoldem-global-nav', 'ITT house navigation missing'
+          assert header_order == ['header_announcements_9jGBFp', 'itt_house_navigation'], 'Header must contain only announcement and ITT navigation'
+
           house = (root / 'sections/ittoldem-house-clean.liquid').read_text(encoding='utf-8')
           assert '52svh' in house and '41svh' in house, 'Clean house shell must keep compact desktop/mobile hero sizing'
           assert 'THE HOUSE EDIT' in house, 'Clean house shell must keep the shoppable House Edit'
@@ -51,6 +58,9 @@ jobs:
           assert 'stop(v)' in media or 'videos.forEach' in media, 'Media field must prevent simultaneous playback'
           assert 'VIEW MOTION' in media, 'Media field requires deliberate playback control'
           assert 'prefers-reduced-motion' in media, 'Media field must respect reduced motion'
+
+          deploy = (root / '.github/workflows/deploy-commerce-pass.yml').read_text(encoding='utf-8')
+          assert 'push:' not in deploy.split('workflow_dispatch:')[0], 'Redundant Shopify CLI deploy must not auto-run on push'
 
           conflict_re = re.compile(r'^(?:<<<<<<<|=======|>>>>>>>)', re.M)
           for folder in ('sections','blocks'):
