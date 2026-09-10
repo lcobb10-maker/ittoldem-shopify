@@ -1,83 +1,27 @@
 <section class="itt-clean" id="IttClean-{{ section.id }}">
   <style>
-    #IttClean-{{ section.id }}{--ink:#080808;--paper:#eee5d5;--white:#f7f2e8;background:var(--ink);color:var(--white);overflow:hidden}
-    #IttClean-{{ section.id }} *{box-sizing:border-box}
-    #IttClean-{{ section.id }} a{color:inherit;text-decoration:none}
-    .itt-clean__hero{position:relative;min-height:min(52svh,620px);overflow:hidden;background:#090909;isolation:isolate}
-    .itt-clean__hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.66) saturate(.88) contrast(1.04)}
-    .itt-clean__hero:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.52) 42%,rgba(0,0,0,.16) 68%,rgba(0,0,0,.82) 100%)}
-    .itt-clean__hero:after{content:'';position:absolute;inset:0;z-index:1;box-shadow:inset 0 -120px 110px -75px #080808;pointer-events:none}
-    .itt-clean__copy{position:relative;z-index:2;min-height:min(52svh,620px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,4.5vw,4.6rem);max-width:940px}
-    .itt-clean__kicker{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;opacity:.7}
-    .itt-clean__copy h1{margin:.8rem 0 1rem;font-size:clamp(3.2rem,7.2vw,7.6rem);font-weight:500;letter-spacing:-.06em;line-height:.84;text-transform:uppercase}
-    .itt-clean__copy p{max-width:560px;margin:0;color:rgba(247,242,232,.78);font-size:clamp(.9rem,1.2vw,1.08rem);line-height:1.5}
-    .itt-clean__actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
-    .itt-clean__cta{display:inline-flex;align-items:center;border:1px solid rgba(247,242,232,.5);padding:.78rem 1rem;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;background:rgba(0,0,0,.3);backdrop-filter:blur(10px)}
-    .itt-clean__edit{background:var(--paper);color:#111;padding:clamp(2.4rem,5vw,5rem)}
-    .itt-clean__edit-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.5rem}
-    .itt-clean__edit h2{margin:.35rem 0 0;font-size:clamp(2.7rem,6vw,6.6rem);font-weight:500;letter-spacing:-.06em;line-height:.86;text-transform:uppercase}
-    .itt-clean__view{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
-    .itt-clean__products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
-    .itt-clean__product{display:block;min-width:0}
-    .itt-clean__media{overflow:hidden;background:#d7cfc1;aspect-ratio:4/5}
-    .itt-clean__media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}
-    .itt-clean__product:hover .itt-clean__media img{transform:scale(1.025)}
-    .itt-clean__meta{display:flex;justify-content:space-between;gap:.8rem;padding-top:.72rem;font-size:.64rem;line-height:1.25;letter-spacing:.035em;text-transform:uppercase}
-    .itt-clean__meta span:first-child{max-width:74%}
-    @media(max-width:900px){.itt-clean__products{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.itt-clean__hero,.itt-clean__copy{min-height:41svh}.itt-clean__copy{padding:1.25rem}.itt-clean__copy h1{font-size:clamp(3rem,16vw,5.4rem)}.itt-clean__edit{padding:2rem 1rem}.itt-clean__edit-head{align-items:start;flex-direction:column;gap:.8rem}.itt-clean__products{gap:.65rem}.itt-clean__meta{font-size:.57rem}}
+    #IttClean-{{ section.id }}{--ink:#070707;--paper:#eee5d5;--white:#f7f2e8;background:var(--ink);color:var(--white);overflow:hidden}
+    #IttClean-{{ section.id }} *{box-sizing:border-box}#IttClean-{{ section.id }} a{color:inherit;text-decoration:none}
+    .itt-clean__hero{position:relative;height:clamp(620px,82svh,940px);overflow:hidden;background:#080706;isolation:isolate}
+    .itt-clean__hero-media{position:absolute;inset:-7%;z-index:0;will-change:transform}.itt-clean__hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.55) saturate(.78) contrast(1.12);transform:scale(1.04)}
+    .itt-clean__hero:before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 67% 43%,transparent 0 23%,rgba(0,0,0,.18) 51%,rgba(0,0,0,.74) 100%),linear-gradient(90deg,rgba(0,0,0,.76),rgba(0,0,0,.06) 56%,rgba(0,0,0,.4));pointer-events:none}.itt-clean__hero:after{content:'';position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.16),transparent 55%,#080808 100%)}
+    .itt-clean__matrix{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;mix-blend-mode:screen}.itt-clean__fall{position:absolute;top:-20%;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,242,232,.2);writing-mode:vertical-rl;animation:ittFall var(--dur) linear infinite;animation-delay:var(--delay);text-shadow:0 0 18px rgba(215,181,108,.2)}.itt-clean__fall:nth-child(3n){color:rgba(206,164,75,.28)}.itt-clean__fall:nth-child(4n){font-family:serif;font-style:italic;font-size:.8rem;opacity:.6}@keyframes ittFall{to{transform:translateY(125svh)}}
+    .itt-clean__brand{position:absolute;z-index:4;left:clamp(1.2rem,4.5vw,5rem);right:clamp(1.2rem,4.5vw,5rem);top:50%;transform:translateY(-48%);pointer-events:none}.itt-clean__mark{font-family:Georgia,serif;font-style:italic;font-size:clamp(5.2rem,15vw,15rem);font-weight:400;line-height:.68;letter-spacing:-.09em;text-transform:lowercase;color:rgba(247,242,232,.94);text-shadow:0 10px 40px rgba(0,0,0,.55)}.itt-clean__tm{font-family:Arial,sans-serif;font-style:normal;font-size:clamp(.65rem,1vw,1rem);vertical-align:top;margin-left:.18em;letter-spacing:0}.itt-clean__thought{margin-top:1.4rem;margin-left:clamp(.3rem,8vw,9rem);font-size:clamp(.72rem,1.15vw,1rem);letter-spacing:.32em;text-transform:uppercase;color:rgba(247,242,232,.78)}
+    .itt-clean__copy{position:absolute;z-index:6;left:clamp(1.2rem,4.5vw,5rem);right:clamp(1.2rem,4.5vw,5rem);bottom:clamp(2rem,5vw,4.8rem);display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem}.itt-clean__kicker{font-size:.58rem;letter-spacing:.27em;text-transform:uppercase;opacity:.72}.itt-clean__copy p{max-width:510px;margin:.7rem 0 0;color:rgba(247,242,232,.72);font-size:clamp(.82rem,1vw,1rem);line-height:1.55}.itt-clean__actions{display:flex;gap:.55rem}.itt-clean__cta{display:inline-flex;align-items:center;border-bottom:1px solid rgba(247,242,232,.6);padding:.65rem .1rem;font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;backdrop-filter:blur(5px)}
+    .itt-clean__edit{background:var(--paper);color:#111;padding:clamp(3rem,6vw,6rem) clamp(1rem,5vw,5rem)}.itt-clean__edit-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2rem}.itt-clean__edit h2{margin:.35rem 0 0;font-size:clamp(2.7rem,6vw,6.6rem);font-weight:500;letter-spacing:-.06em;line-height:.86;text-transform:uppercase}.itt-clean__view{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}.itt-clean__products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.itt-clean__product{display:block;min-width:0}.itt-clean__media{overflow:hidden;background:#d7cfc1;aspect-ratio:4/5}.itt-clean__media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}.itt-clean__product:hover .itt-clean__media img{transform:scale(1.025)}.itt-clean__meta{display:flex;justify-content:space-between;gap:.8rem;padding-top:.72rem;font-size:.64rem;line-height:1.25;letter-spacing:.035em;text-transform:uppercase}.itt-clean__meta span:first-child{max-width:74%}
+    @media(max-width:900px){.itt-clean__products{grid-template-columns:repeat(2,1fr)}.itt-clean__copy{grid-template-columns:1fr}.itt-clean__actions{justify-self:start}}
+    @media(max-width:560px){.itt-clean__hero{height:72svh;min-height:610px}.itt-clean__hero-media{inset:-3% -18%}.itt-clean__hero-media img{object-position:58% center}.itt-clean__brand{top:42%}.itt-clean__mark{font-size:25vw}.itt-clean__thought{margin-left:.2rem;font-size:.52rem;letter-spacing:.22em}.itt-clean__copy{bottom:1.5rem}.itt-clean__copy p{max-width:88%;font-size:.78rem}.itt-clean__actions{flex-wrap:wrap}.itt-clean__edit{padding:2.6rem 1rem}.itt-clean__edit-head{align-items:start;flex-direction:column;gap:.8rem}.itt-clean__products{gap:.65rem}.itt-clean__meta{font-size:.57rem}.itt-clean__fall:nth-child(even){display:none}}
+    @media(prefers-reduced-motion:reduce){.itt-clean__fall{animation:none;display:none}.itt-clean__hero-media{transform:none!important}}
   </style>
-
-  <div class="itt-clean__hero">
-    {% if section.settings.hero_image != blank %}
-      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_alt }}
-    {% endif %}
-    <div class="itt-clean__copy">
-      <div class="itt-clean__kicker">{{ section.settings.hero_kicker | escape }}</div>
-      <h1>{{ section.settings.hero_heading | escape | newline_to_br }}</h1>
-      <p>{{ section.settings.hero_copy | escape }}</p>
-      <div class="itt-clean__actions">
-        <a class="itt-clean__cta" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">{{ section.settings.hero_primary_label | escape }} →</a>
-        <a class="itt-clean__cta" href="#HouseEdit-{{ section.id }}">{{ section.settings.hero_secondary_label | escape }} ↓</a>
-      </div>
+  <div class="itt-clean__hero" data-itt-parallax>
+    <div class="itt-clean__hero-media" data-itt-depth=".12">{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2600 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_alt }}{% endif %}</div>
+    <div class="itt-clean__matrix" aria-hidden="true">
+      <span class="itt-clean__fall" style="left:5%;--dur:18s;--delay:-8s">I TOLD ’EM · ONE OF ONE ·</span><span class="itt-clean__fall" style="left:14%;--dur:24s;--delay:-19s">ittoldem™ · 313 ·</span><span class="itt-clean__fall" style="left:24%;--dur:21s;--delay:-4s">TAILORING · SPORTSWEAR ·</span><span class="itt-clean__fall" style="left:36%;--dur:27s;--delay:-14s">CUT / PRESS / MAKE ·</span><span class="itt-clean__fall" style="left:48%;--dur:19s;--delay:-11s">MAISON · EAST SIDE ·</span><span class="itt-clean__fall" style="left:59%;--dur:25s;--delay:-6s">I TOLD ’EM ·</span><span class="itt-clean__fall" style="left:69%;--dur:22s;--delay:-17s">ONE OF FEW · CUSTOM ·</span><span class="itt-clean__fall" style="left:79%;--dur:29s;--delay:-9s">IDEAS BECOME OBJECTS ·</span><span class="itt-clean__fall" style="left:90%;--dur:20s;--delay:-2s">ittoldem™ ·</span><span class="itt-clean__fall" style="left:96%;--dur:26s;--delay:-21s">ALTER / WEAR / REPEAT ·</span>
     </div>
+    <div class="itt-clean__brand" data-itt-depth=".3"><div class="itt-clean__mark">ittoldem<span class="itt-clean__tm">™</span></div><div class="itt-clean__thought">I TOLD ’EM · SAME THOUGHT / DIFFERENT LEVELS</div></div>
+    <div class="itt-clean__copy"><div><div class="itt-clean__kicker">{{ section.settings.hero_kicker | escape }}</div><p>{{ section.settings.hero_copy | escape }}</p></div><div class="itt-clean__actions"><a class="itt-clean__cta" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">{{ section.settings.hero_primary_label | escape }} →</a><a class="itt-clean__cta" href="#HouseEdit-{{ section.id }}">{{ section.settings.hero_secondary_label | escape }} ↓</a></div></div>
   </div>
-
-  <section class="itt-clean__edit" id="HouseEdit-{{ section.id }}">
-    <div class="itt-clean__edit-head">
-      <div><div class="itt-clean__kicker">CURRENT RELEASE</div><h2>THE HOUSE EDIT</h2></div>
-      <a class="itt-clean__view" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW THE COLLECTION →</a>
-    </div>
-    <div class="itt-clean__products">
-      {% assign featured = section.settings.featured_collection %}
-      {% if featured != blank %}
-        {% for product in featured.products limit: 4 %}
-          {% if product.featured_image != blank %}
-            <a class="itt-clean__product" href="{{ product.url }}">
-              <div class="itt-clean__media">{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}</div>
-              <div class="itt-clean__meta"><span>{{ product.title }}</span><span>{{ product.price | money }}</span></div>
-            </a>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    </div>
-  </section>
+  <section class="itt-clean__edit" id="HouseEdit-{{ section.id }}"><div class="itt-clean__edit-head"><div><div class="itt-clean__kicker">CURRENT RELEASE</div><h2>THE HOUSE EDIT</h2></div><a class="itt-clean__view" href="{{ section.settings.featured_collection.url | default: routes.all_products_collection_url }}">VIEW THE COLLECTION →</a></div><div class="itt-clean__products">{% assign featured = section.settings.featured_collection %}{% if featured != blank %}{% for product in featured.products limit: 4 %}{% if product.featured_image != blank %}<a class="itt-clean__product" href="{{ product.url }}"><div class="itt-clean__media">{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}</div><div class="itt-clean__meta"><span>{{ product.title }}</span><span>{{ product.price | money }}</span></div></a>{% endif %}{% endfor %}{% endif %}</div></section>
+  <script>(()=>{const hero=document.querySelector('#IttClean-{{ section.id }} [data-itt-parallax]');if(!hero||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const layers=[...hero.querySelectorAll('[data-itt-depth]')];let ticking=false;const draw=()=>{const r=hero.getBoundingClientRect(),vh=innerHeight;if(r.bottom>0&&r.top<vh){const y=(vh/2-(r.top+r.height/2));layers.forEach(l=>l.style.transform=`translate3d(0,${y*Number(l.dataset.ittDepth)}px,0)`)}ticking=false};addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(draw);ticking=true}},{passive:true});draw()})();</script>
 </section>
-
-{% schema %}
-{
-  "name": "ITT House Clean",
-  "settings": [
-    {"type":"image_picker","id":"hero_image","label":"Hero image"},
-    {"type":"text","id":"hero_alt","label":"Hero image alt text","default":"ITT TOLD’EM Detroit atelier campaign"},
-    {"type":"text","id":"hero_kicker","label":"Hero kicker","default":"MAISON · DÉTROIT — EAST SIDE"},
-    {"type":"textarea","id":"hero_heading","label":"Hero heading","default":"THE HOUSE.\nBUILT DIFFERENT."},
-    {"type":"textarea","id":"hero_copy","label":"Hero copy","default":"Limited apparel, custom work and material experiments from the house."},
-    {"type":"text","id":"hero_primary_label","label":"Primary button","default":"ENTER THE HOUSE"},
-    {"type":"text","id":"hero_secondary_label","label":"Secondary button","default":"VIEW THE HOUSE EDIT"},
-    {"type":"url","id":"hero_link","label":"Hero link"},
-    {"type":"collection","id":"featured_collection","label":"Featured collection"}
-  ],
-  "presets": [{"name":"ITT House Clean"}]
-}
-{% endschema %}
+{% schema %}{"name":"ITT House Clean","settings":[{"type":"image_picker","id":"hero_image","label":"Hero image"},{"type":"text","id":"hero_alt","label":"Hero image alt text","default":"ittoldem atelier campaign"},{"type":"text","id":"hero_kicker","label":"Hero kicker","default":"MAISON · DÉTROIT — EAST SIDE"},{"type":"textarea","id":"hero_heading","label":"Hero heading","default":"I TOLD ’EM."},{"type":"textarea","id":"hero_copy","label":"Hero copy","default":"Fashion, tailoring, sportswear and objects. Limited pieces, custom work and ideas made to be worn."},{"type":"text","id":"hero_primary_label","label":"Primary button","default":"ENTER THE HOUSE"},{"type":"text","id":"hero_secondary_label","label":"Secondary button","default":"VIEW THE HOUSE EDIT"},{"type":"url","id":"hero_link","label":"Hero link"},{"type":"collection","id":"featured_collection","label":"Featured collection"}],"presets":[{"name":"ITT House Clean"}]}{% endschema %}
