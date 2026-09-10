@@ -9,32 +9,14 @@
  */
 {
   "sections": {
-    "ittoldem_house": {
-      "type": "ittoldem-house-clean",
+    "itt_home_experience": {
+      "type": "ittoldem-home-experience",
       "settings": {
-        "hero_image": "shopify://shop_images/ittoldem-atelier-nails-wax-hero.jpg",
-        "hero_alt": "ittoldem atelier with nail typography, candle wax, robotic arm and heat press",
-        "hero_kicker": "MAISON · DÉTROIT — EAST SIDE",
-        "hero_heading": "I TOLD ’EM.",
-        "hero_copy": "Fashion, tailoring, sportswear and objects. Limited pieces, custom work and ideas made to be worn.",
-        "hero_primary_label": "ENTER THE HOUSE",
-        "hero_secondary_label": "VIEW THE HOUSE EDIT",
-        "hero_link": "shopify://collections/all",
-        "featured_collection": "all"
+        "hero_image": "shopify://shop_images/ittoldem-atelier-nails-wax-hero.jpg"
       }
-    },
-    "itt_media_field": {
-      "type": "ittoldem-media-field",
-      "settings": {}
-    },
-    "itt_custom_studio": {
-      "type": "ittoldem-custom-studio",
-      "settings": {}
     }
   },
   "order": [
-    "ittoldem_house",
-    "itt_media_field",
-    "itt_custom_studio"
+    "itt_home_experience"
   ]
 }
