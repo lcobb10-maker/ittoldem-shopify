@@ -38,9 +38,48 @@
         "story_link": "/search?view=about&q=ITT",
         "editorial_link_2": "/search?view=custom&type=product&q=CUSTOM"
       }
+    },
+    "itt_makers_floor": {
+      "type": "itt-makers-floor",
+      "blocks": {
+        "fit_study": {
+          "type": "proof",
+          "settings": {
+            "eyebrow": "FIT STUDY",
+            "title": "ON BODY. IN MOTION.",
+            "caption": "A real fit check showing the pants from every angle.",
+            "link_label": "DISCOVER"
+          }
+        },
+        "print_study": {
+          "type": "proof",
+          "settings": {
+            "eyebrow": "PRINT STUDY",
+            "title": "TOUCH THE SURFACE.",
+            "caption": "Raised puff print and texture shown close-up by hand.",
+            "link_label": "DISCOVER"
+          }
+        },
+        "handwork": {
+          "type": "proof",
+          "settings": {
+            "eyebrow": "HANDWORK",
+            "title": "CROCHET, HELD UP CLOSE.",
+            "caption": "The material and construction shown without campaign styling.",
+            "link_label": "DISCOVER"
+          }
+        }
+      },
+      "block_order": ["fit_study", "print_study", "handwork"],
+      "settings": {
+        "kicker": "THE MAKERS FLOOR · DETROIT",
+        "heading": "WATCH IT\nBECOME REAL.",
+        "copy": "Campaign imagery sets the world. This is the proof: real garments, real texture, real hands, real movement."
+      }
     }
   },
   "order": [
-    "ittoldem_house"
+    "ittoldem_house",
+    "itt_makers_floor"
   ]
 }
