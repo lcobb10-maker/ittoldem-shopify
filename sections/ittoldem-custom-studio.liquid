@@ -1,0 +1,32 @@
+<section class="itt-custom-studio">
+  <style>
+    .itt-custom-studio{background:#eee5d5;color:#0a0a0a;padding:clamp(3rem,6vw,6rem) clamp(1rem,4vw,4rem);border-top:1px solid rgba(0,0,0,.12)}
+    .itt-custom-studio *{box-sizing:border-box}.itt-custom-studio__head{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:end;margin-bottom:2rem}.itt-custom-studio__kicker{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;opacity:.65}.itt-custom-studio h2{margin:.5rem 0 0;font-size:clamp(3.2rem,7vw,7.2rem);line-height:.86;letter-spacing:-.06em;text-transform:uppercase;font-weight:500}.itt-custom-studio__head p{max-width:38rem;margin:0 0 .2rem auto;line-height:1.55;color:rgba(0,0,0,.68)}
+    .itt-custom-studio__grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.itt-custom-studio__card{position:relative;min-height:620px;overflow:hidden;background:#d4c9b7}.itt-custom-studio__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.itt-custom-studio__card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 28%,rgba(0,0,0,.82) 100%)}.itt-custom-studio__copy{position:absolute;z-index:2;left:1rem;right:1rem;bottom:1rem;color:#fff}.itt-custom-studio__badge{display:inline-block;border:1px solid rgba(255,255,255,.55);padding:.4rem .58rem;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.25)}.itt-custom-studio__copy h3{margin:.7rem 0 .35rem;font-size:clamp(2rem,3.6vw,4.2rem);line-height:.9;text-transform:uppercase}.itt-custom-studio__copy p{max-width:34rem;margin:0 0 1rem;color:rgba(255,255,255,.78);line-height:1.45}.itt-custom-studio__cta{display:inline-flex;border:1px solid rgba(255,255,255,.62);padding:.72rem .9rem;color:#fff;text-decoration:none;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.28)}
+    @media(max-width:800px){.itt-custom-studio__head{grid-template-columns:1fr}.itt-custom-studio__grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.itt-custom-studio__card{flex:0 0 86vw;min-height:68svh;scroll-snap-align:center}}
+  </style>
+  <div class="itt-custom-studio__head">
+    <div><div class="itt-custom-studio__kicker">CUSTOM / COLLEGE / ORGANIZATION</div><h2>BRING THE<br>GROUP. WE BUILD<br>THE PIECE.</h2></div>
+    <p>Custom organization apparel, college-inspired work, event pieces, team culture and specialty finishes made to feel designed—not templated.</p>
+  </div>
+  <div class="itt-custom-studio__grid">
+    <article class="itt-custom-studio__card">
+      <img src="https://cdn.shopify.com/s/files/1/0735/1320/5802/files/IMG_2459.jpg?v=1789002816" loading="lazy" alt="Custom Spartan organization apparel example">
+      <div class="itt-custom-studio__copy"><span class="itt-custom-studio__badge">COLLEGE + ORGANIZATION APPAREL</span><h3>YOUR GROUP.<br>HOUSE DESIGNED.</h3><p>Custom shirts, hoodies and coordinated apparel for colleges, organizations, clubs, teams and events—built around original design rather than generic spiritwear.</p><a class="itt-custom-studio__cta" href="/pages/contact">START A CUSTOM ORDER →</a></div>
+    </article>
+    <article class="itt-custom-studio__card">
+      <img src="https://cdn.shopify.com/s/files/1/0735/1320/5802/files/IMG_2978.jpg?v=1789002842" loading="lazy" alt="Specialty print custom shirt example">
+      <div class="itt-custom-studio__copy"><span class="itt-custom-studio__badge">SPECIALTY PRINT LAB</span><h3>PRINT SHOULD<br>DO SOMETHING.</h3><p>Foil DTF, sublimation-backed construction and specialty finishes give a custom shirt more depth than a standard logo placement.</p><a class="itt-custom-studio__cta" href="/pages/contact">COMMISSION A SHIRT →</a></div>
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"ITT Custom Studio",
+  "tag":"section",
+  "class":"section-itt-custom-studio",
+  "settings":[],
+  "presets":[{"name":"ITT Custom Studio"}]
+}
+{% endschema %}
