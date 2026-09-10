@@ -13,10 +13,10 @@
       "type": "ittoldem-house-clean",
       "settings": {
         "hero_image": "shopify://shop_images/A655D595-0296-4886-AF4A-B88FB6B16313.png",
-        "hero_alt": "ITT TOLD’EM Detroit atelier campaign",
+        "hero_alt": "ittoldem atelier campaign",
         "hero_kicker": "MAISON · DÉTROIT — EAST SIDE",
-        "hero_heading": "THE HOUSE.\nBUILT DIFFERENT.",
-        "hero_copy": "Limited apparel, custom work and material experiments from the house.",
+        "hero_heading": "I TOLD ’EM.",
+        "hero_copy": "Fashion, tailoring, sportswear and objects. Limited pieces, custom work and ideas made to be worn.",
         "hero_primary_label": "ENTER THE HOUSE",
         "hero_secondary_label": "VIEW THE HOUSE EDIT",
         "hero_link": "shopify://collections/all",
@@ -38,4 +38,3 @@
     "itt_custom_studio"
   ]
 }
-
