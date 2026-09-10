@@ -1,0 +1,53 @@
+name: Deploy ITT commerce pass to Shopify
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_live:
+        description: 'Allow pushing to the live theme'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ittoldem-commerce-pass
+
+      - name: Verify Shopify deployment secrets exist
+        shell: bash
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: |
+          test -n "$SHOPIFY_STORE" || (echo 'Missing SHOPIFY_STORE secret' && exit 1)
+          test -n "$SHOPIFY_THEME_ID" || (echo 'Missing SHOPIFY_THEME_ID secret' && exit 1)
+          test -n "$SHOPIFY_CLI_THEME_TOKEN" || (echo 'Missing SHOPIFY_CLI_THEME_TOKEN secret' && exit 1)
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli@latest
+
+      - name: Push commerce-pass theme
+        shell: bash
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          PUBLISH_LIVE: ${{ inputs.publish_live }}
+        run: |
+          EXTRA=''
+          if [ "$PUBLISH_LIVE" = 'true' ]; then
+            EXTRA='--allow-live'
+          fi
+          shopify theme push \
+            --store "$SHOPIFY_STORE" \
+            --theme "$SHOPIFY_THEME_ID" \
+            --password "$SHOPIFY_CLI_THEME_TOKEN" \
+            $EXTRA
