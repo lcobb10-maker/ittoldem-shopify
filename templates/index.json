@@ -14,10 +14,14 @@
       "settings": {
         "hero_image": "shopify://shop_images/ittoldem-atelier-nails-wax-hero.jpg"
       }
+    },
+    "itt_falling_overlay": {
+      "type": "ittoldem-falling-overlay",
+      "settings": {}
     }
   },
   "order": [
-    "itt_home_experience"
+    "itt_home_experience",
+    "itt_falling_overlay"
   ]
 }
-
