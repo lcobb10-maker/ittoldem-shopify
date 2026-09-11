@@ -20,6 +20,7 @@
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
     {{ 'itt-real-proof.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' %}
+      {{ 'itt-worlds-stage.css' | asset_url | stylesheet_tag }}
       <style>
         .itt8__commerce,.itt8__atelier{position:relative;isolation:isolate}
         .itt8__commerce::before,.itt8__atelier::before{
@@ -82,6 +83,6 @@
     {% render 'search-modal' %}
     {% if settings.quick_add or settings.mobile_quick_add %}{% render 'quick-add-modal' %}{% endif %}
     <script src="{{ 'itt-real-proof.js' | asset_url }}" defer></script>
-    {% if request.page_type == 'index' %}<script src="{{ 'itt-horizontal-parallax.js' | asset_url }}" defer></script>{% endif %}
+    {% if request.page_type == 'index' %}<script src="{{ 'itt-horizontal-parallax.js' | asset_url }}" defer></script><script src="{{ 'itt-worlds-stage.js' | asset_url }}" defer></script>{% endif %}
   </body>
 </html>
