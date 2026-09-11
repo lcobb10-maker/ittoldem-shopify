@@ -1,0 +1,35 @@
+<section id="ITT-Fall-{{ section.id }}" class="itt-fall-overlay" aria-hidden="true">
+  <style>
+    #ITT-Fall-{{ section.id }}{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item{position:absolute;top:-18vh;white-space:nowrap;writing-mode:vertical-rl;text-orientation:mixed;font:600 9px/1 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,243,234,.42);text-shadow:0 0 16px rgba(183,149,85,.18);animation:ittOverlayFall var(--dur) linear infinite;animation-delay:var(--delay);will-change:transform,opacity}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(3n){font:italic 400 14px/1 Georgia,serif;letter-spacing:.08em;text-transform:none;color:rgba(183,149,85,.65)}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(4n){opacity:.55}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(5n){font-size:7px;color:rgba(248,243,234,.28)}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil{position:absolute;top:-16vh;width:26px;height:26px;border:1px solid rgba(248,243,234,.36);border-radius:50%;display:grid;place-items:center;font:italic 400 14px/1 Georgia,serif;color:rgba(183,149,85,.7);animation:ittOverlayFall var(--dur) linear infinite;animation-delay:var(--delay);will-change:transform}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil:before{content:'i';transform:rotate(-90deg)}
+    @keyframes ittOverlayFall{0%{transform:translate3d(0,-8vh,0) rotate(0deg);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translate3d(var(--drift,0),128vh,0) rotate(var(--rot,0deg));opacity:0}}
+    @media(max-width:560px){#ITT-Fall-{{ section.id }} .itt-fall-overlay__item{font-size:7px;letter-spacing:.16em}#ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(even){opacity:.28}#ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil{width:22px;height:22px}}
+    @media(prefers-reduced-motion:reduce){#ITT-Fall-{{ section.id }}{display:none}}
+  </style>
+  <span class="itt-fall-overlay__item" style="left:4%;--dur:18s;--delay:-12s;--drift:2vw">ittoldem™</span>
+  <span class="itt-fall-overlay__item" style="left:11%;--dur:23s;--delay:-6s;--drift:-1vw">FLAGLINE</span>
+  <span class="itt-fall-overlay__item" style="left:19%;--dur:20s;--delay:-15s;--drift:2vw">LA MAISON</span>
+  <span class="itt-fall-overlay__item" style="left:28%;--dur:26s;--delay:-19s;--drift:-2vw">L’ATELIER</span>
+  <span class="itt-fall-overlay__item" style="left:37%;--dur:17s;--delay:-4s;--drift:1vw">313 · EAST SIDE</span>
+  <span class="itt-fall-overlay__item" style="left:46%;--dur:24s;--delay:-16s;--drift:-2vw">LE LABORATOIRE</span>
+  <span class="itt-fall-overlay__item" style="left:55%;--dur:19s;--delay:-9s;--drift:2vw">I TOLD ’EM.</span>
+  <span class="itt-fall-overlay__item" style="left:64%;--dur:27s;--delay:-22s;--drift:-1vw">CUSTOM · CUT · PRESS · MAKE</span>
+  <span class="itt-fall-overlay__item" style="left:73%;--dur:21s;--delay:-13s;--drift:2vw">ITTELIER</span>
+  <span class="itt-fall-overlay__item" style="left:82%;--dur:25s;--delay:-7s;--drift:-2vw">TAILORING</span>
+  <span class="itt-fall-overlay__item" style="left:91%;--dur:18s;--delay:-11s;--drift:1vw">ONE OF ONE</span>
+  <span class="itt-fall-overlay__sigil" style="left:15%;--dur:22s;--delay:-17s;--drift:2vw;--rot:18deg"></span>
+  <span class="itt-fall-overlay__sigil" style="left:51%;--dur:29s;--delay:-9s;--drift:-2vw;--rot:-14deg"></span>
+  <span class="itt-fall-overlay__sigil" style="left:87%;--dur:24s;--delay:-20s;--drift:1vw;--rot:12deg"></span>
+</section>
+{% schema %}
+{
+  "name": "ITT Falling Overlay",
+  "settings": [],
+  "presets": [{"name":"ITT Falling Overlay"}]
+}
+{% endschema %}
