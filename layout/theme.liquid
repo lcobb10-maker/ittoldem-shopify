@@ -46,8 +46,8 @@
           opacity:.085;
         }
         @keyframes ittCreamSvgDrift{
-          from{transform:translate3d(0,-5%,0) scale(1.02) rotate(-.8deg)}
-          to{transform:translate3d(0,7%,0) scale(1.08) rotate(.8deg)}
+          from{transform:translate3d(-8vw,-5%,0) scale(1.02) rotate(-.8deg)}
+          to{transform:translate3d(8vw,7%,0) scale(1.08) rotate(.8deg)}
         }
         @media(max-width:900px){
           .itt8__commerce::before,.itt8__atelier::before{inset:-7% -16%;background-size:112vw auto;opacity:.07}
@@ -82,5 +82,6 @@
     {% render 'search-modal' %}
     {% if settings.quick_add or settings.mobile_quick_add %}{% render 'quick-add-modal' %}{% endif %}
     <script src="{{ 'itt-real-proof.js' | asset_url }}" defer></script>
+    {% if request.page_type == 'index' %}<script src="{{ 'itt-horizontal-parallax.js' | asset_url }}" defer></script>{% endif %}
   </body>
 </html>
