@@ -19,6 +19,45 @@
     {%- render 'color-palette' -%}
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
     {{ 'itt-real-proof.css' | asset_url | stylesheet_tag }}
+    {% if request.page_type == 'index' %}
+      <style>
+        .itt8__commerce,.itt8__atelier{position:relative;isolation:isolate}
+        .itt8__commerce::before,.itt8__atelier::before{
+          content:"";
+          position:absolute;
+          inset:-10% -8%;
+          z-index:0;
+          pointer-events:none;
+          background-image:url('https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittoldem-cream-background.svg?v=1789092315');
+          background-repeat:no-repeat;
+          background-position:center;
+          background-size:min(72vw,980px) auto;
+          opacity:.075;
+          mix-blend-mode:multiply;
+          transform-origin:center;
+          will-change:transform;
+          animation:ittCreamSvgDrift linear both;
+          animation-timeline:view();
+          animation-range:entry 0% exit 100%;
+        }
+        .itt8__atelier::before{
+          background-size:min(76vw,1050px) auto;
+          background-position:12% 44%;
+          opacity:.085;
+        }
+        @keyframes ittCreamSvgDrift{
+          from{transform:translate3d(0,-5%,0) scale(1.02) rotate(-.8deg)}
+          to{transform:translate3d(0,7%,0) scale(1.08) rotate(.8deg)}
+        }
+        @media(max-width:900px){
+          .itt8__commerce::before,.itt8__atelier::before{inset:-7% -16%;background-size:112vw auto;opacity:.07}
+          .itt8__atelier::before{background-position:24% 46%;background-size:118vw auto;opacity:.08}
+        }
+        @media(prefers-reduced-motion:reduce){
+          .itt8__commerce::before,.itt8__atelier::before{animation:none;transform:none}
+        }
+      </style>
+    {% endif %}
     {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}
     {{ content_for_header }}
   </head>
