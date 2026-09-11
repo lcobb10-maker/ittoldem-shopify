@@ -9,8 +9,8 @@
  */
 {
   "sections": {
-    "itt_house_clean": {
-      "type": "ittoldem-house-clean",
+    "itt_home_experience": {
+      "type": "ittoldem-home-experience",
       "settings": {
         "hero_image": "shopify://shop_images/ittoldem-atelier-nails-wax-hero.jpg"
       }
@@ -21,7 +21,7 @@
     }
   },
   "order": [
-    "itt_house_clean",
+    "itt_home_experience",
     "itt_falling_overlay"
   ]
 }
