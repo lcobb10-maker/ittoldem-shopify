@@ -1,31 +1,126 @@
 <section id="ITT-Fall-{{ section.id }}" class="itt-fall-overlay" aria-hidden="true">
   <style>
     #ITT-Fall-{{ section.id }}{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
-    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item{position:absolute;top:-18vh;white-space:nowrap;writing-mode:vertical-rl;text-orientation:mixed;font:600 9px/1 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,243,234,.42);text-shadow:0 0 16px rgba(183,149,85,.18);animation:ittOverlayFall var(--dur) linear infinite;animation-delay:var(--delay);will-change:transform,opacity}
-    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(3n){font:italic 400 14px/1 Georgia,serif;letter-spacing:.08em;text-transform:none;color:rgba(183,149,85,.65)}
-    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(4n){opacity:.55}
-    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(5n){font-size:7px;color:rgba(248,243,234,.28)}
-    #ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil{position:absolute;top:-16vh;width:26px;height:26px;border:1px solid rgba(248,243,234,.36);border-radius:50%;display:grid;place-items:center;font:italic 400 14px/1 Georgia,serif;color:rgba(183,149,85,.7);animation:ittOverlayFall var(--dur) linear infinite;animation-delay:var(--delay);will-change:transform}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item{position:absolute;top:-18vh;white-space:nowrap;writing-mode:vertical-rl;text-orientation:mixed;font:600 9px/1 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,243,234,.34);text-shadow:0 0 16px rgba(183,149,85,.18);animation:ittOverlayFall var(--dur) linear infinite;animation-delay:var(--delay);will-change:transform,opacity}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(3n){font:italic 400 14px/1 Georgia,serif;letter-spacing:.08em;text-transform:none;color:rgba(183,149,85,.58)}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(4n){opacity:.5}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(5n){font-size:7px;color:rgba(248,243,234,.24)}
+    #ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil{position:absolute;top:-16vh;width:26px;height:26px;border:1px solid rgba(248,243,234,.28);border-radius:50%;display:grid;place-items:center;font:italic 400 14px/1 Georgia,serif;color:rgba(183,149,85,.58);animation:ittOverlayFall var(--dur) linear infinite;animation-delay:var(--delay);will-change:transform}
     #ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil:before{content:'i';transform:rotate(-90deg)}
     @keyframes ittOverlayFall{0%{transform:translate3d(0,-8vh,0) rotate(0deg);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translate3d(var(--drift,0),128vh,0) rotate(var(--rot,0deg));opacity:0}}
-    @media(max-width:560px){#ITT-Fall-{{ section.id }} .itt-fall-overlay__item{font-size:7px;letter-spacing:.16em}#ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(even){opacity:.28}#ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil{width:22px;height:22px}}
-    @media(prefers-reduced-motion:reduce){#ITT-Fall-{{ section.id }}{display:none}}
+
+    /* ITT HOUSE INTERFACE */
+    .itt-command-rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:4px;padding:8px;background:rgba(5,5,5,.66);border:1px solid rgba(201,168,97,.24);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 16px 60px rgba(0,0,0,.35);pointer-events:auto}
+    .itt-command-rail a{display:flex;align-items:center;gap:10px;min-width:42px;height:34px;padding:0 10px;color:rgba(248,243,234,.66);text-decoration:none;font:600 9px/1 Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;transition:.24s ease}
+    .itt-command-rail a:before{content:attr(data-n);font:italic 400 11px/1 Georgia,serif;color:#c9a861;min-width:18px}
+    .itt-command-rail a span{max-width:0;overflow:hidden;opacity:0;white-space:nowrap;transition:max-width .3s ease,opacity .2s ease}
+    .itt-command-rail:hover a span,.itt-command-rail:focus-within a span{max-width:90px;opacity:1}
+    .itt-command-rail a:hover,.itt-command-rail a:focus-visible{color:#fff;background:rgba(255,255,255,.07);outline:none}
+    .itt-command-rail a.is-active{color:#fff;background:rgba(201,168,97,.12)}
+
+    .itt-scripture-chip{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:68;max-width:245px;padding:14px 16px;background:rgba(5,5,5,.58);border-left:1px solid rgba(201,168,97,.65);color:#f8f3ea;backdrop-filter:blur(12px);pointer-events:none}
+    .itt-scripture-chip small{display:block;margin-bottom:7px;font:600 8px/1 Arial,sans-serif;letter-spacing:.25em;color:#c9a861;text-transform:uppercase}
+    .itt-scripture-chip p{margin:0;font:italic 400 15px/1.35 Georgia,serif;color:rgba(248,243,234,.9)}
+
+    .itt-scroll-meter{position:fixed;right:16px;bottom:18px;z-index:71;width:132px;pointer-events:none}
+    .itt-scroll-meter__top{display:flex;justify-content:space-between;margin-bottom:6px;color:rgba(248,243,234,.7);font:600 8px/1 Arial,sans-serif;letter-spacing:.18em}
+    .itt-scroll-meter__track{height:2px;background:rgba(255,255,255,.15);overflow:hidden}
+    .itt-scroll-meter__fill{height:100%;width:0;background:#c9a861;transform-origin:left center}
+
+    .itt-house-stamp{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:69;color:rgba(248,243,234,.58);font:600 8px/1 Arial,sans-serif;letter-spacing:.26em;text-transform:uppercase;pointer-events:none;mix-blend-mode:screen}
+
+    .itt-mobile-dock{display:none}
+
+    /* Stronger shell treatment without replacing real media */
+    body.template-index .itt-x__hero:after{content:"";position:absolute;inset:0;z-index:7;pointer-events:none;border:1px solid rgba(201,168,97,.13);box-shadow:inset 0 0 120px rgba(0,0,0,.34)}
+    body.template-index .itt-x__herofoot{padding-left:54px}
+    body.template-index .itt-x__worlds{position:relative;isolation:isolate}
+    body.template-index .itt-x__worlds:after{content:"ECCLESIASTES 9:10  /  WHATSOEVER THY HAND FINDETH TO DO, DO IT WITH THY MIGHT.";position:absolute;left:5vw;right:5vw;bottom:22px;white-space:nowrap;overflow:hidden;color:rgba(201,168,97,.48);font:600 8px/1 Arial,sans-serif;letter-spacing:.26em;text-align:center;pointer-events:none}
+    body.template-index .itt-x__worldgrid a{position:relative;overflow:hidden}
+    body.template-index .itt-x__worldgrid a:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 0 60%,rgba(201,168,97,.07) 100%);pointer-events:none}
+    body.template-index .itt-x__worldgrid a:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 30px 80px rgba(0,0,0,.34)}
+    body.template-index .itt-x__worldgrid a{transition:transform .36s cubic-bezier(.2,.8,.2,1),background .3s,color .3s,box-shadow .36s}
+
+    @media(max-width:900px){
+      .itt-command-rail,.itt-scripture-chip,.itt-house-stamp{display:none}
+      .itt-mobile-dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:90;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:6px;background:rgba(5,5,5,.78);border:1px solid rgba(201,168,97,.28);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);pointer-events:auto}
+      .itt-mobile-dock a{min-height:42px;display:grid;place-items:center;color:#f8f3ea;text-decoration:none;font:600 8px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.07)}
+      .itt-mobile-dock a:active{background:rgba(201,168,97,.14)}
+      .itt-scroll-meter{right:16px;bottom:68px;width:96px}
+      body.template-index .itt-x__herofoot{padding-left:0}
+    }
+    @media(max-width:560px){#ITT-Fall-{{ section.id }} .itt-fall-overlay__item{font-size:7px;letter-spacing:.16em}#ITT-Fall-{{ section.id }} .itt-fall-overlay__item:nth-child(even){opacity:.24}#ITT-Fall-{{ section.id }} .itt-fall-overlay__sigil{width:22px;height:22px}}
+    @media(prefers-reduced-motion:reduce){#ITT-Fall-{{ section.id }}{display:none}.itt-command-rail,.itt-scripture-chip,.itt-scroll-meter,.itt-house-stamp,.itt-mobile-dock{display:none!important}body.template-index .itt-x__worldgrid a{transition:none!important}}
   </style>
+
   <span class="itt-fall-overlay__item" style="left:4%;--dur:18s;--delay:-12s;--drift:2vw">ittoldem™</span>
   <span class="itt-fall-overlay__item" style="left:11%;--dur:23s;--delay:-6s;--drift:-1vw">FLAGLINE</span>
   <span class="itt-fall-overlay__item" style="left:19%;--dur:20s;--delay:-15s;--drift:2vw">LA MAISON</span>
-  <span class="itt-fall-overlay__item" style="left:28%;--dur:26s;--delay:-19s;--drift:-2vw">L’ATELIER</span>
+  <span class="itt-fall-overlay__item" style="left:28%;--dur:26s;--delay:-19s;--drift:-2vw">WRITE THE VISION</span>
   <span class="itt-fall-overlay__item" style="left:37%;--dur:17s;--delay:-4s;--drift:1vw">313 · EAST SIDE</span>
   <span class="itt-fall-overlay__item" style="left:46%;--dur:24s;--delay:-16s;--drift:-2vw">LE LABORATOIRE</span>
-  <span class="itt-fall-overlay__item" style="left:55%;--dur:19s;--delay:-9s;--drift:2vw">I TOLD ’EM.</span>
-  <span class="itt-fall-overlay__item" style="left:64%;--dur:27s;--delay:-22s;--drift:-1vw">CUSTOM · CUT · PRESS · MAKE</span>
+  <span class="itt-fall-overlay__item" style="left:55%;--dur:19s;--delay:-9s;--drift:2vw">PROVERBS 22:1</span>
+  <span class="itt-fall-overlay__item" style="left:64%;--dur:27s;--delay:-22s;--drift:-1vw">IRON SHARPENETH IRON</span>
   <span class="itt-fall-overlay__item" style="left:73%;--dur:21s;--delay:-13s;--drift:2vw">ITTELIER</span>
-  <span class="itt-fall-overlay__item" style="left:82%;--dur:25s;--delay:-7s;--drift:-2vw">TAILORING</span>
+  <span class="itt-fall-overlay__item" style="left:82%;--dur:25s;--delay:-7s;--drift:-2vw">FAITH WITHOUT WORKS IS DEAD</span>
   <span class="itt-fall-overlay__item" style="left:91%;--dur:18s;--delay:-11s;--drift:1vw">ONE OF ONE</span>
   <span class="itt-fall-overlay__sigil" style="left:15%;--dur:22s;--delay:-17s;--drift:2vw;--rot:18deg"></span>
   <span class="itt-fall-overlay__sigil" style="left:51%;--dur:29s;--delay:-9s;--drift:-2vw;--rot:-14deg"></span>
   <span class="itt-fall-overlay__sigil" style="left:87%;--dur:24s;--delay:-20s;--drift:1vw;--rot:12deg"></span>
 </section>
+
+<nav class="itt-command-rail" aria-label="House navigation">
+  <a href="#MainContent" data-n="01"><span>House</span></a>
+  <a href="/collections/all" data-n="02"><span>Store</span></a>
+  <a href="/search?view=flagline" data-n="03"><span>Field</span></a>
+  <a href="/search?view=lab" data-n="04"><span>Lab</span></a>
+  <a href="/search?view=custom" data-n="05"><span>ITTelier</span></a>
+</nav>
+
+<aside class="itt-scripture-chip" aria-hidden="true">
+  <small>Proverbs 22:1</small>
+  <p>A good name is rather to be chosen than great riches.</p>
+</aside>
+
+<div class="itt-scroll-meter" aria-hidden="true">
+  <div class="itt-scroll-meter__top"><span>001</span><span class="itt-scroll-meter__pct">000%</span><span>005</span></div>
+  <div class="itt-scroll-meter__track"><div class="itt-scroll-meter__fill"></div></div>
+</div>
+<div class="itt-house-stamp" aria-hidden="true">MAISON · DÉTROIT — EAST SIDE</div>
+
+<nav class="itt-mobile-dock" aria-label="House navigation mobile">
+  <a href="#MainContent">House</a>
+  <a href="/collections/all">Store</a>
+  <a href="/search?view=flagline">Field</a>
+  <a href="/search?view=lab">Lab</a>
+  <a href="/search?view=custom">ITTelier</a>
+</nav>
+
+<script>
+  (() => {
+    const fill = document.querySelector('.itt-scroll-meter__fill');
+    const pct = document.querySelector('.itt-scroll-meter__pct');
+    const links = [...document.querySelectorAll('.itt-command-rail a')];
+    if (!fill || !pct) return;
+    let ticking = false;
+    const update = () => {
+      const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      const p = Math.max(0, Math.min(1, scrollY / max));
+      fill.style.width = `${p * 100}%`;
+      pct.textContent = `${String(Math.round(p * 100)).padStart(3,'0')}%`;
+      if (links.length) {
+        const idx = Math.min(links.length - 1, Math.floor(p * links.length));
+        links.forEach((a,i) => a.classList.toggle('is-active', i === idx));
+      }
+      ticking = false;
+    };
+    addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, {passive:true});
+    update();
+  })();
+</script>
+
 {% schema %}
 {
   "name": "ITT Falling Overlay",
