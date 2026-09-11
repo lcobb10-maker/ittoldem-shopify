@@ -20,43 +20,22 @@
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
     {{ 'itt-real-proof.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' %}
-      {{ 'itt-worlds-stage.css' | asset_url | stylesheet_tag }}
       <style>
-        .itt8__commerce,.itt8__atelier{position:relative;isolation:isolate}
-        .itt8__commerce::before,.itt8__atelier::before{
-          content:"";
-          position:absolute;
-          inset:-10% -8%;
-          z-index:0;
-          pointer-events:none;
-          background-image:url('https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittoldem-cream-background.svg?v=1789092315');
-          background-repeat:no-repeat;
-          background-position:center;
-          background-size:min(72vw,980px) auto;
-          opacity:.075;
-          mix-blend-mode:multiply;
-          transform-origin:center;
-          will-change:transform;
-          animation:ittCreamSvgDrift linear both;
-          animation-timeline:view();
-          animation-range:entry 0% exit 100%;
-        }
-        .itt8__atelier::before{
-          background-size:min(76vw,1050px) auto;
-          background-position:12% 44%;
-          opacity:.085;
-        }
-        @keyframes ittCreamSvgDrift{
-          from{transform:translate3d(-8vw,-5%,0) scale(1.02) rotate(-.8deg)}
-          to{transform:translate3d(8vw,7%,0) scale(1.08) rotate(.8deg)}
-        }
-        @media(max-width:900px){
-          .itt8__commerce::before,.itt8__atelier::before{inset:-7% -16%;background-size:112vw auto;opacity:.07}
-          .itt8__atelier::before{background-position:24% 46%;background-size:118vw auto;opacity:.08}
-        }
-        @media(prefers-reduced-motion:reduce){
-          .itt8__commerce::before,.itt8__atelier::before{animation:none;transform:none}
-        }
+        /* LIVE itt-x world stage — deliberately inline so Shopify/iPad cannot miss the treatment */
+        .itt-x__worlds{position:relative!important;min-height:150svh!important;padding:7rem 4vw 9rem!important;overflow:hidden!important;isolation:isolate;background:#050505!important}
+        .itt-x__worlds:before{content:"";position:absolute;inset:-20% -25%;z-index:-2;background:url('https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittoldem-cream-background.svg?v=1789092315') center/82vw auto no-repeat;filter:invert(1);opacity:.07;transform:rotate(-11deg)}
+        .itt-x__worlds:after{content:"ittoldem™";position:absolute;left:-2vw;bottom:1vh;z-index:-1;color:rgba(255,255,255,.04);font:italic 400 clamp(10rem,28vw,29rem)/.7 Georgia,serif;letter-spacing:-.09em;white-space:nowrap}
+        .itt-x__worldsHead{position:sticky!important;top:6vh!important;z-index:8!important;margin:0 0 10vh!important}
+        .itt-x__worldsHead h2{font-size:clamp(5.5rem,11vw,12rem)!important;line-height:.68!important;letter-spacing:-.07em!important}
+        .itt-x__worldgrid{position:sticky!important;top:31vh!important;height:56vh!important;display:flex!important;align-items:center!important;gap:12px!important;border:0!important;perspective:1400px!important}
+        .itt-x__worldgrid a{position:relative!important;flex:1 1 0!important;height:72%!important;min-height:340px!important;padding:1.1rem!important;border:1px solid rgba(255,255,255,.22)!important;background:rgba(255,255,255,.025)!important;overflow:hidden!important;box-shadow:0 35px 90px rgba(0,0,0,.5)!important;transform:translate3d(0,var(--lift,0),0) rotate(var(--tilt,0deg))!important;transition:transform .45s ease,height .45s ease,flex .45s ease,background .35s ease,color .35s ease!important}
+        .itt-x__worldgrid a:nth-child(1){--tilt:-6deg;--lift:34px}.itt-x__worldgrid a:nth-child(2){--tilt:4deg;--lift:-18px}.itt-x__worldgrid a:nth-child(3){--tilt:-3deg;--lift:20px}.itt-x__worldgrid a:nth-child(4){--tilt:6deg;--lift:-28px}.itt-x__worldgrid a:nth-child(5){--tilt:-5deg;--lift:28px}
+        .itt-x__worldgrid a:before{position:absolute;right:.55rem;top:.35rem;color:rgba(255,255,255,.11);font:italic 400 clamp(4rem,7vw,8rem)/1 Georgia,serif}.itt-x__worldgrid a:nth-child(1):before{content:"01"}.itt-x__worldgrid a:nth-child(2):before{content:"02"}.itt-x__worldgrid a:nth-child(3):before{content:"03"}.itt-x__worldgrid a:nth-child(4):before{content:"04"}.itt-x__worldgrid a:nth-child(5):before{content:"05"}
+        .itt-x__worldgrid a:after{content:"";position:absolute;width:230px;height:230px;right:-120px;bottom:-120px;border:1px solid rgba(201,168,97,.48);border-radius:50%;box-shadow:0 0 0 22px rgba(201,168,97,.04),0 0 0 52px rgba(201,168,97,.025)}
+        .itt-x__worldgrid a b{position:relative;z-index:2}.itt-x__worldgrid a span{position:relative;z-index:2;font-size:clamp(2.3rem,4vw,4.8rem)!important;line-height:.82!important;letter-spacing:-.055em!important}
+        .itt-x__worldgrid a:is(:hover,:focus-visible){flex:2.1!important;height:96%!important;--tilt:0deg;--lift:-12px;background:#f0e7d7!important;color:#070707!important;z-index:9}
+        @media(max-width:900px){.itt-x__worlds{min-height:155svh!important;padding-inline:20px!important}.itt-x__worlds:before{background-size:125vw auto}.itt-x__worldsHead{top:7vh!important}.itt-x__worldsHead h2{font-size:14vw!important}.itt-x__worldgrid{top:28vh!important;height:62vh!important;gap:8px!important}.itt-x__worldgrid a{height:70%!important;min-height:360px!important;padding:.8rem!important}.itt-x__worldgrid a span{font-size:3.1vw!important}.itt-x__worldgrid a:nth-child(1){--lift:42px}.itt-x__worldgrid a:nth-child(2){--lift:-26px}.itt-x__worldgrid a:nth-child(3){--lift:28px}.itt-x__worldgrid a:nth-child(4){--lift:-34px}.itt-x__worldgrid a:nth-child(5){--lift:36px}}
+        @media(max-width:560px){.itt-x__worlds{min-height:auto!important}.itt-x__worldsHead,.itt-x__worldgrid{position:relative!important;top:auto!important}.itt-x__worldgrid{height:auto!important;display:grid!important;grid-template-columns:1fr!important}.itt-x__worldgrid a{height:auto!important;min-height:160px!important;transform:none!important}.itt-x__worldgrid a span{font-size:2.7rem!important}}
       </style>
     {% endif %}
     {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}
@@ -83,6 +62,6 @@
     {% render 'search-modal' %}
     {% if settings.quick_add or settings.mobile_quick_add %}{% render 'quick-add-modal' %}{% endif %}
     <script src="{{ 'itt-real-proof.js' | asset_url }}" defer></script>
-    {% if request.page_type == 'index' %}<script src="{{ 'itt-horizontal-parallax.js' | asset_url }}" defer></script><script src="{{ 'itt-worlds-stage.js' | asset_url }}" defer></script>{% endif %}
+    {% if request.page_type == 'index' %}<script src="{{ 'itt-horizontal-parallax.js' | asset_url }}" defer></script>{% endif %}
   </body>
 </html>
