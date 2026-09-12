@@ -1,24 +1,79 @@
 {{ 'ittoldem-house.css' | asset_url | stylesheet_tag }}
 <section class="itt-house">
-  <div class="itt-announcement"><span>MAISON · DÉTROIT — EAST SIDE</span><span>HABAKKUK 2:2</span><span>WRITE THE VISION.</span></div>
+  <div class="itt-announcement">
+    <span>MAISON · DÉTROIT — EAST SIDE</span>
+    <span>HABAKKUK 2:2</span>
+    <span>WRITE THE VISION.</span>
+  </div>
 
   <div class="itt-hero" id="itt-entry">
-    {% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'itt-hero__media', loading: 'eager', fetchpriority: 'high', alt: "ITT TOLD’EM campaign" }}{% endif %}
+    <video class="itt-hero__media itt-hero__video" autoplay muted loop playsinline preload="metadata" poster="{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 1800 }}{% endif %}" aria-label="ITT TOLD’EM campaign video">
+      <source src="https://cdn.shopify.com/videos/c/vp/ccf55ce803e54a2ea550225b2635dfab/ccf55ce803e54a2ea550225b2635dfab.HD-1080p-7.2Mbps-93972433.mp4" type="video/mp4">
+    </video>
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'itt-hero__media itt-hero__fallback', loading: 'eager', fetchpriority: 'high', alt: "ITT TOLD’EM campaign" }}
+    {% endif %}
+
+    <div class="itt-code-rain" aria-hidden="true">
+      <span class="itt-code itt-code--1">5E<br>ITT<br>05<br>DET<br>5E<br>22:2</span>
+      <span class="itt-code itt-code--2">5E<br>16:3<br>ITT<br>5E<br>LAB<br>DET</span>
+      <span class="itt-code itt-code--3">22:1<br>5E<br>ITT<br>05<br>5E<br>EAST</span>
+      <span class="itt-code itt-code--4">ITT<br>5E<br>35:35<br>LAB<br>5E<br>05</span>
+      <span class="itt-code itt-code--5">5E<br>DET<br>ITT<br>9:10<br>5E<br>HOUSE</span>
+      <span class="itt-code itt-code--6">05<br>5E<br>ITT<br>27:17<br>5E<br>LAB</span>
+      <span class="itt-code itt-code--7">5E<br>EAST<br>16:3<br>ITT<br>05<br>5E</span>
+      <span class="itt-code itt-code--8">ITT<br>5E<br>22:2<br>DET<br>5E<br>05</span>
+    </div>
     <div class="itt-scan" aria-hidden="true"></div>
+
+    <aside class="itt-floatnav" aria-label="Quick access">
+      <a href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}"><span>01</span> STORE</a>
+      <a href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}"><span>02</span> SPORT</a>
+      <a href="{{ section.settings.lab_link | default: routes.all_products_collection_url }}"><span>03</span> LAB</a>
+      <a href="{{ routes.cart_url }}"><span>04</span> CART</a>
+    </aside>
+
     <div class="itt-hero__content">
       <div class="itt-systemline"><span>PROVERBS 16:3</span><span>COMMIT THY WORKS.</span></div>
       <div class="itt-kicker">MAISON · DÉTROIT — EAST SIDE</div>
       <h1 class="itt-display itt-hero__title">ENTER<br>THE<br>HOUSE.</h1>
       <p class="itt-hero__sub">“Write the vision, and make it plain.” · Habakkuk 2:2</p>
-      <div class="itt-hero__actions"><a class="itt-btn itt-btn--solid" href="#itt-worlds">SELECT A WORLD <span class="itt-arrow">↓</span></a><a class="itt-textlink" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">ENTER STORE <span class="itt-arrow">→</span></a></div>
+      <div class="itt-hero__actions">
+        <a class="itt-btn itt-btn--solid" href="#itt-worlds">SELECT A WORLD <span class="itt-arrow">↓</span></a>
+        <a class="itt-textlink" href="{{ section.settings.hero_link | default: routes.all_products_collection_url }}">ENTER STORE <span class="itt-arrow">→</span></a>
+      </div>
     </div>
     <div class="itt-script">“Commit thy works<br>unto the Lord.”<small>PROVERBS 16:3</small></div>
     <div class="itt-hero__index">ECCLESIASTES 9:10 · WITH THY MIGHT</div>
   </div>
 
-  <nav class="itt-command" aria-label="House worlds"><a href="#itt-worlds"><b>01</b><span>WORLDS</span></a><a href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}"><b>02</b><span>STORE</span></a><a href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}"><b>03</b><span>SPORT</span></a><a href="{{ section.settings.lab_link | default: routes.all_products_collection_url }}"><b>04</b><span>LAB</span></a><a href="{{ section.settings.story_link | default: routes.root_url }}"><b>05</b><span>HOUSE FILE</span></a></nav>
+  <nav class="itt-command" aria-label="House worlds">
+    <a href="#itt-worlds"><b>01</b><span>WORLDS</span></a>
+    <a href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}"><b>02</b><span>STORE</span></a>
+    <a href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}"><b>03</b><span>SPORT</span></a>
+    <a href="{{ section.settings.lab_link | default: routes.all_products_collection_url }}"><b>04</b><span>LAB</span></a>
+    <a href="{{ section.settings.story_link | default: routes.root_url }}"><b>05</b><span>HOUSE FILE</span></a>
+  </nav>
 
-  <div class="itt-world-intro" id="itt-worlds"><div><div class="itt-kicker">PROVERBS 27:17</div><h2 class="itt-display">HOUSE<br>WORLDS</h2></div><p>“Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.”</p></div>
+  <div class="itt-marquee" aria-hidden="true">
+    <div class="itt-marquee__track">
+      <span>5E · WRITE THE VISION · MAISON DÉTROIT · ITT TOLD’EM · COMMIT THY WORKS ·</span>
+      <span>5E · WRITE THE VISION · MAISON DÉTROIT · ITT TOLD’EM · COMMIT THY WORKS ·</span>
+    </div>
+  </div>
+
+  <div class="itt-world-intro" id="itt-worlds">
+    <div><div class="itt-kicker">PROVERBS 27:17</div><h2 class="itt-display">HOUSE<br>WORLDS</h2></div>
+    <p>“Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.”</p>
+  </div>
+
+  <div class="itt-clips" aria-label="House preview rail">
+    <a class="itt-clip" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% if section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: 'ITT apparel preview' }}{% endif %}<span>STORE / 01</span></a>
+    <a class="itt-clip itt-clip--tall" href="{{ section.settings.gvo_link | default: routes.all_products_collection_url }}">{% if section.settings.flagline_image != blank %}{{ section.settings.flagline_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: 'FLAGLINE preview' }}{% endif %}<span>SPORT / 02</span></a>
+    <a class="itt-clip" href="{{ section.settings.lab_link | default: routes.all_products_collection_url }}">{% if section.settings.lab_image != blank %}{{ section.settings.lab_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: 'The Lab preview' }}{% endif %}<span>LAB / 03</span></a>
+    <a class="itt-clip itt-clip--wide" href="{{ section.settings.category_link_4 | default: routes.all_products_collection_url }}">{% if section.settings.denim_image != blank %}{{ section.settings.denim_image | image_url: width: 1100 | image_tag: loading: 'lazy', alt: 'ITTelier preview' }}{% endif %}<span>ITTelier / 04</span></a>
+    <a class="itt-clip" href="{{ section.settings.wehair_link | default: routes.all_products_collection_url }}">{% if section.settings.wehair_image != blank %}{{ section.settings.wehair_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: 'WE HAIR preview' }}{% endif %}<span>WE HAIR / 05</span></a>
+  </div>
 
   <div class="itt-categories">
     <a class="itt-card" href="{{ section.settings.category_link_1 | default: routes.all_products_collection_url }}">{% if section.settings.apparel_image != blank %}{{ section.settings.apparel_image | image_url: width: 1400 | image_tag: class: 'itt-card__media', loading: 'lazy', alt: "ITT TOLD’EM apparel" }}{% endif %}<div class="itt-card__number">01 / PROV. 22:1</div><div class="itt-card__content"><h2 class="itt-card__title">STORE</h2><div class="itt-card__meta">A GOOD NAME IS RATHER TO BE CHOSEN.</div><div class="itt-card__link">SELECT <span>↗</span></div></div></a>
@@ -41,6 +96,35 @@
   <div class="itt-servicebar"><div class="itt-service">HABAKKUK 2:2 · VISION</div><div class="itt-service">PROVERBS 16:3 · WORK</div><div class="itt-service">PROVERBS 22:1 · NAME</div><div class="itt-service">JAMES 2:26 · FAITH + WORKS</div></div>
   <div class="itt-footer-statement"><strong>ITT TOLD’EM <span class="itt-kicker">MAISON · DÉTROIT</span></strong><em>“Write the vision.” · Habakkuk 2:2</em></div>
 </section>
+
+<script>
+  (() => {
+    const root = document.currentScript && document.currentScript.previousElementSibling;
+    if (!root || !root.classList.contains('itt-house')) return;
+    const video = root.querySelector('.itt-hero__video');
+    const fallback = root.querySelector('.itt-hero__fallback');
+    if (video) {
+      const revealVideo = () => { video.classList.add('is-ready'); if (fallback) fallback.classList.add('is-hidden'); };
+      if (video.readyState >= 2) revealVideo(); else video.addEventListener('loadeddata', revealVideo, { once: true });
+      video.addEventListener('error', () => { video.style.display = 'none'; if (fallback) fallback.classList.remove('is-hidden'); }, { once: true });
+    }
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let ticking = false;
+      const update = () => {
+        const hero = root.querySelector('.itt-hero');
+        if (hero) {
+          const rect = hero.getBoundingClientRect();
+          const progress = Math.max(-1, Math.min(1, -rect.top / Math.max(rect.height, 1)));
+          root.style.setProperty('--itt-scroll', progress.toFixed(3));
+        }
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+      update();
+    }
+  })();
+</script>
+
 {% schema %}
-{"name":"ITT TOLD'EM House","tag":"section","class":"section-ittoldem-house","settings":[{"type":"header","content":"Campaign images"},{"type":"image_picker","id":"hero_image","label":"Hero image"},{"type":"image_picker","id":"apparel_image","label":"Apparel image"},{"type":"image_picker","id":"flagline_image","label":"GVO / FLAGLINE image"},{"type":"image_picker","id":"lab_image","label":"The Lab image"},{"type":"image_picker","id":"denim_image","label":"Custom Denim image"},{"type":"image_picker","id":"wehair_image","label":"WE HAIR image"},{"type":"url","id":"hero_link","label":"Hero link"},{"type":"url","id":"category_link_1","label":"Apparel link"},{"type":"url","id":"gvo_link","label":"GVO link"},{"type":"url","id":"category_link_3","label":"The Lab link"},{"type":"url","id":"category_link_4","label":"Custom link"},{"type":"url","id":"wehair_link","label":"WE HAIR link"},{"type":"url","id":"lab_link","label":"The Lab nav link"},{"type":"collection","id":"featured_collection","label":"Current release collection"},{"type":"url","id":"story_link","label":"About / story link"},{"type":"url","id":"editorial_link_2","label":"Custom work link"}],"presets":[{"name":"ITT TOLD'EM House"}]}
+{"name":"ITT TOLD'EM House","tag":"section","class":"section-ittoldem-house","settings":[{"type":"header","content":"Campaign images"},{"type":"image_picker","id":"hero_image","label":"Hero image / video fallback"},{"type":"image_picker","id":"apparel_image","label":"Apparel image"},{"type":"image_picker","id":"flagline_image","label":"GVO / FLAGLINE image"},{"type":"image_picker","id":"lab_image","label":"The Lab image"},{"type":"image_picker","id":"denim_image","label":"Custom Denim image"},{"type":"image_picker","id":"wehair_image","label":"WE HAIR image"},{"type":"url","id":"hero_link","label":"Hero link"},{"type":"url","id":"category_link_1","label":"Apparel link"},{"type":"url","id":"gvo_link","label":"GVO link"},{"type":"url","id":"category_link_3","label":"The Lab link"},{"type":"url","id":"category_link_4","label":"Custom link"},{"type":"url","id":"wehair_link","label":"WE HAIR link"},{"type":"url","id":"lab_link","label":"The Lab nav link"},{"type":"collection","id":"featured_collection","label":"Current release collection"},{"type":"url","id":"story_link","label":"About / story link"},{"type":"url","id":"editorial_link_2","label":"Custom work link"}],"presets":[{"name":"ITT TOLD'EM House"}]}
 {% endschema %}
