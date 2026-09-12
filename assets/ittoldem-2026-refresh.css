@@ -1,0 +1,90 @@
+/* ITT TOLD’EM — 2026 storefront light-balance pass
+   Purpose: keep the cinematic/game HUD language without making the homepage read as uniformly dark.
+   Scope: homepage house experience only. */
+
+.template-index .itt-house{
+  --itt-ink:#0b0a09;
+  --itt-cream:#f2ede3;
+  --itt-bone:#d8c9b2;
+  --itt-warm:#c7ad8d;
+  background:var(--itt-cream);
+  color:#111;
+}
+
+/* Keep the opening cinematic, but stop crushing the photography. */
+.template-index .itt-hero{background:#15110e;color:#fff;}
+.template-index .itt-hero__media{filter:saturate(.96) contrast(1.02) brightness(1.13);}
+.template-index .itt-hero:after{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.08) 58%,rgba(0,0,0,.26)),
+    linear-gradient(0deg,rgba(0,0,0,.20),transparent 46%);
+}
+.template-index .itt-script{opacity:.94;}
+.template-index .itt-systemline,.template-index .itt-hero__index{opacity:.82;}
+
+/* Game-navigation stays dark as a deliberate control surface. */
+.template-index .itt-command{background:#0a0908;color:#fff;border-color:rgba(255,255,255,.16);}
+.template-index .itt-floatnav{background:rgba(12,10,8,.50);color:#fff;border-color:rgba(255,255,255,.28);box-shadow:0 18px 60px rgba(0,0,0,.16);}
+.template-index .itt-floatnav a:hover,.template-index .itt-command a:hover{background:var(--itt-cream);color:#111;}
+
+/* Shift the middle of the homepage into gallery/editorial light. */
+.template-index .itt-world-intro{
+  background:var(--itt-cream);
+  color:#111;
+  border-color:rgba(17,17,17,.14);
+}
+.template-index .itt-world-intro p{opacity:.78;}
+.template-index .itt-clips{
+  background:#e7ded0;
+  color:#111;
+  border-color:rgba(17,17,17,.14);
+}
+.template-index .itt-clip{border-color:rgba(17,17,17,.20);background:#d4c7b6;}
+.template-index .itt-clip img{filter:saturate(.98) brightness(1.06);}
+.template-index .itt-clip:after{background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.58));}
+.template-index .itt-clip span{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5);}
+
+/* Product/world cards: preserve readable type while showing substantially more image. */
+.template-index .itt-categories{background:var(--itt-cream);gap:1px;}
+.template-index .itt-card{border-color:rgba(17,17,17,.15);background:#d7cab9;color:#fff;}
+.template-index .itt-card__media{filter:saturate(.98) brightness(1.12) contrast(.98);}
+.template-index .itt-card:after{background:linear-gradient(180deg,rgba(0,0,0,.00) 20%,rgba(0,0,0,.16) 58%,rgba(0,0,0,.66));}
+.template-index .itt-card:hover .itt-card__media{filter:saturate(1.06) brightness(1.14);}
+
+/* Strong light break after the first shopping grid. */
+.template-index .itt-manifesto{
+  background:#f6f1e8;
+  color:#111;
+  border-color:rgba(17,17,17,.14);
+}
+.template-index .itt-manifesto__eyebrow{opacity:.68;}
+.template-index .itt-manifesto em{color:#765f49;}
+
+/* Story can remain cinematic, but the overlay is softer and warmer. */
+.template-index .itt-story{color:#fff;background:#2a211a;}
+.template-index .itt-story__media{filter:saturate(.92) brightness(1.16);}
+.template-index .itt-story:after{background:linear-gradient(90deg,rgba(15,11,8,.74),rgba(15,11,8,.38) 50%,rgba(15,11,8,.08));}
+
+/* Editorial cards use visible photography instead of near-black panels. */
+.template-index .itt-editorials{background:#eee6da;gap:1px;}
+.template-index .itt-editorial{border-color:rgba(17,17,17,.14);color:#fff;background:#c9baa6;}
+.template-index .itt-editorial__media{filter:saturate(.98) brightness(1.12);}
+.template-index .itt-editorial:after{background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.62));}
+
+.template-index .itt-servicebar{background:#f2ede3;color:#111;border-color:rgba(17,17,17,.14);}
+.template-index .itt-service{border-color:rgba(17,17,17,.14);}
+.template-index .itt-footer-statement{background:#11100e;color:#fff;}
+
+/* More modern tactile motion without making the store feel like an effect demo. */
+@media (hover:hover){
+  .template-index .itt-card,.template-index .itt-editorial,.template-index .itt-clip{transition:transform .35s ease,box-shadow .35s ease;}
+  .template-index .itt-card:hover,.template-index .itt-editorial:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(36,27,18,.14);z-index:2;}
+  .template-index .itt-clip:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(36,27,18,.13);}
+}
+
+@media(max-width:640px){
+  .template-index .itt-hero__media{filter:saturate(.98) contrast(1.01) brightness(1.16);}
+  .template-index .itt-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.46),rgba(0,0,0,.04) 72%),linear-gradient(0deg,rgba(0,0,0,.18),transparent 50%);}
+  .template-index .itt-world-intro{padding-top:54px;}
+  .template-index .itt-card__media,.template-index .itt-editorial__media{filter:saturate(1) brightness(1.13);}
+}
