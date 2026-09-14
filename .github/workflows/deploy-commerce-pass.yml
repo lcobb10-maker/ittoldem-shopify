@@ -1,6 +1,8 @@
 name: Deploy ITT commerce pass to Shopify
 
 on:
+  push:
+    branches: [ittoldem-commerce-pass]
   workflow_dispatch:
     inputs:
       publish_live:
@@ -18,6 +20,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[publish-live]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +41,9 @@ jobs:
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli@latest
 
+      - name: Validate theme before deployment
+        run: shopify theme check --path . --fail-level error --no-color
+
       - name: Push commerce-pass theme
         shell: bash
         env:
@@ -45,9 +51,10 @@ jobs:
           SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
           PUBLISH_LIVE: ${{ inputs.publish_live }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           EXTRA=''
-          if [ "$PUBLISH_LIVE" = 'true' ]; then
+          if [ "$EVENT_NAME" = 'push' ] || [ "$PUBLISH_LIVE" = 'true' ]; then
             EXTRA='--allow-live'
           fi
           shopify theme push \

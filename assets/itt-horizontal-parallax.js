@@ -137,7 +137,7 @@
       .itt-megaworld__progress b{font:italic 400 10px/1 Georgia,serif;color:#c9a861}.itt-megaworld__progress span{margin-left:9px;font:700 6px/1 Arial,sans-serif;letter-spacing:.16em}
       .itt-megaworld__progress button.is-active{color:#fff}.itt-megaworld__progress button.is-active:before{content:'';position:absolute;left:0;width:34%;top:-1px;height:2px;background:#f5efe6}
       .itt-megaworld__meter{display:none}
-      .itt-has-megaworld>.itt-x__hero,.itt-has-megaworld>.itt-x__commerce,.itt-has-megaworld>.itt-x__process,.itt-has-megaworld>.itt-x__atelier,.itt-has-megaworld>.itt-x__worlds{display:none!important}
+      .itt-has-megaworld>.itt-x__hero,.itt-has-megaworld>.itt-x__worlds{display:none!important}
       @media(hover:none),(max-width:1180px){
         .itt-megaworld{height:auto;overflow:hidden}.itt-megaworld__sticky{position:relative;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.itt-megaworld__sticky::-webkit-scrollbar{display:none}.itt-megaworld__track{width:500vw;transform:none!important}.itt-world{scroll-snap-align:start}.itt-megaworld__hud{top:12px}.itt-megaworld__progress{bottom:max(10px,env(safe-area-inset-bottom));left:5vw;right:5vw;gap:7px}.itt-megaworld__progress button{min-width:0;padding-top:7px}.itt-world__copy{left:7vw;bottom:17vh;width:82vw}.itt-world__copy h1,.itt-world__copy h2{font-size:clamp(3.3rem,10vw,6.5rem)}
       }

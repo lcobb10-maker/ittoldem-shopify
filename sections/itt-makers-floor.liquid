@@ -42,7 +42,7 @@
         {% elsif block.settings.image != blank %}
           {{ block.settings.image | image_url: width: 1600 | image_tag: class: 'itt-mf-media', loading: 'lazy', alt: block.settings.title }}
         {% elsif fallback_image != blank %}
-          <img class="itt-mf-media" src="{{ fallback_image }}" loading="lazy" alt="ITT TOLD'EM crochet work held in hand">
+          <img class="itt-mf-media" src="{{ fallback_image }}" width="1600" height="2000" loading="lazy" alt="ITT TOLD'EM crochet work held in hand">
         {% endif %}
         <div class="itt-mf-ui">
           <div class="itt-mf-index">0{{ forloop.index }} · {{ block.settings.eyebrow | escape }}</div>
