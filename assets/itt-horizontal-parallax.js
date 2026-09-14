@@ -27,14 +27,17 @@
       return {type:'none',src:'',poster:''};
     };
 
-    const shopMedia=firstMedia(shop), heroMedia=firstMedia(hero), atelierMedia=firstMedia(atelier), labMedia=firstMedia(lab);
-    const flagMedia=(()=>{
-      const card=$('.itt-x__worldgrid a',oldWorlds);
-      if(!card)return firstMedia(oldWorlds);
-      const bg=getComputedStyle(card).backgroundImage;
-      const m=bg&&bg.match(/url\(["']?(.*?)["']?\)/);
-      return m?{type:'image',src:m[1],poster:''}:firstMedia(oldWorlds);
-    })();
+    const shopMedia=firstMedia(shop), heroMedia=firstMedia(hero), atelierMedia=firstMedia(atelier);
+    const flagMedia={
+      type:'image',
+      src:'https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittFlaglineFieldHandDrawnV1.png?v=1789354209',
+      poster:''
+    };
+    const labMedia={
+      type:'image',
+      src:'https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittLaboratoireMakerHandDrawnV1.png?v=1789354213',
+      poster:''
+    };
 
     const shopLink=$('a[href]',shop)?.href||'/collections/all';
     const atelierLink=$('a[href]',atelier)?.href||'/pages/contact';
