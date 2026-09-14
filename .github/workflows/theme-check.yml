@@ -69,7 +69,7 @@ jobs:
 
           deploy = (root / '.github/workflows/deploy-commerce-pass.yml').read_text(encoding='utf-8')
           assert 'workflow_dispatch:' in deploy, 'Manual deployment path must remain available'
-          assert "contains(github.event.head_commit.message, '[publish-live]')" in deploy, 'Push deployment must require the publish marker'
+          assert 'push:' not in deploy.split('workflow_dispatch:')[0], 'Shopify GitHub sync is the only automatic deployment path'
 
           conflict_re = re.compile(r'^(?:<<<<<<<|=======|>>>>>>>)', re.M)
           for folder in ('sections','blocks'):
@@ -83,7 +83,7 @@ jobs:
           PY
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
       - name: Run Shopify Theme Check
         run: |
           npm install -g @shopify/cli@latest
