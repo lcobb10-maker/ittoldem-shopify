@@ -20,6 +20,7 @@
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
     {{ 'ittoldem-game-hud.css' | asset_url | stylesheet_tag }}
     {{ 'ittoldem-2026-refresh.css' | asset_url | stylesheet_tag }}
+    {% if request.page_type == 'index' %}{{ 'ittoldem-vision-mode.css' | asset_url | stylesheet_tag }}{% endif %}
     {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}
     {{ content_for_header }}
   </head>
@@ -43,5 +44,6 @@
     {% render 'theme-drawer' %}
     {% render 'search-modal' %}
     {% if settings.quick_add or settings.mobile_quick_add %}{% render 'quick-add-modal' %}{% endif %}
+    {% if request.page_type == 'index' %}<script src="{{ 'ittoldem-vision-mode.js' | asset_url }}" defer></script>{% endif %}
   </body>
 </html>
