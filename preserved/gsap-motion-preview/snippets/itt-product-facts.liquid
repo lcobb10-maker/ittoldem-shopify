@@ -1,0 +1,45 @@
+{% comment %}
+  Product truth panel. Rows appear only when their Shopify metafield has data.
+  Expected product metafields:
+    custom.materials
+    custom.fit
+    custom.care_instructions
+    custom.production_time
+    custom.size_guide
+{% endcomment %}
+{% assign materials = product.metafields.custom.materials %}
+{% assign fit = product.metafields.custom.fit %}
+{% assign care = product.metafields.custom.care_instructions %}
+{% assign production = product.metafields.custom.production_time %}
+{% assign size_guide = product.metafields.custom.size_guide %}
+
+{% if materials != blank or fit != blank or care != blank or production != blank or size_guide != blank or shop.shipping_policy != blank or shop.refund_policy != blank %}
+  <div class="itt-product-facts" aria-label="Product details">
+    {% if fit != blank %}<details><summary>FIT</summary><div>{{ fit | metafield_tag }}</div></details>{% endif %}
+    {% if size_guide != blank %}<details><summary>SIZE GUIDE</summary><div>{{ size_guide | metafield_tag }}</div></details>{% endif %}
+    {% if materials != blank %}<details><summary>MATERIALS</summary><div>{{ materials | metafield_tag }}</div></details>{% endif %}
+    {% if care != blank %}<details><summary>CARE</summary><div>{{ care | metafield_tag }}</div></details>{% endif %}
+    {% if production != blank %}<details><summary>PRODUCTION TIME</summary><div>{{ production | metafield_tag }}</div></details>{% endif %}
+    {% if shop.shipping_policy != blank or shop.refund_policy != blank %}
+      <details>
+        <summary>SHIPPING &amp; RETURNS</summary>
+        <div class="itt-product-facts__links">
+          {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping policy</a>{% endif %}
+          {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Return policy</a>{% endif %}
+        </div>
+      </details>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .itt-product-facts{width:100%;border-top:1px solid rgb(var(--color-foreground-rgb)/.18);margin-top:4px}
+  .itt-product-facts details{border-bottom:1px solid rgb(var(--color-foreground-rgb)/.18)}
+  .itt-product-facts summary{cursor:pointer;list-style:none;padding:14px 0;font-size:.72rem;font-weight:700;letter-spacing:.13em;display:flex;align-items:center;justify-content:space-between}
+  .itt-product-facts summary::-webkit-details-marker{display:none}
+  .itt-product-facts summary:after{content:'+';font-size:1rem;font-weight:400}
+  .itt-product-facts details[open] summary:after{content:'−'}
+  .itt-product-facts details>div{padding:0 0 16px;font-size:.9rem;line-height:1.55}
+  .itt-product-facts__links{display:flex;gap:14px;flex-wrap:wrap}
+  .itt-product-facts__links a{text-decoration:underline;text-underline-offset:3px}
+{% endstylesheet %}
