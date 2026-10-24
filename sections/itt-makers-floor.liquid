@@ -30,9 +30,9 @@
     {% for block in section.blocks %}
       {% assign fallback_video = blank %}
       {% assign fallback_image = blank %}
-      {% if forloop.index == 1 %}{% assign fallback_video = 'https://cdn.shopify.com/videos/c/o/v/87040c4ea6db4c80927dc1f729b4444f.mov' %}{% endif %}
-      {% if forloop.index == 2 %}{% assign fallback_video = 'https://cdn.shopify.com/videos/c/o/v/829da22df9ae4c89ad7479a2440de5fe.mov' %}{% endif %}
-      {% if forloop.index == 3 %}{% assign fallback_image = 'https://cdn.shopify.com/s/files/1/0735/1320/5802/files/IMG_3515.jpg?v=1789008514' %}{% endif %}
+      {% if forloop.index == 1 %}{% assign fallback_video = section.settings.fallback_video_1_url %}{% endif %}
+      {% if forloop.index == 2 %}{% assign fallback_video = section.settings.fallback_video_2_url %}{% endif %}
+      {% if forloop.index == 3 %}{% assign fallback_image = section.settings.fallback_image_3_url %}{% endif %}
       <article class="itt-mf-card" {{ block.shopify_attributes }}>
         <div class="itt-mf-badge">REAL GARMENT / REAL PROCESS</div>
         {% if block.settings.video != blank %}
@@ -82,7 +82,7 @@
   "settings": [
     {"type":"text","id":"kicker","label":"Kicker","default":"THE MAKERS FLOOR · DETROIT"},
     {"type":"textarea","id":"heading","label":"Heading","default":"WATCH IT\nBECOME REAL."},
-    {"type":"textarea","id":"copy","label":"Intro copy","default":"Campaign imagery sets the world. This is the proof: real garments, real texture, real hands, real movement."}
+    {"type":"textarea","id":"copy","label":"Intro copy","default":"Campaign imagery sets the world. This is the proof: real garments, real texture, real hands, real movement."},{"type":"text","id":"fallback_video_1_url","label":"Fallback video URL for block 1 (when no video is picked)","default":"https://cdn.shopify.com/videos/c/o/v/87040c4ea6db4c80927dc1f729b4444f.mov"},{"type":"text","id":"fallback_video_2_url","label":"Fallback video URL for block 2 (when no video is picked)","default":"https://cdn.shopify.com/videos/c/o/v/829da22df9ae4c89ad7479a2440de5fe.mov"},{"type":"text","id":"fallback_image_3_url","label":"Fallback image URL for block 3 (when no image is picked)","default":"https://cdn.shopify.com/s/files/1/0735/1320/5802/files/IMG_3515.jpg?v=1789008514"}
   ],
   "blocks": [
     {

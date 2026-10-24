@@ -2116,5 +2116,24 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "ITT TOLD'EM — Homepage worlds",
+    "settings": [
+      {
+        "type": "text",
+        "id": "worlds_cream_background_url",
+        "label": "Worlds backdrop image URL (cream background)",
+        "info": "Used by the layout's index-only worlds override CSS (D-017). Default is the previously hardcoded Files URL.",
+        "default": "https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittoldem-cream-background.svg?v=1789092315"
+      },
+      {
+        "type": "text",
+        "id": "worlds_card_image_url",
+        "label": "Worlds card image URL (atelier daylight hero)",
+        "info": "Used for worlds cards 1 and 3 in the layout's index-only worlds override CSS (D-017). Default is the previously hardcoded Files URL.",
+        "default": "https://cdn.shopify.com/s/files/1/0735/1320/5802/files/ittoldem-atelier-daylight-hero.png?v=1789103059"
+      }
+    ]
   }
 ]

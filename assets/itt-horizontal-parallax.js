@@ -1,3 +1,13 @@
+/*
+ * D-016 WORLDS CHAIN — LAYER 3 of 3 (JS megaworld). When boot() succeeds, this is the
+ * homepage worlds experience (scroll-driven on desktop; native scroll-snap rail on touch
+ * and reduced-motion), and its injected stylesheet hides Layer 1's grid and Layer 2's
+ * carousel (both live in/under .itt-x__worlds). If boot() bails, Layers 1+2 are the
+ * fallback. Layer 1 = sections/ittoldem-home-experience.liquid; Layer 2 =
+ * layout/theme.liquid (!important CSS + carousel boot script). Full trace and the
+ * consolidation design: docs/worlds-fallback-trace.md. No behavior changes without
+ * preview verification.
+ */
 (()=>{
   const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
   const clamp=(n,min=0,max=1)=>Math.max(min,Math.min(max,n));
