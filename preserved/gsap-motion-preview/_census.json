@@ -1,0 +1,2947 @@
+[
+ {
+  "filename": "assets/accordion-custom.js",
+  "size": "3483",
+  "checksumMd5": "241e881e29c64e3ad23423f16b23d77a"
+ },
+ {
+  "filename": "assets/anchored-popover.js",
+  "size": "8783",
+  "checksumMd5": "cb2cb4390ce720666c7dc155a5901198"
+ },
+ {
+  "filename": "assets/announcement-bar.js",
+  "size": "2809",
+  "checksumMd5": "36e29e5d660e823c068596f03a9c23c7"
+ },
+ {
+  "filename": "assets/auto-close-details.js",
+  "size": "593",
+  "checksumMd5": "b43336b12161ce9b1742f7907323e160"
+ },
+ {
+  "filename": "assets/base.css",
+  "size": "44537",
+  "checksumMd5": "0419c38f691db4e8ed606181cd3a92d9"
+ },
+ {
+  "filename": "assets/blog-posts-list.js",
+  "size": "289",
+  "checksumMd5": "564ae49090a7cb44a94999c68ca28ff0"
+ },
+ {
+  "filename": "assets/cart-discount.js",
+  "size": "9144",
+  "checksumMd5": "00c73231598116a90907c3af876c2b7b"
+ },
+ {
+  "filename": "assets/cart-drawer.js",
+  "size": "5251",
+  "checksumMd5": "aea6cb964c3bcc38c4f297fed92679a0"
+ },
+ {
+  "filename": "assets/cart-icon.js",
+  "size": "4167",
+  "checksumMd5": "1939b0aff30fb84bb2b406d3fe30f1f6"
+ },
+ {
+  "filename": "assets/cart-note.js",
+  "size": "2190",
+  "checksumMd5": "83efac45cc9c26d3092899a3f004d40d"
+ },
+ {
+  "filename": "assets/collection-links.js",
+  "size": "6079",
+  "checksumMd5": "0b7bedf9f886e9f9b43de183d76da7d0"
+ },
+ {
+  "filename": "assets/comparison-slider.js",
+  "size": "4487",
+  "checksumMd5": "cbad3e1ec1ead981058cd0972dd67d56"
+ },
+ {
+  "filename": "assets/component-cart-items.js",
+  "size": "16405",
+  "checksumMd5": "cb86f18ab0dfa74f6437144c2e851104"
+ },
+ {
+  "filename": "assets/component-cart-quantity-selector.js",
+  "size": "1475",
+  "checksumMd5": "c7d753e6ac16cf3129e48ac8304945dc"
+ },
+ {
+  "filename": "assets/component-quantity-selector.js",
+  "size": "9615",
+  "checksumMd5": "ea14224c3b4c8350b116ee90d25476ea"
+ },
+ {
+  "filename": "assets/component.js",
+  "size": "11406",
+  "checksumMd5": "834feeca91801d25741cf3615ce08f68"
+ },
+ {
+  "filename": "assets/copy-to-clipboard.js",
+  "size": "742",
+  "checksumMd5": "49f0850481d5bc7a1bc798d49825ece9"
+ },
+ {
+  "filename": "assets/dialog.js",
+  "size": "4410",
+  "checksumMd5": "b435152b36e4d3b5b6ad860a3ce5b430"
+ },
+ {
+  "filename": "assets/disclosures-summary-fit.js",
+  "size": "3978",
+  "checksumMd5": "3a76c2da3062069c5b2a8f19ec9904af"
+ },
+ {
+  "filename": "assets/drag-zoom-wrapper.js",
+  "size": "16156",
+  "checksumMd5": "a66f2f57d1067174bca2b5366794f4ec"
+ },
+ {
+  "filename": "assets/events.js",
+  "size": "2981",
+  "checksumMd5": "e2026da246ee82e68e2c7a30f8968e4e"
+ },
+ {
+  "filename": "assets/facets.js",
+  "size": "31877",
+  "checksumMd5": "686ddf7d71a685d256bcd69365872336"
+ },
+ {
+  "filename": "assets/floating-panel.js",
+  "size": "1839",
+  "checksumMd5": "87c74c2ebc952af8ea1f7faa1464452b"
+ },
+ {
+  "filename": "assets/fly-to-cart.js",
+  "size": "2566",
+  "checksumMd5": "3bf08b479ba8020740c5e67bd1979d2f"
+ },
+ {
+  "filename": "assets/focus.js",
+  "size": "3338",
+  "checksumMd5": "93cef08f7646c03390b98ca3fc207854"
+ },
+ {
+  "filename": "assets/gift-card-recipient-form.js",
+  "size": "13980",
+  "checksumMd5": "c58a5f84d981238595321795a34b3405"
+ },
+ {
+  "filename": "assets/global.d.ts",
+  "size": "3947",
+  "checksumMd5": "f55e53f7b77ad869fa4abb6d89a7db9e"
+ },
+ {
+  "filename": "assets/header-actions.js",
+  "size": "2535",
+  "checksumMd5": "a793bcff12ac62cd390d03c26c4f2042"
+ },
+ {
+  "filename": "assets/header-drawer.js",
+  "size": "5469",
+  "checksumMd5": "867d4e68d35fa5aed6e0f8ad22dd65c8"
+ },
+ {
+  "filename": "assets/header-menu.js",
+  "size": "19737",
+  "checksumMd5": "830ad1b4bd435dbad3bf7c2ae88e55ce"
+ },
+ {
+  "filename": "assets/header.js",
+  "size": "10482",
+  "checksumMd5": "c307d4310b45506c962a3a8a0acbfc13"
+ },
+ {
+  "filename": "assets/icon-account.svg",
+  "size": "430",
+  "checksumMd5": "1e855a77e052c31df6a5d22194edf694"
+ },
+ {
+  "filename": "assets/icon-add-to-cart.svg",
+  "size": "566",
+  "checksumMd5": "0e09f334225e6a8aa3a5e96cea7b993c"
+ },
+ {
+  "filename": "assets/icon-arrow.svg",
+  "size": "283",
+  "checksumMd5": "831f4e75081de201a6758bd34d45fd74"
+ },
+ {
+  "filename": "assets/icon-available.svg",
+  "size": "618",
+  "checksumMd5": "c7158f81354c551e37c5f4f9f17df493"
+ },
+ {
+  "filename": "assets/icon-caret.svg",
+  "size": "265",
+  "checksumMd5": "5bded8e71340ce25b38d10187a977ff7"
+ },
+ {
+  "filename": "assets/icon-cart.svg",
+  "size": "503",
+  "checksumMd5": "e1f5aa72b798185e87f3be07a94a3770"
+ },
+ {
+  "filename": "assets/icon-checkmark-burst.svg",
+  "size": "1730",
+  "checksumMd5": "9eb9d263753155260498c08644a9d433"
+ },
+ {
+  "filename": "assets/icon-checkmark.svg",
+  "size": "459",
+  "checksumMd5": "1646af15d45cd9e5859b01d80165b143"
+ },
+ {
+  "filename": "assets/icon-chevron-left.svg",
+  "size": "281",
+  "checksumMd5": "c472e27024b5c4d8f8bce49a7aac8209"
+ },
+ {
+  "filename": "assets/icon-chevron-right.svg",
+  "size": "281",
+  "checksumMd5": "f1b9ea6a660c438e62a4cef28d005e5f"
+ },
+ {
+  "filename": "assets/icon-close-menu.svg",
+  "size": "290",
+  "checksumMd5": "2e8c791303ff720186fabad601c5490d"
+ },
+ {
+  "filename": "assets/icon-close.svg",
+  "size": "667",
+  "checksumMd5": "1b2adb1c84dfde67b215a566e2274cac"
+ },
+ {
+  "filename": "assets/icon-delete.svg",
+  "size": "773",
+  "checksumMd5": "dde7b45b21c4c2d2819c4ff3c1cbac7d"
+ },
+ {
+  "filename": "assets/icon-discount.svg",
+  "size": "592",
+  "checksumMd5": "ea990ccb99e936cdde646f6562de08eb"
+ },
+ {
+  "filename": "assets/icon-double-chevron.svg",
+  "size": "215",
+  "checksumMd5": "1917a728286096d88afbb26b279c712a"
+ },
+ {
+  "filename": "assets/icon-error.svg",
+  "size": "648",
+  "checksumMd5": "c369491713254f68872e43e7889de942"
+ },
+ {
+  "filename": "assets/icon-external.svg",
+  "size": "430",
+  "checksumMd5": "19e2558780266d6637429939c302a4ae"
+ },
+ {
+  "filename": "assets/icon-filter.svg",
+  "size": "226",
+  "checksumMd5": "bea699b5cbc47b72d1537ace7cfae340"
+ },
+ {
+  "filename": "assets/icon-filters-close.svg",
+  "size": "399",
+  "checksumMd5": "080e74e8f59a8e5bd14d39863fb75492"
+ },
+ {
+  "filename": "assets/icon-grid-default.svg",
+  "size": "6937",
+  "checksumMd5": "0eb7421c035185e6fbf333e245091a57"
+ },
+ {
+  "filename": "assets/icon-grid-dense.svg",
+  "size": "3146",
+  "checksumMd5": "203697fbe7b0c0b48ab82db1bf20bb84"
+ },
+ {
+  "filename": "assets/icon-info.svg",
+  "size": "389",
+  "checksumMd5": "4c82e1dca7c2992fabe83f2b04e7e17a"
+ },
+ {
+  "filename": "assets/icon-inventory.svg",
+  "size": "251",
+  "checksumMd5": "7ed9c605d7cfe070e8782c71bdc96ae2"
+ },
+ {
+  "filename": "assets/icon-menu.svg",
+  "size": "341",
+  "checksumMd5": "d331a711063220dbe768034c39a0f6a3"
+ },
+ {
+  "filename": "assets/icon-minus.svg",
+  "size": "235",
+  "checksumMd5": "a3f8d7735085ca1a83f087e76121717b"
+ },
+ {
+  "filename": "assets/icon-one-col-mobile.svg",
+  "size": "243",
+  "checksumMd5": "9cc1c4909945839b8bed088bc67d8e41"
+ },
+ {
+  "filename": "assets/icon-orders.svg",
+  "size": "670",
+  "checksumMd5": "5f86dad381b83b9f8afbbcccdb065774"
+ },
+ {
+  "filename": "assets/icon-pause.svg",
+  "size": "345",
+  "checksumMd5": "fd8cf8622cf673bd1303a8bd1976c589"
+ },
+ {
+  "filename": "assets/icon-play.svg",
+  "size": "386",
+  "checksumMd5": "2d5bc5f773c5dddad854c04f8156c98a"
+ },
+ {
+  "filename": "assets/icon-plus.svg",
+  "size": "386",
+  "checksumMd5": "b3bae609a9c0ff912f741df742b15ee5"
+ },
+ {
+  "filename": "assets/icon-reset.svg",
+  "size": "343",
+  "checksumMd5": "6cd93f497a974fb225c2456a285a0c55"
+ },
+ {
+  "filename": "assets/icon-search.svg",
+  "size": "333",
+  "checksumMd5": "8ab51bfda98c32759048d3160a266ec7"
+ },
+ {
+  "filename": "assets/icon-shopify.svg",
+  "size": "2675",
+  "checksumMd5": "5a15cd438f2fd1b20b28cd68f830fc65"
+ },
+ {
+  "filename": "assets/icon-unavailable.svg",
+  "size": "825",
+  "checksumMd5": "03eba9e012e44e212c7703d07bbda6a3"
+ },
+ {
+  "filename": "assets/icon-warning.svg",
+  "size": "539",
+  "checksumMd5": "ef29d51730e2cdf32c1e3e0d02437084"
+ },
+ {
+  "filename": "assets/itt-burn-routes-front.webp",
+  "size": "69350",
+  "checksumMd5": "eee06d1df70a96f01d902c5600c35516"
+ },
+ {
+  "filename": "assets/itt-burn-routes-studio-v2.webp",
+  "size": "109264",
+  "checksumMd5": "ae16a03352924cea4c107c0e7aa7e0d2"
+ },
+ {
+  "filename": "assets/itt-campaign-apparel.svg",
+  "size": "10214",
+  "checksumMd5": "7cb7e2ecf0b0602e86dd63776f991970"
+ },
+ {
+  "filename": "assets/itt-campaign-denim.svg",
+  "size": "20218",
+  "checksumMd5": "3e5d561961c62edbc705184f3bfb956e"
+ },
+ {
+  "filename": "assets/itt-campaign-flagline.svg",
+  "size": "10214",
+  "checksumMd5": "b1d5c7a107e017f69accfb47f7f2e95e"
+ },
+ {
+  "filename": "assets/itt-campaign-hero.svg",
+  "size": "10238",
+  "checksumMd5": "d909d6f30d8c83e4ab906a5e8959738a"
+ },
+ {
+  "filename": "assets/itt-campaign-lab.svg",
+  "size": "10214",
+  "checksumMd5": "7fc187bc5cb5512ff2ae9989f7264661"
+ },
+ {
+  "filename": "assets/itt-campaign-wehair.svg",
+  "size": "20218",
+  "checksumMd5": "86a47c2555c3fd089aa4fff558099d72"
+ },
+ {
+  "filename": "assets/itt-collections.jpg",
+  "size": "3475",
+  "checksumMd5": "7c6f1c4e70c0168d2bac6d60f0f7e7b8"
+ },
+ {
+  "filename": "assets/itt-editorial.jpg",
+  "size": "4754",
+  "checksumMd5": "22f9371314db83b15b355456234f7add"
+ },
+ {
+  "filename": "assets/itt-enter-house.mp4",
+  "size": "560748",
+  "checksumMd5": "937679e39cabacdc637b0c5d32d3986a"
+ },
+ {
+  "filename": "assets/itt-enter-house.webp",
+  "size": "45270",
+  "checksumMd5": "70a4431d66ecf1a1ffe3211b36e08f26"
+ },
+ {
+  "filename": "assets/itt-final-apparel.webp",
+  "size": "15008",
+  "checksumMd5": "c334291097cccaf4cc053be4bf051c60"
+ },
+ {
+  "filename": "assets/itt-final-denim.webp",
+  "size": "14999",
+  "checksumMd5": "9d58e54e84c843af794c7ec097768aa1"
+ },
+ {
+  "filename": "assets/itt-final-flagline.webp",
+  "size": "14999",
+  "checksumMd5": "19f0079673f80d6b19b05b3dde6177d8"
+ },
+ {
+  "filename": "assets/itt-final-gvo.webp",
+  "size": "15009",
+  "checksumMd5": "82f615c558bc7548b3822f04ccee0fad"
+ },
+ {
+  "filename": "assets/itt-final-hero.webp",
+  "size": "15008",
+  "checksumMd5": "cb302d75c4ec60357fa6709cc9a95cca"
+ },
+ {
+  "filename": "assets/itt-final-lab.webp",
+  "size": "15009",
+  "checksumMd5": "3b4430b60b40c691a3dd13149ace7e12"
+ },
+ {
+  "filename": "assets/itt-final-story.webp",
+  "size": "14998",
+  "checksumMd5": "d9b10a6420393e18b6fbc53e032642df"
+ },
+ {
+  "filename": "assets/itt-final-wehair.webp",
+  "size": "15008",
+  "checksumMd5": "b2cb16eb4c3759bda416502ff269fabe"
+ },
+ {
+  "filename": "assets/itt-flagline-short-angle.webp",
+  "size": "37374",
+  "checksumMd5": "453b9c9839ada479598080e4f68a2698"
+ },
+ {
+  "filename": "assets/itt-flagline-short-back-a.webp",
+  "size": "34854",
+  "checksumMd5": "965fd4944e5280b934e274c519515c9d"
+ },
+ {
+  "filename": "assets/itt-flagline-short-back-b.webp",
+  "size": "34054",
+  "checksumMd5": "ebd813611560b22540dbf5a2af90aedf"
+ },
+ {
+  "filename": "assets/itt-flagline-short-detail.webp",
+  "size": "144542",
+  "checksumMd5": "a9568618a831737fd8f3782cd00112c3"
+ },
+ {
+  "filename": "assets/itt-flagline-short-front-a.webp",
+  "size": "45180",
+  "checksumMd5": "becf8962b9b07b45a82929f73d9ec363"
+ },
+ {
+  "filename": "assets/itt-flagline-short-front-b.webp",
+  "size": "44680",
+  "checksumMd5": "c6023c3504851b4e194797c59c148308"
+ },
+ {
+  "filename": "assets/itt-flagline-short-model.webp",
+  "size": "43608",
+  "checksumMd5": "fa2e4686dd2f10f4f1a088dae820ffad"
+ },
+ {
+  "filename": "assets/itt-flagline-top-angle.webp",
+  "size": "97086",
+  "checksumMd5": "4978a642cf8789f44b2b84c0083acdb0"
+ },
+ {
+  "filename": "assets/itt-flagline-top-detail.webp",
+  "size": "108122",
+  "checksumMd5": "c703e2ef069583d3e1044964eaeafb05"
+ },
+ {
+  "filename": "assets/itt-flagline-top-model.webp",
+  "size": "112398",
+  "checksumMd5": "5d5ce06bef550fba0fcaf421ea0dcf0a"
+ },
+ {
+  "filename": "assets/itt-hero-denim-desktop.webp",
+  "size": "157080",
+  "checksumMd5": "bb6204f7935e9a9396b1cfffbef80b12"
+ },
+ {
+  "filename": "assets/itt-hero-denim-mobile.webp",
+  "size": "158736",
+  "checksumMd5": "7a6fc926c1633fee2097faed6a857f47"
+ },
+ {
+  "filename": "assets/itt-hero-denim-motion.mp4",
+  "size": "527129",
+  "checksumMd5": "eaf5ae1a450b389dfbdc37e1d4ea786a"
+ },
+ {
+  "filename": "assets/itt-hero.jpg",
+  "size": "2599",
+  "checksumMd5": "1ae9a87e320d4164d35f1e2db299d8d9"
+ },
+ {
+  "filename": "assets/itt-horizontal-parallax.js",
+  "size": "68688",
+  "checksumMd5": "7c8acb9444bbf962ef65b06996aa1d74"
+ },
+ {
+  "filename": "assets/itt-house-campaign.svg",
+  "size": "8386",
+  "checksumMd5": "344b6e014f21a9bcb702b4714642af74"
+ },
+ {
+  "filename": "assets/itt-house-hero-desktop.mp4",
+  "size": "669597",
+  "checksumMd5": "0b863a0e4df17b582a91fdded2a455f4"
+ },
+ {
+  "filename": "assets/itt-house-hero-desktop.webp",
+  "size": "95594",
+  "checksumMd5": "c24b5274f5ffa695f13ff8ce304e3853"
+ },
+ {
+  "filename": "assets/itt-house-hero-mobile.mp4",
+  "size": "633898",
+  "checksumMd5": "d3a651062e7d345ee9d2595d8129b181"
+ },
+ {
+  "filename": "assets/itt-house-hero-mobile.webp",
+  "size": "105038",
+  "checksumMd5": "fc14461435d8415170f99aa774bef906"
+ },
+ {
+  "filename": "assets/itt-menu-apparel.mp4",
+  "size": "489760",
+  "checksumMd5": "8ce1f6e1b8518fbdf8a8eed3aae2ab0a"
+ },
+ {
+  "filename": "assets/itt-menu-apparel.webp",
+  "size": "84634",
+  "checksumMd5": "53eb578ee44fffe32a50549882f96a53"
+ },
+ {
+  "filename": "assets/itt-menu-custom-denim.mp4",
+  "size": "641837",
+  "checksumMd5": "cb8a15825b119071300ac7ef64b32b47"
+ },
+ {
+  "filename": "assets/itt-menu-custom-denim.webp",
+  "size": "128468",
+  "checksumMd5": "af543cde490c356eb90dbd1be78d3306"
+ },
+ {
+  "filename": "assets/itt-menu-gvo.mp4",
+  "size": "477588",
+  "checksumMd5": "21aa49c9e7b9d52c5c88c3c4095d4b53"
+ },
+ {
+  "filename": "assets/itt-menu-gvo.webp",
+  "size": "84738",
+  "checksumMd5": "765bbbb976c305f180da2fa0620b91ac"
+ },
+ {
+  "filename": "assets/itt-menu-lab.mp4",
+  "size": "616881",
+  "checksumMd5": "174eab68c3fb26c2df39f5881110d16a"
+ },
+ {
+  "filename": "assets/itt-menu-lab.webp",
+  "size": "118400",
+  "checksumMd5": "4370b345c870a418401205762587a685"
+ },
+ {
+  "filename": "assets/itt-new-apparel.webp",
+  "size": "7506",
+  "checksumMd5": "ccc8da3ba458c3fc937827e48a5986d2"
+ },
+ {
+  "filename": "assets/itt-new-denim.webp",
+  "size": "15009",
+  "checksumMd5": "ad5cd3383c281a7e49e154dfc39ccbe7"
+ },
+ {
+  "filename": "assets/itt-new-flagline.webp",
+  "size": "7505",
+  "checksumMd5": "ecff0fc51d5a13a2ab509f15ad1b95f3"
+ },
+ {
+  "filename": "assets/itt-new-hero.webp",
+  "size": "7522",
+  "checksumMd5": "40535c480b9004153e89da3c2df0d478"
+ },
+ {
+  "filename": "assets/itt-new-lab.webp",
+  "size": "7505",
+  "checksumMd5": "8f97f03bf9f03ba8610e85ecec4fe475"
+ },
+ {
+  "filename": "assets/itt-new-wehair.webp",
+  "size": "15009",
+  "checksumMd5": "6e2e9af041582b3834ea4fba080099d5"
+ },
+ {
+  "filename": "assets/itt-photo-apparel.svg",
+  "size": "20196",
+  "checksumMd5": "bf2950ca8ad1038c10ec9807e5068c66"
+ },
+ {
+  "filename": "assets/itt-photo-campaign.svg",
+  "size": "20198",
+  "checksumMd5": "e7e1a36e1f5165f2618fb3e25ddb3013"
+ },
+ {
+  "filename": "assets/itt-photo-categories.svg",
+  "size": "20196",
+  "checksumMd5": "400a28f4d679437652693fcad3b60467"
+ },
+ {
+  "filename": "assets/itt-real-process-v2.mp4",
+  "size": "422967",
+  "checksumMd5": "01d06054d1c517ec8b317a244f4c33a2"
+ },
+ {
+  "filename": "assets/itt-real-process-v2.webp",
+  "size": "29092",
+  "checksumMd5": "6438206cceea81509dcf7ffb376faaa2"
+ },
+ {
+  "filename": "assets/itt-real-process.mp4",
+  "size": "257302",
+  "checksumMd5": "26e1efafa9db000cf76808577b25fe04"
+ },
+ {
+  "filename": "assets/itt-real-process.webp",
+  "size": "23662",
+  "checksumMd5": "c35d5c179c8d50b4700623ce11d99d49"
+ },
+ {
+  "filename": "assets/itt-real-proof.css",
+  "size": "1820",
+  "checksumMd5": "1655965ba55579981718f68767cf24b3"
+ },
+ {
+  "filename": "assets/itt-real-proof.js",
+  "size": "4289",
+  "checksumMd5": "6e66665d287a079274479c8120303248"
+ },
+ {
+  "filename": "assets/itt-story-process.mp4",
+  "size": "422424",
+  "checksumMd5": "c214a09df9dac280375353394c2ce8a6"
+ },
+ {
+  "filename": "assets/itt-story-process.webp",
+  "size": "191026",
+  "checksumMd5": "77b186552020f1efd2192a442577c504"
+ },
+ {
+  "filename": "assets/itt-story.jpg",
+  "size": "3562",
+  "checksumMd5": "403ab5df4e6e1c82782dc078973f2a55"
+ },
+ {
+  "filename": "assets/itt-worlds-stage.css",
+  "size": "7342",
+  "checksumMd5": "a09730aa3ece7263327363fccb50d1e6"
+ },
+ {
+  "filename": "assets/itt-worlds-stage.js",
+  "size": "2500",
+  "checksumMd5": "e8a8821639f02c149a8368fcf89ac485"
+ },
+ {
+  "filename": "assets/ittoldem-award.css",
+  "size": "7616",
+  "checksumMd5": "a6456fa861a68e9849fdba89e7a54ee9"
+ },
+ {
+  "filename": "assets/ittoldem-commerce.css",
+  "size": "12701",
+  "checksumMd5": "3d616600d5a32eac61f237fb87a1bd15"
+ },
+ {
+  "filename": "assets/ittoldem-cream-bg.svg",
+  "size": "2947",
+  "checksumMd5": "db6fe0def165eebae8fec9460236b328"
+ },
+ {
+  "filename": "assets/ittoldem-destination.css",
+  "size": "5403",
+  "checksumMd5": "4c2432c5900578577ae6f03ada3f00f8"
+ },
+ {
+  "filename": "assets/ittoldem-house.css",
+  "size": "22902",
+  "checksumMd5": "5b5823698b67a11cfe6a0f492189fded"
+ },
+ {
+  "filename": "assets/ittoldem-image-fallback.js",
+  "size": "1606",
+  "checksumMd5": "ea8e277eaf30231756fb354418ad1307"
+ },
+ {
+  "filename": "assets/ittoldem-nextgen.css",
+  "size": "3003",
+  "checksumMd5": "37b87b4d186fb2b6a7917a299afee7e4"
+ },
+ {
+  "filename": "assets/ittoldem-nextgen.js",
+  "size": "3879",
+  "checksumMd5": "fa0ddfc4271bdfbb86d883bdde44da2c"
+ },
+ {
+  "filename": "assets/jsconfig.json",
+  "size": "345",
+  "checksumMd5": "450c4f13d26ea64c467b526969fe0a90"
+ },
+ {
+  "filename": "assets/jumbo-text.js",
+  "size": "6996",
+  "checksumMd5": "ee78e17089874e28bb475faba9ece982"
+ },
+ {
+  "filename": "assets/layered-slideshow.js",
+  "size": "18566",
+  "checksumMd5": "cb5bea68613383deba9ed03dbb8d9e27"
+ },
+ {
+  "filename": "assets/local-pickup.js",
+  "size": "4397",
+  "checksumMd5": "07c4dac1d4fe9a3657c419c2c2c950f8"
+ },
+ {
+  "filename": "assets/localization.js",
+  "size": "17804",
+  "checksumMd5": "5585ad12a777858f7fa584b3e95d9c79"
+ },
+ {
+  "filename": "assets/marquee.js",
+  "size": "7617",
+  "checksumMd5": "f877892dbd228aefa281f07ff8ab6d59"
+ },
+ {
+  "filename": "assets/media-gallery.js",
+  "size": "2972",
+  "checksumMd5": "3e432f478f1776a606fc57fb2197017e"
+ },
+ {
+  "filename": "assets/media.js",
+  "size": "6766",
+  "checksumMd5": "a290a3c21f2e7a22ff3628653e120ea8"
+ },
+ {
+  "filename": "assets/money-formatting.js",
+  "size": "7249",
+  "checksumMd5": "a9c1d3504564a192ed1200ba196728c4"
+ },
+ {
+  "filename": "assets/morph.js",
+  "size": "28261",
+  "checksumMd5": "6ee063fb6beeb3f6a1cd8efe82d71a83"
+ },
+ {
+  "filename": "assets/overflow-list.css",
+  "size": "1288",
+  "checksumMd5": "1cf842b1ac615414465b03cef1b4ab61"
+ },
+ {
+  "filename": "assets/overflow-list.js",
+  "size": "11495",
+  "checksumMd5": "54f56aefcf501e7e103ad2414a0458bc"
+ },
+ {
+  "filename": "assets/package.json",
+  "size": "23",
+  "checksumMd5": "d0707362e90f00edd12435e9d3b9d71c"
+ },
+ {
+  "filename": "assets/page-view-event.js",
+  "size": "562",
+  "checksumMd5": "5b2509093afc663c28929110b728a78c"
+ },
+ {
+  "filename": "assets/paginated-list-aspect-ratio.js",
+  "size": "5419",
+  "checksumMd5": "da60f1118ea83c20921660241f1e2a67"
+ },
+ {
+  "filename": "assets/paginated-list.js",
+  "size": "10825",
+  "checksumMd5": "1be3498d4d84a917732a9126c39921a2"
+ },
+ {
+  "filename": "assets/performance.js",
+  "size": "1588",
+  "checksumMd5": "713cb2de96983008f8a722cef196a656"
+ },
+ {
+  "filename": "assets/popover-polyfill.js",
+  "size": "25893",
+  "checksumMd5": "260275a9bc513a0b076d6644adff5e51"
+ },
+ {
+  "filename": "assets/predictive-search.js",
+  "size": "14341",
+  "checksumMd5": "7762b5f22f78bd819b5176841e548371"
+ },
+ {
+  "filename": "assets/price-per-item.js",
+  "size": "4595",
+  "checksumMd5": "14706b4d5229dc6f479c4e16a07a69cd"
+ },
+ {
+  "filename": "assets/product-card.js",
+  "size": "22664",
+  "checksumMd5": "491507d09fb6cb7431c4eb25cd9626f6"
+ },
+ {
+  "filename": "assets/product-custom-property.js",
+  "size": "1043",
+  "checksumMd5": "03ac05d7b3f0483956dabaf9569c3f9f"
+ },
+ {
+  "filename": "assets/product-form.js",
+  "size": "40384",
+  "checksumMd5": "f68671e1d3000bdbc4bb960f52e84a14"
+ },
+ {
+  "filename": "assets/product-hotspot.js",
+  "size": "10540",
+  "checksumMd5": "6f8aa1b7fffbbb43563e406a80e594fb"
+ },
+ {
+  "filename": "assets/product-inventory.js",
+  "size": "1734",
+  "checksumMd5": "523618fbff60bcd61af7e60841522632"
+ },
+ {
+  "filename": "assets/product-price.js",
+  "size": "3541",
+  "checksumMd5": "a321eacdcd059957c851ab7735cf0f24"
+ },
+ {
+  "filename": "assets/product-recommendations.js",
+  "size": "4881",
+  "checksumMd5": "76700c518b031c12eed747379efdcfdd"
+ },
+ {
+  "filename": "assets/product-sku.js",
+  "size": "2531",
+  "checksumMd5": "ca1a72c536af41e484b3608e1c2d489f"
+ },
+ {
+  "filename": "assets/qr-code-generator.js",
+  "size": "45556",
+  "checksumMd5": "7f2a1555f006ebdc3a240d5a8d3eb6a3"
+ },
+ {
+  "filename": "assets/qr-code-image.js",
+  "size": "1032",
+  "checksumMd5": "c85630daefa5fdd4f76cb0fabb2834b8"
+ },
+ {
+  "filename": "assets/quick-add.js",
+  "size": "13647",
+  "checksumMd5": "cdf460690955e8da4ffc72583965b0a8"
+ },
+ {
+  "filename": "assets/quick-order-list.js",
+  "size": "20940",
+  "checksumMd5": "fc46c898a795b3b47e3442d6a2b43d2c"
+ },
+ {
+  "filename": "assets/recently-viewed-products.js",
+  "size": "1154",
+  "checksumMd5": "c9b3d78dee56c21afcf4e71a38d6fce4"
+ },
+ {
+  "filename": "assets/results-list.js",
+  "size": "1968",
+  "checksumMd5": "e8ec8ab0b3dbf711699a47f871a7af6c"
+ },
+ {
+  "filename": "assets/rte-formatter.js",
+  "size": "740",
+  "checksumMd5": "311f4bdf60b5f14da1576286f901b9e8"
+ },
+ {
+  "filename": "assets/scroll-container.js",
+  "size": "5384",
+  "checksumMd5": "fa951fb4ce116d3de82ed40ea26c213c"
+ },
+ {
+  "filename": "assets/scrolling.js",
+  "size": "12359",
+  "checksumMd5": "1b08ebf66067c23fae7237973061bfee"
+ },
+ {
+  "filename": "assets/search-page-input.js",
+  "size": "1300",
+  "checksumMd5": "c3230e0c9e844cdb49c2478b41d870c3"
+ },
+ {
+  "filename": "assets/section-hydration.js",
+  "size": "1289",
+  "checksumMd5": "84579a04e279c719e83ee93e3843ffb3"
+ },
+ {
+  "filename": "assets/section-renderer.js",
+  "size": "9090",
+  "checksumMd5": "70db5bb8f8b3abf395dd995d205c5fbb"
+ },
+ {
+  "filename": "assets/show-more.js",
+  "size": "3964",
+  "checksumMd5": "24aa393a67d6d6f950b12dd92a857556"
+ },
+ {
+  "filename": "assets/slideshow.js",
+  "size": "28622",
+  "checksumMd5": "4df345c62dd7496bec67b4ec6cd45917"
+ },
+ {
+  "filename": "assets/standard-actions-override.js",
+  "size": "1070",
+  "checksumMd5": "c522fac7904268366e0ae5a6eb2edf57"
+ },
+ {
+  "filename": "assets/standard-actions.d.ts",
+  "size": "4312",
+  "checksumMd5": "90672b378531a71714ecc9174224c6dd"
+ },
+ {
+  "filename": "assets/standard-events.d.ts",
+  "size": "29804",
+  "checksumMd5": "8f96fbf3ba80773a84f5efb93f7b2633"
+ },
+ {
+  "filename": "assets/sticky-add-to-cart.js",
+  "size": "14274",
+  "checksumMd5": "2a3db0e52eb2187ec266e6329255729c"
+ },
+ {
+  "filename": "assets/template-giftcard.css",
+  "size": "3120",
+  "checksumMd5": "f68040c6349dc0719c3702c57ab0d7f7"
+ },
+ {
+  "filename": "assets/theme-drawer.js",
+  "size": "14600",
+  "checksumMd5": "de56cec70a25809f1f492efafca95146"
+ },
+ {
+  "filename": "assets/theme-editor.js",
+  "size": "13651",
+  "checksumMd5": "fbfb2ceba38667676a5dd4f61475f4b1"
+ },
+ {
+  "filename": "assets/utilities.js",
+  "size": "29589",
+  "checksumMd5": "07c2652d342fba0da1c9de2b68c98366"
+ },
+ {
+  "filename": "assets/variant-picker.js",
+  "size": "20766",
+  "checksumMd5": "3afe3d34b4fbaf687c7d81fb9ba45bb1"
+ },
+ {
+  "filename": "assets/variant-resolution.js",
+  "size": "2379",
+  "checksumMd5": "c9bf75826bde2ea4a97cecdce469f50a"
+ },
+ {
+  "filename": "assets/video-background.js",
+  "size": "849",
+  "checksumMd5": "f307b002b76a76fe544bae5eb479f07b"
+ },
+ {
+  "filename": "assets/view-event-elements.d.ts",
+  "size": "893",
+  "checksumMd5": "4ef622955559a78a7a23ae7f57415d87"
+ },
+ {
+  "filename": "assets/view-event-elements.js",
+  "size": "518",
+  "checksumMd5": "8ff82cbd34993d786143f41c53b51005"
+ },
+ {
+  "filename": "assets/view-transitions.js",
+  "size": "7144",
+  "checksumMd5": "23c26263985a726a136f02255ec3422c"
+ },
+ {
+  "filename": "assets/volume-pricing-info.js",
+  "size": "2547",
+  "checksumMd5": "77834a0dcf407a5b64659e799481cb0b"
+ },
+ {
+  "filename": "assets/volume-pricing.js",
+  "size": "508",
+  "checksumMd5": "d7a310b5d1380edc88020562eeb0422e"
+ },
+ {
+  "filename": "assets/zoom-dialog.js",
+  "size": "9371",
+  "checksumMd5": "b5a8867b3e888dd548323ff5857d03ae"
+ },
+ {
+  "filename": "blocks/accelerated-checkout.liquid",
+  "size": "1241",
+  "checksumMd5": "e837a2ff740ca8e98a358499e932113d"
+ },
+ {
+  "filename": "blocks/accordion.liquid",
+  "size": "7186",
+  "checksumMd5": "59c63bfc65b03dc1a81b0800c82d06de"
+ },
+ {
+  "filename": "blocks/add-to-cart.liquid",
+  "size": "2649",
+  "checksumMd5": "4fbe4fb83e5c8d2861323b85cb057bff"
+ },
+ {
+  "filename": "blocks/button.liquid",
+  "size": "3759",
+  "checksumMd5": "836a7c9693396d27cc2242ae81e03b29"
+ },
+ {
+  "filename": "blocks/buy-buttons.liquid",
+  "size": "22155",
+  "checksumMd5": "5003021d42597e0555ffea697b0d47d2"
+ },
+ {
+  "filename": "blocks/collection-card.liquid",
+  "size": "4481",
+  "checksumMd5": "c18272405e7d6dc66f2548da75f1fbb4"
+ },
+ {
+  "filename": "blocks/collection-title.liquid",
+  "size": "8499",
+  "checksumMd5": "726a8b75778d09205ccf7b8112161168"
+ },
+ {
+  "filename": "blocks/comparison-slider.liquid",
+  "size": "21211",
+  "checksumMd5": "b21014f7f30ba19482acf7c746277615"
+ },
+ {
+  "filename": "blocks/contact-form-submit-button.liquid",
+  "size": "3513",
+  "checksumMd5": "f3cb2a5a1dab455880019eaee4d4780f"
+ },
+ {
+  "filename": "blocks/contact-form.liquid",
+  "size": "9199",
+  "checksumMd5": "83bb533f415920c3af1b62807e0fbf31"
+ },
+ {
+  "filename": "blocks/custom-liquid.liquid",
+  "size": "410",
+  "checksumMd5": "859db49082f11b20a97e09a50e18db11"
+ },
+ {
+  "filename": "blocks/disclosures.liquid",
+  "size": "17441",
+  "checksumMd5": "6f5874b0f068d5e4f8503a85908f67c2"
+ },
+ {
+  "filename": "blocks/email-signup.liquid",
+  "size": "21531",
+  "checksumMd5": "9f5c99447f33fd2d7789af4212751741"
+ },
+ {
+  "filename": "blocks/featured-collection.liquid",
+  "size": "522",
+  "checksumMd5": "04698d4466ab41e33a827b55b0c3462f"
+ },
+ {
+  "filename": "blocks/filters.liquid",
+  "size": "43240",
+  "checksumMd5": "7ed6bcd5073d82ce879531953bc75c06"
+ },
+ {
+  "filename": "blocks/follow-on-shop.liquid",
+  "size": "1418",
+  "checksumMd5": "55a70cd7505000aa284f528a55035756"
+ },
+ {
+  "filename": "blocks/footer-copyright.liquid",
+  "size": "2333",
+  "checksumMd5": "a455163362063b9387c4f36479238db2"
+ },
+ {
+  "filename": "blocks/footer-policy-list.liquid",
+  "size": "5314",
+  "checksumMd5": "19192c3e2cf53ed9012fea7aca42f6e9"
+ },
+ {
+  "filename": "blocks/group.liquid",
+  "size": "11647",
+  "checksumMd5": "f192e33032084872ea98ecdd43bfdfcd"
+ },
+ {
+  "filename": "blocks/icon.liquid",
+  "size": "7428",
+  "checksumMd5": "27498f72209b28006274e61c1adc5617"
+ },
+ {
+  "filename": "blocks/image.liquid",
+  "size": "7595",
+  "checksumMd5": "f5f50a513a10fb777b18c5ffe560d469"
+ },
+ {
+  "filename": "blocks/jumbo-text.liquid",
+  "size": "3007",
+  "checksumMd5": "c014e9fb18c1880587c6b55d0baaf0fb"
+ },
+ {
+  "filename": "blocks/logo.liquid",
+  "size": "7363",
+  "checksumMd5": "f65ea46bc407279a28f330133077ed3b"
+ },
+ {
+  "filename": "blocks/menu.liquid",
+  "size": "8751",
+  "checksumMd5": "81b7fef41feb5cd93170ff19bccd74db"
+ },
+ {
+  "filename": "blocks/page-content.liquid",
+  "size": "672",
+  "checksumMd5": "0903e806b6d9e819325b4fb8701f8908"
+ },
+ {
+  "filename": "blocks/page.liquid",
+  "size": "3288",
+  "checksumMd5": "e03108f0431c644340b32ce492f5bea7"
+ },
+ {
+  "filename": "blocks/payment-icons.liquid",
+  "size": "2833",
+  "checksumMd5": "abb172d364f439546e2b6be094a0f04f"
+ },
+ {
+  "filename": "blocks/popup-link.liquid",
+  "size": "6586",
+  "checksumMd5": "7445477e7748d19bc5b5ab6ee41a516e"
+ },
+ {
+  "filename": "blocks/price.liquid",
+  "size": "9827",
+  "checksumMd5": "f17cc08390836bce4bef9889020c32b4"
+ },
+ {
+  "filename": "blocks/product-card.liquid",
+  "size": "7105",
+  "checksumMd5": "c0f2ae0805134914fb5944350f1beeca"
+ },
+ {
+  "filename": "blocks/product-custom-property.liquid",
+  "size": "9806",
+  "checksumMd5": "b589c8d69f0a1743a6fc3b6c4cc3f0f1"
+ },
+ {
+  "filename": "blocks/product-description.liquid",
+  "size": "8343",
+  "checksumMd5": "70c9f868c10880a309514ce6a782b3c9"
+ },
+ {
+  "filename": "blocks/product-inventory.liquid",
+  "size": "4954",
+  "checksumMd5": "3819c13d833178d3271b68d385610454"
+ },
+ {
+  "filename": "blocks/product-recommendations.liquid",
+  "size": "14782",
+  "checksumMd5": "eee4979914f0c0319e37d9bc884d05cd"
+ },
+ {
+  "filename": "blocks/product-title.liquid",
+  "size": "8583",
+  "checksumMd5": "e333940c500b5d708d6fdadec16b588c"
+ },
+ {
+  "filename": "blocks/quantity.liquid",
+  "size": "2628",
+  "checksumMd5": "f60e0b6d83eea5ec13bb469bca93458c"
+ },
+ {
+  "filename": "blocks/review.liquid",
+  "size": "8208",
+  "checksumMd5": "76a3d844cdcc5efe2bba2b38454385d3"
+ },
+ {
+  "filename": "blocks/sku.liquid",
+  "size": "7875",
+  "checksumMd5": "506a7bdc1e785ab30e86883ca6e56ab5"
+ },
+ {
+  "filename": "blocks/social-links.liquid",
+  "size": "6664",
+  "checksumMd5": "2db0bd31b1258079c1c0279ad1dff4a7"
+ },
+ {
+  "filename": "blocks/spacer.liquid",
+  "size": "4578",
+  "checksumMd5": "2b62a43936dc360d1de0fb5372c8ae1b"
+ },
+ {
+  "filename": "blocks/swatches.liquid",
+  "size": "4378",
+  "checksumMd5": "30a338765dad19bcc362e783c47fcdc4"
+ },
+ {
+  "filename": "blocks/text.liquid",
+  "size": "8271",
+  "checksumMd5": "1718359abdab13e7cfb6563f58409b62"
+ },
+ {
+  "filename": "blocks/variant-picker.liquid",
+  "size": "5013",
+  "checksumMd5": "328eb34621a714ff65c8983d1f11d804"
+ },
+ {
+  "filename": "blocks/video.liquid",
+  "size": "6283",
+  "checksumMd5": "cacf00ee66b0964a237af635df454a1d"
+ },
+ {
+  "filename": "blocks/_accordion-row.liquid",
+  "size": "7882",
+  "checksumMd5": "f41e113c1bc5b39f62ffee63512f8334"
+ },
+ {
+  "filename": "blocks/_announcement.liquid",
+  "size": "5908",
+  "checksumMd5": "91336d568af0c532100b1e6f9e94563f"
+ },
+ {
+  "filename": "blocks/_blog-post-card.liquid",
+  "size": "3840",
+  "checksumMd5": "4570f25dbf54ea0251c453b99137c12e"
+ },
+ {
+  "filename": "blocks/_blog-post-content.liquid",
+  "size": "843",
+  "checksumMd5": "786a19f0381d4733cf875345c2a5fd04"
+ },
+ {
+  "filename": "blocks/_blog-post-description.liquid",
+  "size": "8475",
+  "checksumMd5": "41c5b56412c51b585539e89bf127f38e"
+ },
+ {
+  "filename": "blocks/_blog-post-featured-image.liquid",
+  "size": "7492",
+  "checksumMd5": "46eb82e6d59b1a4c771210d4686a0c4e"
+ },
+ {
+  "filename": "blocks/_blog-post-image.liquid",
+  "size": "3864",
+  "checksumMd5": "e1a458c54d6e94a5ed93f8bfffe8fb2c"
+ },
+ {
+  "filename": "blocks/_blog-post-info-text.liquid",
+  "size": "4934",
+  "checksumMd5": "62f4493d339c3b2cf4ce78569044ea4e"
+ },
+ {
+  "filename": "blocks/_blog-post-title.liquid",
+  "size": "8715",
+  "checksumMd5": "ebcfe6456c45297ce10d2b1935f9a891"
+ },
+ {
+  "filename": "blocks/_card.liquid",
+  "size": "13934",
+  "checksumMd5": "cbd14789ebe0cd8eaa3f5aa18d12414f"
+ },
+ {
+  "filename": "blocks/_carousel-content.liquid",
+  "size": "6178",
+  "checksumMd5": "d804d4170925d78079ccc35a4dd4ce8b"
+ },
+ {
+  "filename": "blocks/_cart-products.liquid",
+  "size": "3728",
+  "checksumMd5": "79c7ed4ce918919abec2ff6bc6a33fba"
+ },
+ {
+  "filename": "blocks/_cart-summary.liquid",
+  "size": "6523",
+  "checksumMd5": "bdaa880ebbe0fcb3b7035e2d97be997c"
+ },
+ {
+  "filename": "blocks/_cart-title.liquid",
+  "size": "4428",
+  "checksumMd5": "20e2bb6aa56c86dbbfbca4d56d79c435"
+ },
+ {
+  "filename": "blocks/_collection-card-image.liquid",
+  "size": "4001",
+  "checksumMd5": "e12d96fd62c612aa68d6d1c594b54343"
+ },
+ {
+  "filename": "blocks/_collection-card.liquid",
+  "size": "3966",
+  "checksumMd5": "bde62dce04f1ada13ea188d7c05da91d"
+ },
+ {
+  "filename": "blocks/_collection-image.liquid",
+  "size": "4029",
+  "checksumMd5": "519324fde7e29fcd9840859b0c61cf7f"
+ },
+ {
+  "filename": "blocks/_collection-info.liquid",
+  "size": "3981",
+  "checksumMd5": "d62cdf3fb2a49d08f83c9bf3e191b2af"
+ },
+ {
+  "filename": "blocks/_collection-link.liquid",
+  "size": "4463",
+  "checksumMd5": "6ba8e53a4ddcf7ef7ef3520708ad3c37"
+ },
+ {
+  "filename": "blocks/_content-without-appearance.liquid",
+  "size": "2059",
+  "checksumMd5": "7b2ba4857ab54bba2c235fc6ee80415c"
+ },
+ {
+  "filename": "blocks/_content.liquid",
+  "size": "2855",
+  "checksumMd5": "dfb3ea307cd1119b77338fbfca6d2ec5"
+ },
+ {
+  "filename": "blocks/_divider.liquid",
+  "size": "1670",
+  "checksumMd5": "4391ca7b516cca9cdf4ca313897da0be"
+ },
+ {
+  "filename": "blocks/_featured-blog-posts-card.liquid",
+  "size": "7816",
+  "checksumMd5": "0be67f55f6b9405c44108d531edb621d"
+ },
+ {
+  "filename": "blocks/_featured-blog-posts-image.liquid",
+  "size": "2718",
+  "checksumMd5": "728b10f3dbd11b38e2f4dfe4c44ff9a9"
+ },
+ {
+  "filename": "blocks/_featured-blog-posts-title.liquid",
+  "size": "8498",
+  "checksumMd5": "98b26a3b1c99075b77220f0f21877eff"
+ },
+ {
+  "filename": "blocks/_featured-product-gallery.liquid",
+  "size": "1850",
+  "checksumMd5": "68ea940ff6ab4e482890c7f273dfa6ec"
+ },
+ {
+  "filename": "blocks/_featured-product-information-carousel.liquid",
+  "size": "6109",
+  "checksumMd5": "833437d838732055aea70dbefe898c45"
+ },
+ {
+  "filename": "blocks/_featured-product-price.liquid",
+  "size": "2689",
+  "checksumMd5": "0335a191bd8c3ef37b56d9670b5f0ccb"
+ },
+ {
+  "filename": "blocks/_featured-product.liquid",
+  "size": "1389",
+  "checksumMd5": "f530fe65a3066030ba6ce720953d4649"
+ },
+ {
+  "filename": "blocks/_footer-social-icons.liquid",
+  "size": "528",
+  "checksumMd5": "3ab24d29e69598a76824341ee9fc636b"
+ },
+ {
+  "filename": "blocks/_header-logo.liquid",
+  "size": "4091",
+  "checksumMd5": "47d066c097f4a8416e1c91e66ce7c8b8"
+ },
+ {
+  "filename": "blocks/_header-menu.liquid",
+  "size": "30815",
+  "checksumMd5": "de9821b86b22c1cb7ab4327de00091bf"
+ },
+ {
+  "filename": "blocks/_heading.liquid",
+  "size": "6889",
+  "checksumMd5": "7c1e01f311523fa35d5d494801c16602"
+ },
+ {
+  "filename": "blocks/_hotspot-product.liquid",
+  "size": "3411",
+  "checksumMd5": "5b687da2fcd0e8e4284d769640cc508e"
+ },
+ {
+  "filename": "blocks/_image.liquid",
+  "size": "4591",
+  "checksumMd5": "e3784208783fab5d2ca32db90856c7c9"
+ },
+ {
+  "filename": "blocks/_inline-collection-title.liquid",
+  "size": "4014",
+  "checksumMd5": "1625adfbcd865942dfa5e86118b83a9b"
+ },
+ {
+  "filename": "blocks/_inline-text.liquid",
+  "size": "3757",
+  "checksumMd5": "7203fa5dc87797bbe314a398eb34bb40"
+ },
+ {
+  "filename": "blocks/_layered-slide.liquid",
+  "size": "10606",
+  "checksumMd5": "69a7cfd6ba1ee3f6e82bc667e36415f5"
+ },
+ {
+  "filename": "blocks/_marquee.liquid",
+  "size": "4748",
+  "checksumMd5": "13a707de22d700dceb4d20e2fea9ae55"
+ },
+ {
+  "filename": "blocks/_media-without-appearance.liquid",
+  "size": "2339",
+  "checksumMd5": "dcb2d6265ada361be355e13d7fd89455"
+ },
+ {
+  "filename": "blocks/_product-card-gallery.liquid",
+  "size": "4792",
+  "checksumMd5": "ec1c35aaa67321005f4962b707f472e8"
+ },
+ {
+  "filename": "blocks/_product-card-group.liquid",
+  "size": "11706",
+  "checksumMd5": "744099f3792dfd2771c169664ec89aa8"
+ },
+ {
+  "filename": "blocks/_product-card.liquid",
+  "size": "3944",
+  "checksumMd5": "cc226c27882f0ffee06f9bb5462c184a"
+ },
+ {
+  "filename": "blocks/_product-details.liquid",
+  "size": "18209",
+  "checksumMd5": "cdb6c8b66395d3cc5fc826dfc0e5f6bf"
+ },
+ {
+  "filename": "blocks/_product-list-button.liquid",
+  "size": "4048",
+  "checksumMd5": "6d806d2204784bd77ac5f520e32a4774"
+ },
+ {
+  "filename": "blocks/_product-list-content.liquid",
+  "size": "10247",
+  "checksumMd5": "7694ebe406330aa864db95cadef93913"
+ },
+ {
+  "filename": "blocks/_product-list-text.liquid",
+  "size": "8294",
+  "checksumMd5": "dd67744e1ac3e381377c1f67a6260df2"
+ },
+ {
+  "filename": "blocks/_product-media-gallery.liquid",
+  "size": "11032",
+  "checksumMd5": "c3bfbaa522021bb2993ee6ba80bd1cac"
+ },
+ {
+  "filename": "blocks/_search-input.liquid",
+  "size": "7953",
+  "checksumMd5": "8e99b4a1706ee0d6020410273c59ffba"
+ },
+ {
+  "filename": "blocks/_slide.liquid",
+  "size": "13672",
+  "checksumMd5": "b177945b40fa850917624f52dcfb1fbb"
+ },
+ {
+  "filename": "blocks/_social-link.liquid",
+  "size": "3037",
+  "checksumMd5": "aa32a2df9fbda070c4fdc8d18033ca57"
+ },
+ {
+  "filename": "config/settings_data.json",
+  "size": "4577",
+  "checksumMd5": "d5346b7bdd22f63b3089be33852f78b1"
+ },
+ {
+  "filename": "config/settings_schema.json",
+  "size": "49894",
+  "checksumMd5": "939f5cfafd97d2e63f6917f98b7e7ca2"
+ },
+ {
+  "filename": "layout/password.liquid",
+  "size": "3778",
+  "checksumMd5": "3435e7fb3c72b0e3d6ae1cbe324c8ea5"
+ },
+ {
+  "filename": "layout/theme.liquid",
+  "size": "11148",
+  "checksumMd5": "05a9f116ab063a2540a45b8451a7b454"
+ },
+ {
+  "filename": "locales/ar.json",
+  "size": "21911",
+  "checksumMd5": "bb5cb7acd49e44f2c2e36ee3d19c17e0"
+ },
+ {
+  "filename": "locales/ar.schema.json",
+  "size": "60847",
+  "checksumMd5": "6d4e7670e1975cd3693527325074a62f"
+ },
+ {
+  "filename": "locales/bg.json",
+  "size": "22439",
+  "checksumMd5": "956ca2e3bfdcf73b8deb3532661b2168"
+ },
+ {
+  "filename": "locales/cs.json",
+  "size": "17483",
+  "checksumMd5": "3327d712782e270f133888b5edadf89a"
+ },
+ {
+  "filename": "locales/cs.schema.json",
+  "size": "51193",
+  "checksumMd5": "6f9a86d71c60bd256bb682c4060a4560"
+ },
+ {
+  "filename": "locales/da.json",
+  "size": "15894",
+  "checksumMd5": "8cd784f0b1eb4fafc069ecb7dc7bab5a"
+ },
+ {
+  "filename": "locales/da.schema.json",
+  "size": "49026",
+  "checksumMd5": "9616a45b6bdec65fe02c9a36a3d8e9e7"
+ },
+ {
+  "filename": "locales/de.json",
+  "size": "16692",
+  "checksumMd5": "dd7c24807355f983b078250906589efb"
+ },
+ {
+  "filename": "locales/de.schema.json",
+  "size": "50781",
+  "checksumMd5": "09ee4653e677f217399b09a9d7f70480"
+ },
+ {
+  "filename": "locales/el.json",
+  "size": "23992",
+  "checksumMd5": "da0aaee5de0a066798785b89beeed0f0"
+ },
+ {
+  "filename": "locales/en.default.json",
+  "size": "17002",
+  "checksumMd5": "9ce615d1795647dbb0fc2db9009c6183"
+ },
+ {
+  "filename": "locales/en.default.schema.json",
+  "size": "51948",
+  "checksumMd5": "e28cdc8eb4741aadfe9e9622b64883d2"
+ },
+ {
+  "filename": "locales/es.json",
+  "size": "17622",
+  "checksumMd5": "0305ca1d38c5fe79c1950ec31e358859"
+ },
+ {
+  "filename": "locales/es.schema.json",
+  "size": "52764",
+  "checksumMd5": "2a6c39673e39d3956e4d67229a8e5400"
+ },
+ {
+  "filename": "locales/fi.json",
+  "size": "16331",
+  "checksumMd5": "b500bb9a2048e1e6a468165def822fff"
+ },
+ {
+  "filename": "locales/fi.schema.json",
+  "size": "49875",
+  "checksumMd5": "b3c265e35459ec63f3fd9475f4938004"
+ },
+ {
+  "filename": "locales/fr.json",
+  "size": "17754",
+  "checksumMd5": "daa6636c22cc981ace98848d5de1e75f"
+ },
+ {
+  "filename": "locales/fr.schema.json",
+  "size": "53170",
+  "checksumMd5": "370584c6687eb02539730a37b12e5146"
+ },
+ {
+  "filename": "locales/he.json",
+  "size": "18711",
+  "checksumMd5": "bcd4fba87ca17a40cf24b1a9801423d6"
+ },
+ {
+  "filename": "locales/he.schema.json",
+  "size": "56266",
+  "checksumMd5": "e0136589890ea8e21c23108e09a51d4d"
+ },
+ {
+  "filename": "locales/hr.json",
+  "size": "17220",
+  "checksumMd5": "a1bba7246cb30e7d3a22825ba5bc0549"
+ },
+ {
+  "filename": "locales/hu.json",
+  "size": "17783",
+  "checksumMd5": "bd2ddefd76565d8bc8c7dcf9e4b6d0f6"
+ },
+ {
+  "filename": "locales/id.json",
+  "size": "15999",
+  "checksumMd5": "7c4318763b0050d202ae568fd35caa0a"
+ },
+ {
+  "filename": "locales/it.json",
+  "size": "17064",
+  "checksumMd5": "77d9e91ceb772c6df67c4009f5acc02a"
+ },
+ {
+  "filename": "locales/it.schema.json",
+  "size": "52853",
+  "checksumMd5": "b7c59a1d01ccb9429fdaff1e60cb0ca6"
+ },
+ {
+  "filename": "locales/ja.json",
+  "size": "18590",
+  "checksumMd5": "a1044a95d7d84d1560662e25990d855f"
+ },
+ {
+  "filename": "locales/ja.schema.json",
+  "size": "55392",
+  "checksumMd5": "c00277ff3bdbeb868f1293899c09acef"
+ },
+ {
+  "filename": "locales/ko.json",
+  "size": "16907",
+  "checksumMd5": "6a6a8988852e5c4b23035846cf8a22cb"
+ },
+ {
+  "filename": "locales/ko.schema.json",
+  "size": "50914",
+  "checksumMd5": "5dcace244f1433fc168dfa4821d70fc5"
+ },
+ {
+  "filename": "locales/lt.json",
+  "size": "18169",
+  "checksumMd5": "fff1b1bebc859e01a8ec1b3124f0b187"
+ },
+ {
+  "filename": "locales/nb.json",
+  "size": "15790",
+  "checksumMd5": "306f7d80210f97ce821d8686fd879aa5"
+ },
+ {
+  "filename": "locales/nb.schema.json",
+  "size": "48784",
+  "checksumMd5": "96ef2c3e5ad5211d3850ff63feb9cbf8"
+ },
+ {
+  "filename": "locales/nl.json",
+  "size": "16826",
+  "checksumMd5": "5ab2628a05291a68b02eeaf7cf6d0982"
+ },
+ {
+  "filename": "locales/nl.schema.json",
+  "size": "49403",
+  "checksumMd5": "7c8a07854363dc096cb57826f19454af"
+ },
+ {
+  "filename": "locales/pl.json",
+  "size": "17465",
+  "checksumMd5": "b3c8a119c6efcb8e33d03819efb3fdb1"
+ },
+ {
+  "filename": "locales/pl.schema.json",
+  "size": "51794",
+  "checksumMd5": "87a52c2d97fa37bc6e11521114e5fc38"
+ },
+ {
+  "filename": "locales/pt-BR.json",
+  "size": "16981",
+  "checksumMd5": "c6cb15cc4575acecac51063658a22e86"
+ },
+ {
+  "filename": "locales/pt-BR.schema.json",
+  "size": "51332",
+  "checksumMd5": "1ec4170fa8fc231b562e467af72b048e"
+ },
+ {
+  "filename": "locales/pt-PT.json",
+  "size": "17401",
+  "checksumMd5": "5e30bdd66ae63d1a4b2512785596136f"
+ },
+ {
+  "filename": "locales/pt-PT.schema.json",
+  "size": "52773",
+  "checksumMd5": "68b8ab80f6d56d11422c98299883284a"
+ },
+ {
+  "filename": "locales/ro.json",
+  "size": "17659",
+  "checksumMd5": "454a57d05f603e81c3ded90e28e33921"
+ },
+ {
+  "filename": "locales/ru.json",
+  "size": "23464",
+  "checksumMd5": "ecbc3c04dcfaa8072cc065eacce60e7b"
+ },
+ {
+  "filename": "locales/sk.json",
+  "size": "17495",
+  "checksumMd5": "3ef393b9093f8cf044bf2b698532e3e4"
+ },
+ {
+  "filename": "locales/sl.json",
+  "size": "17502",
+  "checksumMd5": "ecb93dce9f8fd7d3ef6119bc1c14067a"
+ },
+ {
+  "filename": "locales/sv.json",
+  "size": "16070",
+  "checksumMd5": "e4e6d2477166e774a2f91752e59c6490"
+ },
+ {
+  "filename": "locales/sv.schema.json",
+  "size": "48815",
+  "checksumMd5": "762a14d268e02b082b5852cd0982221d"
+ },
+ {
+  "filename": "locales/th.json",
+  "size": "25811",
+  "checksumMd5": "1276cfe750d9441311a4b0cc804e751c"
+ },
+ {
+  "filename": "locales/th.schema.json",
+  "size": "82286",
+  "checksumMd5": "45f1507c50d39a1d1d18e95f617345d7"
+ },
+ {
+  "filename": "locales/tr.json",
+  "size": "16782",
+  "checksumMd5": "684064777444054500531871ca8a6e89"
+ },
+ {
+  "filename": "locales/tr.schema.json",
+  "size": "50818",
+  "checksumMd5": "44b06580e22b527d249aa19d777c9a81"
+ },
+ {
+  "filename": "locales/ur.json",
+  "size": "20282",
+  "checksumMd5": "f7dfc3da9d0cbf3f5ef88fc92a2dfca7"
+ },
+ {
+  "filename": "locales/ur.schema.json",
+  "size": "61434",
+  "checksumMd5": "4bcaae009b52629abceda794afcece8b"
+ },
+ {
+  "filename": "locales/vi.json",
+  "size": "18381",
+  "checksumMd5": "aa1e71b355f75e3e9877ffb1fa84e663"
+ },
+ {
+  "filename": "locales/zh-CN.json",
+  "size": "15338",
+  "checksumMd5": "e0b7f2f3be523e6c8623ea5d346ef5d0"
+ },
+ {
+  "filename": "locales/zh-CN.schema.json",
+  "size": "46407",
+  "checksumMd5": "51e357e27392542c21e35e02eff42c8e"
+ },
+ {
+  "filename": "locales/zh-TW.json",
+  "size": "15522",
+  "checksumMd5": "b0169357bca1f03a403f8372d86d13c6"
+ },
+ {
+  "filename": "locales/zh-TW.schema.json",
+  "size": "46332",
+  "checksumMd5": "2316c6c1f7c4d7b9ece0f066da0dff39"
+ },
+ {
+  "filename": "sections/carousel.liquid",
+  "size": "9926",
+  "checksumMd5": "fd13defc63150a7e22b5b748dd535a39"
+ },
+ {
+  "filename": "sections/cart-drawer-section.liquid",
+  "size": "212",
+  "checksumMd5": "9f42c443489b580e8a3a86b9e2e197c7"
+ },
+ {
+  "filename": "sections/collection-links.liquid",
+  "size": "8869",
+  "checksumMd5": "e4cac1cabdc6b8ee50b1a02dcc785686"
+ },
+ {
+  "filename": "sections/collection-list.liquid",
+  "size": "26068",
+  "checksumMd5": "52f861bae11357d06d24d67e3676f50f"
+ },
+ {
+  "filename": "sections/custom-liquid.liquid",
+  "size": "1906",
+  "checksumMd5": "a53e66960ae727289f0a3de0dfe2eba4"
+ },
+ {
+  "filename": "sections/divider.liquid",
+  "size": "3483",
+  "checksumMd5": "6aa672b5b5ede9c1f700a7f2f10db897"
+ },
+ {
+  "filename": "sections/featured-blog-posts.liquid",
+  "size": "13421",
+  "checksumMd5": "fc9608581ca7c5550cf47de79f6852d8"
+ },
+ {
+  "filename": "sections/featured-product-information.liquid",
+  "size": "6090",
+  "checksumMd5": "89f086cfcacdeb0e183e4d795bcecf3a"
+ },
+ {
+  "filename": "sections/featured-product.liquid",
+  "size": "5861",
+  "checksumMd5": "510c165509300d3afaf1fac795a533ba"
+ },
+ {
+  "filename": "sections/footer-group.json",
+  "size": "552",
+  "checksumMd5": "f04eac5f7c1822b7972188cb07c7072c"
+ },
+ {
+  "filename": "sections/footer-utilities.liquid",
+  "size": "5004",
+  "checksumMd5": "a3e2e010b362998ac328617ec5bce1cd"
+ },
+ {
+  "filename": "sections/footer.liquid",
+  "size": "6253",
+  "checksumMd5": "0e4d3201961c810136006e96ac82a7d8"
+ },
+ {
+  "filename": "sections/header-announcements.liquid",
+  "size": "5209",
+  "checksumMd5": "20fcc429ef15923d9f4754c19c59658c"
+ },
+ {
+  "filename": "sections/header-group.json",
+  "size": "566",
+  "checksumMd5": "9bb361c3576889572faa08adb01769ef"
+ },
+ {
+  "filename": "sections/header.liquid",
+  "size": "56562",
+  "checksumMd5": "a3edcd8f6cebf951aa48454485221a01"
+ },
+ {
+  "filename": "sections/hero.liquid",
+  "size": "44948",
+  "checksumMd5": "84d892b50d74ad88197591eb116ddca5"
+ },
+ {
+  "filename": "sections/itt-makers-floor.liquid",
+  "size": "9692",
+  "checksumMd5": "7ffbe77ed5efe3511f66da552c1e71eb"
+ },
+ {
+  "filename": "sections/ittoldem-404.liquid",
+  "size": "1719",
+  "checksumMd5": "e70ecc278ab01adecf60f6a00aef0f4f"
+ },
+ {
+  "filename": "sections/ittoldem-about.liquid",
+  "size": "4410",
+  "checksumMd5": "087431c6e4b3c3fb5c08b346cab8230d"
+ },
+ {
+  "filename": "sections/ittoldem-collection-hero.liquid",
+  "size": "7815",
+  "checksumMd5": "5c115cd36be230acb5da70e6a0dbe4ef"
+ },
+ {
+  "filename": "sections/ittoldem-custom-studio.liquid",
+  "size": "4003",
+  "checksumMd5": "d724811f414f5a9c730924d098ee0526"
+ },
+ {
+  "filename": "sections/ittoldem-destination.liquid",
+  "size": "7505",
+  "checksumMd5": "1b9c39cf786bbd9b2e3ddea084ae932d"
+ },
+ {
+  "filename": "sections/ittoldem-falling-overlay.liquid",
+  "size": "10609",
+  "checksumMd5": "8c489d1123be2eefd996795a425cf695"
+ },
+ {
+  "filename": "sections/ittoldem-footer.liquid",
+  "size": "6026",
+  "checksumMd5": "b61f36ed42f7d30c8b0694cab3dd8d20"
+ },
+ {
+  "filename": "sections/ittoldem-global-nav.liquid",
+  "size": "1989",
+  "checksumMd5": "2b94fe9c8ca59271c34d432e2e71b738"
+ },
+ {
+  "filename": "sections/ittoldem-home-experience.liquid",
+  "size": "21562",
+  "checksumMd5": "59df2ebded69789d38650670fb286659"
+ },
+ {
+  "filename": "sections/ittoldem-house-clean.liquid",
+  "size": "17606",
+  "checksumMd5": "800f55e2270d00030a9b21799222447e"
+ },
+ {
+  "filename": "sections/ittoldem-house-v2.liquid",
+  "size": "24613",
+  "checksumMd5": "f5bf6a010f938f73296062a7b8c34bb8"
+ },
+ {
+  "filename": "sections/ittoldem-house.liquid",
+  "size": "19344",
+  "checksumMd5": "5794601de066634352a256fd51f26ff9"
+ },
+ {
+  "filename": "sections/ittoldem-media-field.liquid",
+  "size": "12681",
+  "checksumMd5": "08fbc0e7a0ae91db41c7ab0c7689d8f4"
+ },
+ {
+  "filename": "sections/ittoldem-watch-four.liquid",
+  "size": "6155",
+  "checksumMd5": "6b3e34c345dd8996dd41f3b7637bb064"
+ },
+ {
+  "filename": "sections/layered-slideshow.liquid",
+  "size": "15327",
+  "checksumMd5": "5ebd88892baed2dc4c6deb0c2541a37c"
+ },
+ {
+  "filename": "sections/logo.liquid",
+  "size": "8728",
+  "checksumMd5": "d63cef6449e36bc54ba62b422b0435ba"
+ },
+ {
+  "filename": "sections/main-404.liquid",
+  "size": "4304",
+  "checksumMd5": "8d10fdc3f536aa891cc2c57c6827d2c7"
+ },
+ {
+  "filename": "sections/main-blog-post.liquid",
+  "size": "4662",
+  "checksumMd5": "cc624431114c0a67d3e70fe830a85618"
+ },
+ {
+  "filename": "sections/main-blog.liquid",
+  "size": "7943",
+  "checksumMd5": "20c06063431f2319f859dc561ad1b911"
+ },
+ {
+  "filename": "sections/main-cart.liquid",
+  "size": "5545",
+  "checksumMd5": "f016996a6ec7c913841c9c21d96b96e5"
+ },
+ {
+  "filename": "sections/main-collection-list.liquid",
+  "size": "7843",
+  "checksumMd5": "14c07fefb57264faf9398f86ca279944"
+ },
+ {
+  "filename": "sections/main-collection.liquid",
+  "size": "7129",
+  "checksumMd5": "0886a4e6aedc1eab08318bd0b354b465"
+ },
+ {
+  "filename": "sections/main-page.liquid",
+  "size": "2184",
+  "checksumMd5": "75c18ce183be22fbd4dc92d183f0e658"
+ },
+ {
+  "filename": "sections/marquee.liquid",
+  "size": "4420",
+  "checksumMd5": "af525ff0eaf833b45371dd21ba574c65"
+ },
+ {
+  "filename": "sections/media-with-content.liquid",
+  "size": "12799",
+  "checksumMd5": "532609b603359cd123e1b6193cd35769"
+ },
+ {
+  "filename": "sections/password-footer.liquid",
+  "size": "2312",
+  "checksumMd5": "814de347eed698f320072b72a9f33c59"
+ },
+ {
+  "filename": "sections/password.liquid",
+  "size": "8140",
+  "checksumMd5": "9eb6d87228dfd99ed43e52d038dd49c2"
+ },
+ {
+  "filename": "sections/predictive-search-empty.liquid",
+  "size": "288",
+  "checksumMd5": "fccdc8bb0ce876ccafa60a1c124771b7"
+ },
+ {
+  "filename": "sections/predictive-search.liquid",
+  "size": "6509",
+  "checksumMd5": "2280f4b86ccb4e2a9ff025501fcfb166"
+ },
+ {
+  "filename": "sections/product-hotspots.liquid",
+  "size": "19571",
+  "checksumMd5": "f61a230187d06c8c09fc225c12568aa0"
+ },
+ {
+  "filename": "sections/product-information.liquid",
+  "size": "13005",
+  "checksumMd5": "2a2b34045e9e10ce57f694f583fb3d0e"
+ },
+ {
+  "filename": "sections/product-list.liquid",
+  "size": "26678",
+  "checksumMd5": "9e44b1145a76b07920438f708cc203a1"
+ },
+ {
+  "filename": "sections/product-recommendations.liquid",
+  "size": "16032",
+  "checksumMd5": "f9e5a6ee029331b9dd7eeb119a6f6680"
+ },
+ {
+  "filename": "sections/quick-order-list.liquid",
+  "size": "37820",
+  "checksumMd5": "0b87547b2c623f79690c9c487a30993e"
+ },
+ {
+  "filename": "sections/search-header.liquid",
+  "size": "2190",
+  "checksumMd5": "ae71404730baa51e9f5fc767d50859d3"
+ },
+ {
+  "filename": "sections/search-results.liquid",
+  "size": "6772",
+  "checksumMd5": "54955423b28164da1a1e13cebf6f9855"
+ },
+ {
+  "filename": "sections/section-rendering-product-card.liquid",
+  "size": "2457",
+  "checksumMd5": "54378e57d66eb3df36a876ae94cdebc2"
+ },
+ {
+  "filename": "sections/section.liquid",
+  "size": "54158",
+  "checksumMd5": "669267fdd11b77ab50fa55e83b57a3e0"
+ },
+ {
+  "filename": "sections/slideshow.liquid",
+  "size": "16559",
+  "checksumMd5": "c01f8ec7b216aa67b5b64edee7b542a3"
+ },
+ {
+  "filename": "sections/_blocks.liquid",
+  "size": "10427",
+  "checksumMd5": "0e479c132b0276a45c1eaa2b49d6fc71"
+ },
+ {
+  "filename": "snippets/accordion-custom-component.liquid",
+  "size": "3648",
+  "checksumMd5": "4c6df600d897ee748151dd90aea12877"
+ },
+ {
+  "filename": "snippets/accordion-styles.liquid",
+  "size": "2037",
+  "checksumMd5": "a275664a3b9e8efab56e4150a89fe845"
+ },
+ {
+  "filename": "snippets/add-to-cart-button-styles.liquid",
+  "size": "4916",
+  "checksumMd5": "246f8c8f9d7ee66b33c5896cb87bfb47"
+ },
+ {
+  "filename": "snippets/add-to-cart-button.liquid",
+  "size": "2197",
+  "checksumMd5": "003ded1fc56ef860c9dbbca2a6589fee"
+ },
+ {
+  "filename": "snippets/background-media.liquid",
+  "size": "5027",
+  "checksumMd5": "962d5f34d952ef81d02d17a4663edff4"
+ },
+ {
+  "filename": "snippets/bento-grid.liquid",
+  "size": "5027",
+  "checksumMd5": "24a9c789775237682fa9a8aca72044c6"
+ },
+ {
+  "filename": "snippets/blog-comment-form.liquid",
+  "size": "5982",
+  "checksumMd5": "f817281d5f38d81c6eb2d0ddff560e3a"
+ },
+ {
+  "filename": "snippets/border-override.liquid",
+  "size": "618",
+  "checksumMd5": "2d0d527aaad446aee427cc980e8646e7"
+ },
+ {
+  "filename": "snippets/brightness-opacities.liquid",
+  "size": "1021",
+  "checksumMd5": "7a956c2d35174c3294606dbfcb38e60f"
+ },
+ {
+  "filename": "snippets/button-custom-styles.liquid",
+  "size": "2674",
+  "checksumMd5": "729acd4774fa7cac866c0654274119c8"
+ },
+ {
+  "filename": "snippets/button.liquid",
+  "size": "840",
+  "checksumMd5": "80c54884187607f9e01f3ed7530937c4"
+ },
+ {
+  "filename": "snippets/buy-buttons-styles.liquid",
+  "size": "7632",
+  "checksumMd5": "c2e093b98f84f26ad8760892d6b0ea14"
+ },
+ {
+  "filename": "snippets/card-gallery.liquid",
+  "size": "16242",
+  "checksumMd5": "c33e317de10e0e305f8a80c89ed87794"
+ },
+ {
+  "filename": "snippets/card-hover-effect-styles.liquid",
+  "size": "2432",
+  "checksumMd5": "2bb6add95881cec8a16470549f470124"
+ },
+ {
+  "filename": "snippets/cart-bubble.liquid",
+  "size": "2212",
+  "checksumMd5": "2525d01fd5d70782d8cc869738778921"
+ },
+ {
+  "filename": "snippets/cart-disclosure-tooltip.liquid",
+  "size": "20056",
+  "checksumMd5": "b5614158fc8d827e66968e13b218fca4"
+ },
+ {
+  "filename": "snippets/cart-drawer.liquid",
+  "size": "7798",
+  "checksumMd5": "dfd8749128e0df636aa672ac91b39358"
+ },
+ {
+  "filename": "snippets/cart-items-component.liquid",
+  "size": "2379",
+  "checksumMd5": "66d5b84f4e673d41b7ce8e863ff1167d"
+ },
+ {
+  "filename": "snippets/cart-products.liquid",
+  "size": "31633",
+  "checksumMd5": "93daac3114fa4d1fafd32b65170e3938"
+ },
+ {
+  "filename": "snippets/cart-summary.liquid",
+  "size": "18361",
+  "checksumMd5": "ae0e9d3d67621e5d6ffbcc600d05f859"
+ },
+ {
+  "filename": "snippets/cart-typography-styles.liquid",
+  "size": "562",
+  "checksumMd5": "6f43fb0c349fb0c27c9a4b9a2fda1b97"
+ },
+ {
+  "filename": "snippets/chat-drawer.liquid",
+  "size": "4751",
+  "checksumMd5": "0474ee8ad6e9f68ed51291f337cfa125"
+ },
+ {
+  "filename": "snippets/checkbox-styles.liquid",
+  "size": "2386",
+  "checksumMd5": "bee1d096065635c07e8c5a481dd80757"
+ },
+ {
+  "filename": "snippets/checkbox.liquid",
+  "size": "1724",
+  "checksumMd5": "3e0c5eb78c58f036cc521f5ca12a44fa"
+ },
+ {
+  "filename": "snippets/collection-card.liquid",
+  "size": "4926",
+  "checksumMd5": "a2f3940ce285dc96e249c1613f3eb9e2"
+ },
+ {
+  "filename": "snippets/collection-wrapper-styles.liquid",
+  "size": "3878",
+  "checksumMd5": "247eb0a42cd9230d9ca2a006a2614db6"
+ },
+ {
+  "filename": "snippets/color-palette.liquid",
+  "size": "10724",
+  "checksumMd5": "1b9c815e8ea7ee9a11f5568fe95aa0ad"
+ },
+ {
+  "filename": "snippets/contrast-override.liquid",
+  "size": "8454",
+  "checksumMd5": "7e9411582ba1c28431df1ab85a93121e"
+ },
+ {
+  "filename": "snippets/deferred-media-product-model-styles.liquid",
+  "size": "5561",
+  "checksumMd5": "d9b3def7912d462e51dfa019f18cf277"
+ },
+ {
+  "filename": "snippets/deferred-media-video-styles.liquid",
+  "size": "3653",
+  "checksumMd5": "fdb49c8ed6264657a44703e48e13e0ca"
+ },
+ {
+  "filename": "snippets/dialog-styles.liquid",
+  "size": "2597",
+  "checksumMd5": "a9070363d004a465f11023b17c11f7fc"
+ },
+ {
+  "filename": "snippets/divider.liquid",
+  "size": "2386",
+  "checksumMd5": "b0909285fed412b6b38676d2718aef77"
+ },
+ {
+  "filename": "snippets/editorial-blog-grid.liquid",
+  "size": "3078",
+  "checksumMd5": "53b34706bb2e3ac75a12b18be783c14c"
+ },
+ {
+  "filename": "snippets/editorial-collection-grid.liquid",
+  "size": "2934",
+  "checksumMd5": "22d25f31eb46b35273f33b64e2ed6834"
+ },
+ {
+  "filename": "snippets/editorial-product-grid.liquid",
+  "size": "3525",
+  "checksumMd5": "f303b9a073245caa8d06c41961ff7fe7"
+ },
+ {
+  "filename": "snippets/filter-remove-buttons.liquid",
+  "size": "4494",
+  "checksumMd5": "ecbef65ba8b7c53617f6fa4516b89146"
+ },
+ {
+  "filename": "snippets/fly-to-cart-styles.liquid",
+  "size": "2271",
+  "checksumMd5": "b426bd7d5b04fe92c5afd3240370a7b0"
+ },
+ {
+  "filename": "snippets/fonts.liquid",
+  "size": "726",
+  "checksumMd5": "2cd0a8aafb82cd2377799df7f1eebd6b"
+ },
+ {
+  "filename": "snippets/format-price.liquid",
+  "size": "1003",
+  "checksumMd5": "8240542d7c4656f2b53456522d5c21b8"
+ },
+ {
+  "filename": "snippets/gap-style.liquid",
+  "size": "927",
+  "checksumMd5": "183f35396f4b7fe54eceecc8270271bd"
+ },
+ {
+  "filename": "snippets/gift-card-recipient-button-custom-styles.liquid",
+  "size": "2934",
+  "checksumMd5": "eae5dc2b8885e89afd1126d86f76408d"
+ },
+ {
+  "filename": "snippets/gift-card-recipient-form-styles.liquid",
+  "size": "5890",
+  "checksumMd5": "1dbad952c620b636ffbccc48abe46935"
+ },
+ {
+  "filename": "snippets/gift-card-recipient-form.liquid",
+  "size": "7747",
+  "checksumMd5": "a8d259df9c3fd11882ce7a7f467bd55e"
+ },
+ {
+  "filename": "snippets/grid-density-controls.liquid",
+  "size": "4688",
+  "checksumMd5": "8ed948bddc33a8c1b23821a07452beaf"
+ },
+ {
+  "filename": "snippets/group.liquid",
+  "size": "3126",
+  "checksumMd5": "fa461ecee498323636a4195975a50058"
+ },
+ {
+  "filename": "snippets/header-actions.liquid",
+  "size": "10025",
+  "checksumMd5": "0f4fc3bec44762ea48ecb519afd2005b"
+ },
+ {
+  "filename": "snippets/header-drawer.liquid",
+  "size": "59844",
+  "checksumMd5": "19d1735e9d6569c51c750a58fc7442ee"
+ },
+ {
+  "filename": "snippets/header-row.liquid",
+  "size": "2962",
+  "checksumMd5": "585d2adb5f70a0eead98502639af1a31"
+ },
+ {
+  "filename": "snippets/icon-or-image.liquid",
+  "size": "1396",
+  "checksumMd5": "b812a996f71059b206718dae4edddbb8"
+ },
+ {
+  "filename": "snippets/icon.liquid",
+  "size": "133281",
+  "checksumMd5": "bae5a7489642235f437f8072be3b7c56"
+ },
+ {
+  "filename": "snippets/image.liquid",
+  "size": "1523",
+  "checksumMd5": "e6e159595a30e79d5a6177a72a28f544"
+ },
+ {
+  "filename": "snippets/input-custom-styles.liquid",
+  "size": "1858",
+  "checksumMd5": "e4695ee314c2bb399701539703d59733"
+ },
+ {
+  "filename": "snippets/itt-campaign-apparel.liquid",
+  "size": "10031",
+  "checksumMd5": "8d6ecc51e9b50207802dba8d403b5afd"
+ },
+ {
+  "filename": "snippets/itt-campaign-denim.liquid",
+  "size": "20035",
+  "checksumMd5": "2bc13800a44c539383322839efde0448"
+ },
+ {
+  "filename": "snippets/itt-campaign-flagline.liquid",
+  "size": "10031",
+  "checksumMd5": "ef882cc7210952c92cb9a5e116defc35"
+ },
+ {
+  "filename": "snippets/itt-campaign-hero.liquid",
+  "size": "10055",
+  "checksumMd5": "7af64b656ff51e9d7ebc5577192da3d0"
+ },
+ {
+  "filename": "snippets/itt-campaign-image.liquid",
+  "size": "80379",
+  "checksumMd5": "bc14beb264386444cbc1e598899af0ba"
+ },
+ {
+  "filename": "snippets/itt-campaign-lab.liquid",
+  "size": "10031",
+  "checksumMd5": "bf8f7a6ee97e9a213369d6beeb9c9d85"
+ },
+ {
+  "filename": "snippets/itt-campaign-wehair.liquid",
+  "size": "20035",
+  "checksumMd5": "290c4177861caa400bd6f82e1ec5afdf"
+ },
+ {
+  "filename": "snippets/itt-collection-tile.liquid",
+  "size": "949",
+  "checksumMd5": "cb38cc12c9db16ec3337b4617ff1b9e7"
+ },
+ {
+  "filename": "snippets/itt-house-trust.liquid",
+  "size": "160",
+  "checksumMd5": "5ed970f99cd5183a7667e3d653a4c1e2"
+ },
+ {
+  "filename": "snippets/itt-product-card.liquid",
+  "size": "2882",
+  "checksumMd5": "cf5e4e99631af4367dcb7490d17626db"
+ },
+ {
+  "filename": "snippets/itt-product-facts.liquid",
+  "size": "2793",
+  "checksumMd5": "a9b9bcb8a82fa72f24df4d69288e54b5"
+ },
+ {
+  "filename": "snippets/jumbo-text.liquid",
+  "size": "5213",
+  "checksumMd5": "b62622e73855bc600492a8eedfb5c712"
+ },
+ {
+  "filename": "snippets/layout-panel-style.liquid",
+  "size": "1186",
+  "checksumMd5": "f848fa18ac93d053be9a93faa65f0562"
+ },
+ {
+  "filename": "snippets/link-featured-image.liquid",
+  "size": "1558",
+  "checksumMd5": "d4fcae26294d36f21e1fe844b85e65c0"
+ },
+ {
+  "filename": "snippets/list-filter.liquid",
+  "size": "31938",
+  "checksumMd5": "452d798f146632b6a59c9463bca50972"
+ },
+ {
+  "filename": "snippets/localization-form.liquid",
+  "size": "17819",
+  "checksumMd5": "5211648c7cc1e4487dd2dd40d91c203d"
+ },
+ {
+  "filename": "snippets/measure-header-heights.liquid",
+  "size": "1394",
+  "checksumMd5": "96d661ae5f65af63406d26e2e2de2ad2"
+ },
+ {
+  "filename": "snippets/media.liquid",
+  "size": "3531",
+  "checksumMd5": "6955c25fee6138974a3d7f7fe2c2e073"
+ },
+ {
+  "filename": "snippets/mega-menu-list.liquid",
+  "size": "14004",
+  "checksumMd5": "08f67f8291b82b678ef431563b4686b7"
+ },
+ {
+  "filename": "snippets/menu-font-styles.liquid",
+  "size": "1173",
+  "checksumMd5": "4b7cf5feb174bf9ac1324000c1ddb283"
+ },
+ {
+  "filename": "snippets/meta-tags.liquid",
+  "size": "3422",
+  "checksumMd5": "c892c6c3627346e99ceffb8b130d5bd7"
+ },
+ {
+  "filename": "snippets/overflow-list.liquid",
+  "size": "1970",
+  "checksumMd5": "c136517f488a102a20acda832c064513"
+ },
+ {
+  "filename": "snippets/overlay.liquid",
+  "size": "1360",
+  "checksumMd5": "72cac4e3a191df0ca4dfc011c097135d"
+ },
+ {
+  "filename": "snippets/pagination-controls.liquid",
+  "size": "11661",
+  "checksumMd5": "a2be9e8a43f93b6de2a3ebecba3adcc5"
+ },
+ {
+  "filename": "snippets/password-layout-styles.liquid",
+  "size": "2170",
+  "checksumMd5": "9a77fdaefd072759b38621cc9403cee0"
+ },
+ {
+  "filename": "snippets/payment-terms-styles.liquid",
+  "size": "625",
+  "checksumMd5": "c8c6e28a601f827e1c295a64e000e15b"
+ },
+ {
+  "filename": "snippets/pills-styles.liquid",
+  "size": "1421",
+  "checksumMd5": "821caef4f46d145537a385cf8b5704ee"
+ },
+ {
+  "filename": "snippets/predictive-search-empty-state.liquid",
+  "size": "1670",
+  "checksumMd5": "b09b2c0b2de7eafd0f5a8db85547f022"
+ },
+ {
+  "filename": "snippets/predictive-search-products-list.liquid",
+  "size": "3768",
+  "checksumMd5": "a6bf88f90e1d9e30eb9a14c31a4f7e6e"
+ },
+ {
+  "filename": "snippets/predictive-search-resource-carousel.liquid",
+  "size": "1596",
+  "checksumMd5": "25b94f0cb923a7adcea358d7815750e5"
+ },
+ {
+  "filename": "snippets/predictive-search-styles.liquid",
+  "size": "17061",
+  "checksumMd5": "40e2c733fb489d59e7d61de4d5fe4f22"
+ },
+ {
+  "filename": "snippets/price-filter.liquid",
+  "size": "8378",
+  "checksumMd5": "83b3c828db3d35e26e7a3265bf1821b7"
+ },
+ {
+  "filename": "snippets/price-styles.liquid",
+  "size": "2025",
+  "checksumMd5": "357de9e03ddc6c0d58f9c64e3974e7a2"
+ },
+ {
+  "filename": "snippets/price.liquid",
+  "size": "4830",
+  "checksumMd5": "e41113f1ceb9d737c208e8d0a8388488"
+ },
+ {
+  "filename": "snippets/product-badges-styles.liquid",
+  "size": "1503",
+  "checksumMd5": "038122025860d3e6c88e4c35111206be"
+ },
+ {
+  "filename": "snippets/product-card-gallery-zoom-details-styles.liquid",
+  "size": "629",
+  "checksumMd5": "8d0b25b5dedf6f7f855d3a61a396282a"
+ },
+ {
+  "filename": "snippets/product-card-styles.liquid",
+  "size": "1851",
+  "checksumMd5": "709e1b06a8051739b662c9725252bb21"
+ },
+ {
+  "filename": "snippets/product-card.liquid",
+  "size": "4742",
+  "checksumMd5": "8809065118a76ee45bb23bb2270a80a6"
+ },
+ {
+  "filename": "snippets/product-grid.liquid",
+  "size": "12329",
+  "checksumMd5": "9339f0eccdf37c9656672ac0d8d39f24"
+ },
+ {
+  "filename": "snippets/product-information-content.liquid",
+  "size": "9503",
+  "checksumMd5": "d4928b11ab67864c539cac20c1965342"
+ },
+ {
+  "filename": "snippets/product-media-container-styles.liquid",
+  "size": "1886",
+  "checksumMd5": "9f03927f1c3153140d03afe0b366a88e"
+ },
+ {
+  "filename": "snippets/product-media-gallery-content-styles.liquid",
+  "size": "2508",
+  "checksumMd5": "0add5f9395d68ddd57cbe8fca356a8ac"
+ },
+ {
+  "filename": "snippets/product-media-gallery-content.liquid",
+  "size": "37699",
+  "checksumMd5": "d38b82ae7be671dfc245bc180f0df8b9"
+ },
+ {
+  "filename": "snippets/product-media.liquid",
+  "size": "4556",
+  "checksumMd5": "d484ce619b651afeaa86031efe0c016c"
+ },
+ {
+  "filename": "snippets/product-recommendations-styles.liquid",
+  "size": "661",
+  "checksumMd5": "6f3f06a6057aa212c62d5aacc674bacb"
+ },
+ {
+  "filename": "snippets/quantity-selector-styles.liquid",
+  "size": "3249",
+  "checksumMd5": "e9ad599e45efda31ce762401cd5884ee"
+ },
+ {
+  "filename": "snippets/quantity-selector.liquid",
+  "size": "6857",
+  "checksumMd5": "e19f72fd6bab1834ab5d438c3d018db8"
+ },
+ {
+  "filename": "snippets/quick-add-modal-styles.liquid",
+  "size": "16725",
+  "checksumMd5": "6b720eec54aa34c977385ce07fcf8618"
+ },
+ {
+  "filename": "snippets/quick-add-modal.liquid",
+  "size": "928",
+  "checksumMd5": "d40cb8934ce23f318ea9d41cda68a2e2"
+ },
+ {
+  "filename": "snippets/quick-add-styles.liquid",
+  "size": "4751",
+  "checksumMd5": "d8b9b5db671b0048f06ebeca25998224"
+ },
+ {
+  "filename": "snippets/quick-add.liquid",
+  "size": "5723",
+  "checksumMd5": "cdbed60ebac7dd1a39e0e1fefd3829a4"
+ },
+ {
+  "filename": "snippets/resolve-custom-hover.liquid",
+  "size": "2786",
+  "checksumMd5": "c1fa43ddae4322073c1cfca65f044a5c"
+ },
+ {
+  "filename": "snippets/resource-card.liquid",
+  "size": "11078",
+  "checksumMd5": "a42a961d30c3554cba885afe6f91200f"
+ },
+ {
+  "filename": "snippets/resource-image.liquid",
+  "size": "6929",
+  "checksumMd5": "526d04b4d09cc685d0ca79c288f99869"
+ },
+ {
+  "filename": "snippets/resource-list-carousel.liquid",
+  "size": "3938",
+  "checksumMd5": "bbd2e6a863e72fef15d86453efeb018e"
+ },
+ {
+  "filename": "snippets/resource-list-styles.liquid",
+  "size": "2982",
+  "checksumMd5": "773a7d8df1178d4fdada0fdf4a6f26fe"
+ },
+ {
+  "filename": "snippets/resource-list.liquid",
+  "size": "6386",
+  "checksumMd5": "0265ba997309b9626f02da13b10a8b7b"
+ },
+ {
+  "filename": "snippets/scripts.liquid",
+  "size": "8777",
+  "checksumMd5": "2947d5145d109594447106a86e82c9cd"
+ },
+ {
+  "filename": "snippets/search-modal.liquid",
+  "size": "14959",
+  "checksumMd5": "54f02e586f4260c1df59096cc37c3ac0"
+ },
+ {
+  "filename": "snippets/search.liquid",
+  "size": "2301",
+  "checksumMd5": "b46551a97ccd3d59867591fd9e51782f"
+ },
+ {
+  "filename": "snippets/section.liquid",
+  "size": "3268",
+  "checksumMd5": "934b2c812a65cb462ef62c0d5f48a5eb"
+ },
+ {
+  "filename": "snippets/size-style.liquid",
+  "size": "1144",
+  "checksumMd5": "c0fbd03d4efa1c4436ef53bf7e205d41"
+ },
+ {
+  "filename": "snippets/skip-to-content-link.liquid",
+  "size": "1034",
+  "checksumMd5": "3b3514de6eb1ad5d3f8ea3fe0990535b"
+ },
+ {
+  "filename": "snippets/sku.liquid",
+  "size": "386",
+  "checksumMd5": "f37550b1a33d72e7b6f332294767ee49"
+ },
+ {
+  "filename": "snippets/slideshow-arrow.liquid",
+  "size": "2592",
+  "checksumMd5": "54ced2fcb94f059fe530363af9e615fa"
+ },
+ {
+  "filename": "snippets/slideshow-arrows.liquid",
+  "size": "2257",
+  "checksumMd5": "7ad3f957e4564d18ee9418db74d6780c"
+ },
+ {
+  "filename": "snippets/slideshow-controls.liquid",
+  "size": "16119",
+  "checksumMd5": "6e4bd3416051b3402bc5814e6cfe21bd"
+ },
+ {
+  "filename": "snippets/slideshow-slide.liquid",
+  "size": "2612",
+  "checksumMd5": "6aa233e5c095b441f4f1cfa7778a37da"
+ },
+ {
+  "filename": "snippets/slideshow-styles.liquid",
+  "size": "5518",
+  "checksumMd5": "543cca773bf36a3cc866b72034e17bdc"
+ },
+ {
+  "filename": "snippets/slideshow.liquid",
+  "size": "5091",
+  "checksumMd5": "f3312e21bb910ed5cb7265ab1e1c53a7"
+ },
+ {
+  "filename": "snippets/sorting.liquid",
+  "size": "10100",
+  "checksumMd5": "3df88ca76781e8bf158179a413b61090"
+ },
+ {
+  "filename": "snippets/spacing-padding.liquid",
+  "size": "576",
+  "checksumMd5": "4968ba0834938346c7d60b4565367086"
+ },
+ {
+  "filename": "snippets/spacing-style.liquid",
+  "size": "927",
+  "checksumMd5": "786f80211926b582b2761a7658089c9a"
+ },
+ {
+  "filename": "snippets/strikethrough-variant.liquid",
+  "size": "648",
+  "checksumMd5": "8b2c63c020bf0d1ceabcfbd69a321428"
+ },
+ {
+  "filename": "snippets/stylesheets.liquid",
+  "size": "126",
+  "checksumMd5": "225482ed969debae3891c08113a254be"
+ },
+ {
+  "filename": "snippets/submenu-font-styles.liquid",
+  "size": "2634",
+  "checksumMd5": "4f714050ef9801c55854b02f2759ccf8"
+ },
+ {
+  "filename": "snippets/summary-icon-styles.liquid",
+  "size": "1032",
+  "checksumMd5": "cf01cc0d1a35b37cee48f28503251c0c"
+ },
+ {
+  "filename": "snippets/swatch-styles.liquid",
+  "size": "4277",
+  "checksumMd5": "6db9876ccf04ee7cb08957cb34bb33a3"
+ },
+ {
+  "filename": "snippets/swatch.liquid",
+  "size": "1925",
+  "checksumMd5": "0a58fdd65cddb87d312c714c5204f8a8"
+ },
+ {
+  "filename": "snippets/tax-info.liquid",
+  "size": "3565",
+  "checksumMd5": "35280b09225478d2c0e61856166fe863"
+ },
+ {
+  "filename": "snippets/text-block-styles.liquid",
+  "size": "3357",
+  "checksumMd5": "1f99f7c7f683140d7dc0b858de34eaaa"
+ },
+ {
+  "filename": "snippets/text-component-shimmer-styles.liquid",
+  "size": "1594",
+  "checksumMd5": "c9305d7a7410104d906dcde2bb073d39"
+ },
+ {
+  "filename": "snippets/text.liquid",
+  "size": "4513",
+  "checksumMd5": "8136e5d54c3fab6224ba44672558b840"
+ },
+ {
+  "filename": "snippets/theme-drawer-header.liquid",
+  "size": "1136",
+  "checksumMd5": "033316b26c556ac2bed04fb5bb17cc61"
+ },
+ {
+  "filename": "snippets/theme-drawer-styles.liquid",
+  "size": "5813",
+  "checksumMd5": "b9e561da4253072fa5e915daed6f6977"
+ },
+ {
+  "filename": "snippets/theme-drawer.liquid",
+  "size": "4924",
+  "checksumMd5": "003a4c2e15b5e2ee147c87ed3bac2293"
+ },
+ {
+  "filename": "snippets/theme-editor.liquid",
+  "size": "95",
+  "checksumMd5": "41f2f32fb706a477465ee1a6f3a662e2"
+ },
+ {
+  "filename": "snippets/theme-styles-variables.liquid",
+  "size": "33209",
+  "checksumMd5": "38440a652a14bb7cc13e3606f29c949b"
+ },
+ {
+  "filename": "snippets/typography-style.liquid",
+  "size": "3148",
+  "checksumMd5": "8eabb9e03295dd257ac1e8257c0540b0"
+ },
+ {
+  "filename": "snippets/unit-price.liquid",
+  "size": "655",
+  "checksumMd5": "456f3529f621e4c572b891644a3463ad"
+ },
+ {
+  "filename": "snippets/util-autofill-img-size-attr.liquid",
+  "size": "2219",
+  "checksumMd5": "203693e6ff7bc1207bd9ded0b52d877d"
+ },
+ {
+  "filename": "snippets/util-mega-menu-img-sizes-attr.liquid",
+  "size": "3352",
+  "checksumMd5": "3f28cdbf257160e748c4a309df5e9f43"
+ },
+ {
+  "filename": "snippets/util-palette-hover-shift.liquid",
+  "size": "1095",
+  "checksumMd5": "36c87ba028a2b4d000a9a755caedf7d9"
+ },
+ {
+  "filename": "snippets/util-product-grid-card-size.liquid",
+  "size": "1432",
+  "checksumMd5": "1163abe791719bdb1a88f8d5aa46a380"
+ },
+ {
+  "filename": "snippets/util-product-media-sizes-attr.liquid",
+  "size": "6980",
+  "checksumMd5": "727e3fef09c35eccfbf1276a86ee128c"
+ },
+ {
+  "filename": "snippets/variant-button-custom-styles.liquid",
+  "size": "3996",
+  "checksumMd5": "7f73812e33b47884b11fb7c236693caa"
+ },
+ {
+  "filename": "snippets/variant-main-picker.liquid",
+  "size": "11680",
+  "checksumMd5": "a011f11cc9d2cba01505b116e711aa25"
+ },
+ {
+  "filename": "snippets/variant-picker-styles.liquid",
+  "size": "16330",
+  "checksumMd5": "9d0f0d5bd1d00b23e5b4b609bf679d61"
+ },
+ {
+  "filename": "snippets/variant-swatches.liquid",
+  "size": "9742",
+  "checksumMd5": "ceb2402000f9c55aca3d9f9db391e9ee"
+ },
+ {
+  "filename": "snippets/video-background-styles.liquid",
+  "size": "677",
+  "checksumMd5": "c685dcece0e159d784df583e93a089a7"
+ },
+ {
+  "filename": "snippets/video-placeholder-styles.liquid",
+  "size": "1387",
+  "checksumMd5": "6085b406f313fae1fdd903cff175a702"
+ },
+ {
+  "filename": "snippets/video.liquid",
+  "size": "7478",
+  "checksumMd5": "2829ed6d8101867ba40fc03c9e97254e"
+ },
+ {
+  "filename": "snippets/view-transition-opt-in.liquid",
+  "size": "804",
+  "checksumMd5": "82efc6c7aed5ad1c8077fe620baccc86"
+ },
+ {
+  "filename": "snippets/volume-pricing-info.liquid",
+  "size": "10441",
+  "checksumMd5": "8c934eaafad57fcf29ea84838861b6aa"
+ },
+ {
+  "filename": "templates/404.json",
+  "size": "76",
+  "checksumMd5": "7ecb3ff2a03e51e30afec95c8fc3ca7f"
+ },
+ {
+  "filename": "templates/article.json",
+  "size": "2839",
+  "checksumMd5": "805d96366f6ac3a038a3627f5f011d58"
+ },
+ {
+  "filename": "templates/blog.json",
+  "size": "3350",
+  "checksumMd5": "5171a8a0599d5c420d2ada5d1b117ea7"
+ },
+ {
+  "filename": "templates/cart.json",
+  "size": "4572",
+  "checksumMd5": "cf072a3aab13e18611ebce74983f66f3"
+ },
+ {
+  "filename": "templates/collection.json",
+  "size": "7773",
+  "checksumMd5": "847e1c07f8d966cbed62d12fe4d8b7c2"
+ },
+ {
+  "filename": "templates/gift_card.liquid",
+  "size": "6474",
+  "checksumMd5": "20b1dcce4d22b8dda4b9f9a718536906"
+ },
+ {
+  "filename": "templates/index.json",
+  "size": "743",
+  "checksumMd5": "c36992332063c4248f378e3b41e03a97"
+ },
+ {
+  "filename": "templates/list-collections.json",
+  "size": "5566",
+  "checksumMd5": "de7af3a80eafecc450b3c0a2ec17f39d"
+ },
+ {
+  "filename": "templates/page.contact.json",
+  "size": "4336",
+  "checksumMd5": "6e5f1d62af8777cf4704f92b5c435af1"
+ },
+ {
+  "filename": "templates/page.json",
+  "size": "1647",
+  "checksumMd5": "4490e1b11e3117a1b5c7a7e01e1ab6e4"
+ },
+ {
+  "filename": "templates/password.json",
+  "size": "4235",
+  "checksumMd5": "80b17074b9089a1bc4a01b4cc85897c1"
+ },
+ {
+  "filename": "templates/product.json",
+  "size": "7585",
+  "checksumMd5": "97bda5e3fe9f6e810c6c87e16c105da6"
+ },
+ {
+  "filename": "templates/search.about.json",
+  "size": "585",
+  "checksumMd5": "5d22749615ae023cab605e20b1555d63"
+ },
+ {
+  "filename": "templates/search.custom.json",
+  "size": "961",
+  "checksumMd5": "1b2c59dadbeb3c2801f6088c71a3d1df"
+ },
+ {
+  "filename": "templates/search.flagline.json",
+  "size": "933",
+  "checksumMd5": "fa1dbd95f1dd30e4e5a73366a295165f"
+ },
+ {
+  "filename": "templates/search.gvo.json",
+  "size": "898",
+  "checksumMd5": "506f0f61bb9cb5ef2f999838f24e116c"
+ },
+ {
+  "filename": "templates/search.json",
+  "size": "5630",
+  "checksumMd5": "e896f8a70b66bd5ff3d25608af382aa5"
+ },
+ {
+  "filename": "templates/search.lab.json",
+  "size": "928",
+  "checksumMd5": "bc84bc81c9335e7cc944d58f18e1b8d0"
+ },
+ {
+  "filename": "templates/search.wehair.json",
+  "size": "918",
+  "checksumMd5": "a6d4a963b1781c2216fe52eea631b7b4"
+ }
+]

@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "destination": {
+      "type": "ittoldem-destination",
+      "settings": {
+        "campaign_image": "shopify://shop_images/F5905BC3-F49A-44F5-B5E7-739A6C4B9553.png",
+        "world": "wehair",
+        "eyebrow": "WE HAIR · OBJECTS & TOOLS",
+        "title": "WE HAIR",
+        "copy": "Hair objects, beauty tools and product studies developed as a distinct world of the house.",
+        "meta": "TOOLS · BEAUTY · DEVELOPMENT",
+        "results_heading": "THE WE HAIR EDIT"
+      }
+    }
+  },
+  "order": [
+    "destination"
+  ]
+}
