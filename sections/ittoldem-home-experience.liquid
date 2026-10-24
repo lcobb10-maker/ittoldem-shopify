@@ -36,10 +36,8 @@
   </section>
 
   <section class="itt-x__commerce" id="IttShop-{{ section.id }}"><div class="itt-x__ribbon" aria-hidden="true"></div><div class="itt-x__shophead"><div><div class="itt-x__eyebrow">02 / THE HOUSE EDIT</div><h2>THE CURRENT<br>EDIT.</h2></div><div><p>Four active releases from the house.</p><a class="itt-x__shopall" href="{{ routes.all_products_collection_url }}">SHOP ALL →</a></div></div>
-    {% assign edit_handles = '313-speed-series-tee-amp-jogger-set|football-family-fan-jersey-youth|football-family-fan-jersey-adult|travel-ball-mom-dad-sublimated-polo' | split: '|' %}
     <div class="itt-x__editrail" role="list">
-      {% for product_handle in edit_handles %}
-        {% assign edit_product = all_products[product_handle] %}
+      {% for edit_product in section.settings.edit_products %}
         {% if edit_product != blank and edit_product.featured_image != blank %}
           <a class="itt-x__editcard" href="{{ edit_product.url }}" role="listitem">
             <span class="itt-x__editindex">0{{ forloop.index }}</span>
@@ -64,4 +62,4 @@
 
   <script>(()=>{const root=document.getElementById('IttX-{{ section.id }}');if(!root)return;const rain=root.querySelector('.itt-x__rain'),trims=root.querySelectorAll('.itt-x__trim'),process=root.querySelector('.itt-x__process'),hero=root.querySelector('.itt-x__hero');root.querySelectorAll('video').forEach(v=>{v.muted=true;v.defaultMuted=true;v.playsInline=true;const p=()=>v.play().catch(()=>{});if(v.readyState>1)p();else v.addEventListener('canplay',p,{once:true})});let ticking=false;const draw=()=>{const h=hero.getBoundingClientRect(),pr=process.getBoundingClientRect(),active=(h.top<innerHeight*.35&&pr.bottom>innerHeight*.2);root.classList.toggle('itt-x--active',active);const pos=((scrollY||document.documentElement.scrollTop)*.18)%100;trims.forEach(t=>t.style.setProperty('--trimY',`${pos}%`));ticking=false};const on=()=>{if(!ticking){requestAnimationFrame(draw);ticking=true}};addEventListener('scroll',on,{passive:true});addEventListener('resize',on,{passive:true});draw()})();</script>
 </section>
-{% schema %}{"name":"ITT Home Experience","tag":"section","class":"section-itt-home-experience","settings":[{"type":"image_picker","id":"hero_image","label":"Hero image"}],"presets":[{"name":"ITT Home Experience"}]}{% endschema %}
+{% schema %}{"name":"ITT Home Experience","tag":"section","class":"section-itt-home-experience","settings":[{"type":"image_picker","id":"hero_image","label":"Hero image"},{"type":"product_list","id":"edit_products","label":"House Edit products","info":"Curates THE HOUSE EDIT rail in order. Defaults reproduce the previously hardcoded rail (D-018).","limit":4,"default":["313-speed-series-tee-amp-jogger-set","football-family-fan-jersey-youth","football-family-fan-jersey-adult","travel-ball-mom-dad-sublimated-polo"]}],"presets":[{"name":"ITT Home Experience"}]}{% endschema %}
