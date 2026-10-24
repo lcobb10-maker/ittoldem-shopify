@@ -20,6 +20,7 @@
     {{ 'ittoldem-commerce.css' | asset_url | stylesheet_tag }}
     {{ 'itt-real-proof.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' %}
+      <!-- D-016 WORLDS CHAIN — LAYER 2 of 3 (layout override): this !important CSS, plus the carousel boot script at the end of <body>, restyles Layer 1's grid (sections/ittoldem-home-experience.liquid) into a carousel. Layer 3 (assets/itt-horizontal-parallax.js) hides both when the megaworld boots. Full trace + consolidation design: docs/worlds-fallback-trace.md. -->
       <style>
         .itt-x__worlds{position:relative!important;min-height:auto!important;padding:6rem 0 7rem!important;overflow:hidden!important;background:#050505!important;isolation:isolate}
         .itt-x__worlds:before{content:"";position:absolute;inset:-12% -20%;z-index:0;pointer-events:none;background:url('{{ settings.worlds_cream_background_url }}') center 58%/min(78vw,1100px) auto no-repeat;filter:invert(1) sepia(.12);opacity:.055}
@@ -71,6 +72,7 @@
     {% if settings.quick_add or settings.mobile_quick_add %}{% render 'quick-add-modal' %}{% endif %}
     <script src="{{ 'itt-real-proof.js' | asset_url }}" defer></script>
     {% if request.page_type == 'index' %}
+      <!-- D-016 WORLDS CHAIN — LAYER 3 (megaworld) loads next; the inline script after it is LAYER 2's carousel boot. See docs/worlds-fallback-trace.md. -->
       <script src="{{ 'itt-horizontal-parallax.js' | asset_url }}" defer></script>
       <script>
         (()=>{const boot=()=>{const rail=document.querySelector('.itt-x__worldgrid');if(!rail||rail.dataset.carouselReady)return;rail.dataset.carouselReady='1';const cards=[...rail.querySelectorAll('a')];if(cards.length<3)return;const progress=document.createElement('div');progress.className='itt-world-progress';cards.forEach((_,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show world '+(i+1));b.addEventListener('click',()=>cards[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));progress.appendChild(b)});rail.after(progress);const dots=[...progress.children];const setActive=(idx)=>{cards.forEach((c,i)=>{c.classList.toggle('is-world-active',i===idx);c.classList.toggle('is-world-left',i<idx);c.classList.toggle('is-world-right',i>idx)});dots.forEach((d,i)=>d.classList.toggle('is-active',i===idx))};const nearest=()=>{const rc=rail.getBoundingClientRect(),cx=rc.left+rc.width/2;let best=0,dist=1e9;cards.forEach((c,i)=>{const r=c.getBoundingClientRect(),d=Math.abs((r.left+r.width/2)-cx);if(d<dist){dist=d;best=i}});setActive(best)};let raf=0;rail.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(nearest)},{passive:true});setActive(2);requestAnimationFrame(()=>cards[2].scrollIntoView({behavior:'auto',inline:'center',block:'nearest'}));setTimeout(nearest,80);};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();document.addEventListener('shopify:section:load',boot)})();
