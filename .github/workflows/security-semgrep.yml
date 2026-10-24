@@ -1,0 +1,17 @@
+name: Security audit (Semgrep)
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Semgrep read-only scan
+        run: |
+          docker run --rm --network none -v "$PWD:/src:ro" semgrep/semgrep:latest semgrep scan --config p/owasp-top-ten --metrics off --json --output /tmp/semgrep-report.json /src
