@@ -1,0 +1,80 @@
+{%- liquid
+  assign collection_title = collection.title
+  assign collection_eyebrow = 'LA MAISON · CURATED EDIT'
+  assign fallback_copy = 'A focused selection from the ITT TOLD’EM house, shaped through material, culture and limited production.'
+
+  case collection.handle
+    when 'all'
+      assign collection_title = 'THE ARCHIVE'
+      assign collection_eyebrow = 'ITT TOLD’EM · COMPLETE CATALOGUE'
+      assign fallback_copy = 'The complete catalogue across La Maison, GVO, FLAGLINE, L’Atelier and Le Laboratoire.'
+    when 'house-edit'
+      assign collection_title = 'THE HOUSE EDIT'
+      assign collection_eyebrow = 'ÉDITION EN COURS · CURRENT RELEASE'
+      assign fallback_copy = 'The strongest signatures of the house, selected in a deliberate order and released in limited production.'
+    when 'hoodie-season'
+      assign collection_title = 'HOODIE SEASON'
+      assign collection_eyebrow = 'SAISON 001 · LAYERS & SETS'
+      assign fallback_copy = 'Hoodies, crewnecks, joggers and coordinated sets built for the change in temperature.'
+    when 'fan-gear'
+      assign collection_title = 'LE STADE'
+      assign collection_eyebrow = 'FAN GEAR · GAME DAY'
+      assign fallback_copy = 'Jerseys, fan denim and family pieces made for the stands, the sideline and everywhere after.'
+    when 'la-classe'
+      assign collection_title = 'LA CLASSE'
+      assign collection_eyebrow = 'POLISHED LOOKS · HOUSE SIGNATURES'
+      assign fallback_copy = 'Polos, structured sets and engraved denim with a quieter, sharper point of view.'
+    when 'after-dark'
+      assign collection_title = 'APRÈS MINUIT'
+      assign collection_eyebrow = 'AFTER DARK · NIGHT OUT'
+      assign fallback_copy = 'Fitted forms, dresses and statement pieces designed for what happens after dark.'
+    when 'les-romantiques'
+      assign collection_title = 'LES ROMANTIQUES'
+      assign collection_eyebrow = 'COUPLES · GIFTS · CONNECTION'
+      assign fallback_copy = 'Matching pieces, private gestures and gifts for people who arrive together.'
+    when 'la-famille'
+      assign collection_title = 'LA FAMILLE'
+      assign collection_eyebrow = 'PARENTS · BABY · YOUTH'
+      assign fallback_copy = 'Parent, baby and youth pieces for the family section of the house.'
+  endcase
+
+  assign collection_copy = collection.description | strip_html | strip
+  if collection_copy == blank
+    assign collection_copy = fallback_copy
+  endif
+  assign edit_handles = 'house-edit,hoodie-season,fan-gear,la-classe,after-dark,les-romantiques,la-famille' | split: ','
+-%}
+
+<section class="itt-collection-hero itt-collection-hero--{{ collection.handle }}" aria-labelledby="IttCollectionTitle-{{ section.id }}">
+  <div class="itt-collection-hero__content">
+    <div class="itt-collection-hero__eyebrow">{{ collection_eyebrow }}</div>
+    <h1 id="IttCollectionTitle-{{ section.id }}">{{ collection_title }}</h1>
+    <p>{{ collection_copy }}</p>
+    <div class="itt-collection-hero__meta"><span>{{ collection.products_count }} PIECES</span><span>MAISON · DÉTROIT</span></div>
+  </div>
+  <div class="itt-collection-hero__visual">
+    {% if collection.image != blank %}
+      {{ collection.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '750, 1100, 1500, 1800', sizes: '(max-width: 749px) 100vw, 50vw', alt: collection_title }}
+    {% else %}
+      <div class="itt-collection-hero__study" aria-hidden="true"><span>{{ collection.handle | replace: '-', ' ' }}</span><i></i><b>ITT</b></div>
+    {% endif %}
+  </div>
+</section>
+
+<nav class="itt-collection-switcher" aria-label="Shop the house edits">
+  {% for edit_handle in edit_handles %}
+    {%- assign edit_collection = collections[edit_handle] -%}
+    {% if edit_collection != blank %}
+      <a href="{{ edit_collection.url }}"{% if collection.handle == edit_handle %} aria-current="page"{% endif %}>{{ edit_collection.title }}</a>
+    {% endif %}
+  {% endfor %}
+  <a href="{{ routes.all_products_collection_url }}"{% if collection.handle == 'all' %} aria-current="page"{% endif %}>THE ARCHIVE</a>
+</nav>
+
+{% stylesheet %}
+.itt-collection-hero{min-height:clamp(430px,58vw,720px);display:grid;grid-template-columns:1fr 1fr;background:#090909;color:#f4efe6;border-bottom:1px solid rgba(244,239,230,.18);overflow:hidden}.itt-collection-hero__content{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(32px,6vw,88px)}.itt-collection-hero__eyebrow{margin-bottom:18px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;opacity:.68}.itt-collection-hero h1{max-width:9ch;margin:0 0 22px;font-family:var(--font-heading--family,serif);font-size:clamp(3.8rem,8.5vw,9rem);font-weight:400;letter-spacing:-.06em;line-height:.78;text-transform:uppercase}.itt-collection-hero p{max-width:37rem;margin:0 0 28px;font-size:clamp(.95rem,1.3vw,1.15rem);line-height:1.6;color:rgba(244,239,230,.76)}.itt-collection-hero__meta{display:flex;justify-content:space-between;gap:20px;padding-top:15px;border-top:1px solid rgba(244,239,230,.24);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase}.itt-collection-hero__visual{position:relative;min-height:430px;overflow:hidden;background:#191715}.itt-collection-hero__visual img{width:100%;height:100%;object-fit:cover;display:block;animation:itt-collection-drift 16s ease-in-out infinite alternate}.itt-collection-hero__study{position:absolute;inset:0;background:radial-gradient(circle at 68% 32%,rgba(140,111,79,.72),transparent 22%),repeating-linear-gradient(125deg,transparent 0 34px,rgba(244,239,230,.06) 35px 36px),#121212}.itt-collection-hero__study:before,.itt-collection-hero__study:after{content:"";position:absolute;border:1px solid rgba(244,239,230,.3);border-radius:50%;animation:itt-study-orbit 12s linear infinite}.itt-collection-hero__study:before{width:52%;aspect-ratio:1;right:12%;top:17%}.itt-collection-hero__study:after{width:24%;aspect-ratio:1;left:16%;bottom:12%;animation-direction:reverse}.itt-collection-hero__study span{position:absolute;left:8%;top:8%;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}.itt-collection-hero__study i{position:absolute;width:1px;height:74%;left:50%;top:13%;background:rgba(244,239,230,.32);transform:rotate(24deg)}.itt-collection-hero__study b{position:absolute;right:4%;bottom:-10%;font-family:var(--font-heading--family,serif);font-size:clamp(10rem,24vw,24rem);font-weight:400;line-height:.8;opacity:.08}.itt-collection-switcher{display:flex;overflow-x:auto;background:#f4efe6;color:#111;border-bottom:1px solid rgba(17,17,17,.18);scrollbar-width:none}.itt-collection-switcher::-webkit-scrollbar{display:none}.itt-collection-switcher a{flex:1 0 auto;min-width:150px;padding:15px 18px;color:inherit;border-right:1px solid rgba(17,17,17,.16);text-align:center;text-decoration:none;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.itt-collection-switcher a[aria-current=page],.itt-collection-switcher a:hover{background:#111;color:#f4efe6}@keyframes itt-collection-drift{from{transform:scale(1.025) translateX(-.5%)}to{transform:scale(1.09) translateX(1.5%)}}@keyframes itt-study-orbit{to{transform:rotate(360deg)}}@media(max-width:749px){.itt-collection-hero{grid-template-columns:1fr;min-height:auto}.itt-collection-hero__content{min-height:400px;padding:42px 20px}.itt-collection-hero h1{font-size:clamp(3.5rem,17vw,6.2rem)}.itt-collection-hero__visual{min-height:58vw;grid-row:1}.itt-collection-switcher a{min-width:132px;padding:13px 14px}}@media(prefers-reduced-motion:reduce){.itt-collection-hero__visual img,.itt-collection-hero__study:before,.itt-collection-hero__study:after{animation:none!important}}
+{% endstylesheet %}
+
+{% schema %}
+{"name":"ITT Collection Hero","tag":"section","settings":[],"presets":[{"name":"ITT Collection Hero"}]}
+{% endschema %}
